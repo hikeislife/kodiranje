@@ -1,0 +1,35 @@
+.leftright {
+  width: 50%;
+  height: 30px;
+  border: 3px solid $dg;
+  border-radius: 15px;
+  font-weight: bolder;
+  margin: 30px;
+  align-items: center;
+  box-shadow: 2px 2px 5px #005600;
+  position: fixed;
+  font-size: 20px;
+  bottom: 200px;
+  z-index: 2;
+  display: none;
+
+  & a {
+    background-color: transparent;
+    color: $dg;
+  }
+}
+
+#right {
+  width: 50px;
+  right: 10px;
+  position: fixed;
+  text-align: center;
+  background-color: $mainG;
+}
+
+#left {
+  width: 50px;
+  float: left;
+  text-align: center;
+  background-color: $lg;
+}

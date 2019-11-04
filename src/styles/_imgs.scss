@@ -1,0 +1,88 @@
+// warn me if I forget to add alt attribute:
+img:not([alt]) {
+  filter: grayscale(100%);
+}
+
+figure .ttt {
+  display: none;
+}
+
+@media only screen and (min-width: 40em) {
+  figure .ttt {
+    display: inline-block;
+  }
+}
+
+.responsive {
+  width: 80%;
+  height: auto;
+  text-align: center;
+  margin: 1em .5em 0 1.4em;
+}
+
+figure {
+  text-align: center;
+  margin: 2em 0;
+}
+
+@media only screen and (max-width: 40em) {
+  figure {
+    margin: -1em 0.35em 2em -3.4em;
+  }
+
+  details {
+    figure {
+      margin: auto;
+
+      .responsive {
+        width: 80%;
+      }
+    }
+  
+  }
+
+  .responsive {
+    width: 100%;
+    //margin: 0 -1em 0 -2em;
+  }
+}
+
+@media only screen and (min-width: 40em) {
+  .responsive {
+    margin: 0;
+  }
+}
+
+.cent {
+  text-align: center;
+  border: 0;
+}
+
+.tri {
+  max-width: 300px;
+}
+
+.pet {
+  max-width: 500px;
+}
+
+.osam {
+  max-width: 800px;
+}
+
+
+
+// article > section > figure:first-child {
+//   margin-top: 1em;
+// }
+
+figcaption {
+  font-size: 14px;
+  margin: .1em 1em .1em 2.6em;
+}
+
+@media only screen and (min-width: 40em) {
+  figcaption {
+    margin: 0;
+  }
+}

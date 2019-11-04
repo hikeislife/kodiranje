@@ -1,0 +1,147 @@
+.superbox {
+  border: thin solid black;
+  border-radius: .25em;
+  padding: 1em;
+  color: $darkF;
+  //margin: 1em 1em 1em 1.94em;
+  margin: 1em 0;
+}
+
+@media only screen and (min-width: 40em)  {
+  // .superbox {
+  //   margin: 20px 0;
+  //   font-size: 1.2rem;
+  // }
+}
+
+.why {
+  background-color: $dy;
+
+  &::before {
+    content: 'Zašto ovo radimo? ';
+    font-weight: bolder;
+  }
+}
+
+.placeholder .superbox {
+  & p:first-of-type {
+    margin-top: 0!important;
+    display: inline;
+  }
+
+  & p:last-of-type {
+    margin-bottom: 0!important;
+  }
+}
+
+.sol {
+  background-image:   url('data:image/webp;base64,UklGRlgAAABXRUJQVlA4WAoAAAAQAAAACQAACQAAQUxQSA4AAAABDzD/ERFiICL6HwABAFZQOCAkAAAAkAEAnQEqCgAKAADAEiWkAAM3HtHQAP79vUf/QB6/2Gb2AAAA');
+  font-weight: bold;
+  color: midnightblue;
+  border-left: 5px solid green;
+  //white-space: pre-wrap;
+  line-height: 0px;
+  // margin-left: .8em;
+  box-shadow: 2px 2px 10px dimgray;
+  background-color: honeydew;
+
+  &:before {
+    counter-reset: listing;
+  }
+
+  & code {
+    counter-increment: listing;
+    // text-align: left;
+    // float: left;
+    // clear: left;
+    font-weight: normal;
+    border: none;
+    margin: 0 0 0 2em;
+    border-left: 2px solid $sg;
+    padding-left: 5px;
+    display:block;
+    background: mintcream;
+    white-space: pre-wrap;
+
+    &::before {
+      font-family: 'lucida console';
+      content: counter(listing) " ";
+      display: inline-block;
+      margin-right: .5em;
+      margin-left: -2em;
+      width: 2em;
+    }
+  }
+}
+
+.placeholder .ex {
+  background: whitesmoke;
+  color: $darkF;
+  margin-top: 1em !important;
+  white-space: normal; /* to offset one from the sol */
+
+  & p:first-of-type {
+    display: block;
+  }
+}
+
+.kviz {
+  background-color: $qy!important;
+
+  &::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f059";
+    padding: 0 5px;
+    font-weight: 900;
+  }
+}
+
+.error {
+  background-color: $dy!important;
+
+  &::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f188";
+    padding: 0 5px;
+    font-weight: 900;
+  }
+}
+
+.tip {
+  background-color: $dg!important;
+  font-weight: bold;
+  white-space: normal; /* this offsets white-space from sol when it's embeded there */
+
+  &::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f005";
+    padding: 0 5px;
+    font-weight: 900;
+  }
+
+  & a {
+    background-color: $dy;
+  }
+}
+
+.warning {
+  background-color: $wr!important;
+  color: blanchedalmond;
+
+  &::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f06a";
+    padding: 0 5px;
+    color: blanchedalmond;
+    font-weight: 900;
+  }
+}
+
+.depr {
+   border-color: $wr;
+}
+
+.placeholder .superbox .superbox {
+  margin: 0;
+}
+

@@ -1,0 +1,107 @@
+  /* setting up the colors that will be used troughout the site */
+// :root {
+//  --lgt: rgba(154, 246, 41, .8); /* transparent green - not used */
+//   /* reds */
+//  --dr: #ea022e; /* dark red */
+//  --br: #ff0030; /* bright red */
+
+//   /* 50 shades of */
+//  --menugray: #e5e5e5;
+
+//  /* otpornik */
+//   --brown: #492c1c;
+//   --orange: #db452a;
+//   --yellow: #fce331;
+//   --green: #27a341;
+//   --blue: #262a81;
+//   --violet: #62217f;
+//   --gray: #5a5b5d;
+
+// }
+
+/* front page main content, mobile */
+
+
+// @media only screen and (min-width: 1000px) {
+//  /* header for desktop */
+//  .cmd table th {
+//   background-color: rgb(176, 209, 243);
+//   font-size: 16px;
+//  }
+ 
+//  /* desktop version side navigation */
+//  th {
+//   font-size: 16px;
+//  }
+
+//  nav ul li:nth-child(1) {
+//   border-radius: 2px 2px 0 0;
+//  }
+//  nav ul li:nth-last-of-type(1) {
+//   border-radius: 0 0 2px 2px;
+//  }
+//  table {
+//   width: 100%
+//  }
+//  td {
+//   word-break: break-all; 
+//   font-size: 14px;
+//  }
+ 
+// }
+
+.operatori td {
+  padding: 5px 10px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+// /* general css */
+// main ul li {
+//   text-align: justify;
+//   padding: 5px;
+// }
+// ul.gap_li li {
+//  padding: 7px;
+// }
+
+
+
+// .thouter {
+//  margin: 10px 0;
+// }
+
+
+
+.cmd table {
+ border-collapse: collapse;
+ width: 100;
+}
+.cmd table th {
+ background-color: rgb(176, 209, 243);
+ font-size: 3vw;
+}
+.cmd table td {
+ color: white;
+ background-color: black;
+ padding: 5px;
+ border: thin solid white;
+ font-family: "Lucida Console", Monaco, monospace;
+ font-size: 16px;
+ text-align: left;
+ font-weight: bold;
+}
+.cmd table td p {
+  color: #aaa;
+}
+
+
+
+// /* images */
+// .r-x {
+//   resize: horizontal;
+//   overflow: hidden;
+// }
+// dl dt {
+//   font-weight: 900;
+// }

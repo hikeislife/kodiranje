@@ -1,0 +1,45 @@
+blockquote {
+  font-weight: bold;
+  font-size: 1.6rem;
+  position: relative;
+  padding: 20px;
+  padding-bottom: 60px;
+  border: 2px solid black;
+  border-radius: 4px;
+  background-color: $lg;
+
+  &::before { // 201c
+    font-family: "Font Awesome 5 Free";
+    content: "\f10d";
+    position: relative;
+    bottom: 10px;
+    padding-right: 10px;
+    font-size: 1.6rem;
+    color: $dg;
+  }
+
+  &::after { // 201d
+    font-family: "Font Awesome 5 Free";
+    content: "\f10e";
+    position: relative;
+    top: 10px;
+    padding-left: 10px;
+    font-size: 1.6rem;
+    color: $dg;
+  }
+
+  cite {
+    display: block;
+    right: 30px;
+    position: absolute;
+    bottom: 10px;
+
+    &::before {
+      font-family: "Font Awesome 5 Free";
+      content:"\f0c6";
+      font-size: 30px;
+      padding-right: 10px;
+      color: $dg;
+    }
+  }
+}

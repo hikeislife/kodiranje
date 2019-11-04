@@ -1,0 +1,61 @@
+.arduinoIde {
+  border: 1px solid black;
+}
+
+.arduinoMenu {
+  background: linear-gradient(to bottom, rgb(246, 248, 252) 0%, rgb(217, 223, 240) 50%);
+  padding-left: 5px;
+}
+
+.arduinoButtons {
+  background-color: $ardDark;
+  color: $ardLight;
+  padding: 5px;
+}
+
+.arduinoButtons span {
+  color: $ardLight;
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.arduinoTabs {
+  background: $ardLight;
+  padding-top: 5px;
+}
+
+.ardTab {
+  background: white;
+  width: 150px;
+  border-radius: 5px 5px 0 0;
+  margin-left: 10px;
+  padding-left: 10px;
+}
+
+.arduinoEditor {
+  padding: 10px;
+}
+
+.tirquisBar {
+  background: $ardLight;
+}
+
+.arduinoConsole {
+  background-color: black;
+}
+
+.ag {
+  color: rgb(148, 164, 180);
+}
+
+.ab {
+  color: rgb(0, 151, 156);
+}
+
+.ar {
+  color: rgb(211, 84, 0);
+}
+
+.aw {
+  color: rgb(94, 109, 3);
+}

@@ -1,0 +1,84 @@
+label, input {
+  width: 100%;
+}
+
+textarea {
+  width: 100%;
+  resize: vertical;
+}
+
+select {
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+.admin {
+  border-radius: .3em;
+  font-size: 1.2rem;
+  padding: .2em .4em;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+label[for="socImage"]:after {
+  content: 'Izaberi sliku';
+  width: 10em;
+  border: 1px solid black;
+  border-radius: .3em;
+  text-align: center;
+  display: block;
+  background: honeydew;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+label[for="objavi"] {
+  margin-top: .3em;
+}
+
+label[for="objavi"]:after {
+  content: ' ';
+  width: 1.5em;
+  height: 1.5em;
+  border: 1px solid $darkF;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 1em;
+  background: mintcream;
+  line-height: 1em;
+}
+
+input[type="checkbox"]:checked ~ label[for="objavi"]::after {
+  background: honeydew;
+  content: 'X';
+  margin-bottom: 4px;
+  top: 4px;
+}
+
+.adminInput {
+  position: relative;
+}
+
+span[data-counter] {
+  color: lightgray;
+  position: absolute;
+  right: .5em;
+  top: 2em;
+  z-index: 1;
+}
+
+.m2r {
+  padding-right: 2.5em;
+}
+
+/* js added class */
+.redColor {
+  color: firebrick !important;
+}

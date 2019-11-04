@@ -1,0 +1,78 @@
+.pie {
+  position: relative;
+  width: $mpie;
+  height: $mpie;
+  margin: 20px auto;
+}
+
+.browser_pie {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%
+}
+
+.pie_border {
+  border: 2px solid $darkF;
+  top: -3px;
+  left: -3px;
+  width: $mpieplus;
+  height: $mpieplus;
+}
+
+.pie_base {
+  background-color: #18a15e;
+
+  &::before {
+    content: "Chrome";
+    font-size: 12px;
+    font-weight: bold;
+    border-bottom: 2px solid $dy;
+    position: absolute;
+    left: -50px;
+    top: 70px;
+    padding-right: 20px;
+  }
+}
+
+.browser_slice {
+  clip: rect(0, $mhalfpie, $mpie, 0);
+}
+
+.pie_label {
+  font-size: 12px;
+  font-weight: bold;
+  position: absolute;
+  border-bottom: 2px solid $dy;
+}
+
+.firefox_wedge { /* 20%, 72° => 180 - 72 = 108 */
+  background-color: #ff6311;
+  transform: rotate(108deg);
+  position: absolute;
+}
+
+.firefox_container {
+  transform: rotate(84.2deg); /* 95 - 10.8 so it goes right next to the rest el */
+}
+
+.firefox_label {
+  top: -15px;
+  left: 135px;
+  padding-left: 20px;
+}
+
+.rest_wedge {
+  background-color: blue;
+  transform: rotate(169.2deg); /* 3%, 10.8° => 180 -10.8 = 169.2 */
+}
+
+.rest_container {
+  transform: rotate(95deg); /* arbitrary value */
+}
+
+.rest_label {
+  top: 30px;
+  left: 147px;
+  padding-left: 20px;
+}

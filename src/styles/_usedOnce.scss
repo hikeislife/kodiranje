@@ -1,0 +1,83 @@
+#cssPseudoFocus {
+  background: firebrick;
+  color: blanchedalmond;
+  border: 1px solid $darkF;
+
+  &:active {
+    border: 1px solid $darkF;
+  }
+
+  &:focus {
+    background: #FFB600;
+    color: $darkF;
+  }
+}
+
+#cssFocusResize {
+  width: 50px;
+  display: inline-block;
+
+  &:focus {
+    width: 100%;
+  }
+}
+
+#placeholder #emUnitDemo,
+#placeholder #emUnitDemo p {
+  font-size: unset;
+  font-size: 1.5em;
+
+  & div {
+    font-size: 1.5em;
+
+    & div {
+      font-size: 1.5em;
+    }
+  }
+}
+
+#hoverDemo {
+  background: firebrick;
+
+  &:hover {
+    background: #FFB600;
+  }
+}
+
+.fakeLink {
+  color: blue;
+  text-decoration: underline;
+  background: transparent;
+}
+
+.fakeMargin {
+  border: 1px dashed black; 
+  padding: 0 1.5em 1.5em; 
+  text-align: center; 
+  background: rgba(255,255,0,.4);
+}
+
+.fakePadding {
+  border: 5px solid darkslategray; 
+  padding: 0 1.5em 1.5em; 
+  text-align: center; 
+  background: rgba(20, 0, 255, .4);
+  position: relative;
+
+  &:before {
+    content: 'border';
+    position: absolute;
+    top: -5px;
+    left: -4px;
+    color: blanchedalmond;
+    background: darkslategray;
+    line-height: 15px;
+  }
+}
+
+.fakeElement {
+  border: 1px dashed black; 
+  background: steelblue; 
+  text-align: left; 
+  color: blanchedalmond
+}
