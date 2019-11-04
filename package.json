@@ -7,8 +7,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "dev": "webpack-dev-server",
     "start": "node src/app.js"
   },
   "keywords": [],
