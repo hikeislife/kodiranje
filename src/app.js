@@ -3,6 +3,8 @@ const express = require('express')
 const hbs = require('hbs')
 //import 'styles/style.scss'
 
+const port = process.env.PORT || 80
+
 const app = new express()
 const dir = path.join(__dirname)
 const views = path.join(__dirname, 'views')
@@ -51,7 +53,6 @@ app.get('*', (req, res) => {
   res.send('404')
 })
 
-const port = 80
 app.listen(port, () => {
   console.log(`Listening on port ${port}`)
 })
