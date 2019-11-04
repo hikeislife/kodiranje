@@ -50,7 +50,7 @@ app.get('/admin', (req, res) => {
 })
 
 app.get('*', (req, res) => {
-  res.send('404')
+  res.render('404')
 })
 
 app.listen(port, () => {
