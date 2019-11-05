@@ -1,7 +1,13 @@
 const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
-//import 'styles/style.scss'
+const bodyParser = require('body-parser')
+const mongo = require('mongodb')
+
+const MongoClient = mongo.MongoClient
+
+const connectionURL = 'mongodb://127.0.0.1:27017'
+const database = 'kodiranje'
 
 const port = process.env.PORT || 80
 
@@ -14,6 +20,7 @@ app.set('views', views)
 hbs.registerPartials(views)
 
 app.use(express.static(dir))
+app.use(bodyParser.json())
 console.log(dir)
 
 
@@ -47,6 +54,19 @@ app.get('/recnik/*', (req, res) => {
 
 app.get('/admin', (req, res) => {
   res.render('admin/')
+})
+
+app.post('/admin/addPost', (req, res) => {
+  MongoClient.connect(connectionURL, { useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => {
+    if (err) { return console.log('Nema mongo baze :(') }
+    const db = client.db(database)
+    db.collection('articles').insertOne(JSON.stringify(req.body), (er, res) => {
+      if (er) {
+        return res.send('neuspeh pri unosu članka')
+      }
+      res.send('done')
+    })
+  })
 })
 
 app.get('*', (req, res) => {

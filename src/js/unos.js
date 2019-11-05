@@ -1,15 +1,38 @@
-console.log('unos.js')
-
 document.querySelector('form').addEventListener('submit', (e) => {
   e.preventDefault()
-  const unos = JSON.stringify({
-    googTitle: document.querySelector('#googTitle').value,
-    socTitle: document.querySelector('#socTitle').value,
-    articleContent: document.querySelector('#articleContent').value
+
+  // TODO: sliku dodati
+ 
+  const post = JSON.stringify({
+    googTitle       : document.querySelector('#googTitle').value,
+    socTitle        : document.querySelector('#socTitle').value,
+    articleContent  : document.querySelector('#articleContent').value,
+    courseName      : document.querySelector('#courseName').selectedIndex,
+    googDesc        : document.querySelector('#googDesc').value,
+    socDesc         : document.querySelector('#socDesc').value,
+    publish         : document.querySelector('[for=publish]').control.checked,
+    tags            : document.querySelector('#tags').value.replace(', ', ',').replace(' ,', ',').split(',')
   })
-  console.log(unos)
-  console.log(JSON.parse(unos).articleContent)
+  fetch('/addPost', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: post
+  }).then((r) => {
+    console.log('post submited', r)
+  }).catch((e) => {
+    console.log('greška', e)
+  }) 
+  // console.log(post)
+  console.log(JSON.parse(post).articleContent)
 })
+
+
+
+
+
 
 
 // the counter display has to have data-counter="initial value" // and .adminCounter
@@ -38,12 +61,3 @@ document.querySelector('form').addEventListener('submit', (e) => {
       setCounter(c)
     }))
   })();
-
-
-// const courseId = "hc"
-// const tag = "uvod_u_hc"
-// const contentsTemp = "long \\ <p>text</p>"
-// const contents = JSON.stringify(contentsTemp)
-// const title = "Uvod u hc"
-
-//module.exports = { courseId, tag, contents, title }
