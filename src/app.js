@@ -33,7 +33,12 @@ app.use(bodyParser.urlencoded({
   extended: true,
   limit: '50mb'
 }))
-
+ app.get('/error', (req, res) => { res.send(er) })
+app.use((er, rew, res, text) => {
+  console.error(er.stack)
+  res.status(500)
+  res.render('500')
+})
 
 
 app.get('', (req, res) => {
@@ -41,6 +46,8 @@ app.get('', (req, res) => {
     title: "Kodiranje"
   })
 })
+
+
 
 /* ADMIN */
 app.get('/admin', (req, res) => {
