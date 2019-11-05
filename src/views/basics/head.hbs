@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="description" content="Tutorijali za ljude koji žele da nauče da kodiraju, na Srpskom jeziku"
     id="metadesc">
-  <meta name="keywords" content="HTML,CSS,JavaScript,git,arduino">
+  <meta name="keywords" content="{{tags}}">
   <meta name="author" content="ČĎŠ">
   <meta name="theme-color" content="#ccff66">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@kodiranje">
   <meta name="twitter:creator" content="@kodiranje">
-  <meta name="twitter:title" content="Nauči da praviš web sajtove">
+  <meta name="twitter:title" content="{{# if socTitle}}{{socTitle}}{{else}}Nauči da praviš web sajtove{{/if}}">
   <meta name="twitter:description"
     content="Detaljan opis, narodskim jezikom, kako se prave sajtovi. Bez prodaje magle i mućenja vode">
   <meta name="twitter:image" content="http://hikeislife.github.io/kodiranje/og/nauci-da-kodiras.webp">
@@ -33,15 +33,14 @@
   <meta property="fb:app_id" content="2628437480546534">
   <meta name="pinterest-rich-pin" content="true">
   <meta name="msapplication-square310x310logo" content="other/cog310.png">
-  <title>Kodiranje</title>
+  <title>Kodiranje {{# if googTitle}}| {{googTitle}}{{/if}}</title>
   <link rel="canonical" href="https://hikeislife.github.io/kodiranje/">
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="styles/style.css" media="screen" defer async>
+  <link rel="stylesheet" href="../styles/style.css" media="screen" defer async>
   <link rel="icon" href="other/cog192.webp" sizes="192x192">
   <link rel="apple-touch-icon" href="other/cog192.webp" sizes="192x192">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
     integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" defer
     async media="all">
   <title>Kodiranje </title>
-  <link rel="stylesheet" href="../styles/style.css" type="text/css">
 </head>
