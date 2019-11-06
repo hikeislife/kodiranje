@@ -33,7 +33,7 @@ app.use(bodyParser.urlencoded({
   extended: true,
   limit: '50mb'
 }))
- app.get('/error', (req, res) => { res.send(er) })
+ //app.get('/error', (req, res) => { res.send(er) })
 app.use((er, rew, res, text) => {
   console.error(er.stack)
   res.status(500)
@@ -67,6 +67,11 @@ app.post('/admin/addPost', (req, res) => {
 
 
 app.get('/:kurs/:lekcija', (req, res) => {
+  db.collection('articles').find({
+    courseName: req.params.kurs
+  })/*.sort(order)*/.toArray((er, lekcije) => {
+    lekcije.forEach(l => console.log(l.selectURL))
+  })
   db.collection('articles').findOne({ 
     courseName: req.params.kurs,
     selectURL : req.params.lekcija

@@ -4,10 +4,10 @@ document.querySelector('form').addEventListener('submit', (e) => {
   // TODO: sliku dodati
   //const regBlank = 
   const post = JSON.stringify({
+    courseName      : document.querySelector('#courseName').selectedOptions[0].value,
     googTitle       : document.querySelector('#googTitle').value,
     socTitle        : document.querySelector('#socTitle').value,
-    articleContent  : document.querySelector('#articleContent').value,
-    courseName      : document.querySelector('#courseName').selectedOptions[0].value,
+    socImage        : '',
     googDesc        : document.querySelector('#googDesc').value,
     socDesc         : document.querySelector('#socDesc').value,
     publish         : document.querySelector('[for=publish]').control.checked,
@@ -15,7 +15,8 @@ document.querySelector('form').addEventListener('submit', (e) => {
     selectURL       : document.querySelector('#selectURL').value.trim().replace(/ /gi, '-').toLowerCase(),
     created         : new Date().toLocaleDateString('sr-RS', { day: '2-digit', month: '2-digit', year: 'numeric'}),
     edited          : '',
-    author          : '',
+    author          : 'K',
+    articleContent  : document.querySelector('#articleContent').value,
   })
   //console.log(JSON.parse(post))
   fetch('/admin/addPost', {
