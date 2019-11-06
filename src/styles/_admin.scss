@@ -2,6 +2,37 @@ label, input {
   width: 100%;
 }
 
+label {
+  text-align: left;
+  display: inline-block;
+  margin: 2em 0 1em;
+}
+
+label[for=dugme] {
+  border: 1px solid $darkF;
+  text-align: center;
+  height: 2em;
+  border-radius: $inputBorderRadius;
+  background: $buttonBackground;
+  box-shadow: 1px 1px 2px gray;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  &:hover {
+    cursor: pointer;
+    background: $dy;
+  }
+
+  &:active {
+    box-shadow: -1px -1px 2px gray;
+  }
+}
+
+#dugme {
+  display: none;
+}
+
 textarea {
   width: 100%;
   resize: vertical;
@@ -13,7 +44,7 @@ select {
 }
 
 .admin {
-  border-radius: .3em;
+  border-radius: $inputBorderRadius;
   font-size: 1.2rem;
   padding: .2em .4em;
 }
@@ -25,11 +56,11 @@ input[type="file"] {
 label[for="socImage"]:after {
   content: 'Izaberi sliku';
   width: 10em;
-  border: 1px solid black;
-  border-radius: .3em;
+  border: 1px solid $darkF;
+  border-radius: $inputBorderRadius;
   text-align: center;
   display: block;
-  background: honeydew;
+  background: $buttonBackground;
 }
 
 input[type="checkbox"] {
@@ -40,7 +71,8 @@ input[type="checkbox"] {
 }
 
 label[for="publish"] {
-  margin-top: .3em;
+  margin-top: 2em;
+  display: inline-flex;
 }
 
 label[for="publish"]:after {
@@ -59,10 +91,8 @@ label[for="publish"]:after {
 }
 
 input[type="checkbox"]:checked ~ label[for="publish"]::after {
-  background: honeydew;
+  background: $buttonBackground;
   content: 'X';
-  margin-bottom: 4px;
-  top: 4px;
 }
 
 .adminInput {

@@ -2,7 +2,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="Tutorijali za ljude koji žele da nauče da kodiraju, na Srpskom jeziku"
+  <meta name="description" content="{{# if googDesc}}{{googDesc}}{{else}}Tutorijali za ljude koji žele da nauče da kodiraju, na Srpskom jeziku{{/if}}"
     id="metadesc">
   <meta name="keywords" content="{{tags}}">
   <meta name="author" content="ČĎŠ">
@@ -14,13 +14,13 @@
   <meta name="twitter:creator" content="@kodiranje">
   <meta name="twitter:title" content="{{# if socTitle}}{{socTitle}}{{else}}Nauči da praviš web sajtove{{/if}}">
   <meta name="twitter:description"
-    content="Detaljan opis, narodskim jezikom, kako se prave sajtovi. Bez prodaje magle i mućenja vode">
+    content="{{# if socDesc}}{{socDesc}}{{else}}Detaljan opis, narodskim jezikom, kako se prave sajtovi. Bez prodaje magle i mućenja vode{{/if}}">
   <meta name="twitter:image" content="http://hikeislife.github.io/kodiranje/og/nauci-da-kodiras.webp">
   <meta name="twitter:url" content="http://hikeislife.github.io/kodiranje/">
   <!-- og tags -->
   <meta property="og:title" content="Nauči da praviš web sajtove">
   <meta property="og:description"
-    content="Detaljan opis, narodskim jezikom, kako se prave sajtovi. Bez prodaje magle i mućenja vode">
+    content="{{# if socDesc}}{{socDesc}}{{else}}Detaljan opis, narodskim jezikom, kako se prave sajtovi. Bez prodaje magle i mućenja vode{{/if}}">
   <meta property="og:locale" content="sr_RS">
   <meta property="og:image" content="http://hikeislife.github.io/kodiranje/og/nauci-da-kodiras.webp">
   <meta property="og:image:secure_url" content="https://hikeislife.github.io/kodiranje/og/nauci-da-kodiras.webp">

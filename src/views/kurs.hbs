@@ -2,14 +2,8 @@
   {{{articleContent}}}
 
   <div class="artMeta">
-    <p>Članak prvi put objavljen {{created}}</p>
+    {{# if created}}<p>Članak prvi put objavljen {{created}}</p>{{/if}}
     {{# if edited}}<p>Poslednje izmena: {{edited}}</p>{{/if}}
     {{# if author}}<p>{{author}}</p>{{/if}}
   </div>
 </article>
-
-
-{{courseName}}
-{{googDesc}}
-{{socDesc}}
-{{publish}}

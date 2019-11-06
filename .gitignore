@@ -1,4 +1,5 @@
 /node_modules
+/scrapped
 višak.json
 .vscode/
 index.js

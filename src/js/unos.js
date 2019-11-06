@@ -4,6 +4,7 @@ document.querySelector('form').addEventListener('submit', (e) => {
   // TODO: sliku dodati
   //const regBlank = 
   const post = JSON.stringify({
+    navName         : document.querySelector('#selectURL').value.trim(),
     courseName      : document.querySelector('#courseName').selectedOptions[0].value,
     googTitle       : document.querySelector('#googTitle').value,
     socTitle        : document.querySelector('#socTitle').value,
