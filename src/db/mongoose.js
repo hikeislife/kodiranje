@@ -9,37 +9,3 @@ mongoose.connect(connectionURL, {
   useCreateIndex     : true,
   useUnifiedTopology : true
 })
-
-
-
-
-
-
-
-
-// const course = new Course({
-//   name: "JavaScript",
-//   active: true,
-//   order: 2
-// })
-
-// course.save().then((k) => {
-//   console.log(`Kurs ${k} uspešno dodat`)
-// }).catch((er) => {
-//   console.log('Greška, kurs nije dodat', er)
-// })
-
-
-
-// const user = new User({
-//   name: "Igor",
-//   username: "I",
-//   password: "lozinka",
-//   email: "iG@kodiranje.in.rs"
-// })
-
-// user.save().then((u) => {
-//   console.log(u)
-// }).catch(er => {
-//   console.log("Greška", er)
-// })

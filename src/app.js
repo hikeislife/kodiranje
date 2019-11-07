@@ -18,6 +18,8 @@ app.set('views',        views)
 app.set('view options', { layout: 'index' })
 hbs.registerPartials(views)
 
+express.static.mime.define({ 'text/javascript': ['src/js'] });
+
 app.use(express.static(dir))
 app.use(bodyParser.json({ 
   parameterLimit : 10000000,

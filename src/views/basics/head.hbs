@@ -22,8 +22,8 @@
   <meta property="og:description"
     content="{{# if socDesc}}{{socDesc}}{{else}}Detaljan opis, narodskim jezikom, kako se prave sajtovi. Bez prodaje magle i mućenja vode{{/if}}">
   <meta property="og:locale" content="sr_RS">
-  <meta property="og:image" content="http://hikeislife.github.io/kodiranje/og/nauci-da-kodiras.webp">
-  <meta property="og:image:secure_url" content="https://hikeislife.github.io/kodiranje/og/nauci-da-kodiras.webp">
+  <meta property="og:image" content="{{# if socImage}}{{socmage}}{{else}}http://hikeislife.github.io/kodiranje/og/nauci-da-kodiras.webp{{/if}}">
+  <meta property="og:image:secure_url" content="{{# if socmage}}{{socImage}}{{else}}https://hikeislife.github.io/kodiranje/og/nauci-da-kodiras.webp{{/if}}">
   <meta property="og:image:type" content="image/webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -32,13 +32,13 @@
   <meta property="og:type" content="website">
   <meta property="fb:app_id" content="2628437480546534">
   <meta name="pinterest-rich-pin" content="true">
-  <meta name="msapplication-square310x310logo" content="other/cog310.png">
+  <meta name="msapplication-square310x310logo" content="../../imgs/cog310.png">
   <title>Kodiranje {{# if googTitle}}| {{googTitle}}{{/if}}</title>
   <link rel="canonical" href="https://hikeislife.github.io/kodiranje/">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/src/manifest.json">
   <link rel="stylesheet" href="/styles/style.css" media="screen" defer async>
-  <link rel="icon" href="other/cog192.webp" sizes="192x192">
-  <link rel="apple-touch-icon" href="other/cog192.webp" sizes="192x192">
+  <link rel="icon" href="../../imgs/cog192.webp" sizes="192x192">
+  <link rel="apple-touch-icon" href="../../imgs/cog192.webp" sizes="192x192">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
     integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" defer
     async media="all">
