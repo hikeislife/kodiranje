@@ -19,7 +19,7 @@ document.querySelector('form').addEventListener('submit', (e) => {
     author          : 'K',
     articleContent  : document.querySelector('#articleContent').value,
   })
-  //console.log(JSON.parse(post))
+  
   fetch('/admin/addPost', {
     method: 'POST',
     headers: {

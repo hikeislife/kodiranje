@@ -15,6 +15,20 @@ const handlePage = (() => {
       order  : Number(document.querySelector('#new').dataset.order)
     })
     console.log('dodavanje kursa', JSON.parse(course2Add))
+
+    fetch('/admin/addNewCourse', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Content-length': '50Mb'
+      },
+      body: course2Add
+    }).then((r) => {
+      console.log('course submited', r)
+    }).catch((e) => {
+      console.log('greška', e)
+    }) 
   })
 
   let req = new Request(fetchPreviouslyAddedItems, {
@@ -51,7 +65,5 @@ const handlePage = (() => {
 
 
 /* TODO:
-videti kako da se mogu drag and droppovati da im se promeni order 
-
 videti kako da ne može dva puta da submituje inače ode mas u propas
 */

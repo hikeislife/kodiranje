@@ -59,7 +59,11 @@ app.get('/admin/editPost/:id', (req, res) => { })
 
 app.get('/admin/dodaj-kurs', (req, res) => { 
   res.render('admin/addNewCourse', {googTitle : "Dodaj kurs"})
- })
+})
+
+app.get('/admin/dodaj-admina', (req, res) => {
+  res.render('admin/addNewAdmin', {gogTitle : "Dodaj admina"})
+})
 
 
 /* API */
@@ -100,10 +104,8 @@ app.get('/admin/getActiveCourses', (req, res) => {
 })
 
 app.post('/admin/addNewCourse', (req, res) => {
-  // TODO: remove following line when front does it's thing
-  // req.body.setId = req.body.name
-  const kurs = new Course(req.body)
-  kurs.save().then(() => {
+  const courseName = new Course(req.body)
+  courseName.save().then(() => {
     res.status(201).send(req.body)
   }).catch((er) => {
     if (er.errors) {

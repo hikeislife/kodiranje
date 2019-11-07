@@ -2,17 +2,13 @@ import { getList } from './handleItemList.js'
 
 let newIndex = 0;
 export default function makeDragable() {
-  const list = [...document.querySelectorAll('.added-items li')]
   let index
-  list.forEach(li => {
+  getList().forEach(li => {
     li.addEventListener('dragstart', (e) => {
-      index = e.target.dataset.order
-    })
-    li.addEventListener('drop', (e) => {
-      console.log('ikada?')
+      index = Number(e.target.dataset.order)
     })
     li.addEventListener('dragover', (e) => {
-      newIndex = e.target.dataset.order
+      newIndex = Number(e.target.dataset.order)
     })
     li.addEventListener('dragend', (e) => {
       reorderItems(index)
@@ -21,46 +17,47 @@ export default function makeDragable() {
 }
 
 function reorderItems(index) {
+  const liHeight = getList()[0].clientHeight + 4
 
-  index = Number(index), newIndex = Number(newIndex)
-  const newPos = document.querySelector(`[data-order="${newIndex}"`).style.top
-
-  if (index > newIndex) {
+  if (index > newIndex) { // dragging element up
     const newPos = document.querySelector(`[data-order="${newIndex}"`).style.top
-
+    
     getList().forEach(li => {
 
-      let newN = Number(li.dataset.order) + 1
-
-      if (li.dataset.order == index) {
+      let newOrder = Number(li.dataset.order) + 1
+      
+      if (li.dataset.order == index) { // Element which is being dragged
         li.style.top = newPos
         li.removeAttribute('data-order')
         li.setAttribute('data-order', newIndex)
       }
 
-      else if (li.dataset.order >= newIndex && li.dataset.order < index) {
-        li.style.top = `${Number(li.style.top.substring(0, (li.style.top.length - 2))) + getList()[0].clientHeight + 4}px`
-        li.setAttribute('data-order', `${newN}`)
+      else if (li.dataset.order >= newIndex && li.dataset.order < index) { // other affected elements
+        const currentLiPosition = Number(li.style.top.substring(0, (li.style.top.length - 2)))
+        li.style.top = `${currentLiPosition + liHeight}px`
+        li.setAttribute('data-order', `${newOrder}`)
       }
     })
   }
-  else if (index < newIndex) {
+
+  else if (index < newIndex) { // dragging element down
     const newPos = document.querySelector(`[data-order="${newIndex}"`).style.top
 
     getList().forEach(li => {
+      
+      let newOrder = `${Number(li.dataset.order) - 1}`
 
-      let newN = `${Number(li.dataset.order) - 1}`
-
-      if (li.dataset.order == index) {
+      if (li.dataset.order == index) { // Element which is being dragged set to temp so it isn't moved twice
         li.setAttribute('data-order', "temp")
       }
-
-      if (li.dataset.order > index && li.dataset.order <= newIndex) {
-        li.style.top = `${Number(li.style.top.substring(0, (li.style.top.length - 2))) - getList()[0].clientHeight - 4}px`
-        li.setAttribute('data-order', newN)
+      
+      if (li.dataset.order > index && li.dataset.order <= newIndex) { // other affected elements
+        const currentLiPosition = Number(li.style.top.substring(0, (li.style.top.length - 2)))
+        li.style.top = `${currentLiPosition - liHeight}px`
+        li.setAttribute('data-order', newOrder)
       }
 
-      if (li.dataset.order == 'temp') {
+      if (li.dataset.order == 'temp') { // element which is being dragged
         li.style.top = newPos
         li.setAttribute('data-order', `${newIndex}`)
       }
