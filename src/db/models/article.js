@@ -6,9 +6,16 @@ const Article = mongoose.model('Article', {
     type: String,
     required: [true, `Polje je obavezno`]
   },
+  courseName: {
+    type: String,
+    required: [true, `Polje je obavezno`]
+  },
   selectedURL: {
     type: String,
     required: [true, `URL je obavezno polje`]
+  },
+  tags: {
+    type: Array
   },
   published: {
     type: Boolean,

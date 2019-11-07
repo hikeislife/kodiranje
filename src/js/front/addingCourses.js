@@ -3,7 +3,7 @@ import makeDragable from './makeDraggable.js'
 
 
 const handlePage = (() => {
-  const fetchPreviouslyAddedItems = "./getAllCourses/"
+  const fetchPreviouslyAddedItems = "/api/getAllCourses/"
 
   document.querySelector('form').addEventListener('submit', (e) => {
     e.preventDefault()
@@ -16,7 +16,7 @@ const handlePage = (() => {
     })
     console.log('dodavanje kursa', JSON.parse(course2Add))
 
-    fetch('/admin/addNewCourse', {
+    fetch('/api/addNewCourse', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
