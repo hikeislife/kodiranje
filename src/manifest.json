@@ -1,0 +1,27 @@
+{
+  "dir": "ltr",
+  "lang": "sr",
+  "name": "Kodiranje_",
+  "scope" : "./",
+  "short_name": "Kodiranje",
+  "start_url": "./",
+  "display": "fullscreen",
+  "prefer_related_applications": false,
+  "background_color": "#fff",
+  "theme_color": "#7cc91c",
+  "description": "Tutorijali za kodere na Srpskom. Naučite HTML, CSS, JavaScript",
+  "orientation": "portrait-primary",
+  "icons": [{
+    "src": "other/cog512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+    }, {
+    "src": "other/cog192.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  }, {
+    "src": "other/cog144.png",
+    "sizes": "144x144",
+    "type": "image/png"
+  }]
+}
