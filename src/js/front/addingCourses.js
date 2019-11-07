@@ -1,29 +1,57 @@
+import updateItemList from './handleItemList.js'
+import makeDragable from './makeDraggable.js'
 
 
-document.querySelector('form').addEventListener('submit', (e) => {
-  e.preventDefault()
+const handlePage = (() => {
+  const fetchPreviouslyAddedItems = "./getAllCourses/"
+
+  document.querySelector('form').addEventListener('submit', (e) => {
+    e.preventDefault()
   
-  const course2Add = JSON.stringify({
-    name   : document.querySelector('#newCourse').value.trim(),
-    setId  : document.querySelector('#newCourse').value.trim().toLowerCase().replace(/ /gi, '-'),
-    active : document.querySelector('[for=publish]').control.checked,
-    //order  : 
+    const course2Add = JSON.stringify({
+      name   : document.querySelector('#newCourse').value.trim(),
+      setId  : document.querySelector('#newCourse').value.trim().toLowerCase().replace(/ /gi, '-'),
+      active : document.querySelector('[for=publish]').control.checked,
+      order  : Number(document.querySelector('#new').dataset.order)
+    })
+    console.log('dodavanje kursa', JSON.parse(course2Add))
   })
-  console.log('dodavanje kursa', JSON.parse(course2Add))
-})
-fetch('/admin/getAllCourses', {
-  method: 'GET',
-  headers: {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json',
-    'Content-length': '50Mb'
-  }
-}).then((list) => {
-  list.forEach(l => console.log(l.name))
-})
-.catch((er) => {console.log(er)})
-/* TODO:
-treba iz baze povući sve ostale kurseve sa redosledom i popisati ih na ekranu, podesti da redosed novog kursa bude 
-increment već postojećih kuseva
 
-videti kako da se mogu drag and droppovati da im se promeni order */
+  let req = new Request(fetchPreviouslyAddedItems, {
+    method: 'GET'
+  })
+  fetch(req).then(res => res.json())
+  .then(data => { 
+    const box = document.querySelector('.prevAdded')
+    const ul = document.createElement('ul')
+    ul.classList.add('added-items', 'listless')
+    box.appendChild(ul)
+    data.forEach(i => {
+      const li = document.createElement('li')
+      li.id = i.setId
+      li.setAttribute('name', i.setId)
+      li.setAttribute('draggable', true)
+      li.setAttribute('data-db', i._id)
+      li.setAttribute('data-order', i.order)
+      li.innerHTML = i.name
+
+      if(!i.active) {
+        li.classList.add('inactive-item')
+      }
+      ul.appendChild(li)
+    })
+  }).then(() => updateItemList())
+    .then(() => makeDragable())
+  .catch((er) => {console.log(er)})
+
+  
+})();
+
+
+
+
+/* TODO:
+videti kako da se mogu drag and droppovati da im se promeni order 
+
+videti kako da ne može dva puta da submituje inače ode mas u propas
+*/

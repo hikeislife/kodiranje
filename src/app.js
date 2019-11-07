@@ -76,12 +76,11 @@ app.get('/admin/getCourseById/:id', (req, res) => {
   })
 })
 
-app.get('/admin/getAllCourses', (req, res) => {
-  Course.find({}).sort({ order : 1 }).then((courses) => {
+app.get('/admin/getAllCourses/', (req, res) => {
+  Course.find({}).sort({ order : 1 }).then(courses => {
     if(!courses) {
       return res.status(404).send()
     }
-    console.log(courses)
     res.json(courses)
   }).catch((er) => {
     res.status(500).send(er.message)

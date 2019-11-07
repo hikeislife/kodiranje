@@ -90,9 +90,10 @@ label[for="publish"]:after {
   line-height: 1em;
 }
 
-input[type="checkbox"]:checked ~ label[for="publish"]::after {
+input[type="checkbox"]:checked ~ label[for="publish"]:after {
+  font-family: "Font Awesome 5 Free";
+  content: "\f00d";
   background: $buttonBackground;
-  content: 'X';
 }
 
 .adminInput {
@@ -114,4 +115,30 @@ span[data-counter] {
 /* js added class */
 .redColor {
   color: firebrick !important;
+}
+
+.added-items {
+  position: relative;
+  margin-right: 0;
+  padding: 1em;
+  border: 2px solid $darkF;
+  border-radius: $inputBorderRadius;
+}
+
+.added-items li {
+  background: rgb(140, 224, 102);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  border: 2px solid $darkF;
+  border-radius: $inputBorderRadius;
+  padding: 1em;
+  width: calc(100% - 2em - 4px);
+  cursor: move;
+  margin: 1em auto;
+  
+  &.inactive-item {
+    background: lightgray;
+  }
 }
