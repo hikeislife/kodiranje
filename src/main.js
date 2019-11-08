@@ -7,8 +7,8 @@ import renderSideNav from "./js/front/renderSideNav.js";
 
 window.onscroll = () => bindMenu()
  
-const setCourse = (() => {
-  const url = document.URL.split('/')
-  if (url.length <= 4) return renderSideNav('mp')
-  if (url.includes('tut')) return renderSideNav(url[4])
-})();
+// const setCourse = (() => {
+//   const url = document.URL.split('/')
+//   if (url.length <= 4) return renderSideNav('mp')
+//   if (url.includes('tut')) return renderSideNav(url[4])
+// })();

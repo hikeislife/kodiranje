@@ -46,19 +46,22 @@ app.get('', (req, res) => {
 
 app.get('/tut/:kurs/:lekcija', (req, res) => {
   Article.findOne({ courseName: req.params.kurs, selectedURL: req.params.lekcija }).select('-__v -published -_id').then((post) => {
-    if (!post) {
-      return res.status(404).send()
-    }
-    res.render('article', {
-      googTitle: post.googTitle,
-      googDesc: post.googDesc,
-      socDesc: post.socDesc,
-      socImage: post.socImage,
-      socTitle: post.socTitle,
-      created: post.created,
-      edited: post.edited,
-      authot: post.authot,
-      articleContent: post.articleContent
+    Article.find({ courseName: req.params.kurs, published: true }).sort({ order: 1 }).select('_id navName selectedURL ').then(menu => {
+      if(!menu) {
+        return res.status(404).send()
+      }
+      res.render('article', { 
+        menu,
+        googTitle: post.googTitle,
+        googDesc: post.googDesc,
+        socDesc: post.socDesc,
+        socImage: post.socImage,
+        socTitle: post.socTitle,
+        created: post.created,
+        edited: post.edited,
+        authot: post.authot,
+        articleContent: post.articleContent
+      })
     })
   }).catch((er) => {
     res.status(418).send(er)
