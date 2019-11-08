@@ -18,9 +18,8 @@ app.set('views',        views)
 app.set('view options', { layout: 'index' })
 hbs.registerPartials(views)
 
-express.static.mime.define({ 'text/javascript': ['src/js'] });
-
 app.use(express.static(dir))
+app.use(express.static('./js/front'))
 app.use(bodyParser.json({ 
   parameterLimit : 10000000,
   limit          : '50mb', 
@@ -211,8 +210,8 @@ app.get('/api/getAllPostsInCourse/:kurs', (req, res) => {
 })
 
 app.get('/api/getPubPostsInCourse/:kurs', (req, res) => {
-  Article.find({ courseName: req.params.kurs, published: true }).select('_id navName order courseName selectedURL').sort({ order: -1 }).then((posts) => {
-    console.log(req.params.kurs)
+  Article.find({ courseName: req.params.kurs, published: true }).select('_id navName order courseName selectedURL').sort({ order: 1 }).then((posts) => {
+    //console.log(req.params.kurs)
     if (!posts) {
       return res.status(404).send()
     }
@@ -237,17 +236,18 @@ app.get('/api/getPubPostsInCourse/:kurs', (req, res) => {
 //   })
 // })
 
-app.post('/admin/addPost', (req, res) => {
+app.post('/api/addPost', (req, res) => {
   const art = new Article(req.body)
   art.save().then(() => {
     res.status(201).send(req.body)
   }).catch((er) => {
-    if (er.errors) {
-      if (er.errors.name) return res.status(418).send(er.errors.name.message)
-      if (er.errors.active) return res.status(418).send(er.errors.active.message)
-      if (er.errors.order) return res.status(418).send(er.errors.order.message)
-    }
-    res.status(418).send(er.errmsg)
+    // if (er.errors) {
+    //   if (er.errors.name) return res.status(418).send(er.errors.name.message)
+    //   if (er.errors.active) return res.status(418).send(er.errors.active.message)
+    //   if (er.errors.order) return res.status(418).send(er.errors.order.message)
+    // }
+    console.log(er)
+    res.status(418).send(er)
   })
 })
 

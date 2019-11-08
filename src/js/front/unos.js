@@ -8,7 +8,7 @@ document.querySelector('form').addEventListener('submit', (e) => {
   
   const post = JSON.stringify({
     navName         : document.querySelector('#selectURL').value.trim(),
-    order           : 0,
+    order           : 3,
     courseName      : document.querySelector('#courseName').selectedOptions[0].value,
     googTitle       : document.querySelector('#googTitle').value,
     googDesc: document.querySelector('#googDesc').value,
@@ -24,7 +24,7 @@ document.querySelector('form').addEventListener('submit', (e) => {
     articleContent  : document.querySelector('#articleContent').value,
   })
   //console.log(post)
-  fetch('/admin/addPost', {
+  fetch('/api/addPost/', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
