@@ -12,8 +12,11 @@ const adminApiRouter = new express.Router()
 adminApiRouter.post('/api/login', async (req, res) => {
   try {
     const user = await Admin.findByCredentials(req.body.username, req.body.password)
+    //console.log(req.body.username, req.body.password)
+    //console.log(user)
     const token = await user.generateAuthToken()
-    res.redirect('/admin/novi-post', { token: token, username: user.username })
+    console.log(token)
+    res.redirect(200, '/admin/novi-post', { token: token, username: user.username })
     //res.send(user)
   } catch (er) {
     res.status(403).send(er)
