@@ -1,6 +1,9 @@
 <ul id="side-menu">
+  {{# if menu}}
   {{# each menu as |key value|}}
-  {{!-- <li >{{key.navName}}</li></a> --}}
   <a href="{{key.selectedURL}}"><li id="{{key._id}}">{{key.navName}}</li></a>
   {{/each}}
+  {{else}}
+  {{>admin/sidenav}}
+  {{/if}}
 </ul>

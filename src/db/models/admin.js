@@ -1,7 +1,9 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
+const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 
-const Admin = mongoose.model('admins', {
+const adminSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, `Morate uneti ime`],
@@ -40,7 +42,44 @@ const Admin = mongoose.model('admins', {
         throw new Error(`${value} nije dobar email :(`)
       }
     }
-  }
+  },
+  tokens: [{
+    token: {
+      type: String,
+      required: true
+    }
+  }]
 })
+
+adminSchema.statics.findByCredentials = async (username, password) => {
+  const user = await Admin.findOne({ username })
+  if(!user) {
+    throw new Error('Ime ili password nisu dobri')
+  }
+  const isMatch = await bcrypt.compare(password, user.password)
+  if(!isMatch) {
+    throw new Error('Ime ili password nisu dobri')
+  }
+  return user
+}
+
+adminSchema.methods.generateAuthToken = async function (params) {
+  const user = this
+  const token = jwt.sign({ _id: user._id.toString()}, 'kodiranje')
+
+  user.tokens = user.tokens.concat({token})
+  await user.save()
+  return token
+}
+
+adminSchema.pre('save', async function (next) {
+  const admin = this
+  if(admin.isModified('password')) {
+    admin.password = await bcrypt.hash(admin.password, 8)
+  }
+  next()
+})
+
+const Admin = mongoose.model('admins', adminSchema)
 
 module.exports = Admin

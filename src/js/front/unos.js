@@ -11,25 +11,27 @@ document.querySelector('form').addEventListener('submit', (e) => {
     order           : 3,
     courseName      : document.querySelector('#courseName').selectedOptions[0].value,
     googTitle       : document.querySelector('#googTitle').value,
-    googDesc: document.querySelector('#googDesc').value,
+    googDesc        : document.querySelector('#googDesc').value,
     socTitle        : document.querySelector('#socTitle').value,
     socImage        : '',
     socDesc         : document.querySelector('#socDesc').value,
-    published         : document.querySelector('[for=publish]').control.checked,
+    published       : document.querySelector('[for=publish]').control.checked,
     tags            : document.querySelector('#tags').value.replace(/, /gi, ',').replace(/ ,/gi, ',').split(','),
-    selectedURL       : document.querySelector('#selectURL').value.trim().replace(/ /gi, '-').toLowerCase(),
+    selectedURL     : document.querySelector('#selectURL').value.trim().replace(/ /gi, '-').toLowerCase(),
     created         : new Date().toLocaleDateString('sr-RS', { day: '2-digit', month: '2-digit', year: 'numeric'}),
     edited          : '',
     author          : 'K',
     articleContent  : document.querySelector('#articleContent').value,
   })
-  //console.log(post)
+  let h = new Headers()
+  h.append('Authentication', `Bearer ${JSON.parse(sessionStorage.getItem(jwt))}`)
   fetch('/api/addPost/', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'Content-length': '50Mb'
+      'Content-length': '50Mb',
+      'Headers': h 
     },
     body: post
   }).then((r) => {
