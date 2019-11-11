@@ -13,9 +13,10 @@ adminApiRouter.post('/api/login', async (req, res) => {
   try {
     const user = await Admin.findByCredentials(req.body.username, req.body.password)
     const token = await user.generateAuthToken()
-    console.log('api:', token)
+    //console.log('api:', token)
     //res.redirect(200, '/admin/novi-post', { token: token, username: user.username })
     res.header('x-auth-token', token).status(200).send({ token: token, username: user.username, status: 200 })
+    
   } catch (er) {
     res.status(403).send(er)
   }

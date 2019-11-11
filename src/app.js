@@ -2,8 +2,9 @@ const express    = require('express')
 const path       = require('path')
 const hbs        = require('hbs')
 const bodyParser = require('body-parser')
-//const jwt     = require('jsonwebtoken')
-
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+const mongoose = require('mongoose');
 
 
 const adminApiRouter = require('./routers/adminApi.js')
@@ -24,7 +25,20 @@ app.set('views',        views)
 app.set('view options', { layout: 'index' })
 hbs.registerPartials(views)
 
-
+const options = {
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  port: process.env.PORT,
+  database: process.env.DB_NAME
+}
+app.use(session({
+  secret: 'kodiranje',
+  resave: false,
+  saveUninitialized: true,
+  //store: new MongoStore(options)
+  store: new MongoStore({ mongooseConnection: mongoose.connection })
+}));
 app.use(express.static(dir))
 app.use(express.static('./js/front'))
 app.use(bodyParser.json({ 

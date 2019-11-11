@@ -17,12 +17,12 @@ adminRouter.get('/admin/me', (req, res) => {
 
 
 adminRouter.get('/admin/novi-post', (req, res) => {
-  console.log('novi post', req.headers)
-  //console.log('novi post headers: ', req.headers)
-  //req.headers.set("Authorization", req.body);
-  //console.log(`basic ${JSON.stringify(req.body.token)}`)
-  //res.header('x-authorization', `bearer ${JSON.stringify(req.body.token)}`)
-  //console.log('novi post headers2: ', req.headers)
+  // console.log('novi post', req.headers)
+  // console.log('novi post headers: ', req.headers)
+  // req.headers.set("Authorization", req.body);
+  // console.log(`basic ${JSON.stringify(req.body.token)}`)
+  // res.header('x-authorization', `bearer ${JSON.stringify(req.body.token)}`)
+  // console.log('novi post headers2: ', req.headers)
   res.render('admin/unos', { googTitle: "dodaj kurs", robots: true })
 })
 

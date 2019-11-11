@@ -7,8 +7,8 @@ const auth = async (req, res, next) => {
     // const token = 555
     const decoded = jwt.verify(token, 'kodiranje')
     const user = await Admin.findOne({ _id: decoded._id, 'tokens.token' : token})
-     console.log('auth1', token)
-    
+    // console.log('auth1', token)
+    res.send(token)
     if(!user) {
       throw new Error()
     }

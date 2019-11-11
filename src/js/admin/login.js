@@ -14,8 +14,8 @@ document.querySelector('#dugme').addEventListener('click', (e) => {
   }).then(r => r.json())
     .then((data) => {
     //console.log(data)
-    sessionStorage.setItem('jwt', JSON.stringify(data.token))
-    sessionStorage.setItem('user', data.username)
+    // sessionStorage.setItem('jwt', JSON.stringify(data.token))
+    // sessionStorage.setItem('user', data.username)
     if(data.status === 200) {
       // fetch('/admin/novi-post/', {
       //   method: 'GET',
