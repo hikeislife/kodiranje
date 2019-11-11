@@ -53,19 +53,21 @@ const adminSchema = new mongoose.Schema({
 
 adminSchema.statics.findByCredentials = async (username, password) => {
   const user = await Admin.findOne({ username })
+  
   if(!user) {
     throw new Error('Ime ili password nisu dobri')
   }
   const isMatch = await bcrypt.compare(password, user.password)
+  
   if(!isMatch) {
     throw new Error('Ime ili password nisu dobri')
   }
   return user
 }
 
-adminSchema.methods.generateAuthToken = async function (params) {
+adminSchema.methods.generateAuthToken = async function () {
   const user = this
-  const token = jwt.sign({ _id: user._id.toString()}, 'kodiranje')
+  const token = jwt.sign({ _id: user._id.toString()}, 'kodiranje', { expiresIn: '1m'})
 
   user.tokens = user.tokens.concat({token})
   await user.save()

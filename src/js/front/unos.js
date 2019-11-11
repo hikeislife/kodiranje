@@ -31,7 +31,7 @@ document.querySelector('form').addEventListener('submit', (e) => {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
       'Content-length': '50Mb',
-      'Headers': h 
+      'Authentication': `Bearer ${JSON.parse(sessionStorage.getItem(jwt))}` 
     },
     body: post
   }).then((r) => {
