@@ -1,5 +1,6 @@
 <nav>
   <ul>
+    {{# if userId}}
     <li>Lekcije</li>
     <a href="/admin/novi-post"><li>Dodaj Lekciju</li></a>
     <a href="/admin/"><li>Reorganizuj lekcije</li></a>
@@ -15,5 +16,6 @@
     <a href="/admin/"><li>Obriši admina</li></a>
     <li>logout</li>
     <li></li>
+    {{/if}}
   </ul>
 </nav>

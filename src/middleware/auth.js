@@ -3,21 +3,16 @@ const Admin = require('../db/models/admin')
 
 const auth = async (req, res, next) => {
   try {
-    const token =  req.header('Authorization').replace('bearer', '') || req.header('x-auth-token')
-    // const token = 555
-    const decoded = jwt.verify(token, 'kodiranje')
+    const token = req.header('x-auth-token').replace('bearer', '')
+    const decoded = jwt.verify(token, config.get('jwtPKey'))
     const user = await Admin.findOne({ _id: decoded._id, 'tokens.token' : token})
-    // console.log('auth1', token)
-    res.send(token)
+    console.log('auth1', token)
     if(!user) {
       throw new Error()
     }
-    // if (req.method === 'GET') {
-    //   req.body.auth = true
-    // }
     req.body.token = token
     req.body.user = user
-    
+    res.send(token)
     // console.log('auth2', req.token)
     next()
   } catch (er) {

@@ -6,4 +6,11 @@
   {{else}}
   {{>admin/sidenav}}
   {{/if}}
+  {{# if mainMenu}}
+  {{# each mainMenu as |key value|}}
+  <a href="/tut/mp/{{key.selectedURL}}">
+    <li id="{{key._id}}">{{key.navName}}</li>
+  </a>
+  {{/each}}
+  {{/if}}
 </ul>

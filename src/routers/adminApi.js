@@ -1,34 +1,45 @@
-const express = require('express')
-require('../db/mongoose')
-const Admin = require('../db/models/admin')
-const Article = require('../db/models/article')
-const Course = require('../db/models/course')
-const auth = require('../middleware/auth')
+const express           = require('express')
+                          require('../db/mongoose')
+const Admin             = require('../db/models/admin')
+const Article           = require('../db/models/article')
+const Course            = require('../db/models/course')
+const auth              = require('../middleware/auth')
+const {redirectToLogin} = require('./admin')
 
-const adminApiRouter = new express.Router()
+const adminApiRouter    = new express.Router()
 
 /* API */
 
 adminApiRouter.post('/api/login', async (req, res) => {
+  // req.session.userId
   try {
     const user = await Admin.findByCredentials(req.body.username, req.body.password)
     const token = await user.generateAuthToken()
-    //console.log('api:', token)
     //res.redirect(200, '/admin/novi-post', { token: token, username: user.username })
-    res.header('x-auth-token', token).status(200).send({ token: token, username: user.username, status: 200 })
-    
+    if(user) {
+      //req.session.userId = user._id
+      console.log(req.Session)
+      // return res.header('x-auth-token', token).status(200).redirect('/admin/novi-post/')//.send({ token: token, username: user.username, status: 200 })
+      // console.log(user)
+      return res.redirect('/admin/novi-post')
+    }
+    //res.send(true) - moš
   } catch (er) {
-    res.status(403).send(er)
+    console.log(er)
+    res.status(403).redirect('/admin')
   }
 })
 
-adminApiRouter.post('/api/logout', auth, async (req, res) => {
+adminApiRouter.post('/api/logout', redirectToLogin, async (req, res) => {
   try {
+    req.session.destroy(err => {
+      return res.redirect('/')
+    })
     req.user.tokens = req.user.tokens.filter(token => {
       return token.token !== req.token
     })
     await req.user.save()
-    res.redirect('/')
+    res.clearCookie(Session).redirect('/')
   } catch (er) {
     res.status(500).send(er)
   }

@@ -1,19 +1,20 @@
+const config     = require('config')
 const express    = require('express')
 const path       = require('path')
 const hbs        = require('hbs')
 const bodyParser = require('body-parser')
-const session = require('express-session');
+const session    = require('express-session');
 const MongoStore = require('connect-mongo')(session);
-const mongoose = require('mongoose');
+const mongoose   = require('mongoose');
 
+const adminApiRouter   = require('./routers/adminApi.js')
+const {adminRouter}    = require('./routers/admin.js')
+const Article          = require('./db/models/article')
 
-const adminApiRouter = require('./routers/adminApi.js')
-const adminRouter = require('./routers/admin.js')
-
-//require('./db/mongoose')
-const Admin      = require('./db/models/admin')
-const Article    = require('./db/models/article')
-const Course     = require('./db/models/course')
+if(!config.get('jwtPKey')) { // Breaks app down if no jwt secret is provided
+  console.log('FATAL ERROR jwtPKey not defined')
+  process.exit(1)
+}
 
 const app        = new express()
 const port       = process.env.PORT || 80
@@ -24,20 +25,26 @@ app.set('view engine', 'hbs')
 app.set('views',        views)
 app.set('view options', { layout: 'index' })
 hbs.registerPartials(views)
+const {
+  SESS_LIFETIME = 1000 * 60 *60 *48,
+  NODE_ENV = 'development',
+} = process.env
 
-const options = {
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  port: process.env.PORT,
-  database: process.env.DB_NAME
-}
+const IN_PROD = NODE_ENV === 'production'
 app.use(session({
-  secret: 'kodiranje',
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
   //store: new MongoStore(options)
-  store: new MongoStore({ mongooseConnection: mongoose.connection })
+  store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  secret: config.get('jwtPKey'),
+  name: 'sid',
+  cookie: {
+    path: '/admin',
+    expires: SESS_LIFETIME,
+    maxAge: SESS_LIFETIME,
+    sameSite: true,
+    secure: IN_PROD
+  }
 }));
 app.use(express.static(dir))
 app.use(express.static('./js/front'))
@@ -59,19 +66,22 @@ app.use((er, req, res, text) => {
 app.use(adminApiRouter)
 app.use(adminRouter)
 
-// const f = () => {
-//   const token = jwt.sign({_id: 5}, 'kodiranje', { expiresIn: '1m' })
-//   console.log(token)
-//   const isVerified = jwt.verify(token, 'kodiranje')
-//   console.log(isVerified)
-// }
-// f()
 
 /* PATHS */
 /* front page */
 app.get('', (req, res) => {
-  res.render('home', {
-    title: "Kodiranje"
+  const { userId } = req.session
+  console.log(userId)
+  console.log(req.session)
+  Article.find({ courseName: 'mp', published: true }).sort({ order: 1 }).select('_id navName selectedURL ').then(menu => {
+    if (!menu) {
+      return res.status(404).send()
+    }
+    res.render('home', {
+      mainMenu: menu,
+      userId: userId,
+      title: "Kodiranje", 
+    })
   })
 })
 
@@ -119,5 +129,5 @@ app.get('*', (req, res) => {
 }) 
 
 app.listen(port, () => {
-  console.log(`Server podignut na portu ${port}`)
+  console.log(`Server podignut na portu http://localhost:${port}`)
 })
