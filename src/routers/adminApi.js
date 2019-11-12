@@ -11,19 +11,14 @@ const adminApiRouter    = new express.Router()
 /* API */
 
 adminApiRouter.post('/api/login', async (req, res) => {
-  // req.session.userId
   try {
     const user = await Admin.findByCredentials(req.body.username, req.body.password)
     const token = await user.generateAuthToken()
     //res.redirect(200, '/admin/novi-post', { token: token, username: user.username })
     if(user) {
-      //req.session.userId = user._id
-      console.log(req.Session)
       // return res.header('x-auth-token', token).status(200).redirect('/admin/novi-post/')//.send({ token: token, username: user.username, status: 200 })
-      // console.log(user)
       return res.redirect('/admin/novi-post')
     }
-    //res.send(true) - moš
   } catch (er) {
     console.log(er)
     res.status(403).redirect('/admin')
