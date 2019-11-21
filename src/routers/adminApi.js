@@ -5,6 +5,18 @@ const Article           = require('../db/models/article')
 const Course            = require('../db/models/course')
 const auth              = require('../middleware/auth')
 const {redirectToLogin} = require('./admin')
+const multer            = require('multer')
+const sharp             = require('sharp')
+
+const socImage = multer({
+  //dest: './src/imgs/og/',
+  limits: 1000000,
+  fileFilter(req, file, cb) {
+    if (!file.originalname.match(/\.(jpg|png|jpeg|gif)$/)) {
+      return cb(new Error('Samo slike su dozvoljene'))
+    }
+  }
+})
 
 const adminApiRouter    = new express.Router()
 
@@ -176,6 +188,20 @@ adminApiRouter.post('/api/addPost', auth, (req, res) => {
     // }
     res.status(418).send(er)
   })
+})
+
+adminApiRouter.post('/api/socimg-upload', auth, socImage.single('socImage'), async (req, res) => {
+  const buffer = await sharp(req.file.socImage).webp().toBuffer()
+  req.article.socImage = buffer
+  res.send('soc image uploaded')
+}, (er, req, res, next) => {
+  res.status(400).send({ error: error.message })
+})
+
+adminApiRouter.delete('/api/deleteSocImg', auth, async (req, res) => {
+  req.article.socImage = undefined
+  await req.article.save()
+  res.send()
 })
 
 module.exports = adminApiRouter

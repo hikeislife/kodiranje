@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const validator = require('validator')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const config = require('config')
+//const config = require('config')
 
 const adminSchema = new mongoose.Schema({
   name: {
@@ -83,6 +83,6 @@ adminSchema.pre('save', async function (next) {
   next()
 })
 
-const Admin = mongoose.model('admins', adminSchema)
+const Admin = /*mongoose.models.Admin || */mongoose.model('admins', adminSchema)
 
 module.exports = Admin

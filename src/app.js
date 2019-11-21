@@ -1,4 +1,4 @@
-const config     = require('config')
+//const config     = require('config')
 const express    = require('express')
 const path       = require('path')
 const hbs        = require('hbs')
@@ -11,10 +11,10 @@ const adminApiRouter   = require('./routers/adminApi.js')
 const {adminRouter}    = require('./routers/admin.js')
 const Article          = require('./db/models/article')
 
-if(!config.get('jwtPKey')) { // Breaks app down if no jwt secret is provided
-  console.log('FATAL ERROR jwtPKey not defined')
-  process.exit(1)
-}
+// if(!config.get('jwtPKey')) { // Breaks app down if no jwt secret is provided
+//   console.log('FATAL ERROR jwtPKey not defined')
+//   process.exit(1)
+// } 
 
 const app        = new express()
 const port       = process.env.PORT || 80
@@ -30,13 +30,13 @@ const {
   NODE_ENV = 'development',
 } = process.env
 
+//config.get('jwtPKey')
 const IN_PROD = NODE_ENV === 'production'
 app.use(session({
   resave: false,
   saveUninitialized: false,
-  //store: new MongoStore(options)
   store: new MongoStore({ mongooseConnection: mongoose.connection }),
-  secret: config.get('jwtPKey'),
+  secret: 'kodiranje_dev',
   name: 'sid',
   cookie: {
     path: '/admin',
@@ -69,10 +69,8 @@ app.use(adminRouter)
 
 /* PATHS */
 /* front page */
-app.get('', (req, res) => {
+app.get('/', (req, res) => {
   const { userId } = req.session
-  console.log(userId)
-  console.log(req.session)
   Article.find({ courseName: 'mp', published: true }).sort({ order: 1 }).select('_id navName selectedURL ').then(menu => {
     if (!menu) {
       return res.status(404).send()
@@ -85,9 +83,29 @@ app.get('', (req, res) => {
   })
 })
 
+// const multer = require('multer')
+// const socImage = multer({
+//   dest: './src/imgs/og/',
+//    limits: {
+  //    fileSize: 1000000
+//},
+//  fileFilter(req, file, cb) {
+  //  if(!file.originalname.endsWith('.jpg')) { return cb(new Error('file must be an image')) }
+  // if(!file.originalname.match(/\.(jpg|png|jpeg|gif)$/)) {}
+  //  cb(new Error('file must be an image'))
+  //  cb(undefined, true)
+//}
+// })
+// app.post('/api/upload', socImage.single('socImage'), (req, res, next) => {
+//   res.send('img uploaded')
+// })
+
+
+
+
 app.get('/tut/:kurs/:lekcija', (req, res) => {
   Article.findOne({ courseName: req.params.kurs, selectedURL: req.params.lekcija }).select('-__v -published -_id').then((post) => {
-    Article.find({ courseName: req.params.kurs, published: true }).sort({ order: 1 }).select('_id navName selectedURL ').then(menu => {
+    Article.find({ courseName: req.params.kurs, published: true }).sort({ order: 1 }).select('_id navName selectedURL').then(menu => {
       if(!menu) {
         return res.status(404).send()
       }

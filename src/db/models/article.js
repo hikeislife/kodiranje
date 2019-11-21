@@ -1,7 +1,8 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
 
-const Article = mongoose.model('Article', {
+// const Article = mongoose.model('Article', {
+const articleSchema = new mongoose.Schema({
   navName: {
     type: String,
     required: [true, `Polje je obavezno`]
@@ -50,7 +51,7 @@ const Article = mongoose.model('Article', {
     default: `Nauči da kodiraš, šta ćeš drugo da radiš?`
   },
   socImage: {
-    type: String,
+    type: Buffer,
     //
   },
   order: {
@@ -65,7 +66,13 @@ const Article = mongoose.model('Article', {
   articleContent: {
     type: String,
     required: [true, `Text artikla je obavezno polje`]
-  },
+  }/*, soc: {
+    type: Buffer
+  }*/
+}, {
+  timestamps: true
 })
+
+const Article = mongoose.model('articles', articleSchema)
 
 module.exports = Article
