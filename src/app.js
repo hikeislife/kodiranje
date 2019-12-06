@@ -70,14 +70,16 @@ app.use(adminRouter)
 /* PATHS */
 /* front page */
 app.get('/', (req, res) => {
-  const { userId } = req.session
+  if(req.session) {const { userId } = req.session}
+  else userId = null;
+  
   Article.find({ courseName: 'mp', published: true }).sort({ order: 1 }).select('_id navName selectedURL ').then(menu => {
     if (!menu) {
       return res.status(404).send()
     }
     res.render('home', {
-      mainMenu: menu,
-      userId: userId,
+       mainMenu: menu,
+       userId: userId,
       title: "Kodiranje", 
     })
   })
