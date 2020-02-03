@@ -63,6 +63,8 @@ app.get('/', (req, res) => {
   } catch (er) {
     userId = undefined
   }
+  // if(req.session) {const { userId } = req.session}
+  // else userId = null;
   
   Article.find({ courseName: 'mp', published: true }).sort({ order: 1 }).select('_id navName selectedURL ').then(menu => {
     if (!menu) {
@@ -70,8 +72,8 @@ app.get('/', (req, res) => {
     }
     
     res.render('home', {
-      mainMenu: menu,
-      userId: userId,
+       mainMenu: menu,
+       userId: userId,
       title: "Kodiranje", 
     })
    })
