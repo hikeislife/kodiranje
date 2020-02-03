@@ -1,0 +1,35 @@
+<article>
+  <h1>Izmeni admina</h1>
+  {{#if errorMessage}}<p class="adminError">{{errorMessage}}</p>{{/if}}
+  <div>
+    <form> 
+      <div class="adminInput">
+        <label for="name">Unesi ime:</label>
+        <input type="text" id="name" name="name" class="admin" value="{{user.name}}">
+      </div>
+      <div class="adminInput">
+        <label for="username">Unesi korisničko ime:</label>
+        <input type="text" id="username" name="username" class="admin" value="{{user.username}}">
+      </div>
+      <div class="adminInput">
+        <label for="email">Unesi email:</label>
+        <input type="text" id="email" name="email" class="admin"  value="{{user.email}}">
+      </div>
+      <div class="adminInput">
+        <label for="newPassword">Nova lozinka:</label>
+        <input type="password" id="newPassword" name="newPassword" class="admin">
+      </div>
+      <div class="adminInput">
+        <label for="password">Potvrdi lozinku:</label>
+        <input type="password" id="password" name="password" class="admin">
+      </div>
+      <div class="adminInput">
+        <label for="dugme">Sačuvaj izmene</label>
+        <button id="dugme" class="admin" data-admin-id="{{user._id}}">Sačuvaj</button>
+      </div>
+    </form>
+  </div>
+  <a href="/admin/svi-admini" class="nocolor"><button style="width: 100%; height: 3em; margin: 1em 0;">Lista svih admina</button></a>
+  <a href="/admin/ukloni-admina/{{user._id}}" class="nocolor"><button class="warning" style="width: 100%; height: 3em; margin: 1em 0;">Obriši ovog admina</button></a>
+</article>
+<script src="../../js/admin/editAdmin.js"></script>

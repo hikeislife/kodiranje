@@ -1,0 +1,28 @@
+<article>
+  <h1>Svi admini</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Ime</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each admins}}
+    <tr>
+      <td>{{name}}</td>
+      <td>{{username}}</td>
+      <td>{{email}}</td>
+      <td><a href="/admin/detalji/{{_id}}" class="nocolor"><button class="adminButton">Detalji</button></a></td>
+      <td><a href="/admin/izmeni-admina/{{_id}}" class="nocolor"><button >Izmeni</button></a></td>
+      <td><a href="/admin/ukloni-admina/{{_id}}" class="nocolor"><button class="warning adminButton">Obriši</button></a></td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+<a href="/admin/dodaj-admina"><button style="width: 100%; height: 3em; margin: 1em 0;">Dodaj novog admina</button></a>
+</article>

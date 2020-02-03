@@ -11,6 +11,7 @@ const mongoose       = require('mongoose')
 
 const Article         = require('./db/models/article')
 const { adminRouter } = require('./routers/admin.js')
+const { courseRouter } = require('./routers/courses.js')
 
 // if (!process.env.JWT_P_KEY) { // Breaks app down if no jwt secret is provided 
 //   console.log('FATAL ERROR JWT_P_KEY not defined')
@@ -29,6 +30,7 @@ app.use(bodyParser.urlencoded({
 }))
 
 app.use(adminRouter)
+app.use(courseRouter)
 
 const port       = process.env.PORT
 const dir        = path.join(__dirname)

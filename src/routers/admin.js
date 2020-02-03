@@ -6,10 +6,6 @@ const bcrypt = require('bcryptjs')
 
 const adminRouter = new express.Router()
 
-// TODO: 5dd671fce33cda1b48a36b3c
-
-const goneId = '5e33f813adf08113341d070c'
-
 // GET/login
 adminRouter.get('/admin', (req, res) => { 
   res.render('admin/login')
