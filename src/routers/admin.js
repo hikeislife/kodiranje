@@ -20,16 +20,21 @@ adminRouter.post('/admin/login', async (req, res) => {
   try {
     const user = await Admin.findByCredentials(req.body.username, req.body.password)
     //const uid = user._id
-    res.redirect('/admin/dodaj-admina')
+    res.redirect('/admin/svi-admini')
   } catch (er) {
     res.status(403).render('admin/login',  { errorMessage: "log-in podaci nisu ispravni" })
   }
 })
 
-adminRouter.get('/admin/me', async (req, res) => {
-  const _id = goneId
+adminRouter.get('/admin/svi-admini', async (req, res) => {
+  const admins = await Admin.find().select('-password -__v -tokens')
+  res.render('admin/showAll', { admins })
+})
+
+adminRouter.get('/admin/detalji/:id', async (req, res) => {
+  const _id = req.params.id
   const user = await Admin.findById(_id)
-  res.render('admin/adminDetails', { user })
+  res.render('admin/adminDetails', { user: user, googTitle: "Dodaj admina", robots: true })
 })
 
 // LOGOUT
@@ -46,7 +51,7 @@ adminRouter.post('/admin/addNewAdmin/', async (req, res, body) => {
   try {
     await admin.save()
     //const token = await admin.generateAuthToken()
-    res.status(201).render('admin/adminDetails', { message: "Novi admin dodat", test: admin._id})
+    res.status(201).render('admin/adminDetails', { message: "Novi admin dodat", user: admin })
   } catch (er) {
     res.status(418).render('admin/addNewAdmin', { errorMessage: er.errmsg})
   }
@@ -55,7 +60,7 @@ adminRouter.post('/admin/addNewAdmin/', async (req, res, body) => {
 
 // EDIT
 adminRouter.get('/admin/izmeni-admina/:id', async (req, res) => {
-  const _id = goneId //req.params.id
+  const _id = req.params.id
   try {
     const user = await Admin.findById(_id)
 
@@ -68,7 +73,7 @@ adminRouter.get('/admin/izmeni-admina/:id', async (req, res) => {
 })
 
 adminRouter.post('/admin/edit-admin/:id', async (req, res) => { 
-  const _id = goneId //req.params.id
+  const _id = req.params.id
   if(req.body.newPassword === req.body.password) {
     try {
       let user = await Admin.findByIdAndUpdate(_id, {
@@ -98,23 +103,21 @@ adminRouter.post('/admin/edit-admin/:id', async (req, res) => {
 })
 
 // DELETE
-adminRouter.get('/admin/ukloni-admina/:id', (req, res) => {
-  const id = req.params.id
-  res.render('admin/deleteAdmin', { googTitle: "Obriši admina", robots: true, adminId: id })
+adminRouter.get('/admin/ukloni-admina/:id', async (req, res) => {
+  const _id = req.params.id
+  const admin = await Admin.findById(_id)
+  res.render('admin/deleteAdmin', { googTitle: "Obriši admina", robots: true, admin: admin })
 })
 
-// FIXME: post
 adminRouter.delete('/admin/delete-admin/:id', async (req, res) => {
   const _id = req.params.id
   try {
     const user = await Admin.findByIdAndDelete(_id)
     if(!user) {
-      console.log('not found')
       return res.status(404).send()
     }
-    res.redirect('/')
+    res.redirect('back')
   } catch (e) {
-    console.log(e)
     res.status(500).send()
   }
 })

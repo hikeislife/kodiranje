@@ -9,7 +9,8 @@
   "scripts": {
     "start": "node src/app.js",
     "dev": "env-cmd nodemon src/app.js -e js,hbs,scss,css",
-    "sass": "sass --watch -c src/styles/style.scss src/styles/style.css --style compressed"
+    "sass": "sass --watch -c src/styles/style.scss src/styles/style.css --style compressed",
+    "mongo": "c:/wamp64/www/MongoDB/bin/mongod.exe --dbpath=c:/wamp64/www/MongoDB-data"
   },
   "keywords": [],
   "author": "",
