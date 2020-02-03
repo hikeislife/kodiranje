@@ -1,0 +1,11 @@
+<h1>Pozdrav {{user.username}}</h1>
+
+{{#if message}}<p class="adminSuccess">{{message}} sa id-ijem: {{test}}</p>{{/if}}
+
+<div>
+  <p>Nadam se da imaš dobar dan :)</p>
+</div>
+
+<a href="/admin/dodaj-admina" class="nocolor"><button class="adminButton" style="width: 97%; height: 3em;">Dodaj novog admina</button></a>
+<a href="./izmeni-admina/{{user.id}}" class="nocolor"><button class="adminButton" style="width: 97%; height: 3em;">Izmeni detalje</button></a>
+<a href="./ukloni-admina/{{user.id}}" class="nocolor"><button class="warning adminButton" style="width: 97%; height: 3em;">Obriši admina</button></a>
