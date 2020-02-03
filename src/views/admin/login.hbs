@@ -1,19 +1,22 @@
 <article>
   <h1>Log in...</h1>
-  <form action="/api/login" method="post">
+  {{# if errorMessage}}<p class="adminError">{{errorMessage}}</p>{{/if}}
+  <form action="/admin/login" method="post">
   <div     class=   "adminInput">
     <label for=     "username">Unesi korisničko ime:</label>
     <input type=    "text" 
            id=      "username" 
            name=    "username"  
-           class=   "admin">
+           class=   "admin"
+           required>
   </div>
   <div     class=   "adminInput">
     <label for=     "password">Unesi lozinku:</label>
     <input type=    "password" 
            id=      "password" 
            name=    "password" 
-           class=   "admin">
+           class=   "admin"
+           required>
   </div>
   <div     class=   "adminInput">
     <label for=     "dugme">Uloguj se</label>
@@ -24,4 +27,3 @@
   </div>
   </form>
 </article>
-{{!-- <script src="../../js/admin/login.js"></script> --}}

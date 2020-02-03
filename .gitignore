@@ -6,4 +6,4 @@ index.js
 src/js/mongo.js
 src/js/5fetchData.js
 src/app-stari.js
-config/
+.env

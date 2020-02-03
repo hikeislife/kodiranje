@@ -1,3 +1,7 @@
+/*
+ * colects all page titles and adds bookmarks to them at the start of the page
+ */
+
 export default function createPageNav () {
   const page = document.querySelector('.placeholder')
   const bookmarks = [...page.querySelectorAll('a[name]')]
@@ -11,5 +15,5 @@ export default function createPageNav () {
       <li>${x.attributes.title.nodeValue}</li></a>\n`
   })
   page.querySelector('.page-nav > .listless').innerHTML = navContent
-  console.log(navContent)
+  //console.log(navContent)
 }

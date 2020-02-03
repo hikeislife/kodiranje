@@ -1,11 +1,11 @@
 const mongoose      = require('mongoose')
 
-const database      = 'kodiranje'
-const connectionURL = `mongodb://127.0.0.1:27017/${database}`
+const connectionURL = process.env.MONGO_URL
 
 
 mongoose.connect(connectionURL, {
   useNewUrlParser    : true,
   useCreateIndex     : true,
+  useFindAndModify   : false,
   useUnifiedTopology : true
 })

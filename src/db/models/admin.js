@@ -2,7 +2,6 @@ const mongoose = require('mongoose')
 const validator = require('validator')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-//const config = require('config')
 
 const adminSchema = new mongoose.Schema({
   name: {
@@ -68,7 +67,7 @@ adminSchema.statics.findByCredentials = async (username, password) => {
 
 adminSchema.methods.generateAuthToken = async function () {
   const user = this
-  const token = jwt.sign({ _id: user._id.toString() }, config.get('jwtPKey'), { expiresIn: '1m'})
+  const token = jwt.sign({ _id: user._id.toString() }, process.env.JWT_P_KEY, { expiresIn: '1m'})
 
   user.tokens = user.tokens.concat({token})
   await user.save()

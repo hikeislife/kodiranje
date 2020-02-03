@@ -22,14 +22,14 @@ const articleSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
-  created: {
-    type: String,
-    required: [true, `Datum posta je obavezno polje`]
-  },
-  edited: {
-    type: String,
-    //
-  },
+  // created: {
+  //   type: String,
+  //   required: [true, `Datum posta je obavezno polje`]
+  // },
+  // edited: {
+  //   type: String,
+  //   //
+  // },
   author: {
     type: String,
     required: [true, `Autor je obavezno polje`]

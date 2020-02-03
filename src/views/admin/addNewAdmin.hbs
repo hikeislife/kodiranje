@@ -1,10 +1,11 @@
 <article>
   <h1>Dodaj novog admina</h1>
+  {{#if errorMessage}}<p class="adminError">{{errorMessage}}</p>{{/if}}
   <div>
-    <form      action=""    method="post">
+    <form      action="/admin/addNewAdmin"    method="post">
       <div     class=       "adminInput">
-        <label for="adminName">Unesi ime:</label>
-        <input type="text" id="adminName" name="adminName" class="admin">
+        <label for="name">Unesi ime:</label>
+        <input type="text" id="name" name="name" class="admin">
       </div>
       <div     class=       "adminInput">
         <label for="username">Unesi korisničko ime:</label>
@@ -25,4 +26,4 @@
     </form>
   </div>
 </article>
-<script type="module" src="../../js/front/addingAdmins.js"></script>
+{{!-- <script type="module" src="../../js/front/addingAdmins.js"></script> --}}
