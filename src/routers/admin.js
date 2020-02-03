@@ -72,8 +72,9 @@ adminRouter.get('/admin/izmeni-admina/:id', async (req, res) => {
   }
 })
 
-adminRouter.post('/admin/edit-admin/:id', async (req, res) => { 
+adminRouter.patch('/admin/edit-admin/:id', async (req, res) => { 
   const _id = req.params.id
+  console.log(req.body)
   if(req.body.newPassword === req.body.password) {
     try {
       let user = await Admin.findByIdAndUpdate(_id, {
