@@ -2,9 +2,17 @@
   <h1>Povuci i potegni da reorganizuješ kurseve</h1>
   <ul class="listless added-items">
     {{#each kursevi}}
-    <li data-order="{{order}}">{{name}}</li>
+    <li data-order="{{order}}" data-course-id="{{_id}}" draggable="true" class="{{#if active}}{{else}}inactive-item{{/if}}">
+    {{name}}
+    <div class="adminInput">
+      <input type="checkbox" name="active" id="{{_id}}" {{#if active}}checked{{else}}{{/if}}>
+      <label for="{{_id}}" class="reorderCheckbox"> </label>
+    </div>
+    </li>
     {{/each}}
   </ul>
+  <a href="/admin/" class="nocolor"><button class="wideAdminButton">Sačuvaj izmene</button></a>
+  <a href="/admin/svi-kursevi" class="nocolor"><button class="wideAdminButton">Svi kursevi</button></a>
 </article>
 <script type="module" src="../../js/front/handleItemList.js"></script>
-<script type="module" src="../../js/front/makeDraggable.js"></script>
+{{!-- <script type="module" src="../../js/front/makeDraggable.js"></script> --}}

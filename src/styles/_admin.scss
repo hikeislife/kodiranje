@@ -70,15 +70,17 @@ input[type="checkbox"] {
   // height: 0;
 }
 
-label[for="active"] {
+label[for="active"],
+label[for] {
   margin-top: 2em;
   display: inline-flex;
 }
 
-label[for="active"]:after {
+label[for="active"]:after,
+label[for]:after {
   content: ' ';
-  width: 1.5em;
-  height: 1.5em;
+  width: 2rem;
+  height: 2rem;
   border: 1px solid $darkF;
   border-radius: 50%;
   display: inline-flex;
@@ -90,9 +92,11 @@ label[for="active"]:after {
   line-height: 1em;
 }
 
-input[type="checkbox"]:checked ~ label[for="active"]:after {
+input[type="checkbox"]:checked ~ label[for="active"]:after,
+input[type="checkbox"]:checked ~ label[for]:after {
   font-family: "Font Awesome 5 Free";
-  content: "\f00d";
+  content: "\f058";
+  font-size: 40px;
   background: $buttonBackground;
 }
 
@@ -162,4 +166,10 @@ span[data-counter] {
   width: 100%;
   height: 3em;
   margin: 1em 0;
+}
+
+.dragged {
+  background-color: blue !important;
+  color: white;
+  border: white !important;
 }

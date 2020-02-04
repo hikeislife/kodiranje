@@ -3,21 +3,29 @@ import updateItemList, { getList } from './handleItemList.js'
 updateItemList()
 
 let newIndex = 0;
-export default function makeDragable () {
+export default function makeDraggable () {
+  console.log(getList())
   let index
   getList().forEach(li => {
+    // console.log(li)
+    li.addEventListener('click', e => {console.log('click')})
     li.addEventListener('dragstart', (e) => {
+      e.target.classList.add('dragged')
+      console.log(e.target)
       index = Number(e.target.dataset.order)
     })
     li.addEventListener('dragover', (e) => {
+      console.log('drag over')
       newIndex = Number(e.target.dataset.order)
     })
     li.addEventListener('dragend', (e) => {
+      console.log('drag end')
+      e.target.classList.remove('dragged')
       reorderItems(index)
     })
   })
 }
-makeDragable()
+makeDraggable()
 
 function reorderItems(index) {
   const liHeight = getList()[0].clientHeight + 4
@@ -66,4 +74,8 @@ function reorderItems(index) {
       }
     })
   }
+}
+
+function allowDrop(ev) {
+  ev.preventDefault();
 }
