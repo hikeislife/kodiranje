@@ -32,14 +32,12 @@ courseRouter.get('/admin/izmeni-kurs/:id', async (req, res) => {
 
 courseRouter.patch('/admin/edit-course/:id', async (req, res) => {
   const _id = req.params.id
-
-  console.log(req.body)
   try {
     let course = await Course.findByIdAndUpdate(_id, req.body, {
       new: true,
       runValidators: true
     })
-
+    
     if (!course) return res.status(404).send()
 
     course = await Course.findById(_id)
@@ -58,6 +56,30 @@ courseRouter.get('/admin/reorganizuj-kurseve', async (req, res) => {
 
   res.render('courses/reorderCourses', { googTitle: "Reorganizuj kursevi", robots: true, kursevi: kursevi })
 })
+
+courseRouter.patch('/admin/batchEditCourses', async (req, res) => {
+  const courses = req.body
+  courses.forEach(course => {
+    updateEach(course)
+  })
+  res.render('courses/showAllCourses')
+})
+
+updateEach = async (course) => {
+  try {
+    let kurs = await Course.findByIdAndUpdate(course._id, course, {
+      new: true,
+      runValidators: true
+    })
+    //if (!course) return res.status(404).send()
+
+    //course = await Admin.findById(_id)
+
+  } catch (e) {
+    console.log(e)
+    //res.status(500).send()
+  }
+}
 
 courseRouter.get('/admin/detalji-kursa/:id', async (req, res) => {
   const _id = req.params.id

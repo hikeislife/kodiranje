@@ -70,12 +70,12 @@ input[type="checkbox"] {
   // height: 0;
 }
 
-label[for="active"] {
+.reorderCheckbox {
   margin-top: 2em;
   display: inline-flex;
 }
 
-label[for="active"]:after {
+.reorderCheckbox:after {
   content: ' ';
   width: 2rem;
   height: 2rem;

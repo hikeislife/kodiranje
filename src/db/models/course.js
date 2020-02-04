@@ -29,7 +29,7 @@ const courseSchema = new mongoose.Schema({
   order: {
     type: Number,
     required: [true, `Redosled prikaza kursa je obavezno polje`],
-    unique: true,
+    // unique: true,
     validate(value) {
       if (value < 0) {
         throw new Error('Ovaj broj mora biti pozitivan :(')
