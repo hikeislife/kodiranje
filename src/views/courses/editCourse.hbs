@@ -1,0 +1,22 @@
+<article>
+  <h1>Ažuriranje kursa</h1>
+  {{#if errorMessage}}<p class="adminError">{{errorMessage}}</p>{{/if}}
+  <form>
+    <div class="adminInput">
+      <label for="name">Ime kursa</label>
+      <input type="text" name="name" id="name" class="admin" value="{{course.name}}">
+    </div>
+    <div class="adminInput">
+      <input type="checkbox" name="active" id="active" {{#if course.active}}checked{{else}}{{/if}}>
+      <label for="active"> Objavi?</label>
+    </div>
+    <div class="adminInput">
+      <label for="dugme">Sačuvaj</label>
+      <button id="dugme" class="admin" data-course-id="{{course._id}}">Sačuvaj</button></a>
+    </div>
+  </form>
+  
+  <a href="/admin/svi-kursevi" class="nocolor"><button class="wideAdminButton">Svi kursevi</button></a>
+  {{#if course.active}}{{else}}<a href="/admin/ukloni-kurs/{{course._id}}" class="nocolor"><button class="warning wideAdminButton">Obriši kurs</button></a>{{/if}}
+</article>
+<script type="module" src="../../js/courses/editCourse.js"></script>

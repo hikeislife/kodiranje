@@ -1,5 +1,5 @@
 document.querySelector('#dugme').addEventListener('click', (e) => {
-  e.preventDefault()
+  //e.preventDefault()
   const name = document.querySelector('#name').value,
         username = document.querySelector('#username').value,
         password = document.querySelector('#password').value,

@@ -16,6 +16,43 @@ courseRouter.get('/admin/svi-kursevi', async (req, res) => {
   res.render('courses/showAllCourses', { googTitle: "Svi kursevi", robots: true, kursevi: kursevi })
 })
 
+courseRouter.get('/admin/izmeni-kurs/:id', async (req, res) => {
+  const _id = req.params.id
+  try {
+    const course = await Course.findById(_id)
+    
+    if (!course) return res.status(404).send()
+
+    res.render('courses/editCourse', { course })
+  } catch (e) {
+    console.log(e)
+    res.status(500).send()
+  }
+})
+
+courseRouter.patch('/admin/edit-course/:id', async (req, res) => {
+  const _id = req.params.id
+
+  console.log(req.body)
+  try {
+    let course = await Course.findByIdAndUpdate(_id, req.body, {
+      new: true,
+      runValidators: true
+    })
+
+    if (!course) return res.status(404).send()
+
+    course = await Course.findById(_id)
+    res.render('courses/editCourse', { course })
+  } catch (e) {
+    console.log(e)
+    res.status(500).send()
+  }
+  
+  //course = await Course.findById(_id)
+  //res.render('courses/editCourse', { course })
+})
+
 courseRouter.get('/admin/reorganizuj-kurseve', async (req, res) => {
   const kursevi = await Course.find().select('-__v').sort({ order: 1 })
 

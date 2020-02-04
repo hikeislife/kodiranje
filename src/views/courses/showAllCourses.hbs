@@ -7,7 +7,7 @@
         <td>{{increment order}}</td>
         <td class="{{#if active}}aktvanKurs{{else}}neaktanKurs{{/if}}">{{name}}</td>
         <td><a href="/admin/detalji-kursa/{{_id}}" class="nocolor"><button class="adminButton">Detalji</button></a></td>
-        <td><a href="/admin//{{_id}}" class="nocolor"><button>Izmeni</button></a></td>
+        <td><a href="/admin/izmeni-kurs/{{_id}}" class="nocolor"><button>Izmeni</button></a></td>
         <td>{{#if active}}{{else}}<a href="/admin/ukloni-kurs/{{_id}}" class="nocolor"><button class="warning adminButton">Obriši</buton></a>{{/if}}</td>
       </tr>
       {{/each}}

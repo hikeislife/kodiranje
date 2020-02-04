@@ -70,14 +70,12 @@ input[type="checkbox"] {
   // height: 0;
 }
 
-label[for="active"],
-label[for] {
+label[for="active"] {
   margin-top: 2em;
   display: inline-flex;
 }
 
-label[for="active"]:after,
-label[for]:after {
+label[for="active"]:after {
   content: ' ';
   width: 2rem;
   height: 2rem;
