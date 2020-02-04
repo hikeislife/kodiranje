@@ -1,23 +1,21 @@
-import makeDragable from './makeDraggable.js'
+// import makeDragable from './makeDraggable.js'
 
 export function getList() {
   return [...document.querySelectorAll('.added-items li')]
 }
-
 
 export default function updateItemList ()  {
   const ul = document.querySelector('.added-items')
   const publish = document.querySelector('label[for=publish]')
   const newCourse = document.querySelector('#newCourse')
 
-  
-
   function setUlHeight () {
     ul.style.height = `${(getList()[0].clientHeight + 10) * getList().length }px`
   }
 
-  function positionAbsolutes () {
+  const positionAbsolutes = () => {
     getList().forEach(li => {
+      //console.log(li)
       li.style.top = `${li.dataset.order * (li.clientHeight + 4)}px`
     })
     setUlHeight()

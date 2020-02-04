@@ -1,7 +1,9 @@
-import { getList } from './handleItemList.js'
+import updateItemList, { getList } from './handleItemList.js'
+
+updateItemList()
 
 let newIndex = 0;
-export default function makeDragable() {
+export default function makeDragable () {
   let index
   getList().forEach(li => {
     li.addEventListener('dragstart', (e) => {
@@ -15,6 +17,7 @@ export default function makeDragable() {
     })
   })
 }
+makeDragable()
 
 function reorderItems(index) {
   const liHeight = getList()[0].clientHeight + 4

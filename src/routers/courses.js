@@ -16,10 +16,29 @@ courseRouter.get('/admin/svi-kursevi', async (req, res) => {
   res.render('courses/showAllCourses', { googTitle: "Svi kursevi", robots: true, kursevi: kursevi })
 })
 
+courseRouter.get('/admin/reorganizuj-kurseve', async (req, res) => {
+  const kursevi = await Course.find().select('-__v').sort({ order: 1 })
+
+  res.render('courses/reorderCourses', { googTitle: "Reorganizuj kursevi", robots: true, kursevi: kursevi })
+})
+
 courseRouter.get('/admin/detalji-kursa/:id', async (req, res) => {
   const _id = req.params.id
   const course = await Course.findById(_id)
   res.render('courses/courseDetails', { googTitle: "Detalji kursa", robots: true, course })
+})
+
+courseRouter.delete('/admin/delete-course/:id', async (req, res) => {
+  const _id = req.params.id
+  try {
+    const course = await Course.findByIdAndDelete(_id)
+    if (!course) {
+      return res.status(404).send()
+    }
+    res.redirect('back')
+  } catch (e) {
+    res.status(500).send()
+  }
 })
 
 courseRouter.get('/admin/dodaj-kurs', async (req, res) => {

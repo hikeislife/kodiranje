@@ -1,0 +1,10 @@
+<article>
+  <h1>Povuci i potegni da reorganizuješ kurseve</h1>
+  <ul class="listless added-items">
+    {{#each kursevi}}
+    <li data-order="{{order}}">{{name}}</li>
+    {{/each}}
+  </ul>
+</article>
+<script type="module" src="../../js/front/handleItemList.js"></script>
+<script type="module" src="../../js/front/makeDraggable.js"></script>
