@@ -1,0 +1,19 @@
+<article>
+  <h1>Kursevi</h1>
+  <table>
+    <tbody>
+      {{#each kursevi}}
+      <tr>
+        <td>{{increment order}}</td>
+        <td class="{{#if active}}aktvanKurs{{else}}neaktanKurs{{/if}}">{{name}}</td>
+        <td><a href="/admin/detalji-kursa/{{_id}}" class="nocolor"><button class="adminButton">Detalji</button></a></td>
+        <td><a href="/admin//{{_id}}" class="nocolor"><button>Izmeni</button></a></td>
+        <td><a href="/admin/ukloni-kurs/{{_id}}" class="nocolor"><button class="warning adminButton">Obriši</buton></a></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <a href="/admin/dodaj-kurs" class="nocolor"><button class="wideAdminButton">Dodaj kurs</button></a>
+  <a href="" class="nocolor"><button class="wideAdminButton">Reorganizuj kurseve</button></a>
+  
+</article>

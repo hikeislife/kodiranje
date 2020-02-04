@@ -3,11 +3,11 @@ const validator = require('validator')
 
 
 insertDashes = (string) => {
-  console.log(string.replace(/ /gi, '-'))
   return string.replace(/ /gi, '-')
 } 
 
-const Course = mongoose.model('Courses', {
+//const Course = mongoose.model('Courses', {
+const courseSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, `Ime kursa je obavezno polje`],
@@ -38,6 +38,6 @@ const Course = mongoose.model('Courses', {
   }
 })
 
-
+const Course = mongoose.model('courses', courseSchema)
 
 module.exports = Course

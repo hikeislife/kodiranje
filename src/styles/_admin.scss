@@ -70,12 +70,12 @@ input[type="checkbox"] {
   // height: 0;
 }
 
-label[for="publish"] {
+label[for="active"] {
   margin-top: 2em;
   display: inline-flex;
 }
 
-label[for="publish"]:after {
+label[for="active"]:after {
   content: ' ';
   width: 1.5em;
   height: 1.5em;
@@ -90,7 +90,7 @@ label[for="publish"]:after {
   line-height: 1em;
 }
 
-input[type="checkbox"]:checked ~ label[for="publish"]:after {
+input[type="checkbox"]:checked ~ label[for="active"]:after {
   font-family: "Font Awesome 5 Free";
   content: "\f00d";
   background: $buttonBackground;
@@ -156,4 +156,10 @@ span[data-counter] {
 
 .adminButton {
   width: 100px;
+}
+
+.wideAdminButton {
+  width: 100%;
+  height: 3em;
+  margin: 1em 0;
 }
