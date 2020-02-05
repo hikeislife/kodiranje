@@ -1,17 +1,16 @@
-const express        = require('express')
-const path           = require('path')
-const hbs            = require('hbs')
-const bodyParser     = require('body-parser')
-const session        = require('express-session');
-const nm             = require('nodemailer')
-const MongoStore     = require('connect-mongo')(session)
-const mongoose       = require('mongoose')
+const express           = require('express')
+const path              = require('path')
+const hbs               = require('hbs')
+const bodyParser        = require('body-parser')
+const session           = require('express-session');
+const nm                = require('nodemailer')
+const MongoStore        = require('connect-mongo')(session)
+const mongoose          = require('mongoose')
 
-//const adminApiRouter = require('./routers/adminApi.js')
-
-const Article         = require('./db/models/article')
-const { adminRouter } = require('./routers/admin.js')
-const { courseRouter } = require('./routers/courses.js')
+const   Article         = require('./db/models/article')
+const { adminRouter }   = require('./routers/admin.js')
+const { courseRouter }  = require('./routers/courses.js')
+const { articleRouter } = require('./routers/articles.js')
 
 // if (!process.env.JWT_P_KEY) { // Breaks app down if no jwt secret is provided 
 //   console.log('FATAL ERROR JWT_P_KEY not defined')
@@ -31,6 +30,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(adminRouter)
 app.use(courseRouter)
+app.use(articleRouter)
 
 const port       = process.env.PORT
 const dir        = path.join(__dirname)
@@ -41,20 +41,14 @@ app.set('views',        views)
 app.set('view options', { layout: 'index' })
 hbs.registerPartials(views)
 
-
-
 app.use(express.static(dir))
 app.use(express.static('./js/front'))
-
 
 app.use((er, req, res, text) => {
   console.error(er.stack)
   res.status(500)
   res.render('500')
 })
-//app.use(adminApiRouter)
-
-
 
 
 /* PATHS */
@@ -65,8 +59,7 @@ app.get('/', (req, res) => {
   } catch (er) {
     userId = undefined
   }
-  // if(req.session) {const { userId } = req.session}
-  // else userId = null;
+  
   
   Article.find({ courseName: 'mp', published: true }).sort({ order: 1 }).select('_id navName selectedURL ').then(menu => {
     if (!menu) {

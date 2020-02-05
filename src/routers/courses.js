@@ -1,8 +1,8 @@
 const express = require('express')
 //const session = require('express-session')
-require('../db/mongoose')
-const Course = require('../db/models/course')
-const hbs = require('hbs');
+                require('../db/mongoose')
+const Course  = require('../db/models/course')
+const hbs     = require('hbs')
 
 hbs.registerHelper("increment", function (value, options) {
   return parseInt(value) + 1;
