@@ -46,9 +46,6 @@ courseRouter.patch('/admin/edit-course/:id', async (req, res) => {
     console.log(e)
     res.status(500).send()
   }
-  
-  //course = await Course.findById(_id)
-  //res.render('courses/editCourse', { course })
 })
 
 courseRouter.get('/admin/reorganizuj-kurseve', async (req, res) => {
@@ -102,7 +99,6 @@ courseRouter.delete('/admin/delete-course/:id', async (req, res) => {
 
 courseRouter.get('/admin/dodaj-kurs', async (req, res) => {
   const order = await findOrder()
-  console.log(order)
   res.render('courses/addNewCourse', { googTitle: "Dodaj kurs", robots: true, order})
 })
 

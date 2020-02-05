@@ -1,0 +1,25 @@
+.editMenu {
+  position: absolute;
+  border: 3px outset $lg;
+  background: $sg;
+  display: none;
+  box-shadow: /*1px 1px 2px $mainG,
+              -1px 1px 2px $mainG,
+              1px -1px 2px $mainG,*/
+              1px 1px 10px gray;
+  
+  ul {
+    margin: 0 .1em;
+  }
+
+  li {
+    padding: .16em 1em;
+    // margin: 0 .1em;
+    border-bottom: 1px solid $dg;
+
+    &:hover {
+      cursor: pointer;
+      background: $lg;
+    }
+  }
+}

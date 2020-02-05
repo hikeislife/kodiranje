@@ -3,8 +3,6 @@
   {{# each menu as |key value|}}
   <a href="{{key.selectedURL}}"><li id="{{key._id}}">{{key.navName}}</li></a>
   {{/each}}
-  {{else}}
-  {{>admin/sidenav}}
   {{/if}}
   {{# if mainMenu}}
   {{# each mainMenu as |key value|}}
@@ -12,5 +10,7 @@
     <li id="{{key._id}}">{{key.navName}}</li>
   </a>
   {{/each}}
+  {{else}}
+  {{>admin/sidenav}}
   {{/if}}
 </ul>

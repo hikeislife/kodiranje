@@ -60,7 +60,6 @@ app.get('/', (req, res) => {
     userId = undefined
   }
   
-  
   Article.find({ courseName: 'mp', published: true }).sort({ order: 1 }).select('_id navName selectedURL ').then(menu => {
     if (!menu) {
       return res.status(404).send()

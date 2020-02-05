@@ -1,0 +1,17 @@
+<article>
+  <h1>Lista svih artikala</h1>
+  
+  <div class="column">
+    <h2>Objavljeni</h2>
+    {{#each articleList}}
+      {{#if published}}
+        <p><a href="{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
+      {{/if}}
+    {{/each}}
+  </div>
+  <div class="column">
+    <h2>Neobjavljeni</h2>
+    {{#each articleList}}{{/each}}
+  </div>
+  
+</article>

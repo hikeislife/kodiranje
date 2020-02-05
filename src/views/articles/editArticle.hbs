@@ -1,0 +1,15 @@
+<article>
+  <div contenteditable="true" class="editContent" style="position: relative">
+    {{{post.articleContent}}}
+    {{>articles/editMenu}}
+  </div>
+  
+
+  <div class="artMeta">
+    {{# if post.created}}<p>Članak prvi put objavljen {{post.created}}</p>{{/if}}
+    {{# if post.edited}}<p>Poslednje izmena: {{post.edited}}</p>{{/if}}
+    {{# if post.author}}<p>Autor teksta: {{post.author}}</p>{{/if}}
+  </div>
+</article>
+{{!-- <script type="application/javascript+module" src="../../js/articles/editMenu.js"></script> --}}
+<script src="../../js/articles/editMenu.js"></script>
