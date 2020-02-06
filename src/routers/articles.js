@@ -6,8 +6,6 @@ const hbs     = require('hbs')
 
 const articleRouter = new express.Router()
 
-
-
 articleRouter.get('/admin/svi-artikli', async (req, res) => {
   const articleList = await Article.find().select('-articleContent -__v -socImage -_id -tags -googDesc -socDesc -socTitle -googTitle -created -edited -author').sort({ courseName: -1 })
   const publishedArticles = [], notPublished = []

@@ -195,3 +195,36 @@ span[data-counter] {
     padding: 0 1em;
   }
 }
+
+.floatingMenu {
+  border: 9px double black;
+  border-radius: .5em;
+  display: inline-block;
+  padding: .5em;
+  position: fixed;
+  top: 600px;
+  left: 14.3em;
+  width: 91.2px; /* so it doesn't jump */
+  background: rgb(86, 86, 86);
+  background-clip: padding-box;
+
+  .listless {
+    margin: 0;
+    
+    li {
+      font-size: 2.5em;
+      padding: 0;
+      display: flex;
+      align-content: center;
+      justify-content: center;
+
+      span {
+        color: $mainG;
+      }
+
+      .floattingWarning {
+        color: $wr;
+      }
+    }
+  }
+}
