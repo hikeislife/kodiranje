@@ -40,15 +40,7 @@ const articleSchema = new mongoose.Schema({
     type: String,
     default: `Nauči da kodiraš, šta ćeš drugo da radiš?`
   },
-  // created: {
-  //   type: String,
-  //   required: [true, `Datum posta je obavezno polje`]
-  // },
-  // edited: {
-  //   type: String,
-  //   //
-  // },
-  
+  // og tags
   socTitle: {
     type: String,
     default: `Nauči da kodiraš, šta ćeš drugo da radiš?`

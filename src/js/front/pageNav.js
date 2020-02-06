@@ -15,7 +15,7 @@ export default function createPageNav () {
         <li>${x.attributes.title.nodeValue}</li>
       </a>\n`
   })
-  console.log(navContent)
+  //console.log(navContent)
   if (page.querySelector('.page-nav > .listless'))
     page.querySelector('.page-nav > .listless').innerHTML = navContent
 }

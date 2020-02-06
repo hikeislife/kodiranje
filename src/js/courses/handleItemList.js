@@ -27,7 +27,6 @@ export default function updateItemList ()  {
   const handleListClicks = (() => {
     publish.forEach(check => {
       const currentLi = check.parentElement.parentElement
-      
       check.addEventListener('click', () => {
         if (!check.control.checked) {
           currentLi.classList.remove('inactive-item')
