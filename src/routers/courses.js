@@ -51,7 +51,7 @@ courseRouter.patch('/admin/edit-course/:id', async (req, res) => {
 courseRouter.get('/admin/reorganizuj-kurseve', async (req, res) => {
   const kursevi = await Course.find().select('-__v').sort({ order: 1 })
 
-  res.render('courses/reorderCourses', { googTitle: "Reorganizuj kursevi", robots: true, kursevi: kursevi })
+  res.render('courses/reorderCourses', { googTitle: "Reorganizuj kurseve", robots: true, kursevi: kursevi })
 })
 
 courseRouter.patch('/admin/batchEditCourses', async (req, res) => {
@@ -59,7 +59,8 @@ courseRouter.patch('/admin/batchEditCourses', async (req, res) => {
   courses.forEach(course => {
     updateEach(course)
   })
-  res.render('courses/showAllCourses')
+  res.method = "GET"
+  res.redirect(303, '/admin/dodaj-lekciju')
 })
 
 updateEach = async (course) => {
