@@ -8,7 +8,7 @@ const adminRouter = new express.Router()
 
 // GET/login
 adminRouter.get('/admin', (req, res) => { 
-  res.render('admin/login')
+  res.render('admin/login', { googTitle: "Log in", robots: true})
 })
 
 // POST/login
@@ -18,13 +18,13 @@ adminRouter.post('/admin/login', async (req, res) => {
     //const uid = user._id
     res.redirect('/admin/svi-admini')
   } catch (er) {
-    res.status(403).render('admin/login',  { errorMessage: "log-in podaci nisu ispravni" })
+    res.status(403).render('admin/login', { errorMessage: "log-in podaci nisu ispravni", googTitle: "Log in", robots: true })
   }
 })
 
 adminRouter.get('/admin/svi-admini', async (req, res) => {
   const admins = await Admin.find().select('-password -__v -tokens')
-  res.render('admin/showAll', { admins })
+  res.render('admin/showAll', { admins, googTitle: "Svi admina", robots: true })
 })
 
 adminRouter.get('/admin/detalji/:id', async (req, res) => {
@@ -43,13 +43,14 @@ adminRouter.get('/admin/dodaj-admina', (req, res) => {
 
 // POST/addNewAdmin  ~  register
 adminRouter.post('/admin/addNewAdmin/', async (req, res, body) => {
+  
   const admin = new Admin(req.body)
   try {
     await admin.save()
     //const token = await admin.generateAuthToken()
     res.status(201).render('admin/adminDetails', { message: "Novi admin dodat", user: admin })
   } catch (er) {
-    res.status(418).render('admin/addNewAdmin', { errorMessage: er.errmsg})
+    res.status(418).render('admin/addNewAdmin', { errorMessage: er.errmsg, googTitle: "Dodaj admina", robots: true})
   }
 })
 
@@ -62,7 +63,7 @@ adminRouter.get('/admin/izmeni-admina/:id', async (req, res) => {
 
     if(!user) return res.status(404).send()
 
-    res.render('admin/editAdmin', { user })
+    res.render('admin/editAdmin', { user, googTitle: "Izmeni admina", robots: true })
   } catch (e) {
     res.status(500).send()
   }
@@ -85,7 +86,7 @@ adminRouter.patch('/admin/edit-admin/:id', async (req, res) => {
       if (!user) return res.status(404).send()
       
       user = await Admin.findById(_id)
-      res.render('admin/editAdmin', { user })
+      res.render('admin/editAdmin', { user, googTitle: "Izmeni admina", robots: true })
     } catch (e) {
       console.log(e)
       res.status(500).send()
@@ -93,7 +94,7 @@ adminRouter.patch('/admin/edit-admin/:id', async (req, res) => {
   }
   else {
     const user = await Admin.findById(_id)
-    res.render('admin/editAdmin', { user })
+    res.render('admin/editAdmin', { user, googTitle: "Izmeni admina", robots: true })
   }
   
 })

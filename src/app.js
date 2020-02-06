@@ -117,18 +117,7 @@ app.get('/tut/:kurs/:lekcija', (req, res) => {
       if(!menu) {
         return res.status(404).send()
       }
-      res.render('article', { 
-        menu,
-        googTitle: post.googTitle,
-        googDesc: post.googDesc,
-        socDesc: post.socDesc,
-        socImage: post.socImage,
-        socTitle: post.socTitle,
-        created: post.created,
-        edited: post.edited,
-        authot: post.authot,
-        articleContent: post.articleContent
-      })
+      res.render('article', { menu, post })
     })
   }).catch((er) => {
     res.status(418).send(er)

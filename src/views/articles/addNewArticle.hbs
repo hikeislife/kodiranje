@@ -2,58 +2,86 @@
   <section>
     <h1>Novi članak</h1>
     <div>
-      <form      enctype=     "multipart/form-data"
-                 method=      "post"
-                 action=      "/api/addPost">
+      <form      {{!-- enctype=     "multipart/form-data" --}}
+                 method=      "POST"
+                 action=      "/admin/addPost">
+        <fieldset>
+          <legend>Osnovni sadržaj</legend>
         <div     class=       "adminInput">
-          <label for=         "selectURL">     Naziv artikla</label>
+          <label for=         "selectedURL">   Naziv artikla</label>
           <input type=        "text" 
                  class=       "admin" 
-                 name=        "selectURL" 
-                 id=          "selectURL" 
-                 placeholder= "">
+                 name=        "selectedURL" 
+                 id=          "selectedURL" 
+                 placeholder= "Ovo određuje url strane">
         </div>
         <div     class=       "adminInput">
-          <label for=         "googTitle">     Nasov google pretrage</label><br>
+          <label for=         "navName">       Skraćeni naziv</label>
           <input type=        "text" 
-                 id=          "googTitle" 
                  class=       "admin" 
-                 name=        "entry" 
-                 placeholder= "(za google pretragu)" 
-                 required>
-        </div>
-        <div     class=       "adminInput">
-          <label for=         "socTitle">      Nasov posta na društvenim mrežama</label><br>
-          <input type=        "text" 
-                 id=          "socTitle" 
-                 class=       "admin" 
-                 name=        "entry" 
-                 placeholder= "(za društvene mreže)">
+                 name=        "navName" 
+                 id=          "navName" 
+                 placeholder= "Ovo određuje šta piše u meniju">
         </div>
         <div     class=       "adminInput">
           <label for=         "articleContent">Artikal</label><br>
-          <textarea name=     "entry" 
+          <textarea name=     "articleContent" 
                  id=          "articleContent" 
+                 placeholder= "Unesi sadržaj bez <article> taga"
                  class=       "admin"></textarea>
         </div>
         <div        class=    "adminInput">
           <label    for=      "courseName">    Kurs</label>
           <select   class=    "admin" 
-                    id=       "courseName">
-            <option value=    "html-i-css">    HTML i CSS </option>
+                    id=       "courseName"
+                    name=     "courseName">
+            {{#each courseList}}
+              <option value="{{setId}}"> {{name}} </option>
+            {{/each}}
+            {{!-- <option value=    "html-i-css">    HTML i CSS </option>
             <option value=    "javascript">    JavaScript </option>
             <option value=    "cmd-i-git">     Git i CMD  </option>
             <option value=    "arduino">       Arduino    </option>
             <option value=    "mp">            Main page  </option>
-            <option value=    "csharp">        C#         </option>
+            <option value=    "csharp">        C#         </option> --}}
           </select>
         </div>
         <div     class=       "adminInput">
-          <label for=         "socImage">      Slika za društvene mreže 1200x630px sa banerom</label>
-          <input type=        "file" 
+          <label for=         "tags">          Tagovi</label><br>
+          <input type=        "text" 
+                 id=          "tags" 
+                 class=       "admin m2r" 
+                 name=        "tags" 
+                 placeholder= "(razdvojeni zarezom)">
+        </div>
+        <div     class=       "adminInput">
+          <input type=        "checkbox" 
+                 name=        "published" 
+                 id=          "published">
+          <label for=         "published"
+                 class=       "reorderCheckbox">Objavi?</label>
+        </div>
+        <div     class=       "adminInput"
+                 style=       "visibility: hidden; 
+                               margin-bottom: -7em">
+          <label for=         "order">         Order</label>
+          <input type=        "number" 
                  class=       "admin" 
-                 id=          "socImage" 
-                 name=        "entry">
+                 name=        "order" 
+                 id=          "order"
+                 value=       "{{order}}">
+        </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>SEO optimizacija</legend>
+        <div     class=       "adminInput">
+          <label for=         "googTitle">     Naslov google pretrage</label><br>
+          <input type=        "text" 
+                 id=          "googTitle" 
+                 class=       "admin" 
+                 name=        "googTitle" 
+                 placeholder= "optimalno do 80 karaktera" >
         </div>
         <div     class=       "adminInput">
           <label for=         "googDesc">      Opis u google pretrazi</label><br>
@@ -62,35 +90,42 @@
                  class=       "admin m2r countMe" 
                  name=        "entry"
             
-                 placeholder= "(za google pretragu, oko 155 karaktera)">
+                 placeholder= "Opiši sadržaj strane, do oko 155 karaktera">
           <span  class=       "adminCounter googDesc" 
                  data-counter="155">155</span>
         </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Optimizacija za društvene mreže</legend>
+        <div     class=       "adminInput">
+          <label for=         "socTitle">      Naslov posta na društvenim mrežama</label><br>
+          <input type=        "text" 
+                 id=          "socTitle" 
+                 class=       "admin" 
+                 name=        "socTitle" 
+                 placeholder= "(za društvene mreže)">
+        </div>
         <div     class=       "adminInput">
           <label for=         "socDesc">       Opis u postu na društvenim mrežama</label><br>
-          <input type=        "text" id="socDesc" 
+          <input type=        "text" 
+                 id=          "socDesc" 
                  class=       "admin m2r countMe" 
-                 name=        "entry"
+                 name=        "socDesc"
             
-                 placeholder= "(za društvene mreže, do 200 karaktera)">
+                 placeholder= "Opis za društvene mreže, do 200 karaktera">
           <span  class=       "adminCounter socDesc" 
                  data-counter="200">200</span>
         </div>
         <div     class=       "adminInput">
-          <label for=         "tags">          Tagovi</label><br>
-          <input type=        "text" 
-                 id=          "tags" 
-                 class=       "admin m2r" 
-                 name=        "entry" 
-                 placeholder= "(razdvojeni zarezom)">
+          <label for=         "socImage">      Slika za društvene mreže 1200x630px sa banerom</label>
+          <input type=        "file" 
+                 class=       "admin" 
+                 id=          "socImage" 
+                 name=        "socImage">
         </div>
-        <div     class=       "adminInput">
-          <input type=        "checkbox" 
-                 name=        "publish" 
-                 id=          "publish">
-          <label for=         "publish">       Objavi?</label>
-        </div>
-      <!-- <input type="text" id="articleContent"> -->
+        </fieldset>
+
       <label     for=         "dugme">         Sačuvaj</label>
       <input     type=        "submit" 
                  value=       "Sačuvaj" 

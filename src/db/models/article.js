@@ -3,17 +3,21 @@ const validator = require('validator')
 
 // const Article = mongoose.model('Article', {
 const articleSchema = new mongoose.Schema({
+  selectedURL: { /* Naziv članka, ne prikazuje se na strani već je deo url-a */
+    type: String,
+    required: [true, `Naziv članka je obavezno polje`]
+  },
   navName: {
     type: String,
     required: [true, `Polje je obavezno`]
   },
+  articleContent: {
+    type: String,
+    required: [true, `Text artikla je obavezno polje`]
+  },
   courseName: {
     type: String,
     required: [true, `Polje je obavezno`]
-  },
-  selectedURL: {
-    type: String,
-    required: [true, `URL je obavezno polje`]
   },
   tags: {
     type: Array
@@ -21,6 +25,20 @@ const articleSchema = new mongoose.Schema({
   published: {
     type: Boolean,
     default: false
+  },
+  author: {
+    type: String,
+    default: 'K',
+    required: [true, `Autor je obavezno polje`]
+  },
+  // SEO
+  googTitle: {
+    type: String,
+    //
+  },
+  googDesc: {
+    type: String,
+    default: `Nauči da kodiraš, šta ćeš drugo da radiš?`
   },
   // created: {
   //   type: String,
@@ -30,18 +48,7 @@ const articleSchema = new mongoose.Schema({
   //   type: String,
   //   //
   // },
-  author: {
-    type: String,
-    required: [true, `Autor je obavezno polje`]
-  },
-  googTitle: {
-    type: String,
-    //
-  },
-  googDesc: {
-    type: String,
-    default: `Nauči da kodiraš, šta ćeš drugo da radiš?`
-  },
+  
   socTitle: {
     type: String,
     default: `Nauči da kodiraš, šta ćeš drugo da radiš?`
@@ -62,13 +69,7 @@ const articleSchema = new mongoose.Schema({
         throw new Error(`Redosled ne može biti negativan`)
       }
     }
-  },
-  articleContent: {
-    type: String,
-    required: [true, `Text artikla je obavezno polje`]
-  }/*, soc: {
-    type: Buffer
-  }*/
+  }
 }, {
   timestamps: true
 })

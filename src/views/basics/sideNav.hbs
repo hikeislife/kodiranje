@@ -10,7 +10,8 @@
     <li id="{{key._id}}">{{key.navName}}</li>
   </a>
   {{/each}}
-  {{else}}
+  {{/if}}
+  {{#if robots}}
   {{>admin/sidenav}}
   {{/if}}
 </ul>

@@ -1,10 +1,10 @@
 <article>
-  {{{articleContent}}}
+  {{{post.articleContent}}}
 
   <div class="artMeta">
-    {{# if created}}<p>Članak prvi put objavljen {{created}}</p>{{/if}}
-    {{# if edited}}<p>Poslednje izmena: {{edited}}</p>{{/if}}
-    {{# if author}}<p>{{author}}</p>{{/if}}
+    {{# if post.createdAt}}<p>Članak prvi put objavljen {{formatDate  post.createdAt}}</p>{{/if}}
+    {{# if post.updatedAt}}<p>Poslednje izmena: {{formatDate  post.updatedAt}}</p>{{/if}}
+    {{# if post.author}}<p>{{post.author}}</p>{{/if}}
   </div>
 </article>
 {{!-- <script type="application/javascript+module" src="./front/displayArticle.js"></script> --}}
