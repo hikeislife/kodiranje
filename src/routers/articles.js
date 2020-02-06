@@ -10,7 +10,16 @@ const articleRouter = new express.Router()
 
 articleRouter.get('/admin/svi-artikli', async (req, res) => {
   const articleList = await Article.find().select('-articleContent -__v -socImage -_id -tags -googDesc -socDesc -socTitle -googTitle -created -edited -author').sort({ courseName: -1 })
-  res.render('articles/listAllArticles', { googTitle: "Lista lekcija", robots: true, articleList })
+  const publishedArticles = [], notPublished = []
+  articleList.forEach(x => {
+    if(x.published) publishedArticles.push(x)
+    else notPublished.push(x)
+  })
+  res.render('articles/listAllArticles', { 
+    googTitle: "Lista lekcija", 
+    robots: true, 
+    publishedArticles, 
+    notPublished })
 })
 
 articleRouter.get('/admin/:kurs/:lekcija', (req, res) => {
@@ -44,14 +53,11 @@ articleRouter.post('/admin/addPost', async (req, res, body) => {
   const article = new Article(req.body)
   try {
     await article.save()
-    //req.method = 'GET'
     res.redirect(302, '/admin/svi-artikli')
   } catch (e) {
     res.status(418).render('articles/addNewArticle', { errorMessage: e.errmsg, googTitle: "Dodaj lekciju", robots: true })
     console.log(e)
   }
-  
-  //res.status(200).send()
 })
 
 findOrder = async () => {

@@ -184,3 +184,14 @@ span[data-counter] {
     margin: .5em;
   }
 }
+
+.column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+
+  .published, .notPublished {
+    border: 1px solid black;
+    padding: 0 1em;
+  }
+}

@@ -2,16 +2,124 @@
   <h1>Lista svih artikala</h1>
   
   <div class="column">
-    <h2>Objavljeni</h2>
-    {{#each articleList}}
-      {{#if published}}
-        <p><a href="{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
-      {{/if}}
-    {{/each}}
+    <div class="published">
+      <h2>Objavljeni</h2>
+      <details>
+        <summary>
+          <p>Front page</p>
+        </summary>
+        {{#each publishedArticles}}
+          {{#if (eq courseName "mp")}}
+            <p><a href="{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
+          {{/if}}
+        {{/each}}
+      </details>
+      <details>
+        <summary>
+          <p>Html i css</p>
+        </summary>
+        {{#each publishedArticles}}
+          {{#if (eq courseName "html-i-css")}}
+            <p><a href="{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
+          {{/if}}
+        {{/each}}
+      </details>
+      <details>
+        <summary>
+          <p>JavaScript</p>
+        </summary>
+        {{#each publishedArticles}}
+          {{#if (eq courseName "javascript")}}
+            <p><a href="{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
+          {{/if}}
+        {{/each}}
+      </details>
+      <details>
+        <summary>
+          <p>Git</p>
+        </summary>
+        {{#each publishedArticles}}
+          {{#if (eq courseName "git-i-cmd")}}
+            <p><a href="{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
+          {{/if}}
+        {{/each}}
+      </details>
+      <details>
+        <summary>
+          <p>Arduino</p>
+        </summary>
+        
+      </details>
+      <details>
+        <summary>
+          <p>C#</p>
+        </summary>
+        {{#each publishedArticles}}
+          {{#if (eq courseName "csharp")}}
+            <p><a href="{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
+          {{/if}}
+        {{/each}}
+      </details>
+    </div>
+    <div class="notPublished">
+      <h2>Neobjavljeni</h2>
+      <details>
+        <summary>
+          <p>Front page</p>
+        </summary>
+        {{#each notPublished}}
+          {{#if (eq courseName "mp")}}
+            <p><a href="{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
+          {{/if}}
+        {{/each}}
+      </details>
+      <details>
+        <summary>
+          <p>Html i css</p>
+        </summary>
+        {{#each notPublished}}
+          {{#if (eq courseName "html-i-css")}}
+            <p><a href="{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
+          {{/if}}
+        {{/each}}
+      </details>
+      <details>
+        <summary>
+          <p>JavaScript</p>
+        </summary>
+        {{#each notPublished}}
+          {{#if (eq courseName "javascript")}}
+            <p><a href="{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
+          {{/if}}
+        {{/each}}
+      </details>
+      <details>
+        <summary>
+          <p>Git</p>
+        </summary>
+        {{#each notPublished}}
+          {{#if (eq courseName "git-i-cmd")}}
+            <p><a href="{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
+          {{/if}}
+        {{/each}}
+      </details>
+      <details>
+        <summary>
+          <p>Arduino</p>
+        </summary>
+        
+      </details>
+      <details>
+        <summary>
+          <p>C#</p>
+        </summary>
+        {{#each notPublished}}
+          {{#if (eq courseName "csharp")}}
+            <p><a href="{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
+          {{/if}}
+        {{/each}}
+      </details>
+    </div>
+    
   </div>
-  <div class="column">
-    <h2>Neobjavljeni</h2>
-    {{#each articleList}}{{/each}}
-  </div>
-  
 </article>
