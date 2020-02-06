@@ -2,9 +2,9 @@
   {{{post.articleContent}}}
 
   <div class="artMeta">
-    {{# if post.createdAt}}<p>Članak prvi put objavljen {{formatDate  post.createdAt}}</p>{{/if}}
-    {{# if post.updatedAt}}<p>Poslednje izmena: {{formatDate  post.updatedAt}}</p>{{/if}}
-    {{# if post.author}}<p>{{post.author}}</p>{{/if}}
+    {{# if post.createdAt}}<p>Članak prvi put objavljen: <b>{{formatDate post.createdAt}}</b></p>{{/if}}
+    {{# if post.updatedAt}}<p>Poslednje izmena: <b>{{formatDate post.updatedAt}}</b></p>{{/if}}
+    {{# if post.author}}<p>Autor: <b>{{post.author}}</b>.</p>{{/if}}
   </div>
 </article>
 {{!-- <script type="application/javascript+module" src="./front/displayArticle.js"></script> --}}

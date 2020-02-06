@@ -6,12 +6,7 @@ const hbs     = require('hbs')
 
 const articleRouter = new express.Router()
 
-hbs.registerHelper("formatDate", function (value, options) {
-  var intlData = {
-    "locales": "rs-SR"
-  }
-  
-});
+
 
 articleRouter.get('/admin/svi-artikli', async (req, res) => {
   const articleList = await Article.find().select('-articleContent -__v -socImage -_id -tags -googDesc -socDesc -socTitle -googTitle -created -edited -author').sort({ courseName: -1 })
@@ -45,11 +40,12 @@ articleRouter.post('/admin/addPost', async (req, res, body) => {
     req.body.published = true;
   }
   req.body.selectedURL = req.body.selectedURL.toLowerCase().replace(/ /gi, '-')
+  req.body.tags = req.body.tags.split(',').map(x => x.trim())
   const article = new Article(req.body)
   try {
     await article.save()
-    
-    res.redirect(201, '/admin/svi-artikli')
+    //req.method = 'GET'
+    res.redirect(302, '/admin/svi-artikli')
   } catch (e) {
     res.status(418).render('articles/addNewArticle', { errorMessage: e.errmsg, googTitle: "Dodaj lekciju", robots: true })
     console.log(e)

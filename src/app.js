@@ -40,6 +40,12 @@ app.set('view engine', 'hbs')
 app.set('views',        views)
 app.set('view options', { layout: 'index' })
 hbs.registerPartials(views)
+hbs.registerHelper('formatDate', (datetime) => {
+  const options = { year: 'numeric', month: 'numeric', day: 'numeric' }
+  dateAr = datetime.toLocaleDateString('sr', options).split('/')
+  date = `${dateAr[1]}.${dateAr[0]}.${dateAr[2]}.`
+  return date
+})
 
 app.use(express.static(dir))
 app.use(express.static('./js/front'))

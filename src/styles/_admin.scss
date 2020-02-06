@@ -171,3 +171,16 @@ span[data-counter] {
   color: white;
   border: white !important;
 }
+
+.artMeta {
+  text-align: right;
+  color: gray;
+  margin-top: 5em;
+  border: 1px solid black;
+  border-radius: .3em;
+  background: $sg;
+
+  & p {
+    margin: .5em;
+  }
+}
