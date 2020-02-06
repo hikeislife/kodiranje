@@ -1,15 +1,19 @@
 {{>articles/floatingMenu}}
 <article>
-  
+  <form>
+    <div class="adminInput moveToFloatingMenu">
+      <input type="checkbox" name="published" id="published">
+      <label for="published" class="reorderCheckbox"></label>
+    </div>
   <div contenteditable="true" class="editContent" style="position: relative">
     {{{post.articleContent}}}
     {{>articles/editMenu}}
   </div>
-  
+  </form>
 
   <div class="artMeta">
-    {{# if post.created}}<p>Članak prvi put objavljen {{post.created}}</p>{{/if}}
-    {{# if post.edited}}<p>Poslednje izmena: {{post.edited}}</p>{{/if}}
+    {{# if post.createdAt}}<p>Članak prvi put objavljen {{formatDate post.createdAt}}</p>{{/if}}
+    {{# if post.updatedAt}}<p>Poslednje izmena: {{formatDate post.updatedAt}}</p>{{/if}}
     {{# if post.author}}<p>Autor teksta: {{post.author}}</p>{{/if}}
   </div>
 </article>

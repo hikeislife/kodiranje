@@ -85,7 +85,7 @@ input[type="checkbox"] {
   justify-content: center;
   align-items: center;
   position: relative;
-  left: 1em;
+  // left: 1em;
   background: mintcream;
   line-height: 1em;
 }
@@ -202,11 +202,13 @@ span[data-counter] {
   display: inline-block;
   padding: .5em;
   position: fixed;
-  top: 600px;
+  top: 530px;
+  padding-top:70px;
   left: 14.3em;
   width: 91.2px; /* so it doesn't jump */
   background: rgb(86, 86, 86);
   background-clip: padding-box;
+  box-shadow: 1px 1px 10px gray;
 
   .listless {
     margin: 0;
@@ -220,11 +222,29 @@ span[data-counter] {
 
       span {
         color: $mainG;
+        text-shadow: 1px 1px 15px $mainG;
+      }
+
+      .floattingYellow {
+        color: $dy;
+        text-shadow: 1px 1px 15px $dy;
       }
 
       .floattingWarning {
         color: $wr;
+        text-shadow: 1px 1px 15px $wr;
       }
     }
+  }
+}
+
+.moveToFloatingMenu {
+  position: fixed;
+  left: 305px;
+  top: 460px;
+  font-size: 2.5em;
+
+  .reorderCheckbox:after {
+    box-shadow: 1px 1px 15px $buttonBackground;
   }
 }
