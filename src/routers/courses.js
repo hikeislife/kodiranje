@@ -24,7 +24,7 @@ courseRouter.get('/admin/izmeni-kurs/:id', async (req, res) => {
     
     if (!course) return res.status(404).send()
 
-    res.render('courses/editCourse', { course })
+    res.render('courses/editCourse', { course, robots: true, googTitle: "Izmeni kurs"})
   } catch (e) {
     console.log(e)
     res.status(500).send()
@@ -88,7 +88,6 @@ courseRouter.get('/admin/detalji-kursa/:id', async (req, res) => {
   const activeCourses = active.length
   const inactiveCourses = inactive.length
   const total = activeCourses + inactiveCourses
-  console.log(active[0].navName)
   res.render('courses/courseDetails', { googTitle: "Detalji kursa", robots: true, course, total, active, activeCourses, inactive, inactiveCourses })
 })
 

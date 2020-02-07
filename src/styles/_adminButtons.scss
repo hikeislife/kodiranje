@@ -121,7 +121,7 @@
   background: $mainG;
   width: 4em;
   height: 4em;
-  text-shadow: 1px 1px 15px $dg;
+  text-shadow: 1px 1px 15px green;
   font-size: 1em;
 
   &:hover {
@@ -130,7 +130,7 @@
 
   &:before {
     font-family: "Font Awesome 5 Free";
-    content: '\f067';
+    content: '\f4d3';
     font-size: 2em;
   }
 }

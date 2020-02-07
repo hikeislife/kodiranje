@@ -27,7 +27,7 @@
       </details>
     </div>
   </div>
-
+  <a href="/admin/izmeni-kurs/{{course._id}}" class="nocolor"><button class="wideAdminButton admin-editButton">Izmeni kurs</button></a>
   <a href="/admin/svi-kursevi" class="nocolor"><button class="wideAdminButton admin-allButton">Svi kursevi</button></a>
   {{#if course.active}}{{else}}<a href="/admin/ukloni-kurs/{{course._id}}" class="nocolor"><button class="admin-warningButton wideAdminButton">Obriši kurs</button></a>{{/if}}
 </article>
