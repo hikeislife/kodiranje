@@ -73,6 +73,7 @@ input[type="checkbox"] {
 .reorderCheckbox {
   margin-top: 2em;
   display: inline-flex;
+  margin-bottom: 0;
 }
 
 .reorderCheckbox:after {
@@ -202,8 +203,8 @@ span[data-counter] {
   display: inline-block;
   padding: .5em;
   position: fixed;
-  top: 83px;
-  padding-top:70px;
+  top: 126px;
+  padding-top: 90px;
   left: 14.3em;
   width: 91.2px; /* so it doesn't jump */
   background: rgb(86, 86, 86);
@@ -223,6 +224,7 @@ span[data-counter] {
       span {
         color: $mainG;
         text-shadow: 1px 1px 15px $mainG;
+        height: 76.8px;
       }
 
       .floattingYellow {
@@ -241,7 +243,7 @@ span[data-counter] {
 .moveToFloatingMenu {
   position: fixed;
   left: 304px;
-  top: 17px;
+  top: 62px;
   font-size: 2.5em;
 
   .reorderCheckbox:after {

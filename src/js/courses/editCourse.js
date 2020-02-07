@@ -9,7 +9,7 @@ dugme.addEventListener('click', e => {
     name,
     active
   }
-  console.log(data)
+  //console.log(data)
   fetch(`/admin/edit-course/${e.target.dataset.courseId}`, {
     method: 'PATCH',
     cache: 'no-cache',

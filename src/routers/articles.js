@@ -23,7 +23,7 @@ articleRouter.get('/admin/svi-artikli', async (req, res) => {
 articleRouter.get('/admin/:kurs/:lekcija', async (req, res) => {
   const courseList = await Course.find({ active: true }).select('-order -__v -_id -active').sort({ order: 1 })
   
-  await Article.findOne({ courseName: req.params.kurs, selectedURL: req.params.lekcija }).select('-__v -_id').then(post => {
+  await Article.findOne({ courseName: req.params.kurs, selectedURL: req.params.lekcija }).select('-__v').then(post => {
     courseList.selected = post.courseName
     res.render('articles/editArticle', {
       post, 
@@ -34,6 +34,24 @@ articleRouter.get('/admin/:kurs/:lekcija', async (req, res) => {
   // }).catch((er) => {
   //   res.status(418).send(er)
   // })
+})
+
+articleRouter.patch('/admin/edit-article/:id', async (req, res) => {
+  const _id = req.params.id
+  try {
+    let article = await Article.findByIdAndUpdate(_id, req.body, {
+      new: true,
+      runValidators: true
+    })
+
+    if (!article) return res.status(404).send()
+
+    article = await Article.findById(_id)
+    res.redirect(303, `/${article.courseName}/${article.selectedURL}`)
+  } catch (e) {
+    console.log(e)
+    res.status(500).send()
+  }
 })
 
 articleRouter.get('/admin/dodaj-lekciju', async (req, res) => {
