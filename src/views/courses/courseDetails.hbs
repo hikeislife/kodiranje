@@ -1,7 +1,33 @@
 <article>
   <h1>Detalji kursa "{{course.name}}"</h1>
-  <p>Kurs redni broj {{increment course.order}}</p>
+  <p>Kurs redni broj <b>{{increment course.order}}</b> ima ukupno <b>{{total}}</b> lekcija</p>
+  <div class="column">
+    <div>
+      <details>
+        <summary>Objavljenih {{activeCourses}}</summary>
+        <ul class="listless">
+          {{#each active}}
+          <a href="/admin/{{courseName}}/{{selectedURL}}" class="nocolor">
+            <li>{{navName}}</li>
+          </a>
+          {{/each}}
+        </ul>
+      </details>
+    </div>
+    <div>
+      <details>
+        <summary>Neobjavljenih {{inactiveCourses}}</summary>
+        <ul class="listless">
+          {{#each inactive}}
+          <a href="/admin/{{courseName}}/{{selectedURL}}" class="nocolor">
+            <li>{{navName}}</li>
+          </a>
+          {{/each}}
+        </ul>
+      </details>
+    </div>
+  </div>
 
-  <a href="/admin/svi-kursevi" class="nocolor"><button class="wideAdminButton">Svi kursevi</button></a>
-  {{#if course.active}}{{else}}<a href="/admin/ukloni-kurs/{{course._id}}" class="nocolor"><button class="warning wideAdminButton">Obriši kurs</button></a>{{/if}}
+  <a href="/admin/svi-kursevi" class="nocolor"><button class="wideAdminButton admin-allButton">Svi kursevi</button></a>
+  {{#if course.active}}{{else}}<a href="/admin/ukloni-kurs/{{course._id}}" class="nocolor"><button class="admin-warningButton wideAdminButton">Obriši kurs</button></a>{{/if}}
 </article>

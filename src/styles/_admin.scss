@@ -29,9 +29,9 @@ label[for=dugme] {
   }
 }
 
-#dugme {
-  display: none;
-}
+// #dugme {
+//   display: none;
+// }
 
 textarea {
   width: 100%;
@@ -100,8 +100,9 @@ input[type="checkbox"]:checked ~ label[for]:after {
 
 .adminInput {
   position: relative;
-  top: 5px;
-  left: 57px;
+  margin: 2em 0;
+  // top: 5px;
+  // left: 57px;
 }
 
 span[data-counter] {
@@ -162,12 +163,6 @@ span[data-counter] {
 
 .adminButton {
   width: 100px;
-}
-
-.wideAdminButton {
-  width: 100%;
-  height: 3em;
-  margin: 1em 0;
 }
 
 .dragged {
@@ -247,7 +242,7 @@ span[data-counter] {
 .moveToFloatingMenu {
   position: fixed;
   left: 304px;
-  top: 62px;
+  top: 140px;
   font-size: 2.5em;
 
   .reorderCheckbox:after {
@@ -272,3 +267,4 @@ textarea.contentTextArea {
 .showMeGUI, .showMeCode {
   cursor: pointer;
 }
+

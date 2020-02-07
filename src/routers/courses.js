@@ -2,6 +2,7 @@ const express = require('express')
 //const session = require('express-session')
                 require('../db/mongoose')
 const Course  = require('../db/models/course')
+const Article = require('../db/models/article')
 const hbs     = require('hbs')
 
 hbs.registerHelper("increment", function (value, options) {
@@ -82,7 +83,13 @@ updateEach = async (course) => {
 courseRouter.get('/admin/detalji-kursa/:id', async (req, res) => {
   const _id = req.params.id
   const course = await Course.findById(_id)
-  res.render('courses/courseDetails', { googTitle: "Detalji kursa", robots: true, course })
+  const inactive = await Article.find({ courseName: course.setId, published: false }).select('navName selectedURL courseName')
+  const active = await Article.find({ courseName: course.setId, published: true }).select('navName selectedURL courseName')
+  const activeCourses = active.length
+  const inactiveCourses = inactive.length
+  const total = activeCourses + inactiveCourses
+  console.log(active[0].navName)
+  res.render('courses/courseDetails', { googTitle: "Detalji kursa", robots: true, course, total, active, activeCourses, inactive, inactiveCourses })
 })
 
 courseRouter.delete('/admin/delete-course/:id', async (req, res) => {

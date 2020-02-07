@@ -9,7 +9,7 @@ export default function updateItemList ()  {
   const publish = document.querySelectorAll('label[for]')
   
   function setUlHeight () {
-    ul.style.height = `${(getList()[0].clientHeight + 10) * getList().length }px`
+    ul.style.height = `${(getList()[0].clientHeight + 8) * getList().length }px`
   }
 
   /* 
@@ -18,7 +18,7 @@ export default function updateItemList ()  {
    */
   const positionAbsolutes = () => {
     getList().forEach(li => {
-      li.style.top = `${li.dataset.order * (li.clientHeight + 6)}px`
+      li.style.top = `${li.dataset.order * (li.clientHeight + 4)}px`
     })
     setUlHeight()
   }
