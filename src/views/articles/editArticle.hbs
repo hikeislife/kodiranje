@@ -4,7 +4,11 @@
     <div       class=         "adminInput moveToFloatingMenu">
       <input   type=          "checkbox" 
                name=          "published" 
+               {{#if post.published}}
+               checked 
+               {{/if}}
                id=            "published">
+               
       <label   for=           "published" 
                class=         "reorderCheckbox"></label>
     </div>
