@@ -5,10 +5,55 @@
       <input type="checkbox" name="published" id="published">
       <label for="published" class="reorderCheckbox"></label>
     </div>
+    <details>
+      <summary>SEO optimizacija</summary>
+      <div class="adminInput">
+        <label for="googTitle"> Naslov google pretrage</label><br>
+        <input type="text" id="googTitle" class="admin" name="googTitle" value="{{post.googTitle}}">
+      </div>
+      <div class="adminInput">
+        <label for="googDesc"> Opis u google pretrazi</label><br>
+        <input type="text" id="googDesc" class="admin m2r countMe" name="googDesc"
+          value="{{post.googDesc}}">
+        <span class="adminCounter googDesc" data-counter="155">155</span>
+      </div>
+    </details>
+    
+    <details>
+      <summary>Optimizacija za društvene mreže</summary>
+      <div class="adminInput">
+        <label for="socTitle"> Naslov posta na društvenim mrežama</label><br>
+        <input type="text" id="socTitle" class="admin" name="socTitle" value="{{post.socTitle}}">
+      </div>
+      <div class="adminInput">
+        <label for="socDesc"> Opis u postu na društvenim mrežama</label><br>
+        <input type="text" id="socDesc" class="admin m2r countMe" name="socDesc"
+          value="{{post.socDesc}}">
+        <span class="adminCounter socDesc" data-counter="200">200</span>
+      </div>
+      <div class="adminInput">
+        <label for="socImage"> Slika za društvene mreže 1200x630px sa banerom</label>
+        <input type="file" class="admin" id="socImage" name="socImage">
+      </div>
+    </details>
+    <div class="adminInput">
+      <label for="courseName"> Kurs</label>
+      <select class="admin" id="courseName" name="courseName" data-selected="{{courseList.selected}}" >
+
+        {{#each courseList}}
+          
+          <option value="{{setId}}" {{#if (eq selected setId)}} selected="selected" {{/if}}> {{name}} </option>
+        {{/each}}
+    
+      </select>
+    </div>
   <div contenteditable="true" class="editContent" style="position: relative">
+    
+
     {{{post.articleContent}}}
     {{>articles/editMenu}}
   </div>
+  
   </form>
 
   <div class="artMeta">

@@ -20,10 +20,14 @@ articleRouter.get('/admin/svi-artikli', async (req, res) => {
     notPublished })
 })
 
-articleRouter.get('/admin/:kurs/:lekcija', (req, res) => {
-  Article.findOne({ courseName: req.params.kurs, selectedURL: req.params.lekcija }).select('-__v -published -_id').then(post => {
+articleRouter.get('/admin/:kurs/:lekcija', async (req, res) => {
+  const courseList = await Course.find({ active: true }).select('-order -__v -_id -active').sort({ order: 1 })
+  
+  await Article.findOne({ courseName: req.params.kurs, selectedURL: req.params.lekcija }).select('-__v -_id').then(post => {
+    courseList.selected = post.courseName
     res.render('articles/editArticle', {
       post, 
+      courseList,
       robots: true
     })
   })
