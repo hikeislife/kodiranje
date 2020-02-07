@@ -1,0 +1,21 @@
+<article>
+  <form action="/send" method="post">
+    {{ msg }}
+    <div class="contactForm">
+      <label for="senderName">Ime pošiljaoca:</label>
+      <input type="text" name="senderName" id="senderName" required>
+    </div>
+    <div class="contactForm">
+      <label for="sender">E-mail pošiljaoca</label>
+      <input type="text" name="sender" id="sender" required>
+    </div>
+    <div class="contactForm">
+      <label for="message">Poruka:</label>
+      <textarea name="message" id="message" required></textarea>
+    </div>
+    <div class="contactForm">
+      <label for="dugme">Pošalji</label>
+      <input type="submit" name="dugme" id="dugme" value="Pošalji">
+    </div>
+  </form>
+</article>

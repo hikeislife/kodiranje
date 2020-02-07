@@ -1,7 +1,7 @@
 // the counter display has to have data-counter="initial value" // and .adminCounter
 // inputs with counters need to have .countMe
 //window.addEventListener('load', () => {
-export default function characterCounter () {
+export default (function characterCounter () {
   const countUs = document.querySelectorAll('.countMe')
 
   const makeItRed = counter => {
@@ -23,4 +23,4 @@ export default function characterCounter () {
   countUs.forEach(c => c.addEventListener('keyup', () => {
     setCounter(c)
   }))
-}
+})()
