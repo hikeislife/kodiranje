@@ -202,7 +202,7 @@ span[data-counter] {
   display: inline-block;
   padding: .5em;
   position: fixed;
-  top: 530px;
+  top: 83px;
   padding-top:70px;
   left: 14.3em;
   width: 91.2px; /* so it doesn't jump */
@@ -240,8 +240,8 @@ span[data-counter] {
 
 .moveToFloatingMenu {
   position: fixed;
-  left: 305px;
-  top: 460px;
+  left: 304px;
+  top: 17px;
   font-size: 2.5em;
 
   .reorderCheckbox:after {
