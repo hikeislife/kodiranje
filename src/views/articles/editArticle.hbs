@@ -96,12 +96,16 @@
       <div class="showMeGUI"><h2 class="asButton">GUI</h2></div>
       <div class="showMeCode"><h2 class="asButton">Vidi kôd</h2></div>
     </div>
-  <div        contenteditable="true" 
-              class=          "editContent" 
-              style=          "position: relative">
-    {{{post.articleContent}}}
-    {{>articles/editMenu}}
-  </div>
+    <div class="switcher">
+      <div      contenteditable="true" 
+                class=          "editContent" 
+                id=             "articleContent"
+                name=           "articleContent">
+        {{{post.articleContent}}}
+        {{>articles/editMenu}}
+      </div>
+    </div>
+  
   
   </form>
 
@@ -112,4 +116,4 @@
   </div>
 </article>
 {{!-- <script type="application/javascript+module" src="../../js/articles/editMenu.js"></script> --}}
-<script src="../../js/articles/editMenu.js"></script>
+<script type="module" src="../../js/articles/articleEditMain.js"></script>

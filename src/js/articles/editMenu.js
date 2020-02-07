@@ -1,4 +1,4 @@
-showHideMenu = (() => {
+export default (function showHideMenu() {
   const editor = document.querySelector('.editContent')
   const empty = document.querySelector('body')
   const menu = document.querySelector('.editMenu')
@@ -10,9 +10,7 @@ showHideMenu = (() => {
     menu.style.top = `${e.layerY - 10}px`
     menu.style.left = `${e.layerX}px`
     cursorPos = document.getSelection().anchorOffset
-    //element = document.getSelection().anchorNode.ownerDocument.activeElement
     element = e.originalTarget
-    //console.log(e)
   })
 
   empty.addEventListener('click', (e) => {
@@ -26,7 +24,7 @@ showHideMenu = (() => {
   })
 })()
 
-insertSnippet = (snippet, cursorPos, element) => {
+const insertSnippet = (snippet, cursorPos, element) => {
   const editor = document.querySelector('.editContent')
   //let strPos = editor.selectionStart
   let insertSnippet

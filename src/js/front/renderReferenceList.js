@@ -10,8 +10,6 @@ export default function renderReferenceList() {
         refDisplay = document.querySelector('article')
   let   listToAdd = ''
 
-  console.log(refList)
-
 for (let i = 0; i < refList.length; i++) {
   refList[i].innerHTML = `<sup><a href="#reference${i}">[${i + 1}]</a><sup>`
   listToAdd += `<li id="reference${i}">[${i + 1}] <a href="${refList[i].dataset.ref}" target="_blank" rel="noopener nofollow noreferrer" hreflang="en" aria-label="referenca ${refList[i].dataset.refDesc}">${refList[i].dataset.refDesc}</a></li>\n`
