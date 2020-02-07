@@ -5,7 +5,7 @@ label, input {
 label {
   text-align: left;
   display: inline-block;
-  margin: 2em 0 1em;
+  // margin: 2em 0 1em;
 }
 
 label[for=dugme] {
@@ -70,11 +70,10 @@ input[type="checkbox"] {
   // height: 0;
 }
 
-.reorderCheckbox {
-  margin-top: 2em;
-  display: inline-flex;
-  margin-bottom: 0;
-}
+// .reorderCheckbox {
+//   display: inline-flex;
+//   margin-bottom: 0;
+// }
 
 .reorderCheckbox:after {
   content: ' ';
@@ -101,6 +100,8 @@ input[type="checkbox"]:checked ~ label[for]:after {
 
 .adminInput {
   position: relative;
+  top: 5px;
+  left: 57px;
 }
 
 span[data-counter] {
@@ -130,7 +131,8 @@ span[data-counter] {
 
 .added-items li {
   background: rgb(140, 224, 102);
-  display: inline-flex;
+  display: grid;
+  grid-template-columns: 80% auto;
   align-items: center;
   justify-content: center;
   position: absolute;
@@ -138,6 +140,7 @@ span[data-counter] {
   border-radius: $inputBorderRadius;
   padding: 1em;
   width: calc(100% - 2em - 4px);
+  height: 85px;
   cursor: move;
   margin: 1em auto;
   

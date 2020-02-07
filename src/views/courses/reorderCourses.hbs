@@ -4,7 +4,7 @@
     {{#each kursevi}}
     <li data-order="{{order}}" data-course-id="{{_id}}" draggable="true" class="{{#if active}}{{else}}inactive-item{{/if}}">
     {{name}}
-    <div class="adminInput">
+    <div class="adminInputCheckbox">
       <input type="checkbox" name="active" id="{{_id}}" {{#if active}}checked{{else}}{{/if}}>
       <label for="{{_id}}" class="reorderCheckbox"> </label>
     </div>
