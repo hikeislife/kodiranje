@@ -220,6 +220,7 @@ span[data-counter] {
       display: flex;
       align-content: center;
       justify-content: center;
+      cursor: pointer;
 
       span {
         color: $mainG;
@@ -263,4 +264,8 @@ textarea.contentTextArea {
 
 .editContent {
   position: relative;
+}
+
+.showMeGUI, .showMeCode {
+  cursor: pointer;
 }
