@@ -56,18 +56,18 @@ articleRouter.patch('/admin/edit-article/:id', async (req, res) => {
 
 articleRouter.get('/admin/dodaj-lekciju', async (req, res) => {
   const courseList = await Course.find({ active: true }).select('-order -__v -_id -active').sort({ order: 1 })
-  const order = await findOrder() || 0
+
   res.render('articles/addNewArticle', { 
     googTitle: "Dodaj lekciju", 
     robots: true, 
-    courseList,
-    order })
+    courseList })
 })
 
 articleRouter.post('/admin/addPost', async (req, res, body) => {
   if (req.body.published) {
     req.body.published = true;
   }
+  req.body.order = await findOrder(req.body.courseName)
   req.body.selectedURL = req.body.selectedURL.toLowerCase().replace(/ /gi, '-')
   req.body.tags = req.body.tags.split(',').map(x => x.trim())
   const article = new Article(req.body)
@@ -80,8 +80,9 @@ articleRouter.post('/admin/addPost', async (req, res, body) => {
   }
 })
 
-findOrder = async () => {
-  const order = await Article.findOne().select('order -_id').sort({ order: -1 })
+findOrder = async (course) => {
+  const order = await Article.findOne({ courseName: course }).select('order -_id').sort({ order: -1 })
+  if(!order) return 0
   return order.order + 1
 }
 
