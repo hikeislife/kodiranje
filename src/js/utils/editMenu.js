@@ -8,7 +8,6 @@ export default (function showHideMenu() {
     e.preventDefault()
     const menu = document.querySelector('.editMenu')
     menu.style.display = "inline-block"
-    console.log(e)
     menu.style.top = `${e.pageY - 20}px`
     menu.style.left = `${e.pageX - 10}px`
     cursorPos = document.getSelection().anchorOffset
