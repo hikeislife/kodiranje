@@ -109,7 +109,7 @@ input[type="checkbox"]:checked ~ label[for]:after {
   font-family: "Font Awesome 5 Free";
   position: relative;
   // margin-bottom: 2em;
-  left: .95em;
+  // left: .95em;
   content: "\f058";
   font-size: 40px;
   background: $buttonBackground;
@@ -259,8 +259,13 @@ span[data-counter] {
 .moveToFloatingMenu {
   position: fixed;
   left: 304px;
-  top: 140px;
+  top: 158px;
   font-size: 2.5em;
+
+  label.reorderCheckbox {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
 
   .reorderCheckbox:after {
     box-shadow: 1px 1px 15px $buttonBackground;

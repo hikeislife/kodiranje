@@ -55,12 +55,12 @@ adminSchema.statics.findByCredentials = async (username, password) => {
   const user = await Admin.findOne({ username })
   
   if(!user) {
-    throw new Error('Ime ili password nisu dobri')
+    throw new Error('Uneti podaci nisu dobri')
   }
   const validPassword = await bcrypt.compare(password, user.password)
   
   if(!validPassword) {
-    throw new Error('Ime ili password nisu dobri')
+    throw new Error('Uneti podaci nisu dobri')
   }
   return user
 }
