@@ -65,14 +65,14 @@ adminSchema.statics.findByCredentials = async (username, password) => {
   return user
 }
 
-// adminSchema.methods.generateAuthToken = async function () {
-//   const user = this
-//   const token = jwt.sign({ _id: user._id.toString() }, process.env.JWT_P_KEY, { expiresIn: '1m'})
+adminSchema.methods.generateAuthToken = async function () {
+  const admin = this
+  const token = jwt.sign({ _id: admin._id.toString() }, process.env.JWT_P_KEY, { expiresIn: '1m'})
 
-//   user.tokens = user.tokens.concat({token})
-//   await user.save()
-//   return token
-// }
+  admin.tokens = admin.tokens.concat({token})
+  await admin.save()
+  return token
+}
 
 adminSchema.pre('save', async function (next) {
   const admin = this

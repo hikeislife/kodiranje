@@ -14,10 +14,36 @@ adminRouter.get('/admin', (req, res) => {
 // POST/login
 adminRouter.post('/admin/login', async (req, res) => {
   try {
-    const user = await Admin.findByCredentials(req.body.username, req.body.password)
-    res.redirect('/admin/svi-artikli')
+    const admin = await Admin.findByCredentials(req.body.username, req.body.password)
+    let token = ''
+    // if(!admin) console.log('bad admin')
+    console.log(admin.username)
+    if (!admin) {
+      return res.json(401)//.render('admin/login', { 
+      //   errorMessage: "2 log-in podaci nisu ispravni", 
+      //   googTitle: "Log in", 
+      //   robots: true
+      // })
+    } 
+    else {
+      try {
+        token = await admin.generateAuthToken()
+      } 
+      catch (e) { 
+        console.log(e)
+      }
+      res.status(200).json({ token })
+    }
+    
+    
+    // console.log(token)
+    res.send('articles/listAllArticles', {token})
   } catch (er) {
-    res.status(403).render('admin/login', { errorMessage: "log-in podaci nisu ispravni", googTitle: "Log in", robots: true })
+    res.status(403).render('admin/login', { 
+      errorMessage: "log-in podaci nisu ispravni", 
+      googTitle: "Log in", 
+      robots: true 
+    })
   }
 })
 

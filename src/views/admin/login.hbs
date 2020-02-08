@@ -1,7 +1,7 @@
 <article>
   <h1>Log in...</h1>
-  {{# if errorMessage}}<p class="adminError">{{errorMessage}}</p>{{/if}}
-  <form action="/admin/login" method="post">
+  <p class="adminError" style="display: none"></p>
+  <form>
   <div     class=   "adminInput">
     <label for=     "username">Unesi korisničko ime:</label>
     <input type=    "text" 
@@ -25,3 +25,4 @@
   </div>
   </form>
 </article>
+<script src="../../js/admin/handleLogin.js"></script>
