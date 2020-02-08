@@ -4,5 +4,4 @@ export default (function fixSelected() {
   selectField.querySelectorAll('option').forEach(x => {
     if(x.value === selectedOption) x['selected'] = 'selected'
   })
-  //console.log(selectField.querySelectorAll('option'))
 })()

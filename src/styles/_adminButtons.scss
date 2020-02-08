@@ -1,7 +1,10 @@
 .adminButton {
   display: flex;
   align-items: center;
+  width: 4em;
+  height: 4em;
   justify-content: center;
+  font-size: 1em;
   box-shadow: 1px 1px 2px rgb(128, 128, 128);
 
   &:hover {
@@ -11,10 +14,7 @@
 
 .admin-warningButton {
   background: $wr;
-  width: 4em;
-  height: 4em;
   text-shadow: 1px 1px 15px red;
-  font-size: 1em;
 
   &:hover {
     background: rgb(240, 62, 62);
@@ -23,6 +23,25 @@
   &:before {
     font-family: "Font Awesome 5 Free";
     content: '\f2ed';
+    font-size: 2em;
+  }
+}
+
+.admin-loginButton {
+  background: $mainG;
+  text-shadow: 1px 1px 15px $wr;
+
+  &:hover {
+    background: $dg;
+  }
+
+  &:active {
+    color: $dy;
+  }
+
+  &:before {
+    font-family: "Font Awesome 5 Free";
+    content: '\f577';
     font-size: 2em;
   }
 }
@@ -103,11 +122,15 @@
   background: $mainG;
   width: 4em;
   height: 4em;
-  text-shadow: 1px 1px 15px $dg;
+  text-shadow: 1px 1px 15px $wr;
   font-size: 1em;
 
   &:hover {
     background: $dg;
+  }
+
+  &:active {
+    color: $dy;
   }
 
   &:before {
@@ -121,11 +144,16 @@
   background: $mainG;
   width: 4em;
   height: 4em;
-  text-shadow: 1px 1px 15px green;
+  text-shadow: 1px 1px 15px $wr;
   font-size: 1em;
 
   &:hover {
     background: $dg;
+    color: $darkF;
+  }
+
+  &:active {
+    color: $dy;
   }
 
   &:before {

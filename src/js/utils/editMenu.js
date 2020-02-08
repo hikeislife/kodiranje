@@ -3,15 +3,18 @@ export default (function showHideMenu() {
   const empty = document.querySelector('body')
   const menu = document.querySelector('.editMenu')
   let cursorPos, element
-
-  editor.addEventListener('contextmenu', (e) => {
+  
+  const showMenu = (e) => {
     e.preventDefault()
+    const menu = document.querySelector('.editMenu')
     menu.style.display = "inline-block"
-    menu.style.top = `${e.layerY - 10}px`
-    menu.style.left = `${e.layerX}px`
+    menu.style.top = `${e.pageY - 20}px`
+    menu.style.left = `${e.pageX - 10}px`
     cursorPos = document.getSelection().anchorOffset
     element = e.originalTarget
-  })
+  }
+
+  editor.addEventListener( 'contextmenu', showMenu )
 
   empty.addEventListener('click', (e) => {
     menu.style.display = "none"

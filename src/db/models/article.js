@@ -11,6 +11,15 @@ const articleSchema = new mongoose.Schema({
     type: String,
     required: [true, `Polje je obavezno`]
   },
+  order: {
+    type: Number,
+    required: [true, `Redosled je obavezno polje`],
+    validate(value) {
+      if (value < 0) {
+        throw new Error(`Redosled ne može biti negativan`)
+      }
+    }
+  },
   articleContent: {
     type: String,
     required: [true, `Text artikla je obavezno polje`]
@@ -52,15 +61,6 @@ const articleSchema = new mongoose.Schema({
   socImage: {
     type: Buffer,
     //
-  },
-  order: {
-    type: Number,
-    required: [true, `Redosled je obavezno polje`],
-    validate(value) {
-      if (value < 0) {
-        throw new Error(`Redosled ne može biti negativan`)
-      }
-    }
   }
 }, {
   timestamps: true
