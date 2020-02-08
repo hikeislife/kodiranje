@@ -24,7 +24,8 @@ articleRouter.get('/admin/:kurs/:lekcija', async (req, res) => {
   const courseList = await Course.find({ active: true }).select('-order -__v -_id -active').sort({ order: 1 })
   
   await Article.findOne({ courseName: req.params.kurs, selectedURL: req.params.lekcija }).select('-__v').then(post => {
-    courseList.selected = post.courseName
+    courseList.selected = req.params.kurs//post.courseName
+    console.log(req.params.kurs)
     res.render('articles/editArticle', {
       post, 
       courseList,

@@ -18,9 +18,11 @@
         <label for=           "googTitle"> Naslov google pretrage</label><br>
         <input type=          "text" 
                id=            "googTitle" 
-               class=         "admin" 
+               class=         "admin countMe m2r" 
                name=          "googTitle" 
                value=         "{{post.googTitle}}">
+        <span  class=         "adminCounter googTitle" 
+               data-counter=  "70">70</span>
       </div>
       <div     class=         "adminInput">
         <label for=           "googDesc"> Opis u google pretrazi</label><br>
@@ -40,9 +42,11 @@
         <label for=           "socTitle"> Naslov posta na društvenim mrežama</label><br>
         <input type=          "text" 
                id=            "socTitle" 
-               class=         "admin" 
+               class=         "admin countMe m2r" 
                name=          "socTitle" 
                value=         "{{post.socTitle}}">
+        <span  class=         "adminCounter socTitle" 
+               data-counter=  "88">88</span>
       </div>
       <div     class=         "adminInput">
         <label for=           "socDesc"> Opis u postu na društvenim mrežama</label><br>
@@ -62,6 +66,7 @@
                name=          "socImage">
       </div>
     </details>
+    
     <details>
       <summary>
         Osnovni sadržaj
