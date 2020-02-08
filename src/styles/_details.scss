@@ -122,15 +122,6 @@ details[open]:not([class]) {
     }
   }
 
-  .sectionTitle[open] {
-    summary {
-      // &:before {
-      //   top: 3.1em;
-      //   left: 2em;
-      // }
-    }
-  }
-
   details:not([class]) {
     summary {
       &::before {

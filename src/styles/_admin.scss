@@ -90,9 +90,26 @@ input[type="checkbox"] {
   line-height: 1em;
 }
 
+.nudge:after {
+  position: relative;
+  left: 2em;
+}
+label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2em;
+}
+// label[for]:after {
+//   font-size: 40px;
+//   font-weight: bold;
+// }
+
 input[type="checkbox"]:checked ~ label[for="active"]:after,
 input[type="checkbox"]:checked ~ label[for]:after {
   font-family: "Font Awesome 5 Free";
+  position: relative;
+  // margin-bottom: 2em;
+  left: .95em;
   content: "\f058";
   font-size: 40px;
   background: $buttonBackground;
@@ -267,4 +284,3 @@ textarea.contentTextArea {
 .showMeGUI, .showMeCode {
   cursor: pointer;
 }
-

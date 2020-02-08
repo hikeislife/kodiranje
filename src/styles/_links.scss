@@ -8,10 +8,6 @@ a, a:visited {
   // padding: 0 5px;
 }
 
-a:not([class]):hover {
-  // text-decoration: underline;
-}
-
 a:not([class]):hover,
 a.tt:hover {
   background: $dy;

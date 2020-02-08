@@ -1,0 +1,1 @@
+import characterCounter from "./characterCounter.js"
