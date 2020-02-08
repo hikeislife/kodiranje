@@ -1,5 +1,5 @@
 const express     = require('express')
-const session     = require('express-session')
+//const session     = require('express-session')
                     require('../db/mongoose')
 const Admin = require('../db/models/admin')
 const bcrypt = require('bcryptjs')
@@ -15,7 +15,6 @@ adminRouter.get('/admin', (req, res) => {
 adminRouter.post('/admin/login', async (req, res) => {
   try {
     const user = await Admin.findByCredentials(req.body.username, req.body.password)
-    //const uid = user._id
     res.redirect('/admin/svi-admini')
   } catch (er) {
     res.status(403).render('admin/login', { errorMessage: "log-in podaci nisu ispravni", googTitle: "Log in", robots: true })
@@ -43,12 +42,12 @@ adminRouter.get('/admin/dodaj-admina', (req, res) => {
 
 // POST/addNewAdmin  ~  register
 adminRouter.post('/admin/addNewAdmin/', async (req, res, body) => {
-  
   const admin = new Admin(req.body)
+  console.log(admin.password)
   try {
     await admin.save()
     //const token = await admin.generateAuthToken()
-    res.status(201).render('admin/adminDetails', { message: "Novi admin dodat", user: admin })
+    res.status(201).render('admin/adminDetails', { message: "Novi admin dodat", user: admin, robots: true, googTitle: "Novi admin" })
   } catch (er) {
     res.status(418).render('admin/addNewAdmin', { errorMessage: er.errmsg, googTitle: "Dodaj admina", robots: true})
   }
