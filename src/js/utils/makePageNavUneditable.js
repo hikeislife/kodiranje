@@ -8,7 +8,10 @@ const makeUneditable = element => {
 }
 
 export default (function sanitizeInput () {
-  makeUneditable(document.querySelector('.page-contents'))
-  makeUneditable(document.querySelector('.page-nav'))
+  if (document.querySelector('.page-contents')) {
+    makeUneditable(document.querySelector('.page-contents'))
+    makeUneditable(document.querySelector('.page-nav'))
+  }
+  
 })()
 

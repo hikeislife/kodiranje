@@ -125,6 +125,7 @@ footer {
   min-height: 192px;
   justify-items: center;
   align-items: center;
+  overflow: hidden;
 
   & img {
     -webkit-animation:spin 60s linear infinite;
