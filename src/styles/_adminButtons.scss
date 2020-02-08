@@ -29,7 +29,7 @@
 
 .admin-loginButton {
   background: $mainG;
-  text-shadow: 1px 1px 15px red;
+  text-shadow: 1px 1px 15px $wr;
 
   &:hover {
     background: $dg;
@@ -122,11 +122,15 @@
   background: $mainG;
   width: 4em;
   height: 4em;
-  text-shadow: 1px 1px 15px $dg;
+  text-shadow: 1px 1px 15px $wr;
   font-size: 1em;
 
   &:hover {
     background: $dg;
+  }
+
+  &:active {
+    color: $dy;
   }
 
   &:before {
@@ -140,7 +144,7 @@
   background: $mainG;
   width: 4em;
   height: 4em;
-  text-shadow: 1px 1px 15px green;
+  text-shadow: 1px 1px 15px $wr;
   font-size: 1em;
 
   &:hover {

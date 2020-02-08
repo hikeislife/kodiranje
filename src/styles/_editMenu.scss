@@ -1,9 +1,13 @@
 .editMenu {
   position: absolute;
-  border: 3px outset $lg;
-  background: $sg;
+  border: 9px double rgb(0, 0, 0);
+  border-radius: .5em;
+  background: rgb(86, 86, 86);
+  background-clip: padding-box;
   display: none;
+  color: #efefef;
   box-shadow: 1px 1px 10px gray;
+  z-index: 5;
   
   ul {
     margin: 0 .1em;
@@ -12,10 +16,17 @@
   li {
     padding: .16em 1em;
     border-bottom: 1px solid $dg;
+    text-shadow: 1px 1px 15px rgb(154, 246, 41);
+    box-shadow: 1px 1px 5px rgb(154, 246, 41);
+
+    &:last-child {
+      border: none;
+    }
 
     &:hover {
       cursor: pointer;
       background: $lg;
+      color: $darkF;
     }
   }
 }

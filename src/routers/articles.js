@@ -25,7 +25,6 @@ articleRouter.get('/admin/:kurs/:lekcija', async (req, res) => {
   
   await Article.findOne({ courseName: req.params.kurs, selectedURL: req.params.lekcija }).select('-__v').then(post => {
     courseList.selected = req.params.kurs//post.courseName
-    console.log(req.params.kurs)
     res.render('articles/editArticle', {
       post, 
       courseList,

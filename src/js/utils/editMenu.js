@@ -1,5 +1,5 @@
 export default (function showHideMenu() {
-  const editor = document.querySelector('.editContent *')
+  const editor = document.querySelector('.editContent')
   const empty = document.querySelector('body')
   const menu = document.querySelector('.editMenu')
   let cursorPos, element
@@ -8,8 +8,9 @@ export default (function showHideMenu() {
     e.preventDefault()
     const menu = document.querySelector('.editMenu')
     menu.style.display = "inline-block"
-    menu.style.top = `${e.layerY - 10}px`
-    menu.style.left = `${e.layerX}px`
+    console.log(e)
+    menu.style.top = `${e.pageY - 20}px`
+    menu.style.left = `${e.pageX - 10}px`
     cursorPos = document.getSelection().anchorOffset
     element = e.originalTarget
   }
