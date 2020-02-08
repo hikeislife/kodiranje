@@ -15,7 +15,7 @@ adminRouter.get('/admin', (req, res) => {
 adminRouter.post('/admin/login', async (req, res) => {
   try {
     const user = await Admin.findByCredentials(req.body.username, req.body.password)
-    res.redirect('/admin/svi-admini')
+    res.redirect('/admin/svi-artikli')
   } catch (er) {
     res.status(403).render('admin/login', { errorMessage: "log-in podaci nisu ispravni", googTitle: "Log in", robots: true })
   }
@@ -28,7 +28,7 @@ adminRouter.get('/admin/svi-admini', async (req, res) => {
 
 adminRouter.get('/admin/detalji/:id', async (req, res) => {
   const _id = req.params.id
-  const user = await Admin.findById(_id)
+  const user = await Admin.findById(_id).select('-password')
   res.render('admin/adminDetails', { user: user, googTitle: "Dodaj admina", robots: true })
 })
 
@@ -42,10 +42,11 @@ adminRouter.get('/admin/dodaj-admina', (req, res) => {
 
 // POST/addNewAdmin  ~  register
 adminRouter.post('/admin/addNewAdmin/', async (req, res, body) => {
-  const admin = new Admin(req.body)
-  console.log(admin.password)
+  const newAdmin = new Admin(req.body)
+  //console.log(admin.password)
   try {
-    await admin.save()
+    await newAdmin.save()
+    const admin = await Admin.findById(newAdmin._id).select('-password')
     //const token = await admin.generateAuthToken()
     res.status(201).render('admin/adminDetails', { message: "Novi admin dodat", user: admin, robots: true, googTitle: "Novi admin" })
   } catch (er) {
@@ -58,7 +59,7 @@ adminRouter.post('/admin/addNewAdmin/', async (req, res, body) => {
 adminRouter.get('/admin/izmeni-admina/:id', async (req, res) => {
   const _id = req.params.id
   try {
-    const user = await Admin.findById(_id)
+    const user = await Admin.findById(_id).select('-password')
 
     if(!user) return res.status(404).send()
 
@@ -71,20 +72,17 @@ adminRouter.get('/admin/izmeni-admina/:id', async (req, res) => {
 adminRouter.patch('/admin/edit-admin/:id', async (req, res) => { 
   const _id = req.params.id
   if(req.body.newPassword === req.body.password) {
+    req.body.password = await bcrypt.hash(req.body.password, 8)
+    const admin = req.body
     try {
-      let user = await Admin.findByIdAndUpdate(_id, {
-        name: req.body.name,
-        username: req.body.username,
-        email: req.body.email,
-        password: await bcrypt.hash(req.body.password, 8)
-      }, {
+      let user = await Admin.findByIdAndUpdate(_id, { admin }, {
         new: true,
         runValidators: true
       })
       
       if (!user) return res.status(404).send()
       
-      user = await Admin.findById(_id)
+      user = await Admin.findById(_id).select('-password')
       res.render('admin/editAdmin', { user, googTitle: "Izmeni admina", robots: true })
     } catch (e) {
       console.log(e)
@@ -92,7 +90,7 @@ adminRouter.patch('/admin/edit-admin/:id', async (req, res) => {
     }
   }
   else {
-    const user = await Admin.findById(_id)
+    const user = await Admin.findById(_id).select('-password')
     res.render('admin/editAdmin', { user, googTitle: "Izmeni admina", robots: true })
   }
   
@@ -101,8 +99,8 @@ adminRouter.patch('/admin/edit-admin/:id', async (req, res) => {
 // DELETE
 adminRouter.get('/admin/ukloni-admina/:id', async (req, res) => {
   const _id = req.params.id
-  const admin = await Admin.findById(_id)
-  res.render('admin/deleteAdmin', { googTitle: "Obriši admina", robots: true, admin: admin })
+  const admin = await Admin.findById(_id).select('-password')
+  res.render('admin/deleteAdmin', { googTitle: "Obriši admina", robots: true, admin })
 })
 
 adminRouter.delete('/admin/delete-admin/:id', async (req, res) => {

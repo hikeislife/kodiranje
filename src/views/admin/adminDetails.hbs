@@ -3,6 +3,7 @@
 {{#if message}}<p class="adminSuccess">{{message}} sa id-ijem: {{user._id}}</p>{{/if}}
 
 <div>
+  {{#if user.password}}<p class="adminError">Ako ovo vidiš, postoji problem, code 666</p>{{/if}}
   <p>Ime admina: <b>{{user.name}}</b></p>
   <p>E-mail: <b>{{user.email}}</b></p>
 </div>
