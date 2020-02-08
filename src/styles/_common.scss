@@ -93,6 +93,26 @@ ul {
   }
 }
 
+.tip .highlight:before,
+.tip .highlight:after {
+  background: $dg;
+}
+
+.warning .highlight:before,
+.warning .highlight:after {
+  background: $wr;
+}
+
+.kviz .highlight:before,
+.kviz .highlight:after {
+  background: $qy;
+}
+
+.why .highlight:before,
+.why .highlight:after {
+  background: $dy;
+}
+
 .inl {
   display: inline;
 }
