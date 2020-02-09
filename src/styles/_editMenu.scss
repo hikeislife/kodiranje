@@ -23,10 +23,44 @@
       border: none;
     }
 
-    &:hover {
+    // &:hover {
+    //   cursor: pointer;
+    //   background: $lg;
+    //   color: $darkF;
+    // }
+  }
+
+  .switch {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    grid-gap: 1em;
+    font-size: 2em;
+
+    span {
+      display: inline-block;
+      width: 300%;
+      text-align: center;
+    }
+
+    span:hover {
       cursor: pointer;
       background: $lg;
       color: $darkF;
+    }
+
+    .showMeCode:before {
+      font-family: "Font Awesome 5 Free";
+      content: '\f1c9';
+      font-weight: bold;
+    }
+
+    .showMeGui:before {
+      font-family: "Font Awesome 5 Free";
+      content: '\f571';
+      font-weight: bold;
     }
   }
 }
