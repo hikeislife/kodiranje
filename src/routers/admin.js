@@ -1,8 +1,9 @@
-const express     = require('express')
-//const session     = require('express-session')
-                    require('../db/mongoose')
-const Admin = require('../db/models/admin')
-const bcrypt = require('bcryptjs')
+const express   = require('express')
+const session   = require('express-session')
+                  require('../db/mongoose')
+const Admin     = require('../db/models/admin')
+const bcrypt    = require('bcryptjs')
+const auth      = require('../middleware/auth')
 
 const adminRouter = new express.Router()
 
@@ -40,12 +41,15 @@ adminRouter.post('/admin/login', async (req, res) => {
 
 adminRouter.get('/admin/svi-admini', async (req, res) => {
   const admins = await Admin.find().select('-password -__v -tokens')
+  // console.log(req.headers['x-token'])
+  console.log('get is called')
+  res.status(200)
   res.render('admin/showAll', { admins, googTitle: "Svi admina", robots: true })
 })
 
 adminRouter.get('/admin/detalji/:id', async (req, res) => {
   const _id = req.params.id
-  const user = await Admin.findById(_id).select('-password')
+  const user = await Admin.findById(_id).select('-password -__v -tokens')
   res.render('admin/adminDetails', { user: user, googTitle: "Dodaj admina", robots: true })
 })
 
@@ -60,10 +64,9 @@ adminRouter.get('/admin/dodaj-admina', (req, res) => {
 // POST/addNewAdmin  ~  register
 adminRouter.post('/admin/addNewAdmin/', async (req, res, body) => {
   const newAdmin = new Admin(req.body)
-  //console.log(admin.password)
   try {
     await newAdmin.save()
-    const admin = await Admin.findById(newAdmin._id).select('-password')
+    const admin = await Admin.findById(newAdmin._id).select('-password -__v -tokens')
     //const token = await admin.generateAuthToken()
     res.status(201).render('admin/adminDetails', { message: "Novi admin dodat", user: admin, robots: true, googTitle: "Novi admin" })
   } catch (er) {
@@ -76,7 +79,7 @@ adminRouter.post('/admin/addNewAdmin/', async (req, res, body) => {
 adminRouter.get('/admin/izmeni-admina/:id', async (req, res) => {
   const _id = req.params.id
   try {
-    const user = await Admin.findById(_id).select('-password')
+    const user = await Admin.findById(_id).select('-password -__v -tokens')
 
     if(!user) return res.status(404).send()
 
@@ -99,7 +102,7 @@ adminRouter.patch('/admin/edit-admin/:id', async (req, res) => {
       
       if (!user) return res.status(404).send()
       
-      user = await Admin.findById(_id).select('-password')
+      user = await Admin.findById(_id).select('-password -__v -tokens')
       res.render('admin/editAdmin', { user, googTitle: "Izmeni admina", robots: true })
     } catch (e) {
       console.log(e)
@@ -107,7 +110,7 @@ adminRouter.patch('/admin/edit-admin/:id', async (req, res) => {
     }
   }
   else {
-    const user = await Admin.findById(_id).select('-password')
+    const user = await Admin.findById(_id).select('-password -__v -tokens')
     res.render('admin/editAdmin', { user, googTitle: "Izmeni admina", robots: true })
   }
   
@@ -116,7 +119,7 @@ adminRouter.patch('/admin/edit-admin/:id', async (req, res) => {
 // DELETE
 adminRouter.get('/admin/ukloni-admina/:id', async (req, res) => {
   const _id = req.params.id
-  const admin = await Admin.findById(_id).select('-password')
+  const admin = await Admin.findById(_id).select('-password -__v -tokens')
   res.render('admin/deleteAdmin', { googTitle: "Obriši admina", robots: true, admin })
 })
 

@@ -2,20 +2,25 @@ const jwt   = require('jsonwebtoken')
 const Admin = require('../db/models/admin')
 
 const auth = async (req, res, next) => {
-  // try {
-  //   console.log('auth', req.token)
-  //   const token = req.header('x-auth-token').replace('bearer', '')
-  //   const decoded = jwt.verify(token, config.get('jwtPKey'))
-  //   const user = await Admin.findOne({ _id: decoded._id, 'tokens.token' : token})
-  //   if(!user) {
-  //     throw new Error()
-  //   }
+  try {
+    const token = await req.header('x-token')//.replace('bearer', '')
+    console.log(token)
+    //const token = await req.header('Authorization').replace('bearer', '')
+    // console.log('auth', token)
+    const decoded = jwt.verify(token, process.env.JWT_P_KEY)
+    console.log(decoded._id)
+    const admin = await Admin.findOne({ _id: decoded._id, 'tokens.token' : token})
+    if(!admin) {
+      throw new Error()
+    }
   //   req.body.token = token
-  //   req.body.user = user
+    req.body.admin = admin
   //   res.send(token)
-    next()
-  // } catch (er) {
-  //   res.status(404).send({ error: "Ulogujte se"})
-  // }
+    return next()
+  } catch (er) {
+    console.log('there be an error matey: ' + er)
+    
+    //res.status(404).send({ error: "Ulogujte se"})
+  }
 }
 module.exports = auth

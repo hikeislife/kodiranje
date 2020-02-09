@@ -1,8 +1,26 @@
 console.log('log me in')
 
 const handleRedirect = () => {
-  history.back()//`/admin/svi-artikli/`
-}
+  //history.back()//`/admin/svi-artikli/`
+  window.location = `/admin/svi-admini/`
+//   const url = `/admin/svi-admini/`
+//   // TODO: should this be a fetch(GET) with jwt in headers instead?
+//   const headers = new Headers()
+//   headers.append('Accept', 'application/json')
+//   headers.append('Authorization', `Bearer ${localStorage.token}`)
+//   headers.append('x-token', localStorage.token)
+// console.log(localStorage.token)
+//   const req = new Request(url, {
+//     method: 'GET',
+//     redirect: 'follow',
+//     headers,
+//     mode: 'same-origin'
+//   })
+
+//   fetch(req)
+//     .then((res) => {console.log(res)})
+//     .catch(er => console.log(er))
+// }
 
 const runValidation = () => {
   const username     = document.querySelector('#username').value,
