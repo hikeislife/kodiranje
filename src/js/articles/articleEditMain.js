@@ -1,5 +1,5 @@
-import guiCodeSwitcher  from "../utils/guiCodeSwitcher.js"
-import showHideMenu     from "../utils/editMenu.js"
+
+// import showHideMenu     from "../utils/editMenu.js"
 import fixSelected      from "../utils/fixSelected.js"
 import doTheFetch       from "./editArticle.js"
 import characterCounter from "../utils/characterCounter.js"

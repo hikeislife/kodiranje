@@ -1,5 +1,5 @@
 export default (function guiCodeSwitcher() {
-  const gui      = document.querySelector('.showMeGUI'),
+  const gui      = document.querySelector('.showMeGui'),
         code     = document.querySelector('.showMeCode'),
         switcher = document.querySelector('.switcher')
 
