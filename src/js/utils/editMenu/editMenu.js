@@ -1,4 +1,6 @@
-export default (function showHideMenu() {
+import guiCodeSwitcher from "./guiCodeSwitcher.js"
+
+(function showHideMenu() {
   const editor = document.querySelector('.editContent')
   const empty = document.querySelector('body')
   const menu = document.querySelector('.editMenu')
@@ -6,10 +8,12 @@ export default (function showHideMenu() {
   
   const showMenu = (e) => {
     e.preventDefault()
+    //console.log(e)
     const menu = document.querySelector('.editMenu')
     menu.style.display = "inline-block"
     menu.style.top = `${e.pageY - 20}px`
     menu.style.left = `${e.pageX - 10}px`
+    let selected = document.getSelection()
     cursorPos = document.getSelection().anchorOffset
     element = e.originalTarget
   }
@@ -38,7 +42,7 @@ const insertSnippet = (snippet, cursorPos, element) => {
     default:
       insertSnippet = `\n`
   }
-  console.log(insertSnippet)
+  //console.log(insertSnippet)
   const strBefore = element.innerText.substring(0, cursorPos)
   const strAfter = element.innerText.substring(cursorPos, element.innerText.length)
   element.innerHTML = `${strBefore}${insertSnippet}${strAfter}`
