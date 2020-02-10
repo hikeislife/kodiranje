@@ -8,7 +8,9 @@
         <td class="{{#if active}}aktvanKurs{{else}}neaktanKurs{{/if}}">{{name}}</td>
         <td><a href="/admin/detalji-kursa/{{_id}}" class="nocolor"><button class="adminButton admin-detailsButton"></button></a></td>
         <td><a href="/admin/izmeni-kurs/{{_id}}" class="nocolor"><button class="adminButton admin-editButton"></button></a></td>
-        <td>{{#if active}}{{else}}<a href="/admin/ukloni-kurs/{{_id}}" class="nocolor"><button class="adminButton admin-warningButton"></buton></a>{{/if}}</td>
+        {{#if active}}{{else}}
+        <td><a href="/admin/ukloni-kurs/{{_id}}" class="nocolor"><button class="adminButton admin-warningButton"></button></a></td>
+        {{/if}}
       </tr>
       {{/each}}
     </tbody>

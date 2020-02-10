@@ -1,7 +1,7 @@
 <article>
   <h1>Dodaj novi kurs</h1>
   {{#if errorMessage}}<p class="adminError">{{errorMessage}}</p>{{/if}}
-  <form action="addNewCourse" method="post">
+  <form action="/admin/addNewCourse" method="post">
     <div class=       "adminInput">
       <label for="name">Ime novog kursa</label>
       <input type="text" name="name" id="name" class="admin">

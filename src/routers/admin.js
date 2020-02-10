@@ -1,5 +1,4 @@
 const express   = require('express')
-const session   = require('express-session')
                   require('../db/mongoose')
 const Admin     = require('../db/models/admin')
 const bcrypt    = require('bcryptjs')
@@ -65,7 +64,6 @@ adminRouter.post('/admin/addNewAdmin/', auth, async (req, res, body) => {
   try {
     await newAdmin.save()
     const admin = await Admin.findById(newAdmin._id).select('-password -__v -tokens')
-    //const token = await admin.generateAuthToken()
     res.status(201).render('admin/adminDetails', { message: "Novi admin dodat", user: admin, robots: true, googTitle: "Novi admin" })
   } catch (er) {
     res.status(418).render('admin/addNewAdmin', { errorMessage: er.errmsg, googTitle: "Dodaj admina", robots: true})
