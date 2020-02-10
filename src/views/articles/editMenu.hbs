@@ -1,12 +1,23 @@
 <div class="editMenu" contenteditable="false">
   <ul class="listless">
     <li class="switch">
-      <span class="showMeCode" data-fa="\f1c9"></span>
-      <span class="showMeGui" data-fa="\f571"></span>
+      <span class="showMeCode"></span>
+      <span class="showMeGui"></span>
     </li>
-    <li class="dropdown"><span class="fas fa-highlighter" data-fa="\f591"></span></li>
+    <li class="dropdown">
+      <span class="highlights editMenuItem greenHighlight" data-insert="greenHighlight"></span>
+      <span class="highlights editMenuItem grayHighlight" data-insert="grayHighlight"></span>
+    </li>
+    <li class="dropdown"></span></li>
     <li class="editMenuItem" data-insert="slika">dodaj sliku</li>
-    <li class="editMenuItem" data-insert="superbox">superbox</li>
+    <li class="dropdown" data-drop="superbox">
+      <span class="editMenuItem sb sb-tip" data-insert="tip"></span>
+      <span class="editMenuItem sb sb-quiz" data-insert="quiz"></span>
+      <span class="editMenuItem sb sb-warning" data-insert="warning"></span>
+      <span class="editMenuItem sb sb-why" data-insert="why"></span>
+      <span class="editMenuItem sb sb-bug" data-insert="bug"></span>
+      <span class="editMenuItem sb sb-sol" data-insert="sol"></span>
+    </li>
      {{!-- <ul class="superbox">
        <li class="dropDown" data-insert="tip">tip</li>
        <li class="dropDown" data-insert="warning">warning</li>
