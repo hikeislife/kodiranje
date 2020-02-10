@@ -8,6 +8,8 @@
   color: #efefef;
   box-shadow: 1px 1px 10px gray;
   z-index: 5;
+
+  
   
   ul {
     margin: 0 .1em;
@@ -30,6 +32,19 @@
     // }
   }
 
+  span.editMenuItem {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2em;
+    height: 2em;
+  }
+  span.editMenuItem:hover {
+    cursor: pointer;
+    background: $lg;
+    color: $darkF;
+  }
+
   .switch {
     display: grid;
     width: 100%;
@@ -43,13 +58,15 @@
       display: inline-block;
       width: 200%;
       text-align: center;
+
+      &:hover {
+        cursor: pointer;
+        background: $lg;
+        color: $darkF;
+      }
     }
 
-    span:hover {
-      cursor: pointer;
-      background: $lg;
-      color: $darkF;
-    }
+    
 
     .showMeCode:before {
       font-family: "Font Awesome 5 Free";
@@ -67,6 +84,10 @@
   .highlights:before {
     font-family: "Font Awesome 5 Free";
   }
+
+  // :hover {
+  //   background: ;
+  // }
 
   .grayHighlight {
     color: $sg;
@@ -105,7 +126,7 @@
     color: $qy;
   }
 
-  .sb-why {
+  .sb-why, .sb-bug {
     color: $dy;
   }
 

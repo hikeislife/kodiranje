@@ -22,6 +22,21 @@ export default function insertSnippet (e) {
     case "sol":
       insert = `${stringBefore}<div class="superbox sol"><code>${preserveMe}</code></div> ${stringAfter}`
       break
+    case "tip":
+      insert = `${stringBefore}<div class="superbox tip"><p>${preserveMe}</p></div> ${stringAfter}`
+      break
+    case "warning":
+      insert = `${stringBefore}<div class="superbox warning"><p>${preserveMe}</p></div> ${stringAfter}`
+      break
+    case "quiz":
+      insert = `${ stringBefore } <div class="superbox quiz"><p>${preserveMe}</p></div> ${ stringAfter }`
+      break
+    case "bug":
+      insert = `${stringBefore}<div class="superbox bug"><p>${preserveMe}</p></div> ${stringAfter}`
+      break
+    case "why":
+      insert = `${stringBefore}<div class="superbox why"><p>${preserveMe}</p></div> ${stringAfter}`
+      break
     case "greenHighlight":
       insert = `${stringBefore}<span class="highlight">${preserveMe}</span>${stringAfter}`
       break
