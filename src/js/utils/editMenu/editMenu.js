@@ -1,57 +1,26 @@
-import guiCodeSwitcher from "./guiCodeSwitcher.js"
+import guiCodeSwitcher from "./guiCodeSwitcher.js" 
+import insertSnippet from "./insertSnippet.js"
 
 (function showHideMenu() {
   const editor = document.querySelector('.editContent')
   const empty = document.querySelector('body')
   const menu = document.querySelector('.editMenu')
-  let cursorPos, element
   
   const showMenu = (e) => {
     e.preventDefault()
-    //console.log(e)
-    const menu = document.querySelector('.editMenu')
     menu.style.display = "inline-block"
     menu.style.top = `${e.pageY - 20}px`
     menu.style.left = `${e.pageX - 10}px`
-    let selected = document.getSelection()
-    cursorPos = document.getSelection().anchorOffset
-    element = e.originalTarget
   }
 
   editor.addEventListener( 'contextmenu', showMenu )
 
+  /* Hide menu */
   empty.addEventListener('click', (e) => {
     menu.style.display = "none"
   })
 
-  menu.querySelectorAll('ul li').forEach(li => {
-    li.addEventListener('click', e => {
-      insertSnippet(e.target.dataset.insert, cursorPos, element)
-    })
+  menu.querySelectorAll('.editMenuItem').forEach(item => {
+    item.addEventListener('click', insertSnippet)
   })
 })()
-
-const insertSnippet = (snippet, cursorPos, element) => {
-  const editor = document.querySelector('.editContent')
-  //let strPos = editor.selectionStart
-  let insertSnippet
-  switch(snippet) {
-    case "superbox":
-      insertSnippet = `<div class="superbox sol">EDIT</div>`
-      break
-    default:
-      insertSnippet = `\n`
-  }
-  //console.log(insertSnippet)
-  const strBefore = element.innerText.substring(0, cursorPos)
-  const strAfter = element.innerText.substring(cursorPos, element.innerText.length)
-  element.innerHTML = `${strBefore}${insertSnippet}${strAfter}`
-}
-
-
-
-
-
-
-
-

@@ -41,7 +41,7 @@
 
     span {
       display: inline-block;
-      width: 300%;
+      width: 200%;
       text-align: center;
     }
 
@@ -62,5 +62,54 @@
       content: '\f571';
       font-weight: bold;
     }
+  }
+
+  .highlights:before {
+    font-family: "Font Awesome 5 Free";
+  }
+
+  .grayHighlight {
+    color: $sg;
+    
+    &:before {
+      content: '\f0c8'
+    }
+  }
+
+  .greenHighlight {
+    color: $mainG;
+    font-weight: bold;
+
+    &::before {
+      content: '\f591';
+    }
+  }
+
+  .sb {
+    &::before {
+      font-family: "Font Awesome 5 Free";
+      content: '\f49e';
+      font-weight: bold;
+    }
+  }
+
+  .sb-tip {
+    color: $dg;
+  }
+
+  .sb-warning {
+    color: $wr;
+  }
+
+  .sb-quiz {
+    color: $qy;
+  }
+
+  .sb-why {
+    color: $dy;
+  }
+
+  .sb-sol {
+    color: wheat;
   }
 }
