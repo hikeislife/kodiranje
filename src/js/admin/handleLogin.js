@@ -20,7 +20,7 @@ const handleRedirect = () => {
 //   fetch(req)
 //     .then((res) => {console.log(res)})
 //     .catch(er => console.log(er))
-// }
+}
 
 const runValidation = () => {
   const username     = document.querySelector('#username').value,
@@ -70,6 +70,8 @@ const handleLogin = async e => {
   else if (response.token) {
     adminError.style.display = 'none'
     localStorage.setItem('token', response.token)
+    //document.cookie = ``
+    document.cookie = `token=${response.token}`
     handleRedirect()
   }
 }
