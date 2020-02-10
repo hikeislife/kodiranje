@@ -23,5 +23,5 @@ document.querySelector('#dugme').addEventListener('click', (e) => {
     },
     body: JSON.stringify(data)
   })
-  //.then(() => window.location.href = `/admin/detalji/${id}`)
+  .then(() => window.location.href = `/admin/detalji/${id}`)
 })

@@ -60,7 +60,7 @@ adminRouter.get('/admin/dodaj-admina', auth, (req, res) => {
 })
 
 // POST/addNewAdmin  ~  register
-adminRouter.post('/admin/addNewAdmin/', /*auth,*/ async (req, res, body) => {
+adminRouter.post('/admin/addNewAdmin/', auth, async (req, res, body) => {
   const newAdmin = new Admin(req.body)
   try {
     await newAdmin.save()
@@ -90,7 +90,6 @@ adminRouter.get('/admin/izmeni-admina/:id', auth, async (req, res) => {
 adminRouter.patch('/admin/edit-admin/:id', auth, async (req, res) => { 
   const _id = req.params.id
   if(req.body.newPassword === req.body.password) {
-    //req.body.password = 
     const admin = {name: req.body.name,
                    username: req.body.username,
                    password: await bcrypt.hash(req.body.password, 8),
@@ -100,7 +99,6 @@ adminRouter.patch('/admin/edit-admin/:id', auth, async (req, res) => {
         new: true,
         runValidators: true
       })
-      console.log(user)
       if (!user) return res.status(404).send()
       res.redirect(`/admin/detalji/${_id}`)
     } catch (e) {
@@ -122,7 +120,7 @@ adminRouter.get('/admin/ukloni-admina/:id', auth, async (req, res) => {
   res.render('admin/deleteAdmin', { googTitle: "Obriši admina", robots: true, admin })
 })
 
-adminRouter.delete('/admin/delete-admin/:id', async (req, res) => {
+adminRouter.delete('/admin/delete-admin/:id', auth, async (req, res) => {
   const _id = req.params.id
   try {
     const user = await Admin.findByIdAndDelete(_id)
