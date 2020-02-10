@@ -102,9 +102,7 @@ adminRouter.patch('/admin/edit-admin/:id', auth, async (req, res) => {
       })
       console.log(user)
       if (!user) return res.status(404).send()
-      
-      //user = await Admin.findById(_id).select('-password -__v -tokens')
-      res.render(`admin/adminDetails`, {user, robots: true, googTitle: "Detalji admina"})
+      res.redirect(`/admin/detalji/${_id}`)
     } catch (e) {
       console.log(e)
       res.status(500).send()

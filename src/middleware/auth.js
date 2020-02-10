@@ -11,7 +11,6 @@ const auth = async (req, res, next) => {
     })
 
     const decoded = jwt.verify(token, process.env.JWT_P_KEY)
-    console.log('auth: ' + decoded._id)
     const admin = await Admin.findOne({ _id: decoded._id, 'tokens.token' : token})
     if(!admin) {
       throw new Error()
