@@ -5,15 +5,24 @@
       <span class="showMeGui"></span>
     </li>
     <li class="dropdown">
-      <span class="editMenuItem"></span>
-      <span class="editMenuItem"></span>
+      <span class="editMenuItem headings" data-insert="titleH1"><sub>1</sub></span>
+      <span class="editMenuItem headings" data-insert="detailsTitle"><sub>d</sub></span>
+      <span class="editMenuItem headings" data-insert="titleH2"><sub>2</sub></span>
+      <span class="editMenuItem headings" data-insert="titleH3"><sub>3</sub></span>
     </li>
     <li class="dropdown">
       <span class="highlights editMenuItem greenHighlight" data-insert="greenHighlight"></span>
       <span class="highlights editMenuItem grayHighlight" data-insert="grayHighlight"></span>
+      <span class="editMenuItem quotation" data-insert="quote"></span>
+      <span class="editMenuItem tooltip" data-insert="tooltip"></span>
     </li>
-    <li class="dropdown"></span></li>
-    <li class="editMenuItem" data-insert="slika">dodaj sliku</li>
+    <li class="dropdown">
+      <span class="editMenuItem insertImg" data-insert="slika"></span>
+      <span class="editMenuItem insDetails" data-insert="details"></span>
+      <span class="editMenuItem extLink" data-insert="extLink"></span>
+      <span class="editMenuItem intLink" data-insert="intLink"></span>
+      <span class="editMenuItem ref" data-insert="ref"></span>
+    </li>
     <li class="dropdown" data-drop="superbox">
       <span class="editMenuItem sb sb-tip" data-insert="tip"></span>
       <span class="editMenuItem sb sb-quiz" data-insert="quiz"></span>
@@ -21,27 +30,25 @@
       <span class="editMenuItem sb sb-why" data-insert="why"><sub>?</sub></span>
       <span class="editMenuItem sb sb-bug" data-insert="bug"></span>
       <span class="editMenuItem sb sb-sol" data-insert="sol"></span>
+      <span class="editMenuItem terminal" data-insert="terminal"></span>
+      <span class="editMenuItem cons" data-insert="console"></span>
+      <span class="editMenuItem ard" data-insert="ard"></span>
     </li>
-     {{!-- <ul class="superbox">
-       <li class="dropDown" data-insert="tip">tip</li>
-       <li class="dropDown" data-insert="warning">warning</li>
-       <li class="dropDown" data-insert="sol">sol</li>
-       <li class="dropDown" data-insert="quiz">quiz</li>
-       <li class="dropDown" data-insert="cmd">cmd</li>
-     </ul> --}}
-    <li class="editMenuItem" data-insert="citat">citat</li>
-    <li class="editMenuItem" data-insert="naslov">naslov</li>
-    <li class="editMenuItem" data-insert="tooltip">tooltip</li>
-      {{!-- <ul class="superbox">
-        <li class="dropDown" data-insert="tip">vidljivi</li>
-        <li class="dropDown" data-insert="warning">nevidljivi</li>
-      </ul> --}}
-    <li class="editMenuItem" data-insert="link">link</li>
-      {{!-- <ul class="superbox">
-        <li class="dropDown" data-insert="tip">spoljni</li>
-        <li class="dropDown" data-insert="warning">interni</li>
-      </ul> --}}
-    <li class="editMenuItem" data-insert="details">details</li>
+    <li class="dropdown" data-drop="syntax">
+      <span class="editMenuItem insCode pinkCode" data-insert="pinkCode"></span>
+      <span class="editMenuItem insCode greenCode" data-insert="greenCode"></span>
+      <span class="editMenuItem insCode violetCode" data-insert="violetCode"></span>
+      <span class="editMenuItem insCode blueCode" data-insert="blueCode"></span>
+      <span class="editMenuItem spell" data-insert="spell"></span>
+    </li>
+    <li class="editMenuItem" data-insert="details">
+      <span class="editMenuItem em smiley" data-insert="smiley"></span>
+      <span class="editMenuItem em unamused" data-insert="unamused"></span>
+      <span class="editMenuItem em cray" data-insert="cray"></span>
+      <span class="editMenuItem em plaz" data-insert="plaz"></span>
+      <span class="editMenuItem em up" data-insert="up"></span>
+    </li>
+    <li><span class="dropdown"></span></li>
   </ul>
 </div>
 <script type="module" src="../../js/utils/editMenu/editMenu.js"></script>

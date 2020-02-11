@@ -9,7 +9,11 @@
   box-shadow: 1px 1px 10px gray;
   z-index: 5;
 
-  
+  sub {
+    position: relative;
+    top: 8px;
+    font-weight: bolder;
+  }
   
   ul {
     margin: 0 .1em;
@@ -136,4 +140,98 @@
   .sb-sol {
     color: wheat;
   }
+
+  .terminal::before {
+    font-family: "Font Awesome 5 Free";
+    content: '\f120';
+    font-weight: bold;
+  }
+
+  .cons::before {
+    font-family: "Font Awesome 5 Brands";
+    content: '\f3b9';
+  }
+
+  .ard::before {
+    font-family: "Font Awesome 5 Free";
+    content: '\f534';
+    font-weight: bold;
+    color: $ardLight;
+  }
+
+  .insertImg:before {
+    font-family: "Font Awesome 5 Free";
+    content: '\f03e';
+  }
+
+  .headings:before {
+    font-family: "Font Awesome 5 Free";
+    content: '\f1dc';
+    font-weight: bold;
+  }
+
+  .quotation::before {
+    font-family: "Font Awesome 5 Free";
+    content: '\f10e';
+    font-weight: bold;
+  }
+
+  .tooltip::before {
+    font-family: "Font Awesome 5 Free";
+    content: '\f27a';
+    color: $dy;
+  }
+
+  .insDetails::before {
+    font-family: "Font Awesome 5 Free";
+    content: '\f152';
+  }
+
+  .extLink::before {
+    font-family: "Font Awesome 5 Free";
+    content: '\f35d';
+    font-weight: bold;
+  }
+
+  .intLink::before {
+    font-family: "Font Awesome 5 Free";
+    content: '\f0c1';
+    font-weight: bold;
+  }
+
+  .ref::before {
+    font-family: "Font Awesome 5 Free";
+    content: '\f08d';
+    font-weight: bold;
+  }
+
+  .insCode::before {
+    font-family: "Font Awesome 5 Free";
+    content: '\f121';
+    font-weight: bold;
+  }
+
+  .pinkCode::before {
+    color: deeppink;
+  }
+
+  .greenCode::before {
+    color: seagreen;
+  }
+
+  .violetCode::before {
+    color: darkviolet;
+  }
+
+  .blueCode::before {
+    color: royalblue;
+  }
+
+  .spell::before {
+    font-family: "Font Awesome 5 Free";
+    content: '\f891';
+    font-weight: bold;
+    color: $wr;
+  }
+
 }

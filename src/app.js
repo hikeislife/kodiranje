@@ -93,15 +93,15 @@ app.use((er, req, res, text) => {
 /* PATHS */
 /* front page */
 app.get('/', async (req, res) => {
-  // let userId
-  // try {
-  //   const token = req.header('Cookie').split('=')[1]
-  //   userId = await jwt.verify(token, process.env.JWT_P_KEY)._id
-  //   console.log(userId)
-  // } catch (er) {
-  //   console.log(er)
-  //   userId = undefined
-  // }
+  let userId
+  try {
+    const token = req.header('Cookie').split('=')[1]
+    userId = await jwt.verify(token, process.env.JWT_P_KEY)._id
+    console.log(userId)
+  } catch (er) {
+    console.log(er)
+    userId = undefined
+  }
   
   
   Article.find({ courseName: 'mp', published: true }).sort({ order: 1 }).select('_id navName selectedURL ').then(menu => {
@@ -112,7 +112,7 @@ app.get('/', async (req, res) => {
     res.render('home', {
        mainMenu: menu,
        userId: userId,
-      title: "Kodiranje", 
+       title: "Kodiranje", 
     })
    })
 })
