@@ -6,7 +6,6 @@ insertDashes = (string) => {
   return string.replace(/ /gi, '-')
 } 
 
-//const Course = mongoose.model('Courses', {
 const courseSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -37,6 +36,8 @@ const courseSchema = new mongoose.Schema({
     }
   }
 })
+
+//courseSchema.methods.
 
 const Course = mongoose.model('courses', courseSchema)
 
