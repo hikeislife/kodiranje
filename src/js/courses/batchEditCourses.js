@@ -21,5 +21,5 @@ document.querySelector('#gumb').addEventListener('click', e => {
     },
     body: JSON.stringify(data)
   })
-  //console.log(JSON.stringify(data))
+  .then(() => window.location.href = `/admin/svi-kursevi/`)
 })

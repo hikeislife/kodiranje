@@ -28,6 +28,11 @@ app.use(bodyParser.urlencoded({
   limit: '50mb'
 }))
 
+// app.use((req, res, next) => {
+//   res.status(503).send('Sajt trenutno nije dostupan usled updejta, molimo proverite ponovo za par minuta')
+//   // res.render('503')
+// })
+
 app.use(adminRouter)
 app.use(courseRouter)
 app.use(articleRouter)
