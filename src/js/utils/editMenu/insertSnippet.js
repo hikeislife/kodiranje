@@ -2,6 +2,7 @@ export default function insertSnippet (e) {
   /* w/o this line snippet gets inserted twice, once at target element, 
    * and then again on the parent element */
   e.stopPropagation()
+  document.querySelector('.editMenu').style.display = 'none'
   const selected = document.getSelection()
 
   // target element:
