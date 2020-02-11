@@ -20,6 +20,9 @@
     border-bottom: 1px solid $dg;
     text-shadow: 1px 1px 15px rgb(154, 246, 41);
     box-shadow: 1px 1px 5px rgb(154, 246, 41);
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    justify-items: center;
 
     &:last-child {
       border: none;
@@ -56,7 +59,7 @@
 
     span {
       display: inline-block;
-      width: 200%;
+      width: 100%;
       text-align: center;
 
       &:hover {
