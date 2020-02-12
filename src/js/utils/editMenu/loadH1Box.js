@@ -33,7 +33,7 @@ const submitH1Box = async (e) => {
   const details = {
     naslov: document.querySelector('#naslov').value,
     bookmark: document.querySelector('#bookmark').value,
-    aria: document.querySelector('#linkAria').value,
+    aria: document.querySelector('#aria').value,
     topNavOpis: document.querySelector('#topNavOpis').value,
     prvi: document.querySelector('#prvi').checked
   }

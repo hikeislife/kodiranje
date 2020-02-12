@@ -76,4 +76,24 @@
       cursor: pointer
     }
   }
+
+  input[type="checkbox"] ~ label {
+    margin-bottom: 1em;
+  }
+  .editCheckbox:after {
+    content: '';
+    margin-left: 2em;
+    width: 1em;
+    height: 1em;
+    font-size: 40px;
+    background: $buttonBackground;
+    border-radius: 50%;
+    border: 5px solid $mainG;
+  }
+
+  input[type="checkbox"]:checked ~ label:after {
+    font-family: "Font Awesome 5 Free";
+    content: "\f058";
+    
+  }
 }

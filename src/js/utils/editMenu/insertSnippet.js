@@ -24,15 +24,34 @@ export default function insertSnippet (e, details = {}) {
 
   switch (snippet) {
     case "titleH1":
+      console.log(details.prvi)
+      let topNav = ''
+      if (details.prvi) {
+        topNav = `
+        <div>
+          <div class="page-contents" contenteditable="false">Sadržaj strane:</div>
+          <nav class="page-nav" contenteditable="false">
+            <ul class="listless">
+            </ul>
+          </nav>
+        </div>
+        `
+      } else {
+        details.bookmark = ''
+        details.topNavOpis = ''
+        tpNav = ''
+      }
       insert = `
       <section>
         <a name="${details.bookmark}" 
            title="${details.topNavOpis}" 
-           aria-label="${details}">
+           aria-label="${details.aria}">
           <h1>${details.naslov}</h1>
         </a>
+        ${topNav}
         <p>EDIT</p>
       </section>`
+      break
     case "extLink":
       //console.log(details)
       insert = `${stringBefore}
