@@ -1,13 +1,16 @@
+@import "mixins";
+
 .editMenu {
+  @include adminmenues;
   position: absolute;
-  border: 9px double rgb(0, 0, 0);
-  border-radius: .5em;
-  background: rgb(86, 86, 86);
-  background-clip: padding-box;
+  // border: 9px double rgb(0, 0, 0);
+  // border-radius: .5em;
+  // background: rgb(86, 86, 86);
+  // background-clip: padding-box;
   display: none;
-  color: #efefef;
-  box-shadow: 1px 1px 10px gray;
-  z-index: 5;
+  // color: #efefef;
+  // box-shadow: 1px 1px 10px gray;
+  // z-index: 5;
 
   sub {
     position: relative;
