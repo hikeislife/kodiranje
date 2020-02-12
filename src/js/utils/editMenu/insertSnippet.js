@@ -37,12 +37,12 @@ export default function insertSnippet (e, details = {}) {
             </ul>
           </nav>
         </div>
-        <p>EDIT</p>
+        <p>${preserveMe}</p>
         `
       } else {
-        topNav = '<p>EDIT</p>'
+        topNav = `<p>${preserveMe}</p>`
       }
-      insert = `
+      insert = `${stringBefore}
       <section>
         <a name="${details.bookmark}" 
            title="${details.topNavOpis}" 
@@ -50,10 +50,16 @@ export default function insertSnippet (e, details = {}) {
           <h1>${details.naslov}</h1>
         </a>
         ${topNav}
-      </section>`
+      </section>
+      ${stringAfter}`
+      break
+    case "titleH2":
+      insert = `${stringBefore}<h2>${preserveMe}</h2>${stringAfter}`
+      break
+    case "titleH3":
+      insert = `${stringBefore}<h3>${preserveMe}</h3>${stringAfter}`
       break
     case "extLink":
-      //console.log(details)
       insert = `${stringBefore}
       <a href="${details.url}" 
          target="_blank" 
