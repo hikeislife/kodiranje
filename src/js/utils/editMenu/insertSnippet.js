@@ -1,4 +1,4 @@
-export default function insertSnippet (e) {
+export default function insertSnippet (e, details = {}) {
   /* w/o this line snippet gets inserted twice, once at target element, 
    * and then again on the parent element */
   e.stopPropagation()
@@ -20,17 +20,15 @@ export default function insertSnippet (e) {
   const stringAfter = textContent.substring(cursorEnd)
 
   const snippet = e.target.dataset.insert
-  let insert = ``, details = {}
+  let insert = ``//, details = {}
 
   switch (snippet) {
     case "extLink":
-      //details = showLinkBox('Unos linka ka vani')
-      console.log(details)
-      /*insert = `${stringBefore}<a href="${preserveMe}" target="_blank" rel="noopener nofollow noreferrer" hreflang="en" aria-label="">EDIT</a>${stringAfter}`*/
+      //console.log(details)
+      insert = `${stringBefore}<a href="${details.url}" target="_blank" rel="noopener nofollow noreferrer" hreflang="${details.lang}" aria-label="${details.aria}">${details.description}</a>${stringAfter}`
       break
     case "extLink":
-      // details = showLinkBox('Unos linka ka ovom sajtu')
-      // insert = `<a href="" hreflang="sr" aria-label=""></a>`
+      insert = `${stringBefore}<a href="${details.url}" hreflang="sr" aria-label="${details.aria}">${details.description}</a>${stringAfter}`
       break
     case "sol":
       insert = `${stringBefore}<div class="superbox sol"><code>${preserveMe}</code></div>${stringAfter}`
@@ -74,7 +72,7 @@ export default function insertSnippet (e) {
     default:
       insert = ``
   }
-  console.log(insert)
+  //console.log(insert)
   element.parentElement.innerHTML = insert
 }
 

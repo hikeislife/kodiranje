@@ -1,3 +1,5 @@
+import insertSnippet from "./insertSnippet.js"
+
 const closeLinkBox = e => {
   e.preventDefault()
   document.querySelector('.linkBox').style.display = 'none'
@@ -11,10 +13,8 @@ const showLinkBox = e => {
   overlay.style.display = 'grid'
   overlay.appendChild(linkBox)
   const option = e.target.dataset.drop
-  console.log(option)
   if(option === 'extLink') {
     linkBox.querySelector('.linkBoxTitle').innerHTML = "Unos spoljnog linka"
-    //linkBox.querySelector('#linkUrl').placeholder = 'https:// '
   }
   else if (option === 'intLink') {
     linkBox.querySelector('.linkBoxTitle').innerHTML = "Unos bookmarka"
@@ -35,7 +35,8 @@ const submitLinkBox = async (e) => {
     aria: document.querySelector('#linkAria').value,
     lang: document.querySelector('#linkLang')/*.option*/[document.querySelector('#linkLang').selectedIndex].value
   }
-  
+  document.querySelector('.overlay').style.display = 'none'
+  insertSnippet(e, details)
 }
 
 const preRun = (() => {
