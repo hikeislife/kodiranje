@@ -12,20 +12,20 @@ const showH1Box = e => {
   const overlay = document.querySelector('.overlay')
   overlay.style.display = 'grid'
   overlay.appendChild(h1Box)
-  // const option = e.target.dataset.drop
-  // if (option === 'extLink') {
-  //   h1Box.querySelector('.linkBoxTitle').innerHTML = "Unos spoljnog linka"
-  //   h1Box.querySelector('#linkLang').parentElement.style.display = 'block'
-  // }
-  // else if (option === 'intLink') {
-  //   h1Box.querySelector('.linkBoxTitle').innerHTML = "Unos bookmarka"
-  //   h1Box.querySelector('#linkLang').parentElement.style.display = 'none'
-  // }
+  const option = e.target.dataset.drop
+  if (option === 'titleH1') {
+    h1Box.querySelector('.boxTitle').innerHTML = "Unos noce sekcije"
+    h1Box.querySelector('.insertH1').dataset.insert = 'titleH1'
+  }
+  else if (option === 'detailsTitle') {
+    h1Box.querySelector('.boxTitle').innerHTML = "Unos harmonka sekcije"
+    h1Box.querySelector('.insertH1').dataset.insert = 'detailsTitle'
+  }
 }
 
 export default (function loadH1Box() {
-  const h1 = document.querySelector('.titleH1')
-  h1.addEventListener('click', showH1Box)
+  const h1 = document.querySelectorAll('.title')
+  h1.forEach(x => x.addEventListener('click', showH1Box))
 })()
 
 const submitH1Box = async (e) => {

@@ -53,6 +53,22 @@ export default function insertSnippet (e, details = {}) {
       </section>
       ${stringAfter}`
       break
+    case "detailsTitle":
+      insert = `${stringBefore}
+      <section>
+        <details class="sectionTitle">
+          <summary>
+            <a name="${details.bookmark}" 
+               aria-label="${details.aria}" 
+               title="${details.topNavOpis}">
+              <h1>${details.naslov}</h1>
+            </a>
+          </summary>
+          ${preserveMe}
+        </details>
+      </section>
+      ${stringAfter}`
+      break
     case "titleH2":
       insert = `${stringBefore}<h2>${preserveMe}</h2>${stringAfter}`
       break
