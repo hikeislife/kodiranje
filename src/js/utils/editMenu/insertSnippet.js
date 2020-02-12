@@ -20,11 +20,20 @@ export default function insertSnippet (e) {
   const stringAfter = textContent.substring(cursorEnd)
 
   const snippet = e.target.dataset.insert
-  let insert = ``
+  let insert = ``, details = {}
 
   switch (snippet) {
+    case "extLink":
+      //details = showLinkBox('Unos linka ka vani')
+      console.log(details)
+      /*insert = `${stringBefore}<a href="${preserveMe}" target="_blank" rel="noopener nofollow noreferrer" hreflang="en" aria-label="">EDIT</a>${stringAfter}`*/
+      break
+    case "extLink":
+      // details = showLinkBox('Unos linka ka ovom sajtu')
+      // insert = `<a href="" hreflang="sr" aria-label=""></a>`
+      break
     case "sol":
-      insert = `${stringBefore}<div class="superbox sol"><code>${preserveMe}</code></div> ${stringAfter}`
+      insert = `${stringBefore}<div class="superbox sol"><code>${preserveMe}</code></div>${stringAfter}`
       break
     case "tip":
       insert = `${stringBefore}<div class="superbox tip"><p>${preserveMe}</p></div> ${stringAfter}`
@@ -68,3 +77,4 @@ export default function insertSnippet (e) {
   console.log(insert)
   element.parentElement.innerHTML = insert
 }
+

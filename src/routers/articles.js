@@ -54,6 +54,7 @@ articleRouter.get('/admin/:kurs/:lekcija', auth, async (req, res) => {
     courseList.selected = req.params.kurs//post.courseName
     res.render('articles/editArticle', {
       post, 
+      googTitle: 'Izmeni lekciju',
       courseList,
       robots: true
     })
