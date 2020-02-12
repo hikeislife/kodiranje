@@ -27,6 +27,8 @@ export default function insertSnippet (e, details = {}) {
       console.log(details.prvi)
       let topNav = ''
       if (details.prvi) {
+        details.bookmark = ''
+        details.topNavOpis = ''
         topNav = `
         <div>
           <div class="page-contents" contenteditable="false">Sadržaj strane:</div>
@@ -35,11 +37,10 @@ export default function insertSnippet (e, details = {}) {
             </ul>
           </nav>
         </div>
+        <p>EDIT</p>
         `
       } else {
-        details.bookmark = ''
-        details.topNavOpis = ''
-        tpNav = ''
+        topNav = '<p>EDIT</p>'
       }
       insert = `
       <section>
@@ -49,7 +50,6 @@ export default function insertSnippet (e, details = {}) {
           <h1>${details.naslov}</h1>
         </a>
         ${topNav}
-        <p>EDIT</p>
       </section>`
       break
     case "extLink":
