@@ -1,11 +1,15 @@
 export default function insertSnippet (e) {
+  /* w/o this line snippet gets inserted twice, once at target element, 
+   * and then again on the parent element */
+  e.stopPropagation()
+  document.querySelector('.editMenu').style.display = 'none'
   const selected = document.getSelection()
 
   // target element:
-  const element = selected.getRangeAt(0).commonAncestorContainer.parentElement
-
+  const element = selected.getRangeAt(0).commonAncestorContainer//.parentElement
+  console.log(element)
   // text node cursor is placed at: 
-  const textContent = element.innerHTML
+  const textContent = element.parentElement.innerHTML
   //selected.getRangeAt(0).commonAncestorContainer.innerHTML
   const cursorStart = selected.anchorOffset
   const cursorEnd = selected.focusOffset
@@ -43,8 +47,24 @@ export default function insertSnippet (e) {
     case "grayHighlight":
       insert = `${stringBefore}<em>${preserveMe}</em>${stringAfter}`
       break
+    case "smiley":
+      insert = `${stringBefore}<span class="em smiley"></span>${stringAfter}`
+      break
+    case "unamused":
+      insert = `${stringBefore}<span class="em unamused"></span>${stringAfter}`
+      break
+    case "cray":
+      insert = `${stringBefore}<span class="em cray"></span>${stringAfter}`
+      break
+    case "plaz":
+      insert = `${stringBefore}<span class="em plaz"></span>${stringAfter}`
+      break
+    case "up":
+      insert = `${stringBefore}<span class="em up"></span>${stringAfter}`
+      break
     default:
       insert = ``
   }
-  element.innerHTML = insert
+  console.log(insert)
+  element.parentElement.innerHTML = insert
 }
