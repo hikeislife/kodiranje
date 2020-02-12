@@ -12,14 +12,14 @@
   bottom: 0;
 }
 
-.linkBox {
+.editHelper {
   @include adminmenues;
   position: absolute;
   width: 500px;
   padding: 2em;
   display: none;
 
-  .linkBoxTitle {
+  .linkBoxTitle, .boxTitle {
     margin-top: 0;
     color: $mainG;
     font-size: 1.5em;
@@ -75,5 +75,28 @@
     span {
       cursor: pointer
     }
+  }
+
+  input[type="checkbox"] ~ label {
+    position: static;
+  }
+  .editCheckbox:after {
+    content: '';
+    margin-left: 2em;
+    width: .8em;
+    height: .8em;
+    font-size: 40px;
+    // background: $buttonBackground;
+    border-radius: 50%;
+    border: 5px solid $mainG;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  input[type="checkbox"]:checked ~ label:after {
+    font-family: "Font Awesome 5 Free";
+    content: "\f058";
+    
   }
 }

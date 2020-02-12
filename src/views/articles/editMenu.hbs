@@ -5,8 +5,8 @@
       <span class="showMeGui"></span>
     </li>
     <li class="dropdown">
-      <span class="editMenuItem headings" data-insert="titleH1"><sub>1</sub></span>
-      <span class="editMenuItem headings" data-insert="detailsTitle"><sub>d</sub></span>
+      <span class="editMenuItem headings title" data-drop="titleH1"><sub>1</sub></span>
+      <span class="editMenuItem headings title" data-drop="detailsTitle"><sub>d</sub></span>
       <span class="editMenuItem headings" data-insert="titleH2"><sub>2</sub></span>
       <span class="editMenuItem headings" data-insert="titleH3"><sub>3</sub></span>
     </li>
@@ -52,30 +52,7 @@
   </ul>
 </div>
 
-<div class="linkBox">
-  <p class="linkBoxTitle">Unos linka</p>
-  <div>
-    <input type="text" id="linkUrl" required>
-    <label for="linkUrl">URL</label>
-  </div>
-  <div>
-    <input type="text" id="linkDesc" required>
-    <label for="linkDesc">Opis</label>
-  </div>
-  <div>
-    <input type="text" id="linkAria" required>
-    <label for="linkAria">Aria</label>
-  </div>
-  <div>
-    <label for="linkLang"></label>
-    <select id="linkLang">
-      <option value="en" selected="">en</option>
-      <option value="sr">sr</option>
-    </select>
-  </div>
-  <div class="buttons">
-    <span class="insertLink far fa-check-circle" data-insert="extLink"></span>
-    <span class="closeButton far fa-times-circle"></span>
-  </div>
-</div>
+{{>articles/insertLink}}
+{{>articles/insertH1}}
+
 <script type="module" src="../../js/utils/editMenu/editMenu.js"></script>

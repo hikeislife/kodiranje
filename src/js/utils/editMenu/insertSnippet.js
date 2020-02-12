@@ -23,12 +23,77 @@ export default function insertSnippet (e, details = {}) {
   let insert = ``//, details = {}
 
   switch (snippet) {
-    case "extLink":
-      //console.log(details)
-      insert = `${stringBefore}<a href="${details.url}" target="_blank" rel="noopener nofollow noreferrer" hreflang="${details.lang}" aria-label="${details.aria}">${details.description}</a>${stringAfter}`
+    case "titleH1":
+      console.log(details.prvi)
+      let topNav = ''
+      if (details.prvi) {
+        details.bookmark = ''
+        details.topNavOpis = ''
+        topNav = `
+        <div>
+          <div class="page-contents" contenteditable="false">Sadržaj strane:</div>
+          <nav class="page-nav" contenteditable="false">
+            <ul class="listless">
+            </ul>
+          </nav>
+        </div>
+        <p>${preserveMe}</p>
+        `
+      } else {
+        topNav = `<p>${preserveMe}</p>`
+      }
+      insert = `${stringBefore}
+      <section>
+        <a name="${details.bookmark}" 
+           title="${details.topNavOpis}" 
+           aria-label="${details.aria}">
+          <h1>${details.naslov}</h1>
+        </a>
+        ${topNav}
+      </section>
+      ${stringAfter}`
+      break
+    case "detailsTitle":
+      insert = `${stringBefore}
+      <section>
+        <details class="sectionTitle">
+          <summary>
+            <a name="${details.bookmark}" 
+               aria-label="${details.aria}" 
+               title="${details.topNavOpis}">
+              <h1>${details.naslov}</h1>
+            </a>
+          </summary>
+          ${preserveMe}
+        </details>
+      </section>
+      ${stringAfter}`
+      break
+    case "titleH2":
+      insert = `${stringBefore}<h2>${preserveMe}</h2>${stringAfter}`
+      break
+    case "titleH3":
+      insert = `${stringBefore}<h3>${preserveMe}</h3>${stringAfter}`
       break
     case "extLink":
-      insert = `${stringBefore}<a href="${details.url}" hreflang="sr" aria-label="${details.aria}">${details.description}</a>${stringAfter}`
+      insert = `${stringBefore}
+      <a href="${details.url}" 
+         target="_blank" 
+         rel="noopener nofollow noreferrer" 
+         hreflang="${details.lang}" 
+         aria-label="${details.aria}">
+         ${details.description}
+         </a>
+         ${stringAfter}`
+      break
+    case "extLink":
+      insert = `${stringBefore}
+      <a href="${details.url}" 
+         hreflang="sr" 
+         aria-label="${details.aria}">
+        ${details.description}
+      </a>
+      ${stringAfter}`
       break
     case "sol":
       insert = `${stringBefore}<div class="superbox sol"><code>${preserveMe}</code></div>${stringAfter}`
