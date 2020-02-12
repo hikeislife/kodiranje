@@ -1,6 +1,7 @@
 import guiCodeSwitcher from "./guiCodeSwitcher.js" 
 import insertSnippet from "./insertSnippet.js"
 import loadLinkBox from "./loadLinkBox.js"
+import loadH1Box from "./loadH1Box.js"
 
 (function showHideMenu() {
   const editor = document.querySelector('.editContent')

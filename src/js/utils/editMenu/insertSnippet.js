@@ -23,12 +23,36 @@ export default function insertSnippet (e, details = {}) {
   let insert = ``//, details = {}
 
   switch (snippet) {
+    case "titleH1":
+      insert = `
+      <section>
+        <a name="${details.bookmark}" 
+           title="${details.topNavOpis}" 
+           aria-label="${details}">
+          <h1>${details.naslov}</h1>
+        </a>
+        <p>EDIT</p>
+      </section>`
     case "extLink":
       //console.log(details)
-      insert = `${stringBefore}<a href="${details.url}" target="_blank" rel="noopener nofollow noreferrer" hreflang="${details.lang}" aria-label="${details.aria}">${details.description}</a>${stringAfter}`
+      insert = `${stringBefore}
+      <a href="${details.url}" 
+         target="_blank" 
+         rel="noopener nofollow noreferrer" 
+         hreflang="${details.lang}" 
+         aria-label="${details.aria}">
+         ${details.description}
+         </a>
+         ${stringAfter}`
       break
     case "extLink":
-      insert = `${stringBefore}<a href="${details.url}" hreflang="sr" aria-label="${details.aria}">${details.description}</a>${stringAfter}`
+      insert = `${stringBefore}
+      <a href="${details.url}" 
+         hreflang="sr" 
+         aria-label="${details.aria}">
+        ${details.description}
+      </a>
+      ${stringAfter}`
       break
     case "sol":
       insert = `${stringBefore}<div class="superbox sol"><code>${preserveMe}</code></div>${stringAfter}`
