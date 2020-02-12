@@ -15,6 +15,7 @@ const showLinkBox = e => {
   const option = e.target.dataset.drop
   if(option === 'extLink') {
     linkBox.querySelector('.linkBoxTitle').innerHTML = "Unos spoljnog linka"
+    linkBox.querySelector('#linkLang').parentElement.style.display = 'block'
   }
   else if (option === 'intLink') {
     linkBox.querySelector('.linkBoxTitle').innerHTML = "Unos bookmarka"
