@@ -3,11 +3,12 @@ const express   = require('express')
 const Admin     = require('../db/models/admin')
 const bcrypt    = require('bcryptjs')
 const auth      = require('../middleware/auth')
+const signedIn  = require('../middleware/signedIn')
 
 const adminRouter = new express.Router()
 
 // GET/login
-adminRouter.get('/admin', (req, res) => { 
+adminRouter.get('/admin', signedIn, (req, res) => { 
   res.render('admin/login', { googTitle: "Log in", robots: true})
 })
 
@@ -26,7 +27,6 @@ adminRouter.post('/admin/login', async (req, res) => {
       catch (e) { 
         console.log(e)
       }
-      //res.setHeader('Content-Type', 'application/json')
       res.status(200).json({ token, robots: true, googTitle: "Sve lekcije" })
     }    
   } catch (er) {
