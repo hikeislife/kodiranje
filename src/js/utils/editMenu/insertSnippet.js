@@ -128,6 +128,9 @@ export default function insertSnippet (e, details = {}) {
       </a>
       ${stringAfter}`
       break
+    case "ref":
+      insert = `${stringBefore}<span></span>${stringAfter}`
+      break
     case "tip":
       insert = `${stringBefore}<div class="superbox tip"><p>${preserveMe}</p></div> ${stringAfter}`
       break
