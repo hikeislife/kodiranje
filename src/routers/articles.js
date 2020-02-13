@@ -39,6 +39,7 @@ articleRouter.post('/admin/addPost', auth, async (req, res, body) => {
     req.body.published = true;
   }
   req.body.order = await findOrder(req.body.courseName)
+  req.body.author = req.data.user
   req.body.selectedURL = req.body.selectedURL.toLowerCase().replace(/ /gi, '-')
   req.body.tags = req.body.tags.split(',').map(x => x.trim())
   const article = new Article(req.body)
