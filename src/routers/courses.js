@@ -13,24 +13,27 @@ const courseRouter = new express.Router()
 
 courseRouter.get('/admin/svi-kursevi', auth, async (req, res) => {
   const kursevi = await Course.find().select('-__v').sort({ order: 1 })
+  const admin = req.data.user
   
-  res.render('courses/showAllCourses', { googTitle: "Svi kursevi", robots: true, kursevi: kursevi })
+  res.render('courses/showAllCourses', { googTitle: "Svi kursevi", robots: true, kursevi, admin })
 })
 
 courseRouter.get('/admin/detalji-kursa/:id', auth, async (req, res) => {
   const _id = req.params.id
+  const admin = req.data.user
   const course = await Course.findById(_id)
   const inactive = await Article.find({ courseName: course.setId, published: false }).select('navName selectedURL courseName')
   const active = await Article.find({ courseName: course.setId, published: true }).select('navName selectedURL courseName')
   const activeCourses = active.length
   const inactiveCourses = inactive.length
   const total = activeCourses + inactiveCourses
-  res.render('courses/courseDetails', { googTitle: "Detalji kursa", robots: true, course, total, active, activeCourses, inactive, inactiveCourses })
+  res.render('courses/courseDetails', { googTitle: "Detalji kursa", robots: true, course, total, active, activeCourses, inactive, inactiveCourses, admin })
 })
 
 courseRouter.get('/admin/dodaj-kurs', auth, async (req, res) => {
   const order = await findOrder()
-  res.render('courses/addNewCourse', { googTitle: "Dodaj kurs", robots: true, order })
+  const admin = req.data.user
+  res.render('courses/addNewCourse', { googTitle: "Dodaj kurs", robots: true, order, admin })
 })
 
 courseRouter.post('/admin/addNewCourse', auth, async (req, res) => {
@@ -58,12 +61,13 @@ courseRouter.post('/admin/addNewCourse', auth, async (req, res) => {
 
 courseRouter.get('/admin/izmeni-kurs/:id', auth, async (req, res) => {
   const _id = req.params.id
+  const admin = req.data.user
   try {
     const course = await Course.findById(_id)
     
     if (!course) return res.status(404).send()
 
-    res.render('courses/editCourse', { course, robots: true, googTitle: "Izmeni kurs"})
+    res.render('courses/editCourse', { course, robots: true, googTitle: "Izmeni kurs", admin})
   } catch (e) {
     console.log(e)
     res.status(500).send()
@@ -90,8 +94,9 @@ courseRouter.patch('/admin/edit-course/:id', auth, async (req, res) => {
 
 courseRouter.get('/admin/reorganizuj-kurseve', auth, async (req, res) => {
   const kursevi = await Course.find().select('-__v').sort({ order: 1 })
+  const admin = req.data.user
 
-  res.render('courses/reorderCourses', { googTitle: "Reorganizuj kurseve", robots: true, kursevi: kursevi })
+  res.render('courses/reorderCourses', { googTitle: "Reorganizuj kurseve", robots: true, kursevi, admin })
 })
 
 courseRouter.patch('/admin/batchEditCourses', auth, async (req, res) => {
@@ -106,8 +111,9 @@ courseRouter.patch('/admin/batchEditCourses', auth, async (req, res) => {
 // Delete
 courseRouter.get('/admin/ukloni-kurs/:id', auth, async (req, res) => {
   const _id = req.params.id
+  const admin = req.data.user
   const course = await Course.findById(_id)
-  res.render('courses/deleteCourse', { googTitle: "Obriši kurs", robots: true, course })
+  res.render('courses/deleteCourse', { googTitle: "Obriši kurs", robots: true, course, admin })
 })
 
 courseRouter.delete('/admin/delete-course/:id', auth, async (req, res) => {

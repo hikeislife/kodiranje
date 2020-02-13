@@ -18,6 +18,8 @@ const auth = async (req, res, next) => {
     if(!admin) {
       throw new Error()
     }
+    req.data = req.data || {}
+    req.data.user = admin.name
     next()
   } catch (er) {
     console.log('there be an error matey: ' + er)

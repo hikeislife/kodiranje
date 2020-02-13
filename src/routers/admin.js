@@ -39,15 +39,18 @@ adminRouter.post('/admin/login', async (req, res) => {
 })
 
 adminRouter.get('/admin/svi-admini', auth, async (req, res) => {
+  const admin = req.data.user
+  console.log(admin)
   const admins = await Admin.find().select('-password -__v -tokens')
   res.status(200)
-  res.render('admin/showAll', { admins, googTitle: "Svi admina", robots: true })
+  res.render('admin/showAll', { admins, googTitle: "Svi admina", robots: true, admin })
 })
 
 adminRouter.get('/admin/detalji/:id', auth, async (req, res) => {
   const _id = req.params.id
+  const admin = req.data.user
   const user = await Admin.findById(_id).select('-password -__v -tokens')
-  res.render('admin/adminDetails', { user: user, googTitle: "Dodaj admina", robots: true })
+  res.render('admin/adminDetails', { user, googTitle: "Dodaj admina", robots: true, admin })
 })
 
 // LOGOUT
@@ -55,7 +58,8 @@ adminRouter.get('/admin/detalji/:id', auth, async (req, res) => {
 // REGISTRACIJA
 // GET/dodaj-admina  ~  register
 adminRouter.get('/admin/dodaj-admina', auth, (req, res) => {
- res.render('admin/addNewAdmin', { googTitle: "Dodaj admina", robots: true })
+  const admin = req.data.user
+  res.render('admin/addNewAdmin', { googTitle: "Dodaj admina", robots: true, admin })
 })
 
 // POST/addNewAdmin  ~  register
@@ -73,13 +77,14 @@ adminRouter.post('/admin/addNewAdmin/', auth, async (req, res, body) => {
 
 // EDIT
 adminRouter.get('/admin/izmeni-admina/:id', auth, async (req, res) => {
+  const admin = req.data.user
   const _id = req.params.id
   try {
     const user = await Admin.findById(_id).select('-password -__v -tokens')
 
     if(!user) return res.status(404).send()
 
-    res.render('admin/editAdmin', { user, googTitle: "Izmeni admina", robots: true })
+    res.render('admin/editAdmin', { user, googTitle: "Izmeni admina", robots: true, admin })
   } catch (e) {
     res.status(500).send()
   }
