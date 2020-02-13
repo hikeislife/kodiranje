@@ -7,6 +7,7 @@ const auth    = require('../middleware/auth')
 const articleRouter = new express.Router()
 
 articleRouter.get('/admin/svi-artikli', auth, async (req, res) => {
+  const admin = req.data.user
   const articleList = await Article.find().select('-articleContent -__v -socImage -_id -tags -googDesc -socDesc -socTitle -googTitle -created -edited -author').sort({ courseName: -1, order: 1 })
   const publishedArticles = [], notPublished = []
   articleList.forEach(x => {
@@ -17,16 +18,19 @@ articleRouter.get('/admin/svi-artikli', auth, async (req, res) => {
     googTitle: "Lista lekcija", 
     robots: true, 
     publishedArticles, 
-    notPublished })
+    notPublished,
+    admin })
 })
 
 articleRouter.get('/admin/dodaj-lekciju', auth, async (req, res) => {
   const courseList = await Course.find({ active: true }).select('-order -__v -_id -active').sort({ order: 1 })
+  const admin = req.data.user
 
   res.render('articles/addNewArticle', {
     googTitle: "Dodaj lekciju",
     robots: true,
-    courseList
+    courseList,
+    admin
   })
 })
 
@@ -35,6 +39,7 @@ articleRouter.post('/admin/addPost', auth, async (req, res, body) => {
     req.body.published = true;
   }
   req.body.order = await findOrder(req.body.courseName)
+  req.body.author = req.data.user
   req.body.selectedURL = req.body.selectedURL.toLowerCase().replace(/ /gi, '-')
   req.body.tags = req.body.tags.split(',').map(x => x.trim())
   const article = new Article(req.body)
@@ -49,6 +54,7 @@ articleRouter.post('/admin/addPost', auth, async (req, res, body) => {
 
 articleRouter.get('/admin/:kurs/:lekcija', auth, async (req, res) => {
   const courseList = await Course.find({ active: true }).select('-order -__v -_id -active').sort({ order: 1 })
+  const admin = req.data.user
   
   await Article.findOne({ courseName: req.params.kurs, selectedURL: req.params.lekcija }).select('-__v').then(post => {
     courseList.selected = req.params.kurs//post.courseName
@@ -56,7 +62,8 @@ articleRouter.get('/admin/:kurs/:lekcija', auth, async (req, res) => {
       post, 
       googTitle: 'Izmeni lekciju',
       courseList,
-      robots: true
+      robots: true,
+      admin
     })
   })
 })

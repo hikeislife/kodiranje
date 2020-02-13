@@ -1,7 +1,7 @@
-const jwt   = require('jsonwebtoken')
+const jwt = require('jsonwebtoken')
 const Admin = require('../db/models/admin')
 
-const auth = async (req, res, next) => {
+const signedIn = async (req, res, next) => {
   try {
     const cookie = await req.header('Cookie')
     const cookies = cookie.split(';')
@@ -11,19 +11,18 @@ const auth = async (req, res, next) => {
     })
 
     const decoded = jwt.verify(token, process.env.JWT_P_KEY)
-    const admin = await Admin.findOne({ 
-      _id: decoded._id, 
-      'tokens.token' : token
+    const admin = await Admin.findOne({
+      _id: decoded._id,
+      'tokens.token': token
     })
-    if(!admin) {
+    if (!admin) {
       throw new Error()
     }
-    req.data = req.data || {}
-    req.data.user = admin.name
-    next()
+    res.redirect('/admin/svi-artikli')
   } catch (er) {
-    console.log('there be an error matey: ' + er)
-    res.status(403).redirect('/admin')
+    next()
   }
 }
-module.exports = auth
+
+
+module.exports = signedIn
