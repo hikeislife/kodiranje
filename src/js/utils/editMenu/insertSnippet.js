@@ -75,6 +75,39 @@ export default function insertSnippet (e, details = {}) {
     case "titleH3":
       insert = `${stringBefore}<h3>${preserveMe}</h3>${stringAfter}`
       break
+    case "greenHighlight":
+      insert = `${stringBefore}<span class="highlight">${preserveMe}</span>${stringAfter}`
+      break
+    case "grayHighlight":
+      insert = `${stringBefore}<em>${preserveMe}</em>${stringAfter}`
+      break
+    case "quote":
+      insert = `${stringBefore}
+        <blockquote>
+          ${preserveMe}
+          <cite>EDIT</cite>
+        </blockquote>
+        ${stringAfter}`
+      break
+    case "tooltip":
+      insert = `${stringBefore}
+        <span class="tt">
+          EDIT 
+          <span class="ttt">${preserveMe}</span>
+        </span> 
+        ${stringAfter}`
+      break
+    case "slika":
+      insert = ``
+      break
+    case "details":
+      insert = `${stringBefore}
+        <details>
+          <summary><p>${preserveMe}</p></summary>
+          <p>EDIT</p>
+        </details>
+        ${stringAfter}`
+      break
     case "extLink":
       insert = `${stringBefore}
       <a href="${details.url}" 
@@ -86,7 +119,7 @@ export default function insertSnippet (e, details = {}) {
          </a>
          ${stringAfter}`
       break
-    case "extLink":
+    case "intLink":
       insert = `${stringBefore}
       <a href="${details.url}" 
          hreflang="sr" 
@@ -95,29 +128,56 @@ export default function insertSnippet (e, details = {}) {
       </a>
       ${stringAfter}`
       break
-    case "sol":
-      insert = `${stringBefore}<div class="superbox sol"><code>${preserveMe}</code></div>${stringAfter}`
+    case "ref":
+      insert = `${stringBefore}<span></span>${stringAfter}`
       break
     case "tip":
       insert = `${stringBefore}<div class="superbox tip"><p>${preserveMe}</p></div> ${stringAfter}`
       break
+    case "quiz":
+      insert = `${stringBefore} <div class="superbox quiz"><p>${preserveMe}</p></div> ${stringAfter}`
+      break
     case "warning":
       insert = `${stringBefore}<div class="superbox warning"><p>${preserveMe}</p></div> ${stringAfter}`
-      break
-    case "quiz":
-      insert = `${ stringBefore } <div class="superbox quiz"><p>${preserveMe}</p></div> ${ stringAfter }`
-      break
-    case "bug":
-      insert = `${stringBefore}<div class="superbox bug"><p>${preserveMe}</p></div> ${stringAfter}`
       break
     case "why":
       insert = `${stringBefore}<div class="superbox why"><p>${preserveMe}</p></div> ${stringAfter}`
       break
-    case "greenHighlight":
-      insert = `${stringBefore}<span class="highlight">${preserveMe}</span>${stringAfter}`
+    case "bug":
+      insert = `${stringBefore}<div class="superbox bug"><p>${preserveMe}</p></div> ${stringAfter}`
       break
-    case "grayHighlight":
-      insert = `${stringBefore}<em>${preserveMe}</em>${stringAfter}`
+    case "sol":
+      insert = `${stringBefore}<div class="superbox sol"><code>${preserveMe}</code></div>${stringAfter}`
+      break
+    case "terminal":
+      insert = `${stringBefore}${preserveMe}${stringAfter}`
+      break
+    case "console":
+      insert = `${stringBefore}${preserveMe}${stringAfter}`
+      break
+    case "ard":
+      insert = `${stringBefore}${preserveMe}${stringAfter}`
+      break
+    case "pinkCode":
+      insert = `${stringBefore}<span class="pink">${preserveMe}</span>${stringAfter}`
+      break
+    case "greenCode":
+      insert = `${stringBefore}<span class="green">${preserveMe}</span>${stringAfter}`
+      break
+    case "violetCode":
+      insert = `${stringBefore}<span class="violet">${preserveMe}</span>${stringAfter}`
+      break
+    case "blueCode":
+      insert = `${stringBefore}<span class="royal">${preserveMe}</span>${stringAfter}`
+      break
+    case "dimCode":
+      insert = `${stringBefore}<span class="dim">${preserveMe}</span>${stringAfter}`
+      break
+    case "opekaCode":
+      insert = `${stringBefore}<span class="opeka">${preserveMe}</span>${stringAfter}`
+      break
+    case "spell":
+      insert = `${stringBefore}<span class="squigly">${preserveMe}</span>${stringAfter}`
       break
     case "smiley":
       insert = `${stringBefore}<span class="em smiley"></span>${stringAfter}`
