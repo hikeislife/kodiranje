@@ -1,7 +1,8 @@
 const showBackToTop = e => {
   const backToTop = document.querySelector('.backToTop')
   const firstAppearance = document.documentElement.scrollTop
-  const maxAppearance = document.documentElement.scrollTopMax
+  const maxAppearance = document.documentElement.scrollHeight - document.documentElement.clientHeight
+  console.log({document})
   if (document.body.scrollTop >= 600 || firstAppearance >= 600) {
     backToTop.style.display = 'inline-flex'
   }
