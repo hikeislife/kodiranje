@@ -20,10 +20,6 @@ const articleSchema = new mongoose.Schema({
       }
     }
   },
-  articleContent: {
-    type: String,
-    required: [true, `Text artikla je obavezno polje`]
-  },
   courseName: {
     type: String,
     required: [true, `Polje je obavezno`]
@@ -60,8 +56,11 @@ const articleSchema = new mongoose.Schema({
   },
   socImage: {
     type: Buffer,
-    //
-  }
+  },
+  articleContent: {
+    type: String,
+    required: [true, `Text artikla je obavezno polje`]
+  },
 }, {
   timestamps: true
 })

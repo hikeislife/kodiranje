@@ -89,12 +89,27 @@ articleRouter.patch('/admin/edit-article/:id', auth, async (req, res) => {
 })
 
 const upload = multer({
-  dest: './src/imgs/og/'
+  //dest: './src/imgs/og/',
+  limits: {
+    fileSize: 2000000
+  },
+  fileFilter(req, file, cb) {
+    if (!file.originalname.match(/\.(jpg|jpeg|png|webp|gif)$/)) {
+      return cb(new Error('To nije odgovarajuća slika'))
+    }
+    cb(undefined, true)
+  }
 })
 
-articleRouter.post('/admin/image-upload', upload.single('socImage'), (req, res, next) => {
-  //console.log(req)
+articleRouter.post('/admin/og-upload', auth, upload.single('socImage'), async (req, res, next) => {
+  // need to pass current article id
+  req.article.socImage = req.file.buffer
+  await req.article.save()
   res.send()
+}, (err, req, res, next) => {
+  res.status(400).send({
+    errorMessage: err.message
+  })
 })
 
 findOrder = async (course) => {
