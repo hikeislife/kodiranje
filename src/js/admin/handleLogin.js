@@ -1,7 +1,7 @@
 console.log('log me in')
 
 const handleRedirect = () => {
-  window.location = `/admin/svi-artikli/`
+  window.location = `../admin/svi-artikli/`
 }
 
 const runValidation = () => {

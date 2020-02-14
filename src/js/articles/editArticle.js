@@ -16,7 +16,7 @@ export default (function doTheFetch() {
       socImage:   form.querySelector('#socImage').value,
       courseName: form.querySelector('#courseName').value,
       navName:    form.querySelector('#navName').value,
-      tags:       form.querySelector('#tags').value, // ?
+      tags: form.querySelector('#tags').value.split(',').map(x => x.trim())
     }
     fetch(`/admin/edit-article/${form.dataset['articleid']}`, {
       method: 'PATCH',
