@@ -5,7 +5,8 @@ export default (function doTheFetch() {
     let articleContent = ''
     if (document.querySelector('.contentTextArea')) articleContent = document.querySelector('.contentTextArea').value
     else if (document.querySelector('.editContent')) articleContent = document.querySelector('.editContent').innerHTML
-    
+    const tags = form.querySelector('#tags').value.split(',').map(x => x.trim())
+    console.log(tags)
     const data = {
       articleContent: articleContent,
       published:  form.querySelector('#published').checked,
@@ -16,7 +17,7 @@ export default (function doTheFetch() {
       socImage:   form.querySelector('#socImage').value,
       courseName: form.querySelector('#courseName').value,
       navName:    form.querySelector('#navName').value,
-      tags: form.querySelector('#tags').value.split(',').map(x => x.trim())
+      tags
     }
     fetch(`/admin/edit-article/${form.dataset['articleid']}`, {
       method: 'PATCH',
