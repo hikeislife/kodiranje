@@ -1,4 +1,5 @@
 const express = require('express')
+const multer  = require('multer')
                 require('../db/mongoose')
 const Article = require('../db/models/article')
 const Course  = require('../db/models/course')
@@ -25,6 +26,7 @@ articleRouter.get('/admin/svi-artikli', auth, async (req, res) => {
 articleRouter.get('/admin/dodaj-lekciju', auth, async (req, res) => {
   const courseList = await Course.find({ active: true }).select('-order -__v -_id -active').sort({ order: 1 })
   const admin = req.data.user
+  
 
   res.render('articles/addNewArticle', {
     googTitle: "Dodaj lekciju",
@@ -84,6 +86,15 @@ articleRouter.patch('/admin/edit-article/:id', auth, async (req, res) => {
     console.log(e)
     res.status(500).send()
   }
+})
+
+const upload = multer({
+  dest: './src/imgs/og/'
+})
+
+articleRouter.post('/admin/image-upload', upload.single('socImage'), (req, res, next) => {
+  //console.log(req)
+  res.send()
 })
 
 findOrder = async (course) => {
