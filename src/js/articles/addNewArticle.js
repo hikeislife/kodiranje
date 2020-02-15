@@ -1,1 +1,1 @@
-import characterCounter from "./characterCounter.js"
+import characterCounter from "../utils/characterCounter.js"

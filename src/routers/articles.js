@@ -1,4 +1,5 @@
 const express = require('express')
+const multer  = require('multer')
                 require('../db/mongoose')
 const Article = require('../db/models/article')
 const Course  = require('../db/models/course')
@@ -25,6 +26,7 @@ articleRouter.get('/admin/svi-artikli', auth, async (req, res) => {
 articleRouter.get('/admin/dodaj-lekciju', auth, async (req, res) => {
   const courseList = await Course.find({ active: true }).select('-order -__v -_id -active').sort({ order: 1 })
   const admin = req.data.user
+  
 
   res.render('articles/addNewArticle', {
     googTitle: "Dodaj lekciju",
@@ -84,6 +86,30 @@ articleRouter.patch('/admin/edit-article/:id', auth, async (req, res) => {
     console.log(e)
     res.status(500).send()
   }
+})
+
+const upload = multer({
+  //dest: './src/imgs/og/',
+  limits: {
+    fileSize: 2000000
+  },
+  fileFilter(req, file, cb) {
+    if (!file.originalname.match(/\.(jpg|jpeg|png|webp|gif)$/)) {
+      return cb(new Error('To nije odgovarajuća slika'))
+    }
+    cb(undefined, true)
+  }
+})
+
+articleRouter.post('/admin/og-upload', auth, upload.single('socImage'), async (req, res, next) => {
+  // need to pass current article id
+  req.article.socImage = req.file.buffer
+  await req.article.save()
+  res.send()
+}, (err, req, res, next) => {
+  res.status(400).send({
+    errorMessage: err.message
+  })
 })
 
 findOrder = async (course) => {
