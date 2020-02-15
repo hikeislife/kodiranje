@@ -103,8 +103,9 @@ const upload = multer({
 
 articleRouter.post('/admin/og-upload', auth, upload.single('socImage'), async (req, res, next) => {
   // need to pass current article id
-  req.article.socImage = req.file.buffer
-  await req.article.save()
+  //req.article.socImage = req.file.buffer
+  //await req.article.save()
+  console.log(req)
   res.send()
 }, (err, req, res, next) => {
   res.status(400).send({
