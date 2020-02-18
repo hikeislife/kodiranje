@@ -1,6 +1,7 @@
 <article>
   <section>
     <h1>Novi članak</h1>
+    {{#if errorMessage}}<p class="adminError">{{errorMessage}}</p>{{/if}}
     <div>
       <form      enctype=     "multipart/form-data"
                  method=      "POST"

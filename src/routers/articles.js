@@ -26,7 +26,6 @@ articleRouter.get('/admin/svi-artikli', auth, async (req, res) => {
 articleRouter.get('/admin/dodaj-lekciju', auth, async (req, res) => {
   const courseList = await Course.find({ active: true }).select('-order -__v -_id -active').sort({ order: 1 })
   const admin = req.data.user
-  
 
   res.render('articles/addNewArticle', {
     googTitle: "Dodaj lekciju",
@@ -37,19 +36,34 @@ articleRouter.get('/admin/dodaj-lekciju', auth, async (req, res) => {
 })
 
 articleRouter.post('/admin/addPost', auth, async (req, res, body) => {
-  if (req.body.published) {
-    req.body.published = true;
-  }
-  req.body.order = await findOrder(req.body.courseName)
-  req.body.author = req.data.user
-  req.body.selectedURL = req.body.selectedURL.toLowerCase().replace(/ /gi, '-')
-  req.body.tags = req.body.tags.split(',').map(x => x.trim())
+  let errorMessage = ''
+  const admin = req.data.user
+  uploadOG(req, res, er => {
+    if(er) {
+      res.render('articles/addNewArticle', {
+        googTitle: "Dodaj lekciju",
+        robots: true,
+        courseList,
+        admin,
+        errorMessage: er
+      })
+    } else {
+      console.log(req.file)
+    }
+  })
   const article = new Article(req.body)
   try {
+    if (req.body.published) {
+      req.body.published = true;
+    }
+    req.body.order = await findOrder(req.body.courseName)
+    if (req.data.user) req.body.author = req.data.user
+    if (req.body.selectedURL) req.body.selectedURL = req.body.selectedURL.toLowerCase().replace(/ /gi, '-')
+    if (req.body.tags) req.body.tags = req.body.tags.split(',').map(x => x.trim())
     await article.save()
     res.redirect(302, '/admin/svi-artikli')
   } catch (e) {
-    res.status(418).render('articles/addNewArticle', { errorMessage: e.errmsg, googTitle: "Dodaj lekciju", robots: true })
+    res.status(418).redirect('/admin/dodaj-lekciju')
     console.log(e)
   }
 })
@@ -88,7 +102,7 @@ articleRouter.patch('/admin/edit-article/:id', auth, async (req, res) => {
   }
 })
 
-const upload = multer({
+const uploadOG = multer({
   //dest: './src/imgs/og/',
   limits: {
     fileSize: 2000000
@@ -99,19 +113,19 @@ const upload = multer({
     }
     cb(undefined, true)
   }
-})
+}).single('socImage')
 
-articleRouter.post('/admin/og-upload', auth, upload.single('socImage'), async (req, res, next) => {
-  // need to pass current article id
-  //req.article.socImage = req.file.buffer
-  //await req.article.save()
-  console.log(req)
-  res.send()
-}, (err, req, res, next) => {
-  res.status(400).send({
-    errorMessage: err.message
-  })
-})
+// articleRouter.post('/admin/og-upload', auth, upload.single('socImage'), async (req, res, next) => {
+//   // need to pass current article id
+//   //req.article.socImage = req.file.buffer
+//   //await req.article.save()
+//   console.log(req)
+//   res.send()
+// }, (err, req, res, next) => {
+//   res.status(400).send({
+//     errorMessage: err.message
+//   })
+// })
 
 findOrder = async (course) => {
   const order = await Article.findOne({ courseName: course }).select('order -_id').sort({ order: -1 })
