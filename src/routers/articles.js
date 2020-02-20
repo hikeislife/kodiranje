@@ -39,19 +39,20 @@ articleRouter.post('/admin/addPost', auth, async (req, res, body) => {
   let errorMessage = ''
   const admin = req.data.user
   uploadOG(req, res, er => {
-    if(er) {
-      res.render('articles/addNewArticle', {
-        googTitle: "Dodaj lekciju",
-        robots: true,
-        courseList,
-        admin,
-        errorMessage: er
-      })
-    } else {
-      console.log(req.file)
+    try {
+      req.body.socImage = req.file.buffer
+    }
+    catch (e) {
+      //     res.render('articles/addNewArticle', {
+      //         googTitle: "Dodaj lekciju",
+      //         robots: true,
+      //         courseList,
+      //         admin,
+      //         errorMessage: e
+      //     })
+      console.log(e)
     }
   })
-  const article = new Article(req.body)
   try {
     if (req.body.published) {
       req.body.published = true;
@@ -60,6 +61,10 @@ articleRouter.post('/admin/addPost', auth, async (req, res, body) => {
     if (req.data.user) req.body.author = req.data.user
     if (req.body.selectedURL) req.body.selectedURL = req.body.selectedURL.toLowerCase().replace(/ /gi, '-')
     if (req.body.tags) req.body.tags = req.body.tags.split(',').map(x => x.trim())
+    req.body.order = await findOrder(req.body.courseName)
+    
+    const article = new Article(req.body)
+    console.log(article)
     await article.save()
     res.redirect(302, '/admin/svi-artikli')
   } catch (e) {
