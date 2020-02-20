@@ -5,11 +5,11 @@ const validator = require('validator')
 const articleSchema = new mongoose.Schema({
   selectedURL: { /* Naziv članka, ne prikazuje se na strani već je deo url-a */
     type: String,
-    required: [true, `Naziv članka je obavezno polje`]
+    required: [true, `Naziv artikla je obavezno polje`]
   },
   navName: {
     type: String,
-    required: [true, `Polje je obavezno`]
+    required: [true, `Skraćeni naziv je obavezno polje`]
   },
   order: {
     type: Number,
@@ -59,7 +59,7 @@ const articleSchema = new mongoose.Schema({
   },
   articleContent: {
     type: String,
-    required: [true, `Text artikla je obavezno polje`]
+    required: [true, `Ne možete postovati prazan artikal`]
   },
 }, {
   timestamps: true

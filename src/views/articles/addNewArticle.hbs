@@ -1,10 +1,11 @@
 <article>
   <section>
     <h1>Novi članak</h1>
+    {{#if errorMessage}}<p class="adminError">{{errorMessage}}</p>{{/if}}
     <div>
-      <form      enctype=     "multipart/form-data"
-                 method=      "POST"
-                 action=      "/admin/addPost">
+      <form      method=      "POST"
+                 action=      "/admin/addPost"
+                 enctype=     "multipart/form-data">
         <fieldset>
           <legend>Osnovni sadržaj</legend>
         <div     class=       "adminInput">
@@ -13,7 +14,8 @@
                  class=       "admin" 
                  name=        "selectedURL" 
                  id=          "selectedURL" 
-                 placeholder= "Ovo određuje url strane">
+                 placeholder= "Ovo određuje url strane"
+                 required>
         </div>
         <div     class=       "adminInput">
           <label for=         "navName">       Skraćeni naziv</label>
@@ -21,13 +23,15 @@
                  class=       "admin" 
                  name=        "navName" 
                  id=          "navName" 
-                 placeholder= "Ovo određuje šta piše u meniju">
+                 placeholder= "Ovo određuje šta piše u meniju"
+                 required>
         </div>
         <div     class=       "adminInput">
           <label for=         "articleContent">Artikal</label><br>
           <textarea name=     "articleContent" 
                  id=          "articleContent" 
                  placeholder= "Unesi sadržaj bez <article> taga"
+                 required
                  class=       "admin"></textarea>
         </div>
         <div        class=    "adminInput">

@@ -10,8 +10,10 @@ export default function insertSnippet (e, details = {}) {
   console.log(element)
   // text node cursor is placed at: 
   const textContent = element.parentElement.innerHTML
+  console.log(textContent)
   //selected.getRangeAt(0).commonAncestorContainer.innerHTML
   const cursorStart = selected.anchorOffset
+  console.log(selected)
   const cursorEnd = selected.focusOffset
 
   // string parts being edited
