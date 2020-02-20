@@ -43,13 +43,6 @@ articleRouter.post('/admin/addPost', auth, async (req, res, body) => {
       req.body.socImage = req.file.buffer
     }
     catch (e) {
-      //     res.render('articles/addNewArticle', {
-      //         googTitle: "Dodaj lekciju",
-      //         robots: true,
-      //         courseList,
-      //         admin,
-      //         errorMessage: e
-      //     })
       console.log(e)
     }
   })
@@ -64,7 +57,6 @@ articleRouter.post('/admin/addPost', auth, async (req, res, body) => {
     req.body.order = await findOrder(req.body.courseName)
     
     const article = new Article(req.body)
-    console.log(article)
     await article.save()
     res.redirect(302, '/admin/svi-artikli')
   } catch (e) {

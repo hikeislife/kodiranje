@@ -5,6 +5,7 @@ const bodyParser  = require('body-parser')
 const session     = require('express-session');
 const nm          = require('nodemailer')
 const jwt         = require('jsonwebtoken')
+const fs          = require('fs')
 
 const MongoStore  = require('connect-mongo')(session)
 const mongoose    = require('mongoose')
@@ -161,6 +162,12 @@ app.get('/tut/:kurs/:lekcija', (req, res) => {
       if(!menu) {
         return res.status(404).send()
       }
+      let buffer = Buffer.from(post.socImage.buffer);
+      // Saves ogImage from db localy so that url can be provided 
+      fs.writeFile('src/imgs/og/og-image.jpg', buffer, (er) => {
+        if(er) console.log(er)
+      })
+      console.log(post.socImage.buffer.byteLength)
       res.render('article', { menu, post })
     })
   }).catch((er) => {
