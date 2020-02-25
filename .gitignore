@@ -9,3 +9,4 @@ src/app-stari.js
 .env
 src/styles/style.css
 src/imgs
+src/js/utils/images/
