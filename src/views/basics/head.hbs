@@ -17,15 +17,15 @@
   <meta name="twitter:title" content="{{# if post.socTitle}}{{post.socTitle}}{{else}}Nauči da praviš web sajtove{{/if}}">
   <meta name="twitter:description"
     content="{{# if post.socDesc}}{{post.socDesc}}{{else}}Detaljan opis, narodskim jezikom, kako se prave sajtovi. Bez prodaje magle i mućenja vode{{/if}}">
-  <meta name="twitter:image" content="http://hikeislife.github.io/kodiranje/og/nauci-da-kodiras.webp">
+  {{#if (gt post.socImage.buffer.byteLength 0)}}<meta name="twitter:image" content="localhost/src/imgs/og/og-image.jpg">{{else}}<meta name="twitter:image" content="localhost/imgs/og/og-default.png">{{/if}}
   <meta name="twitter:url" content="http://hikeislife.github.io/kodiranje/">
   <!-- og tags -->
   <meta property="og:title" content="Nauči da praviš web sajtove">
   <meta property="og:description"
     content="{{# if post.socDesc}}{{post.socDesc}}{{else}}Detaljan opis, narodskim jezikom, kako se prave sajtovi. Bez prodaje magle i mućenja vode{{/if}}">
   <meta property="og:locale" content="sr_RS">
-  <meta property="og:image" content="{{# if post.socImage}}{{post.socmage}}{{else}}http://hikeislife.github.io/kodiranje/og/nauci-da-kodiras.webp{{/if}}">
-  <meta property="og:image:secure_url" content="{{# if post.socmage}}{{post.socImage}}{{else}}https://hikeislife.github.io/kodiranje/og/nauci-da-kodiras.webp{{/if}}">
+  {{#if (gt post.socImage.buffer.byteLength 0)}}<meta property="og:image" content="localhost/src/imgs/og/og-image.jpg">{{else}}<meta property="og:image" content="localhost/imgs/og/og-default.png">{{/if}}
+  {{#if (gt post.socImage.buffer.byteLength 0)}}<meta property="og:image:secure_url" content="localhost/src/imgs/og/og-image.jpg">{{else}}<meta property="og:image:secure_url" content="localhost/imgs/og/og-default.png">{{/if}}
   <meta property="og:image:type" content="image/webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
