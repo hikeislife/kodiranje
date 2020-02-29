@@ -37,10 +37,11 @@ articleRouter.get('/admin/dodaj-lekciju', auth, async (req, res) => {
 
 articleRouter.post('/admin/addPost', auth, async (req, res, body) => {
   let errorMessage = ''
-  const admin = req.data.user
+  //const admin = req.data.user
   uploadOG(req, res, er => {
     try {
-      req.body.socImage = req.file.buffer
+      if (req.file)
+        req.body.socImage = req.file.buffer
     }
     catch (e) {
       console.log(e)
