@@ -161,16 +161,28 @@ app.post('/send', (req, res) => {
 })
 
 app.get('/tut/:kurs/:lekcija', (req, res) => {
-  Article.findOne({ courseName: req.params.kurs, selectedURL: req.params.lekcija }).select('-__v -published -_id').then((post) => {
-    Article.find({ courseName: req.params.kurs, published: true }).sort({ order: 1 }).select('_id navName selectedURL').then(menu => {
+  Article
+  .findOne({ 
+    courseName: req.params.kurs, 
+    selectedURL: req.params.lekcija })
+  .select('-__v -published -_id')
+  .then((post) => {
+    let buffer = Buffer.from(post.socImage.buffer);
+    // Saves ogImage from db localy so that url can be provided 
+    fs.writeFile('src/imgs/og/og-image.jpg', buffer, (er) => {
+      if (er) console.log(er)
+    })
+    Article
+    .find({ 
+      courseName: req.params.kurs, 
+      published: true })
+    .sort({ order: 1 })
+    .select('_id navName selectedURL')
+    .then(menu => {
       if(!menu) {
         return res.status(404).send()
       }
-      let buffer = Buffer.from(post.socImage.buffer);
-      // Saves ogImage from db localy so that url can be provided 
-      fs.writeFile('src/imgs/og/og-image.jpg', buffer, (er) => {
-        if(er) console.log(er)
-      })
+      
       console.log(post.socImage.buffer.byteLength)
       res.render('article', { menu, post })
     })
