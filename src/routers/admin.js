@@ -75,21 +75,21 @@ adminRouter.post('/admin/addNewAdmin/',/*, auth,*/ async (req, res, body) => {
 
 
 // EDIT
-adminRouter.get('/admin/izmeni-admina/:id', auth, async (req, res) => {
-  const admin = req.data.user
+adminRouter.get('/admin/izmeni-admina/:id', /*auth,*/ async (req, res) => {
+  //const admin = req.data.user
   const _id = req.params.id
   try {
     const user = await Admin.findById(_id).select('-password -__v -tokens')
 
     if(!user) return res.status(404).send()
 
-    res.render('admin/editAdmin', { user, googTitle: "Izmeni admina", robots: true, admin })
+    res.render('admin/editAdmin', { user, googTitle: "Izmeni admina", robots: true/*, admin*/ })
   } catch (e) {
     res.status(500).send()
   }
 })
 
-adminRouter.patch('/admin/edit-admin/:id', auth, async (req, res) => { 
+adminRouter.patch('/admin/edit-admin/:id', /*auth,*/ async (req, res) => { 
   const _id = req.params.id
   if(req.body.newPassword === req.body.password) {
     const admin = {name: req.body.name,
