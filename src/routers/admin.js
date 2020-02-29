@@ -38,11 +38,11 @@ adminRouter.post('/admin/login', async (req, res) => {
   }
 })
 
-adminRouter.get('/admin/svi-admini', async (req, res) => {
-  // const admin = req.data.user
+adminRouter.get('/admin/svi-admini', auth, async (req, res) => {
+  const admin = req.data.user
   const admins = await Admin.find().select('-password -__v -tokens')
   res.status(200)
-  res.render('admin/showAll', { admins, googTitle: "Svi admini", robots: true/*, admin*/ })
+  res.render('admin/showAll', { admins, googTitle: "Svi admini", robots: true, admin })
 })
 
 adminRouter.get('/admin/detalji/:id', auth, async (req, res) => {
@@ -56,13 +56,13 @@ adminRouter.get('/admin/detalji/:id', auth, async (req, res) => {
 
 // REGISTRACIJA
 // GET/dodaj-admina  ~  register
-adminRouter.get('/admin/dodaj-admina', (req, res) => {
-  //const admin = req.data.user
-  res.render('admin/addNewAdmin', { googTitle: "Dodaj admina", robots: true/*, admin */})
+adminRouter.get('/admin/dodaj-admina', auth, (req, res) => {
+  const admin = req.data.user
+  res.render('admin/addNewAdmin', { googTitle: "Dodaj admina", robots: true, admin})
 })
 
 // POST/addNewAdmin  ~  register
-adminRouter.post('/admin/addNewAdmin/',/*, auth,*/ async (req, res, body) => {
+adminRouter.post('/admin/addNewAdmin/', auth, async (req, res, body) => {
   const newAdmin = new Admin(req.body)
   try {
     await newAdmin.save()
@@ -75,21 +75,21 @@ adminRouter.post('/admin/addNewAdmin/',/*, auth,*/ async (req, res, body) => {
 
 
 // EDIT
-adminRouter.get('/admin/izmeni-admina/:id', /*auth,*/ async (req, res) => {
-  //const admin = req.data.user
+adminRouter.get('/admin/izmeni-admina/:id', auth, async (req, res) => {
+  const admin = req.data.user
   const _id = req.params.id
   try {
     const user = await Admin.findById(_id).select('-password -__v -tokens')
 
     if(!user) return res.status(404).send()
 
-    res.render('admin/editAdmin', { user, googTitle: "Izmeni admina", robots: true/*, admin*/ })
+    res.render('admin/editAdmin', { user, googTitle: "Izmeni admina", robots: true, admin })
   } catch (e) {
     res.status(500).send()
   }
 })
 
-adminRouter.patch('/admin/edit-admin/:id', /*auth,*/ async (req, res) => { 
+adminRouter.patch('/admin/edit-admin/:id', auth, async (req, res) => { 
   const _id = req.params.id
   if(req.body.newPassword === req.body.password) {
     const admin = {name: req.body.name,
