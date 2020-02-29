@@ -109,9 +109,9 @@ articleRouter.patch('/admin/edit-article/:id', auth, async (req, res) => {
 
 const uploadOG = multer({
   //dest: './src/imgs/og/',
-  /*limits: {
-    fileSize: 2000000
-  },*/
+  limits: {
+    fileSize: 20000000
+  },
   fileFilter(req, file, cb) {
     if (!file.originalname.match(/\.(jpg|jpeg|png|webp|gif)$/)) {
       return cb(new Error('To nije odgovarajuća slika'))
