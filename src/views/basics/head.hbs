@@ -1,11 +1,9 @@
 <html lang="sr">
-
 <head>
-  <script src="../../js/utils/checkLoginStatus.js"></script>
+  {{!-- <script src="../../js/utils/checkLoginStatus.js"></script> --}}
   <meta charset="UTF-8">
   {{#if robots}}<meta name="robots" content="noindex, nofollow">{{/if}}
-  <meta name="description" content="{{# if post.googDesc}}{{post.googDesc}}{{else}}Tutorijali za ljude koji žele da nauče da kodiraju, na Srpskom jeziku{{/if}}"
-    id="metadesc">
+  <meta name="description" content="{{# if post.googDesc}}{{post.googDesc}}{{else}}Tutorijali za ljude koji žele da nauče da kodiraju, na Srpskom jeziku{{/if}}">
   <meta name="keywords" content="{{post.tags}}">
   <meta name="author" content="ČĎŠ">
   <meta name="theme-color" content="#ccff66">
@@ -17,26 +15,35 @@
   <meta name="twitter:title" content="{{# if post.socTitle}}{{post.socTitle}}{{else}}Nauči da praviš web sajtove{{/if}}">
   <meta name="twitter:description"
     content="{{# if post.socDesc}}{{post.socDesc}}{{else}}Detaljan opis, narodskim jezikom, kako se prave sajtovi. Bez prodaje magle i mućenja vode{{/if}}">
-  {{#if (gt post.socImage.buffer.byteLength 0)}}<meta name="twitter:image" content="localhost/src/imgs/og/og-image.jpg">{{else}}<meta name="twitter:image" content="localhost/imgs/og/og-default.png">{{/if}}
-  <meta name="twitter:url" content="http://hikeislife.github.io/kodiranje/">
+  {{#if (gt post.socImage.buffer.byteLength 0)}}
+  <meta name="twitter:image" content="https://kodiranje.in.rs/src/imgs/og/og-image.webp">{{else}}
+  <meta name="twitter:image" content="https://kodiranje.in.rs/imgs/og/og-default.webp">
+  {{/if}}
+  <meta name="twitter:url" content="https://kodiranje.in.rs/">
   <!-- og tags -->
   <meta property="og:title" content="Nauči da praviš web sajtove">
   <meta property="og:description"
     content="{{# if post.socDesc}}{{post.socDesc}}{{else}}Detaljan opis, narodskim jezikom, kako se prave sajtovi. Bez prodaje magle i mućenja vode{{/if}}">
   <meta property="og:locale" content="sr_RS">
-  {{#if (gt post.socImage.buffer.byteLength 0)}}<meta property="og:image" content="localhost/src/imgs/og/og-image.jpg">{{else}}<meta property="og:image" content="localhost/imgs/og/og-default.png">{{/if}}
-  {{#if (gt post.socImage.buffer.byteLength 0)}}<meta property="og:image:secure_url" content="localhost/src/imgs/og/og-image.jpg">{{else}}<meta property="og:image:secure_url" content="localhost/imgs/og/og-default.png">{{/if}}
+  {{#if (gt post.socImage.buffer.byteLength 0)}}
+  <meta property="og:image" content="https://www.kodiranje.in.rs/src/imgs/og/og-image.webp">
+  {{else}}
+  <meta property="og:image" content="https://www.kodiranje.in.rs/imgs/og/og-default.webp">
+  {{/if}}
+  {{#if (gt post.socImage.buffer.byteLength 0)}}
+  <meta property="og:image:secure_url" content="https://www.kodiranje.in.rs/imgs/og/og-image.webp">{{else}}
+  <meta property="og:image:secure_url" content="https://www.kodiranje.in.rs/imgs/og/og-default.png">{{/if}}
   <meta property="og:image:type" content="image/webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:url" content="http://hikeislife.github.io/kodiranje/">
+  <meta property="og:url" content="https://www.kodiranje.in.rs/">
   <meta property="og:site_name" content="Kodiranje">
   <meta property="og:type" content="website">
   <meta property="fb:app_id" content="2628437480546534">
   <meta name="pinterest-rich-pin" content="true">
-  <meta name="msapplication-square310x310logo" content="../../imgs/cog310.png">
+  <meta name="msapplication-square310x310logo" content="https://www.kodiranje.in.rs/imgs/cog310.png">
   <title>Kodiranje {{# if post.googTitle}}| {{post.googTitle}}{{else}}| {{googTitle}}{{/if}}</title>
-  <link rel="canonical" href="https://hikeislife.github.io/kodiranje/">
+  <link rel="canonical" href="https://www.kodiranje.in.rs/">
   <link rel="manifest" href="../../manifest.json">
   <link rel="stylesheet" href="/styles/style.css" media="screen" defer async>
   <link rel="icon" href="../../imgs/cog192.webp" sizes="192x192">
