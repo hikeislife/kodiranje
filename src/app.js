@@ -43,6 +43,7 @@ app.use(articleRouter)
 //const lER = process.env.CERTBOT_RESPONSE;
 const port       = process.env.PORT
 const dir        = path.join(__dirname)
+const og         = path.join(__dirname, 'og')
 const views      = path.join(__dirname, 'views')
 
 app.set('view engine', 'hbs')
@@ -83,6 +84,7 @@ hbs.registerHelper({
 });
 
 app.use(express.static(dir))
+app.use(express.static(og))
 app.use(express.static('./js/front'))
 
 app.use((er, req, res, text) => {
