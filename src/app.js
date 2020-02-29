@@ -40,7 +40,7 @@ app.use(adminRouter)
 app.use(courseRouter)
 app.use(articleRouter)
 
-const lER = process.env.CERTBOT_RESPONSE;
+//const lER = process.env.CERTBOT_RESPONSE;
 const port       = process.env.PORT
 const dir        = path.join(__dirname)
 const views      = path.join(__dirname, 'views')
@@ -91,9 +91,9 @@ app.use((er, req, res, text) => {
   res.render('500')
 })
 
-app.get('/.well-known/acme-challenge/:content', function (req, res) {
-  res.send(lER);
-});
+// app.get('/.well-known/acme-challenge/:content', function (req, res) {
+//   res.send(lER);
+// });
 
 /* PATHS */
 /* front page */
