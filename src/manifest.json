@@ -14,9 +14,9 @@
   "icons": [
     
     {
-      "src": "imgs/cog192.webp",
+      "src": "imgs/cog192.png",
       "sizes": "192x192",
-      "type": "image/webp"
+      "type": "image/png"
     }
   ]
 }
