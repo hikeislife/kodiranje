@@ -85,7 +85,6 @@ hbs.registerHelper({
 
 app.use(express.static(dir))
 app.use(express.static(og))
-console.log(og)
 app.use(express.static('./js/front'))
 
 app.use((er, req, res, text) => {
