@@ -62,7 +62,7 @@ adminRouter.get('/admin/dodaj-admina', (req, res) => {
 })
 
 // POST/addNewAdmin  ~  register
-adminRouter.post('/admin/addNewAdmin/', auth, async (req, res, body) => {
+adminRouter.post('/admin/addNewAdmin/'/*, auth,*/ async (req, res, body) => {
   const newAdmin = new Admin(req.body)
   try {
     await newAdmin.save()
