@@ -39,7 +39,7 @@ adminRouter.post('/admin/login', async (req, res) => {
 })
 
 adminRouter.get('/admin/svi-admini', async (req, res) => {
-  const admin = req.data.user
+  const admin = req.data.user || null
   const admins = await Admin.find().select('-password -__v -tokens')
   res.status(200)
   res.render('admin/showAll', { admins, googTitle: "Svi admini", robots: true, admin })
@@ -57,7 +57,7 @@ adminRouter.get('/admin/detalji/:id', auth, async (req, res) => {
 // REGISTRACIJA
 // GET/dodaj-admina  ~  register
 adminRouter.get('/admin/dodaj-admina', (req, res) => {
-  const admin = req.data.user
+  const admin = req.data.user || null
   res.render('admin/addNewAdmin', { googTitle: "Dodaj admina", robots: true, admin })
 })
 
