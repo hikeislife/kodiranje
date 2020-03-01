@@ -111,7 +111,7 @@ articleRouter.patch('/admin/edit-article/:id', auth, async (req, res) => {
 const uploadOG = multer({
   //dest: './src/imgs/og/',
   limits: {
-    fileSize: 2000000,
+    fileSize:  2000000,
     fieldSize: 524288000
   },
   fileFilter(req, file, cb) {
