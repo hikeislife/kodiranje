@@ -171,7 +171,9 @@ app.get('/tut/:kurs/:lekcija', (req, res) => {
   .then((post) => {
     let buffer = Buffer.from(post.socImage.buffer);
     // Saves ogImage from db localy so that url can be provided 
-    fs.writeFile('src/imgs/og/og-image.webp', buffer, (er) => {
+    const fileName = `src/imgs/og/og-${req.params.kurs}-${req.params.lekcija}.webp`
+    console.log(fileName)
+    fs.writeFile(fileName, buffer, (er) => {
       if (er) console.log(er)
     })
     Article
