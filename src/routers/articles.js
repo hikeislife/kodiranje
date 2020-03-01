@@ -37,9 +37,7 @@ articleRouter.get('/admin/dodaj-lekciju', auth, async (req, res) => {
 
 articleRouter.post('/admin/addPost', auth, async (req, res, body) => {
   let errorMessage = ''
-  //console.log(req)
   const order = await Article.findOne({}).select('order -_id').sort({ order: -1})
-  //const admin = req.data.user
   await uploadOG(req, res, er => {
     try {
       if (req.file)
@@ -53,7 +51,6 @@ articleRouter.post('/admin/addPost', auth, async (req, res, body) => {
       if (req.data.user) req.body.author = req.data.user
       if (req.body.selectedURL) req.body.selectedURL = req.body.selectedURL.toLowerCase().replace(/ /gi, '-')
       if (req.body.tags) req.body.tags = req.body.tags.split(',').map(x => x.trim())
-      console.log(req.body)
       const article = new Article(req.body)
       article.save()
       res.redirect(302, '/admin/svi-artikli')
@@ -63,15 +60,6 @@ articleRouter.post('/admin/addPost', auth, async (req, res, body) => {
       res.status(418).redirect('/admin/dodaj-lekciju')
     }
   })
-  // try {
-    
-  //   console.log('outside ' + req.body)
-    //await 
-    
-  // } catch (e) {
-  //   res.status(418).redirect('/admin/dodaj-lekciju')
-  //   console.log(e)
-  // }
 })
 
 articleRouter.get('/admin/:kurs/:lekcija', auth, async (req, res) => {
