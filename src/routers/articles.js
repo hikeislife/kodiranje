@@ -48,6 +48,7 @@ articleRouter.post('/admin/addPost', auth, async (req, res, body) => {
       if (req.body.published) {
         req.body.published = true;
       }
+
       req.body.order = order.order + 1
       if (req.data.user) req.body.author = req.data.user
       if (req.body.selectedURL) req.body.selectedURL = req.body.selectedURL.toLowerCase().replace(/ /gi, '-')
@@ -110,7 +111,8 @@ articleRouter.patch('/admin/edit-article/:id', auth, async (req, res) => {
 const uploadOG = multer({
   //dest: './src/imgs/og/',
   limits: {
-    fileSize: 20000000
+    fileSize: 2000000,
+    fieldSize: 524288000
   },
   fileFilter(req, file, cb) {
     if (!file.originalname.match(/\.(jpg|jpeg|png|webp|gif)$/)) {
