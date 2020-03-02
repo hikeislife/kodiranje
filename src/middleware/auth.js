@@ -9,6 +9,7 @@ const auth = async (req, res, next) => {
     cookies.forEach(x => {
       if (x.split('=')[0] === 'token') token = x.split('=')[1]
     })
+    console.log(token)
 
     const decoded = jwt.verify(token, process.env.JWT_P_KEY)
     const admin = await Admin.findOne({ 
