@@ -9,7 +9,7 @@ const auth = async (req, res, next) => {
     console.log(cookies)
     let token = ''
     cookies.forEach(x => {
-      console.log(x)
+      console.log(x.split('=')[0])
       if (x.split('=')[0] === 'token') { token = x.split('=')[1] 
       console.log(token)
     }
