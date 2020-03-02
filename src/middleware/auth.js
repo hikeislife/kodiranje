@@ -6,9 +6,12 @@ const auth = async (req, res, next) => {
     const cookie = await req.header('Cookie')
     console.log(cookie)
     const cookies = cookie.split(';')
+    console.log(cookies)
     let token = ''
     cookies.forEach(x => {
-      if (x.split('=')[0] === 'token') token = x.split('=')[1]
+      if (x.split('=')[0] === 'token') { token = x.split('=')[1] 
+      console.log(token)
+    }
     })
     console.log(token)
     console.log('HELLO')
