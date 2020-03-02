@@ -104,7 +104,6 @@ app.get('/', async (req, res) => {
   try {
     const token = req.header('Cookie').split('=')[1]
     userId = await jwt.verify(token, process.env.JWT_P_KEY)._id
-    console.log(userId)
   } catch (er) {
     console.log(er)
     userId = undefined
@@ -172,7 +171,6 @@ app.get('/tut/:kurs/:lekcija', (req, res) => {
     let buffer = Buffer.from(post.socImage.buffer);
     // Saves ogImage from db localy so that url can be provided 
     const fileName = `src/imgs/og/og-${req.params.kurs}-${req.params.lekcija}.webp`
-    console.log(fileName)
     fs.writeFile(fileName, buffer, (er) => {
       if (er) console.log(er)
     })
@@ -187,7 +185,6 @@ app.get('/tut/:kurs/:lekcija', (req, res) => {
         return res.status(404).send()
       }
       
-      console.log(post.socImage.buffer.byteLength)
       res.render('article', { menu, post })
     })
   }).catch((er) => {
