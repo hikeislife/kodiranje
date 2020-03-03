@@ -161,7 +161,16 @@ app.post('/send', (req, res) => {
   })
 })
 
-app.get('/tut/:kurs/:lekcija', (req, res) => {
+app.get('/recnik', (req, res) => {
+  res.send('rečnik')
+})
+
+app.get('/:kurs', (req, res) => {
+  const resp = req.params.kurs
+  res.send('tut ' + resp)
+})
+
+app.get('/:kurs/:lekcija', (req, res) => {
   Article
   .findOne({ 
     courseName: req.params.kurs, 
@@ -192,9 +201,7 @@ app.get('/tut/:kurs/:lekcija', (req, res) => {
   })
 })
 
-// app.get('/recnik', (req, res) => {
-//   res.send('rečnik')
-// })
+
 
 // app.get('/recnik/*', (req, res) => {
 //   res.send('Članak nije pronađen')
