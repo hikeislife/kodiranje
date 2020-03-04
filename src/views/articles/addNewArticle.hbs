@@ -1,3 +1,4 @@
+{{>articles/floatingMenu}}
 <article>
   <section>
     <h1>Novi članak</h1>
@@ -9,7 +10,7 @@
         <fieldset>
           <legend>Osnovni sadržaj</legend>
         <div     class=       "adminInput">
-          <label for=         "selectedURL">   Naziv artikla</label>
+          <label for=         "selectedURL">   Naziv artikla <span class="required"><sup>*</sup></span></label>
           <input type=        "text" 
                  class=       "admin" 
                  name=        "selectedURL" 
@@ -18,7 +19,7 @@
                  required>
         </div>
         <div     class=       "adminInput">
-          <label for=         "navName">       Skraćeni naziv</label>
+          <label for=         "navName">       Skraćeni naziv <span class="required"><sup>*</sup></span></label>
           <input type=        "text" 
                  class=       "admin" 
                  name=        "navName" 
@@ -27,7 +28,7 @@
                  required>
         </div>
         <div     class=       "adminInput">
-          <label for=         "articleContent">Artikal</label><br>
+          <label for=         "articleContent">Artikal <span class="required"><sup>*</sup></span></label><br>
           <textarea name=     "articleContent" 
                  id=          "articleContent" 
                  placeholder= "Unesi sadržaj bez <article> taga"
@@ -53,12 +54,12 @@
                  name=        "tags" 
                  placeholder= "(razdvojeni zarezom)">
         </div>
-        <div     class=       "adminInput">
+        <div     class=       "moveToFloatingMenu">
           <input type=        "checkbox" 
                  name=        "published" 
                  id=          "published">
           <label for=         "published"
-                 class=       "reorderCheckbox nudge">Objavi?</label>
+                 class=       "reorderCheckbox"></label>
         </div>
         </fieldset>
 
@@ -120,8 +121,10 @@
                  name=        "socImage">
         </div>
         </fieldset>
-      <button    id=          "dugme"
-                 class="wideAdminButton admin-saveButton">Sačuvaj</button>
+      <input     type=        "submit"
+                 id=          "dugme"
+                 value=       "Sačuvaj"
+                 class=       "wideAdminButton admin-saveButton">
     </div>
     </form>
   </section>

@@ -8,26 +8,26 @@ label {
   // margin: 2em 0 1em;
 }
 
-label[for=dugme] {
-  border: 1px solid $darkF;
-  text-align: center;
-  height: 2em;
-  border-radius: $inputBorderRadius;
-  background: $buttonBackground;
-  box-shadow: 1px 1px 2px gray;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+// label[for=dugme] {
+//   border: 1px solid $darkF;
+//   text-align: center;
+//   height: 2em;
+//   border-radius: $inputBorderRadius;
+//   background: $buttonBackground;
+//   box-shadow: 1px 1px 2px gray;
+//   display: inline-flex;
+//   align-items: center;
+//   justify-content: center;
   
-  &:hover {
-    cursor: pointer;
-    background: $dy;
-  }
+//   &:hover {
+//     cursor: pointer;
+//     background: $dy;
+//   }
 
-  &:active {
-    box-shadow: -1px -1px 2px gray;
-  }
-}
+//   &:active {
+//     box-shadow: -1px -1px 2px gray;
+//   }
+// }
 
 // #dugme {
 //   display: none;
@@ -97,7 +97,7 @@ input[type="checkbox"] {
 label {
   display: flex;
   align-items: center;
-  margin-bottom: 2em;
+  // margin-bottom: 2em;
 }
 // label[for]:after {
 //   font-size: 40px;
@@ -212,49 +212,7 @@ span[data-counter] {
   }
 }
 
-.floatingMenu {
-  border: 9px double black;
-  border-radius: .5em;
-  display: inline-block;
-  padding: .5em;
-  position: fixed;
-  top: 126px;
-  padding-top: 90px;
-  left: 14.3em;
-  width: 91.2px; /* so it doesn't jump */
-  background: rgb(86, 86, 86);
-  background-clip: padding-box;
-  box-shadow: 1px 1px 10px gray;
 
-  .listless {
-    margin: 0;
-    
-    li {
-      font-size: 2.5em;
-      padding: 0;
-      display: flex;
-      align-content: center;
-      justify-content: center;
-      cursor: pointer;
-
-      span {
-        color: $mainG;
-        text-shadow: 1px 1px 15px $mainG;
-        height: 76.8px;
-      }
-
-      .floattingYellow {
-        color: $dy;
-        text-shadow: 1px 1px 15px $dy;
-      }
-
-      .floattingWarning {
-        color: $wr;
-        text-shadow: 1px 1px 15px $wr;
-      }
-    }
-  }
-}
 
 .moveToFloatingMenu {
   position: fixed;
