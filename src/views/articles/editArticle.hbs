@@ -1,7 +1,7 @@
 {{>articles/floatingMenu}}
 {{>articles/editMenu}}
 <article>
-  <form data-articleId="{{post._id}}">
+  <form        data-articleId="{{post._id}}">
     <div       class=         "moveToFloatingMenu">
       <input   type=          "checkbox" 
                name=          "published" 
@@ -59,6 +59,8 @@
         <span  class=         "adminCounter socDesc" 
                data-counter=  "200">200</span>
       </div>
+      {{#if post.displayImage}}<p>Trenutna slika u bazi:</p>
+      <img src="data:image/webp;base64,{{post.displayImage}}" alt="current socImage" style="width: 100%">{{else}}<p>Nema slike trenutno</p>{{/if}}
       <div     class=         "adminInput">
         <label for=           "socImage"> Slika za društvene mreže 1200x630px sa banerom</label>
         <input type=          "file" 
@@ -102,10 +104,6 @@
                  value=       "{{post.tags}}">
         </div>
     </details>
-    {{!-- <div class="column">
-      <div class="showMeGUI"><h2 class="asButton">GUI</h2></div>
-      <div class="showMeCode"><h2 class="asButton">Vidi kôd</h2></div>
-    </div> --}}
     
     <div class="switcher">
       <div      contenteditable="true" 
@@ -116,7 +114,7 @@
         
       </div>
     </div>
-  
+  <input type="submit" value="Sauvaj" id="dugme">
   
   </form>
 

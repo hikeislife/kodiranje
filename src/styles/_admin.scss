@@ -53,14 +53,18 @@ input[type="file"] {
   display: none;
 }
 
-label[for="socImage"]:after {
-  content: 'Izaberi sliku';
-  width: 10em;
-  border: 1px solid $darkF;
-  border-radius: $inputBorderRadius;
+label[for="socImage"] {
+  // content: 'Izaberi sliku';
+  // width: 10em;
+  // border: 1px solid $darkF;
+  // border-radius: $inputBorderRadius;
+  // text-align: center;
+  // display: block;
+  // background: $buttonBackground;
+  background: floralwhite;
+  border: 2px dashed currentColor;
+  padding: 1em;
   text-align: center;
-  display: block;
-  background: $buttonBackground;
 }
 
 input[type="checkbox"] {
