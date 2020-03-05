@@ -94,13 +94,13 @@ articleRouter.patch('/admin/edit-article/:id', auth, async (req, res) => {
 
   await uploadOG(req, res, er => {
     try {
-      console.log(req.file)
       if (req.file)
         req.body.socImage = req.file.buffer
+      else
+        delete req.body.socImage
 
       if (req.data.user) req.body.author = req.data.user
       if (req.body.tags) req.body.tags = req.body.tags.split(',').map(x => x.trim())
-      console.log(req.body)
       let article =  Article.findByIdAndUpdate(_id, { $set: 
         req.body
       }, {
