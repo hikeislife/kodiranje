@@ -54,13 +54,7 @@ input[type="file"] {
 }
 
 label[for="socImage"] {
-  // content: 'Izaberi sliku';
-  // width: 10em;
-  // border: 1px solid $darkF;
-  // border-radius: $inputBorderRadius;
-  // text-align: center;
-  // display: block;
-  // background: $buttonBackground;
+  display: inline-block;
   background: floralwhite;
   border: 2px dashed currentColor;
   padding: 1em;

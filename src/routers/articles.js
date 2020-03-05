@@ -89,42 +89,42 @@ articleRouter.get('/admin/:kurs/:lekcija', auth, async (req, res) => {
   })
 })
 
-articleRouter.post('/admin/edit-article/:id', auth, async (req, res) => {
+articleRouter.patch('/admin/edit-article/:id', auth, async (req, res) => {
   const _id = req.params.id
 
   await uploadOG(req, res, er => {
     try {
-      
       console.log(req.file)
-      // if (req.file)
-      //   req.body.socImage = req.file.buffer
+      if (req.file)
+        req.body.socImage = req.file.buffer
+
       if (req.data.user) req.body.author = req.data.user
-      // if (req.body.selectedURL) req.body.selectedURL = req.body.selectedURL.toLowerCase().replace(/ /gi, '-')
       if (req.body.tags) req.body.tags = req.body.tags.split(',').map(x => x.trim())
       console.log(req.body)
+      let article =  Article.findByIdAndUpdate(_id, { $set: 
+        req.body//.googTitle
+      }, {
+        new: true,
+        runValidators: true
+      }, function(err, doc) {
+        if(err) console.log(err)
+      })
+      //console.log(article)
+      if (!article) return res.status(404).send()
       // const article = new Article(req.body)
-      // article.save()
-      // res.redirect(302, '/admin/svi-artikli')
+      //article.save()
+      //req.method = "GET"
+      res.status(302).send()//redirect(302, '/admin/svi-artikli')
     }
     catch (e) {
       console.log(e)
-      res.status(418).redirect(`/admin/${req.courseName}/${req.navName}`)
+      res.status(500).redirect(`/admin/${req.courseName}/${req.navName}`)
     }
   })
-  // try {
-  //   let article = await Article.findByIdAndUpdate(_id, req.body, {
-  //     new: true,
-  //     runValidators: true
-  //   })
-
-  //   if (!article) return res.status(404).send()
 
   //   article = await Article.findById(_id)
   //   res.redirect(303, `/${article.courseName}/${article.selectedURL}`)
-  // } catch (e) {
-  //   console.log(e)
-  //   res.status(500).send()
-  // }
+  // } 
 })
 
 const uploadOG = multer({

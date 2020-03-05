@@ -1,5 +1,37 @@
+const file = {
+  dom: document.querySelector('#socImage'),
+  binary: null
+}
+
+const setReader = (() => {
+  const reader = new FileReader()
+  
+  if (file.dom.files[0]) {
+    reader.readAsBinaryString(file.dom.files[0])
+  }
+
+  file.dom.addEventListener("change", function () {
+    if (reader.readyState === FileReader.LOADING) {
+      reader.abort()
+    }
+
+    reader.readAsBinaryString(file.dom.files[0]);
+  })
+
+  reader.addEventListener("load", (e) => {
+    file.binary = reader.result
+  })
+})()
+
 const handleFetch = e => {
   e.preventDefault()
+
+  // if reader is not ready, exit and try again in 10ms
+  if (!file.binary && file.dom.files.length > 0) {
+    setTimeout(sendData, 10);
+    return;
+  }
+
   const form = document.querySelector('form')
 
   let articleContent = ''
@@ -14,27 +46,46 @@ const handleFetch = e => {
     googDesc:   form.querySelector('#googDesc').value,
     socTitle:   form.querySelector('#socTitle').value,
     socDesc:    form.querySelector('#socDesc').value,
-    //socImage:   form.querySelector('#socImage').value,
+    socImage:   form.querySelector('#socImage').files[0],
     courseName: form.querySelector('#courseName').value,
     navName:    form.querySelector('#navName').value,
     tags
   }
-  
+
   const formData = new FormData();
   for (let name in data) {
     formData.append(name, data[name]);
   }
 
-  //console.log(formData.get('articleContent'))
-
   fetch(`/admin/edit-article/${form.dataset['articleid']}`, {
-    method: 'POST',
+    method: 'PATCH',
     cache: 'no-cache',
     body: formData
-  })//.then(() => window.location.href = `/admin/svi-artikli`)
+  }).then(() => window.location.href = `/admin/svi-artikli`)
+}
+
+const indicateImageUpload = e => {
+  /*
+   * This will just show file name if file is selected
+   */
+  const label = document.querySelector('label[for="socImage"]'),
+        socImage = document.querySelector('#socImage')
+  
+  label.innerHTML = `
+    Slika za društvene mreže 1200x630px sa banerom
+    <p>${e.target.files[0].name}</p>`
 }
 
 export default (function doTheFetch() {
-  const saveButton = document.querySelector('#dugme')
+  const saveButton = document.querySelector('#dugme'),
+        socImage = document.querySelector('#socImage'),
+        label = document.querySelector('label[for="socImage"]')
   saveButton.addEventListener('click', handleFetch)
+  
+  if (socImage.files[0]) {
+    label.innerHTML = `
+      Slika za društvene mreže 1200x630px sa banerom
+      <p>${socImage.files[0].name}</p>`
+  }
+  socImage.addEventListener('change', indicateImageUpload)
 })()
