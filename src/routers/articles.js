@@ -102,33 +102,24 @@ articleRouter.patch('/admin/edit-article/:id', auth, async (req, res) => {
       if (req.body.tags) req.body.tags = req.body.tags.split(',').map(x => x.trim())
       console.log(req.body)
       let article =  Article.findByIdAndUpdate(_id, { $set: 
-        req.body//.googTitle
+        req.body
       }, {
         new: true,
         runValidators: true
       }, function(err, doc) {
         if(err) console.log(err)
       })
-      //console.log(article)
       if (!article) return res.status(404).send()
-      // const article = new Article(req.body)
-      //article.save()
-      //req.method = "GET"
-      res.status(302).send()//redirect(302, '/admin/svi-artikli')
+      res.status(302).send()
     }
     catch (e) {
       console.log(e)
       res.status(500).redirect(`/admin/${req.courseName}/${req.navName}`)
     }
   })
-
-  //   article = await Article.findById(_id)
-  //   res.redirect(303, `/${article.courseName}/${article.selectedURL}`)
-  // } 
 })
 
 const uploadOG = multer({
-  //dest: './src/imgs/og/',
   limits: {
     fileSize:  2000000,
     fieldSize: 524288000
@@ -140,18 +131,6 @@ const uploadOG = multer({
     cb(undefined, true)
   }
 }).single('socImage')
-
-// articleRouter.post('/admin/og-upload', auth, upload.single('socImage'), async (req, res, next) => {
-//   // need to pass current article id
-//   //req.article.socImage = req.file.buffer
-//   //await req.article.save()
-//   console.log(req)
-//   res.send()
-// }, (err, req, res, next) => {
-//   res.status(400).send({
-//     errorMessage: err.message
-//   })
-// })
 
 findOrder = async (course) => {
   const order = await Article.findOne({ courseName: course }).select('order -_id').sort({ order: -1 })
