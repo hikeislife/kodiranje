@@ -1,3 +1,5 @@
+import displayOGFileName from '../utils/displayOGFileName.js'
+
 const file = {
   dom: document.querySelector('#socImage'),
   binary: null
@@ -64,18 +66,6 @@ const handleFetch = e => {
   }).then(() => window.location.href = `/admin/svi-artikli`)
 }
 
-const indicateImageUpload = e => {
-  /*
-   * This will just show file name if file is selected
-   */
-  const label = document.querySelector('label[for="socImage"]'),
-        socImage = document.querySelector('#socImage')
-  
-  label.innerHTML = `
-    Slika za društvene mreže 1200x630px sa banerom
-    <p>${e.target.files[0].name}</p>`
-}
-
 export default (function doTheFetch() {
   const saveButton = document.querySelector('#dugme'),
         socImage = document.querySelector('#socImage'),
@@ -83,9 +73,9 @@ export default (function doTheFetch() {
   saveButton.addEventListener('click', handleFetch)
   
   if (socImage.files[0]) {
-    label.innerHTML = `
-      Slika za društvene mreže 1200x630px sa banerom
-      <p>${socImage.files[0].name}</p>`
+    displayOGFileName(socImage.files[0].name)
   }
-  socImage.addEventListener('change', indicateImageUpload)
+  socImage.addEventListener('change', e => {
+    displayOGFileName(e.target.files[0].name)
+  })
 })()
