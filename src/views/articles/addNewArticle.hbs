@@ -4,7 +4,9 @@
     <h1>Novi članak</h1>
     {{#if errorMessage}}<p class="adminError">{{errorMessage}}</p>{{/if}}
     <div>
-      <form      >
+      <form      method=      "POST"
+                 action=      "/admin/addPost"
+                 enctype=     "multipart/form-data">
         <fieldset>
           <legend>Osnovni sadržaj</legend>
         <div     class=       "adminInput">
