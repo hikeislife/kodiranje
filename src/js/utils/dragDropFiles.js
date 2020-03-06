@@ -15,5 +15,23 @@ export default (function dragDrop () {
     e.preventDefault()
     e.stopPropagation()
   })
+
+  ;['dragenter', 'dragover'].forEach(eventName => {
+    socImage.addEventListener(eventName, highlight, false)
+  })
+
+  ;['dragleave', 'drop'].forEach(eventName => {
+    socImage.addEventListener(eventName, unhighlight, false)
+  })
+
+  function highlight(e) {
+    socImage.classList.add('highlight')
+    socImage.style.color = 'green'
+  }
+
+  function unhighlight(e) {
+    socImage.classList.remove('highlight')
+    socImage.style.color = 'black'
+  }
   socImage.addEventListener('drop', handleDrop)
 })()

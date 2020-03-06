@@ -54,12 +54,20 @@ input[type="file"] {
 }
 
 label[for="socImage"] {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
   background: floralwhite;
   border: 2px dashed currentColor;
   padding: 1em;
   text-align: center;
   cursor: pointer;
+
+  &::before {
+    font-family: 'Font Awesome 5 Free';
+    content: '\f03e';
+    font-size: 3em;
+    padding: 1em 0;
+  }
 }
 
 input[type="checkbox"] {
