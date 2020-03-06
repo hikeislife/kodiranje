@@ -224,6 +224,11 @@ h2.inl {
   content: '\1F446';
 }
 
+.windows::before {
+  font-family: 'Font Awesome 5 Brands';
+  content: '\f17a';
+}
+
 .fa-star-of-life,
 .fa-apple {
   color: firebrick;
