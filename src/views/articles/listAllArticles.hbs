@@ -49,7 +49,11 @@
         <summary>
           <p>Arduino</p>
         </summary>
-        
+        {{#each publishedArticles}}
+        {{#if (eq courseName "arduino")}}
+        <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
+        {{/if}}
+        {{/each}}
       </details>
       <details>
         <summary>
@@ -108,7 +112,11 @@
         <summary>
           <p>Arduino</p>
         </summary>
-        
+        {{#each notPublished}}
+          {{#if (eq courseName "arduino")}}
+            <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
+          {{/if}}
+        {{/each}}
       </details>
       <details>
         <summary>
