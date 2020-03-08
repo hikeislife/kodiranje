@@ -126,13 +126,13 @@
 .warning {
   background-color: $wr!important;
   color: blanchedalmond;
+  font-weight: 900;
 
   &::before {
     font-family: "Font Awesome 5 Free";
     content: "\f06a";
     padding: 0 5px;
     color: blanchedalmond;
-    font-weight: 900;
   }
 }
 
