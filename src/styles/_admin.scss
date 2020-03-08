@@ -197,11 +197,11 @@ span[data-counter] {
 
 .artMeta {
   text-align: right;
-  color: gray;
+  color: rgb(104,104,104);
   margin-top: 5em;
   border: 1px solid black;
   border-radius: .3em;
-  background: $sg;
+  background: rgb(241, 255, 241);
 
   & p {
     margin: .5em;
