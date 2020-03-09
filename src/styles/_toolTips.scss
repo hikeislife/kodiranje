@@ -12,7 +12,7 @@
 
 .warning .ttt, 
 .warning .tt {
-  color: blanchedalmond;
+  color: #222;
 }
 
 @media only screen and (min-width: 40em) {
@@ -73,7 +73,7 @@
     background-color: $mainG;
   }
 
-  .warning .ttt {
-    color: $darkF;
-  }
+  // .warning .ttt {
+  //   color: $darkF;
+  // }
 }
