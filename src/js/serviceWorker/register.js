@@ -5,8 +5,8 @@ export default (function registerSW () {
     } else {
       // Register the service worker
       navigator.serviceWorker
-        .register("../sw.js", {
-          scope: "/"
+        .register("sw.js", {
+          scope: "./"
         })
         .then(function (reg) {
           console.log(`Dobro došli na sajt za učenje kodiranja i programiranja. Ovo je naša konzola :)`);
