@@ -7,7 +7,7 @@ export default (function registerSW () {
       navigator.serviceWorker
         .register("../js/serviceWorker/service-worker.js", {
           //scope: "./kodiranje/"
-          scope: "./"
+          scope: "/"
         })
         .then(function (reg) {
           console.log(`Dobro došli na sajt za učenje kodiranja i programiranja. Ovo je naša konzola :)`);
