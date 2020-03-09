@@ -102,8 +102,10 @@ app.use((er, req, res, text) => {
 app.get('/', async (req, res) => {
   let userId
   try {
-    const token = req.header('Cookie').split('=')[1]
+    if (req.header('Cookie')) {
+      const token = req.header('Cookie').split('=')[1]
     userId = await jwt.verify(token, process.env.JWT_P_KEY)._id
+    }
   } catch (er) {
     console.log(er)
     userId = undefined
