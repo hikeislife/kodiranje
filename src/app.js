@@ -165,10 +165,10 @@ app.get('/recnik', (req, res) => {
   res.send('rečnik')
 })
 
-app.get('/:kurs', (req, res) => {
-  const resp = req.params.kurs
-  res.send('tut ' + resp)
-})
+// app.get('/:kurs', (req, res) => {
+//   const resp = req.params.kurs
+//   res.send('tut ' + resp)
+// })
 
 app.get('/:kurs/:lekcija', (req, res) => {
   Article
