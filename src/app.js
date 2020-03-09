@@ -123,7 +123,7 @@ app.get('/', async (req, res) => {
    })
 })
 
-app.get('/service-worker.js', (req, res) => {
+app.get('/service-worker', (req, res) => {
   res.send('service-worker.js')
 })
 
