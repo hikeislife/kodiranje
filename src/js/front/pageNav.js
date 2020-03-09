@@ -8,12 +8,15 @@ export default function createPageNav () {
   let navContent = ''
   bookmarks.forEach(x => {
     navContent += `
-      <li><a href="#${x.attributes.name.nodeValue}" 
-         aria-label="${x.attributes["aria-label"].nodeValue}" 
-         rel="bookmark subsection" 
-         hreflang="sr">
-        ${x.attributes.title.nodeValue}
-      </a></li>\n`
+      <li class="pageNavItem">
+        <a href="#${x.attributes.name.nodeValue}" 
+           aria-label="${x.attributes["aria-label"].nodeValue}" 
+           rel="bookmark subsection" 
+           hreflang="sr"
+           class="nocolor">
+          ${x.attributes.title.nodeValue}
+        </a>
+      </li>\n`
   })
   //console.log(navContent)
   if (page.querySelector('.page-nav > .listless'))
