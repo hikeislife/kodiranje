@@ -6,7 +6,6 @@ export default (function registerSW () {
       // Register the service worker
       navigator.serviceWorker
         .register("../service-worker.js", {
-          //scope: "./kodiranje/"
           scope: "/"
         })
         .then(function (reg) {
