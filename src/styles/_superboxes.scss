@@ -125,7 +125,7 @@
 
 .warning {
   background-color: $wr!important;
-  color: white;
+  color: #222; /* for color contrast reason */ 
   font-weight: bold;
 
   &::before {
