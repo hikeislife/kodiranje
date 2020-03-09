@@ -5,7 +5,7 @@ export default (function registerSW () {
     } else {
       // Register the service worker
       navigator.serviceWorker
-        .register("../js/serviceWorker/service-worker.js", {
+        .register("../service-worker.js", {
           //scope: "./kodiranje/"
           scope: "/"
         })
