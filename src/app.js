@@ -169,7 +169,7 @@ app.get('/recnik', (req, res) => {
 
 // app.get('/:kurs', (req, res) => {
 //   const resp = req.params.kurs
-//   res.send('tut ' + resp)
+//   res.send('tutorijal ' + resp)
 // })
 
 app.get('/:kurs/:lekcija', (req, res) => {
