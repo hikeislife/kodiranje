@@ -217,44 +217,6 @@ h2.inl {
   text-decoration-color: red;
 }
 
-// smilies
-
-.em {
-  font-size: 1.5rem;
-  text-shadow: 1px 1px 2px gray;
-}
-
-.unamused:before {
-  content: '\1F612'
-}
-
-.smiley:before {
-  content: '\1F642';
-}
-
-.cray:before {
-  content: '\1F92A';
-}
-
-.plaz::before {
-  content: '\1f61c';
-}
-
-.up::before {
-  content: '\1F446';
-}
-
-.windows::before {
-  font-family: 'Font Awesome 5 Brands';
-  content: '\f17a';
-}
-
-.fa-star-of-life,
-.fa-apple {
-  color: firebrick;
-  padding-left: 1em;
-}
-
 .center {
   display: flex;
   align-items: center;
