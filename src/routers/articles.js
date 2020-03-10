@@ -151,7 +151,7 @@ generateSiteMap = async () => {
   let pages = `
   <url>
     <loc>https://www.kodiranje.in.rs/</loc>
-    <lastmod>${Date()}</lastmod>
+    <lastmod>${(new Date()).toISOString().split('.')[0]}+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>\r\n`
@@ -177,7 +177,7 @@ generateSiteMap = async () => {
     pages += `
   <url>
     <loc>https://www.kodiranje.in.rs/${article.courseName}/${article.selectedURL}/</loc>
-    <lastmod>${article.updatedAt}</lastmod>
+    <lastmod>${(new Date(article.updatedAt)).toISOString().split('.')[0]}+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>
   </url>\r\n`
