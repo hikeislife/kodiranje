@@ -1,1 +1,391 @@
-<h1>offline</h1>
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  
+  <meta name="description" content="Tutorijali za ljude koji žele da nauče da kodiraju, na Srpskom jeziku">
+  <meta name="keywords" content="">
+  <meta name="author" content="ČĎŠ">
+  <meta name="theme-color" content="#ccff66">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- twitter card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@kodiranje">
+  <meta name="twitter:creator" content="@kodiranje">
+  <meta name="twitter:title" content="Nauči da praviš web sajtove">
+  <meta name="twitter:description"
+    content="Detaljan opis, narodskim jezikom, kako se prave sajtovi. Bez prodaje magle i mućenja vode">
+
+  <meta name="twitter:image" content="https://www.kodiranje.in.rs/imgs/og/og-default.webp">
+  <meta name="twitter:url" content="https://kodiranje.in.rs/">
+  <!-- og tags -->
+  <meta property="og:title" content="Nauči da praviš web sajtove">
+  <meta property="og:description"
+    content="Detaljan opis, narodskim jezikom, kako se prave sajtovi. Bez prodaje magle i mućenja vode">
+  <meta property="og:locale" content="sr_RS">
+  <meta property="og:image" content="https://www.kodiranje.in.rs/og-default.webp">
+
+  <meta property="og:image:secure_url" content="https://www.kodiranje.in.rs/og-default.webp">
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://www.kodiranje.in.rs/">
+  <meta property="og:site_name" content="Kodiranje">
+  <meta property="og:type" content="website">
+  <meta property="fb:app_id" content="2628437480546534">
+  <meta name="pinterest-rich-pin" content="true">
+  <meta name="msapplication-square310x310logo" content="https://www.kodiranje.in.rs/imgs/cog310.png">
+  <title>Kodiranje | </title>
+  <link rel="canonical" href="https://www.kodiranje.in.rs/">
+  <link rel="manifest" href="../../manifest.json">
+  <link rel="stylesheet" href="/styles/style.css" media="screen" defer async>
+  <link rel="icon" href="../../imgs/cog192.webp" sizes="192x192">
+  <link rel="apple-touch-icon" href="../../imgs/cog192.webp" sizes="192x192">
+</head><body>
+  <div class="overlay"></div>
+  <header>
+    <div id="header-top">
+      <svg id="logo" preserveAspectRatio="none" style="height: 70px;width: 100vw;" xmlns="https://www.w3.org/2000/svg">
+        <desc>logo sajta</desc>
+        <g id="bcg" style="stroke: #b1b1b1;fill: none;stroke-width: 1;stroke-dasharray: 1, 10;">
+          <path d="M5 5 5000 5" />
+          <path d="M5 15 5000 15" />
+          <path d="M5 25 5000 25" />
+          <path d="M5 35 5000 35" />
+          <path d="M5 45 5000 45" />
+          <path d="M5 55 5000 55" />
+          <path d="M5 65 5000 65" />
+          <path d="M5 75 5000 75" />
+          <path d="M5 85 5000 85" />
+        </g>
+    
+        <a href="/" rel="start chapter" aria-label="homepage">
+          <g id="logo-text">
+            <text x="40" y="48"
+              style="font-size: 48px; font-family:'Roboto Mono', monospace; font-display: swap;">kodiranje_</text>
+          </g>
+        </a>
+    
+        <g id="rounded-square" style="fill:none;stroke:#1A1A1A;stroke-width:2;width:35;height:35;">
+          <defs>
+            <filter id="f1">
+              <feOffset result="offOut" in="SourceGraphic" dx="1" dy="1" />
+              <feGaussianBlur result="blurOut" in="offOut" stdDeviation="2" />
+              <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+            </filter>
+          </defs>
+          <rect x="37" y="17" rx="5" ry="5" width="35" height="35" filter="url(#f1)" />
+        </g>
+    
+        <g id="fake-selection" style="fill: #e5e5e5;">
+          <circle cx="32.5" cy="12.5" r="3" />
+          <circle cx="75.5" cy="12.5" r="3" />
+          <circle cx="32.5" cy="55.25" r="3" />
+          <circle cx="75.5" cy="55.25" r="3" />
+          <g style="stroke:#e5e5e5;stroke-width:0.5;">
+            <line class="logo-sel" x1="32.5" y1="15.75" x2="32.5" y2="52" />
+            <line class="logo-sel" x1="75.5" y1="15.75" x2="75.5" y2="52" />
+            <line class="logo-sel" x1="35.75" y1="12.5" x2="72.15" y2="12.5" />
+            <line class="logo-sel" x1="35.75" y1="55.5" x2="72.15" y2="55.5" />
+          </g>
+        </g>
+    
+        <g id="cog" display="none">
+          <image x="10" y="10" width="30px" height="30px" href="../../imgs/cog.webp">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 25 25" to="360 25 25"
+              dur="10s" repeatCount="indefinite" />
+          </image>
+        </g>
+      </svg>
+    </div>
+    
+    <!-- absolutely do not change any of this, it will render the image inaccessible  -->
+    <div id="mobile-cog">
+      <img
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo4MTM0QUQ0RUFGMzlFODExQkI3NUY1RjU5MDJCMDk1RCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpGQ0E0OTZGODNCNkMxMUU4OEU1QkYwNzI4MTYxRjlFRSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpGQ0E0OTZGNzNCNkMxMUU4OEU1QkYwNzI4MTYxRjlFRSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjgxMzRBRDRFQUYzOUU4MTFCQjc1RjVGNTkwMkIwOTVEIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjgxMzRBRDRFQUYzOUU4MTFCQjc1RjVGNTkwMkIwOTVEIi8+IDwvcmRmOkRlc2NyaXB0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"
+        class="logo-cog" alt="mob-menu" width="40" height="40" />
+    </div>  <nav id="header-bottom" style="padding-left: 50px">
+      <span class="menuitems" style="display: flex; justify-content: space-between; align-items: center">
+        <span id="hc" class="top-nav">
+          <a href="/html-i-css/uvod-u-html-i-css" class="nocolor" rel="chapter" aria-label="html css tut">
+            <span class="menu-lg">HTML &amp; CSS</span>
+            <span class="menu-sm">
+              <span class="icon htmlIcon"></span>
+              <span class="icon cssIcon"></span>
+            </span>
+    
+          </a>
+        </span> |
+        <span id="gc" class="top-nav"><a href="/git-i-cmd/uvod-u-terminal" class="nocolor" rel="chapter" aria-label="git tutorijal"><span
+              class="menu-lg">git</span>
+              <span class="menu-sm">
+                <span class="icon cmdIcon"></span>
+                <span class="icon gitIcon"></span>
+              </span></a></span> |
+        <span id="js" class="top-nav"><a href="/javascript/uvod-u-javascript" class="nocolor" rel="chapter"
+            aria-label="javascript tutorijal"><span class="menu-lg">JavaScript</span>
+            <span class="menu-sm">
+              <span class="icon jsIcon"></span>
+              <span class="icon nodeIcon"></span>
+            </span></a></span> |
+        <span id="ar" class="top-nav"><a href="/arduino/uvod" class="nocolor" rel="chapter"
+            aria-label="arduino tutorijal"><span class="menu-lg">Arduino</span><span class="menu-sm">
+              <span class="icon arduinoIcon"></span>
+            </span></a></span></span>
+      <span id="backhome"><a href="/" class="nocolor" rel="start chapter" aria-label="pocetna">
+          <span class="icon backHome"></span>
+        </a></span>
+        
+    </nav>  <div class="fullWidth">
+      <div class="indicator"></div>
+    </div></header>  <nav id="side-nav" style="display: none;"><ul id="side-menu">
+  <a href="/mp/bitkoin-bela-knjiga">
+    <li id="5e3e13891eb2b323d0d49228">Bitkojn bela knjiga</li>
+  </a>
+  <a href="/mp/ada-lovlejs">
+    <li id="5e3b7cf47296b10a28bacaa8">Ada Lovlejs</li>
+  </a>
+  <a href="/mp/o-alanu-turingu">
+    <li id="5e3e0fd21eb2b323d0d49226">Alan Turing</li>
+  </a>
+  <a href="/mp/aleksandar-totic">
+    <li id="5e3e10681eb2b323d0d49227">Aleksandar Totić</li>
+  </a>
+  <a href="/mp/brendan-ajk">
+    <li id="5e3b78c5d835a60c28d52234">Brendan Ajk</li>
+  </a>
+  <a href="/mp/grejs-hoper">
+    <li id="5e3e14da1eb2b323d0d49229">Grejs Hoper</li>
+  </a>
+  <a href="/mp/hedi-lamar">
+    <li id="5e3b77e7de5bcf0ad4843619">Hedi Lamar</li>
+  </a>
+  <a href="/mp/lajnus-torvalds">
+    <li id="5e3e15d41eb2b323d0d4922a">Lajnus Torvalds</li>
+  </a>
+  <a href="/mp/maja-pantić">
+    <li id="5e3e165f1eb2b323d0d4922b">Maja Pantić</li>
+  </a>
+  <a href="/mp/mika-alas">
+    <li id="5e3e18561eb2b323d0d4922c">Mika Alas</li>
+  </a>
+  <a href="/mp/rajan-dal">
+    <li id="5e3b7b257296b10a28bacaa5">Rajan Dal</li>
+  </a>
+  <a href="/mp/rajko-tomović">
+    <li id="5e3e18f51eb2b323d0d4922d">Rajko Tomović</li>
+  </a>
+  <a href="/mp/timbl">
+    <li id="5e3b7c817296b10a28bacaa7">TimBL</li>
+  </a>
+  <a href="/mp/vitalik-buterin">
+    <li id="5e3b7bf27296b10a28bacaa6">Vitalik Buterin</li>
+  </a>
+</ul></nav>
+  <main>
+    <div class="placeholder">
+      <div class="main-page">
+  <!-- htmbox-->
+  <a href="/html-i-css/uvod-u-html-i-css" class="nocolor" rel="chapter" aria-label="html i css tutorial"><div class="main-page-box" id="htmlcssbox">
+    <div class="main-page-boxes">
+     
+      <h1>Nauči da praviš sajtove<br />Nauči HTML i CSS</h1>
+
+      <svg version="1.1" id="htmlcss" viewBox="-15 220 600 300" style="text-align: center;" preserveAspectRatio="xMidYMid">
+      <desc>html i css logo</desc>
+    <!--css-->
+      
+      <polygon id="cssstit" fill="#264DE4" points="129.679,511.999 23.632,482.561 0,217.5 259.675,217.5 236.018,482.519 "/>
+      <polygon id="cssodsjaj" fill="#2965F1" points="215.765,465.643 235.981,239.173 129.837,239.173 129.837,489.466 "/>
+      <polygon id="triruka" fill="#EBEBEB" points="54.176,337.48 57.089,369.989 129.837,369.989 129.837,337.48 "/>
+      <polygon id="triglava" fill="#EBEBEB" points="48.321,271.682 51.276,304.191 129.837,304.191 129.837,271.682 129.725,271.682 "/>
+      <polygon id="trirep" fill="#EBEBEB" points="129.837,421.907 129.695,421.946 93.49,412.17 91.175,386.242 73.583,386.242  58.542,386.242 63.097,437.286 129.688,455.772 129.837,455.731 "/>
+      <polygon id="tristomak" fill="#FFFFFF" points="205.291,337.48 211.16,271.682 129.725,271.682 129.725,304.191 175.533,304.191 172.575,337.48 129.725,337.48 129.725,369.989 169.756,369.989 165.982,412.149 129.725,421.935 129.725,455.756 196.37,437.286 196.858,431.793 204.498,346.209 "/>
+    <!--html-->
+      <polygon id="htmlstit" fill="#E44D26" points="566.482,217.5 542.826,482.519 436.486,511.999 330.439,482.561 306.806,217.5 "/>
+      <polygon id="htmlodsjaj" fill="#F16529" points="436.644,489.466 522.573,465.643 542.788,239.173 436.644,239.173 "/>
+      <polygon id="petledja" fill="#EBEBEB" points="390.656,304.191 436.644,304.191 436.644,271.682 436.532,271.682 355.128,271.682 355.906,280.403 363.896,369.989 436.644,369.989 436.644,337.48 393.627,337.48 "/>
+      <polygon id="petrep" fill="#EBEBEB" points="397.982,386.242 380.39,386.242 365.349,386.242 369.903,437.286 436.495,455.772 436.644,455.731 436.644,421.907 436.501,421.946 400.296,412.17 "/>
+      <polygon id="petstomak" fill="#FFFFFF" points="436.532,369.989 476.563,369.989 472.79,412.149 436.532,421.935 436.532,455.756 503.176,437.286 503.666,431.793 511.304,346.209 512.097,337.48 503.337,337.48 436.532,337.48 "/>
+      <polygon id="petglava" fill="#FFFFFF" points="436.532,304.111 436.532,304.191 514.951,304.191 514.951,304.191 515.055,304.191 515.708,296.883 517.189,280.403 517.966,271.682 436.532,271.682 436.532,291.872 "/>
+      
+     <text transform="translate(90, 570)" style="font-size:40px;"></text>
+     </svg>
+    </div>
+    <div class="main-page-boxes mob_hide">
+     <div>
+        <div class="superbox sol">
+          <code>&lt;<span class="pink">blockquote</span>&gt;</code>
+          <code>  Ko ne voli karanfile, ne treba ni da živi!</code>
+          <code>  &lt;<span class="pink">cite</span>&gt;</code>
+          <code>    Pera Mitić&lt;<span class="pink">br</span>&gt;</code>
+          <code>    Beogradski Davitelj</code>
+          <code>  &lt;/<span class="pink">cite</span>&gt;</code>
+          <code>&lt;/<span class="pink">blockquote</span>&gt;</code>
+        </div>
+      </div>
+    </div>
+   </div></a>
+  <!-- gitbox -->
+   <div class="main-page-box" id="gitbox">
+    <div class="main-page-boxes">
+     <a href="#uvod_u_git" class="nocolor" rel="chapter" aria-label="git i cmd tutorijal">
+      <h1>Nauči Git<br />Verzionisanje softvera</h1>
+      <svg xmlns="https://www.w3.org/2000/svg" id="gitsvg" viewBox="0 -20 570 490" style="margin: -1em">
+       <g id="gitcont" transform="translate(-150,-700)">
+        <g transform="matrix(1.3504475,0,0,1.2531051,-39.273794,683.85723)">
+         <path
+         id="git"
+         transform="scale(1.24)"
+         d="M 424.18,134.394 296.034,6.254 c -7.378,-7.382 -19.346,-7.382 -26.733,0 l -26.606,26.612 33.753,33.754 c 7.845,-2.65 16.84,-0.872 23.092,5.381 6.288,6.292 8.051,15.364 5.333,23.237 l 32.535,32.53 c 7.873,-2.713 16.948,-0.959 23.237,5.337 8.785,8.782 8.785,23.017 0,31.807 -8.79,8.787 -23.022,8.787 -31.815,0 -6.606,-6.612 -8.241,-16.323 -4.892,-24.462 l -30.343,-30.341 0,79.842 c 2.14,1.062 4.16,2.474 5.944,4.252 8.783,8.783 8.783,23.018 0,31.813 -8.783,8.781 -23.027,8.781 -31.804,0 -8.784,-8.796 -8.784,-23.03 0,-31.813 2.171,-2.168 4.685,-3.809 7.367,-4.907 l 0,-80.581 c -2.682,-1.098 -5.19,-2.725 -7.367,-4.908 -6.653,-6.651 -8.254,-16.417 -4.842,-24.588 L 229.618,45.938 141.75,133.8 c -7.38,7.389 -7.38,19.357 0,26.74 l 128.152,128.14 c 7.377,7.38 19.342,7.38 26.73,0 L 424.18,161.133 c 7.383,-7.383 7.383,-19.359 0,-26.739 z"
+         style="fill:#e74327" />
+        </g>
+       </g>
+      <text transform="translate(120, 520)" style="font-size:60px;"></text>
+      </svg>
+     </a>
+    </div>
+    <div class="main-page-boxes mob_hide" >
+      <div class="cmdborder">
+        <div class="cmd">
+          <div class="cmdtitlebar">MINGW32 ~</div>
+            <div class="cmdwindow">
+              <p><span class="gitgreen">username</span> <span style="color: #FF1155;">MINGW32</span> <span style="color:#808000;">~</span> </p>
+              <p style="color:#bbbbbbc7;">$_</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- js box -->
+   <div class="main-page-box" id="jsbox">
+    <div class="main-page-boxes">
+     <a href="#uvod_u_js" class="nocolor" rel="chapter" aria-label="javascript tutorijal">
+      <h1>Nauči JavaScript<br />Programski jezik weba</h1>
+      <?xml version="1.0" encoding="utf-8"?>
+      <svg version="1.1" viewBox="-70 -70 700 700" style="margin: -1em">
+          <rect y="-1.153" fill="#F7E018" stroke="#F7E018" width="566.93" height="569.235"/>
+          <text transform="matrix(1 0 0 1 70 525)" font-family="MyriadPro-Regular" font-size="430">JS</text>
+          <text transform="translate(90, 570)" style="font-size:40px;"></text>
+      </svg>
+     </a>
+    </div>
+
+    <div class="main-page-boxes  mob_hide">
+      
+        <div class="superbox sol">
+          <code><span class="deeppink">if</span> (<span style="color: darkviolet">true</span>) {</code>
+          <code>  <span class="darkviolet">console</span><wbr>.<span class="seagreen">log</span>("Hej!");</code>
+          <code>}</code>
+          <code><span class="deeppink">else</span> {</code>
+          <code>  <span class="darkviolet">console</span><wbr>.<span class="seagreen">log</span>("poz :)");</code>
+          <code>}</code>
+        </div>
+      
+    </div>
+   </div>
+</div>
+    </div>
+  </main>
+  <footer>
+    <div class="copydate">&copy; ČĎŠ 2019</div>  <hr>
+    <div class="various">
+      <div class="firstNarrowColumn">
+        <div class="footerLabel">Kontakt</div>
+        <div class="footerLinks">
+        <div class="kontakt">
+          <a href="https://gitter.im/kodiranje" class="nocolor" rel="nofollow noreferrer noopener" target="_blank"
+            aria-label="gitter forum">
+            <span class="icon gitterIcon"></span>
+          </a>
+        </div>
+        <div class="kontakt"><a href="https://facebook.com/kodiranje" class="nocolor" rel="nofollow noreferrer noopener" target="_blank"
+            aria-label="facebook">
+            <span class="icon facebookIcon"></span>
+          </a></div>
+        <div class="kontakt">
+          <a href="https://twitter.com/kodiranje" class="nocolor"    rel="nofollow noreferrer noopener" target="_blank"
+            aria-label="twitter">
+            <span class="icon twitterIcon"></span>
+          </a>
+        </div>
+        <div class="kontakt">
+          <a href="/kontakt" class="nocolor"
+            aria-label="mail forma">
+            <span class="icon mailIcon"></span>
+          </a>
+        </div>
+      </div>
+  
+  
+      <div class="footerLabel">GO TO:</div>
+      <div class="footerLinks">
+      <div class="footerNav" title="html">
+        <a href="/html-i-css/uvod_u_HTML_i_CSS" class="nocolor" rel="chapter" aria-label="html tutorial">
+          <span class="icon htmlIcon"></span>
+        </a>
+      </div>
+      <div class="footerNav" title="css">
+        <a href="#uvod_u_CSS" class="nocolor" rel="chapter" aria-label="css tutorijal">
+          <span class="icon cssIcon"></span>
+        </a>
+      </div>
+      <div class="footerNav" title="cmd">
+        <a href="#uvod_u_cmd" class="nocolor" rel="chapter" aria-label="cmd tutorijal">
+          <span class="icon cmdIcon"></span>
+        </a>
+      </div>
+      <div class="footerNav" title="git">
+        <a href="#uvod_u_git" class="nocolor" rel="chapter" aria-label="git tutorijal">
+          <span class="icon gitIcon"></span>
+        </a>
+      </div>
+  
+      <div class="footerNav" title="javascript">
+        <a href="/javascript/uvod-u-javascript" class="nocolor" rel="chapter" aria-label="javascript tutorial">
+          <span class="icon jsIcon"></span>
+        </a>
+      </div>
+      <div class="footerNav" title="arduino">
+        <a href="/arduino/uvod_u_arduino" class="nocolor" rel="chapter" aria-label="arduino tutorial">
+          <span class="icon arduinoIcon"></span>
+        </a>
+      </div>
+        </div>
+        </div>
+  
+      
+      <div class="doubleFooterLinks">
+        <div class="footerLabel">Legenda</div><br>
+        <div class="legend icon solIcon"> Kôd</div>
+        <div class="legend icon tipIcon"> Zanimljivo</div>
+        <div class="legend icon warningIcon"> Važno</div>
+        <div class="legend icon kvizIcon"> Kviz</div>
+        <div class="legend icon errorIcon"> Greška</div>
+      </div>
+        
+    
+  
+      <a href="#home" class="nocolor">
+        <div class="bigcog" aria-label="povratak na početnu stranicu">
+          <div class="cogitself">
+            <div class="cogtext">kodiranje_</div>
+            <img src="data:image/webp;base64,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" alt="logo cog">
+          </div>
+        </div>
+      </a>
+  
+      <div class="don">
+        <div>Ovo je neprofatibilan, nezavistan sajt, namenjen ljudima koji žele da nauče da kodiraju, možda ne znaju baš
+          engleski, i ne mogu da priušte 2000&euro; za uvodni kurs u bilo šta. <p>Ako mislite da je to dobra ideja možete
+            donirati koji bitcoin ili ether za klopu i račune:</div>
+      </div>
+    </div>
+  </footer>
+  <script type="module" src="../../main.js"></script>
+  <a href="#header-top" class="nocolor" aria-label="na vrh strane">
+    <div class="backToTop">
+      Top
+    </div>
+  </a></body>
+</html>
