@@ -7,9 +7,9 @@
   "start_url": "./",
   "display": "fullscreen",
   "prefer_related_applications": false,
-  "background_color": "#fff",
+  "background_color": "#f0ffff",
   "theme_color": "#7cc91c",
-  "description": "Tutorijali za kodere na Srpskom. Naučite HTML, CSS, JavaScript",
+  "description": "Tutorijali za kodere na Srpskom. Naučite HTML, CSS, JavaScript za Ď",
   "orientation": "portrait-primary",
   "icons": [
     {

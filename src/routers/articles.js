@@ -4,6 +4,7 @@ const multer  = require('multer')
 const Article = require('../db/models/article')
 const Course  = require('../db/models/course')
 const auth    = require('../middleware/auth')
+const fs      = require('fs')
 
 const articleRouter = new express.Router()
 
@@ -15,6 +16,8 @@ articleRouter.get('/admin/svi-artikli', auth, async (req, res) => {
     if(x.published) publishedArticles.push(x)
     else notPublished.push(x)
   })
+  // TODO: remove following line after testing is done :)
+  generateSiteMap()
   res.render('articles/listAllArticles', { 
     googTitle: "Lista lekcija", 
     robots: true, 
@@ -59,6 +62,7 @@ articleRouter.post('/admin/addPost', auth, async (req, res, body) => {
       if (req.body.tags) req.body.tags = req.body.tags.split(',').map(x => x.trim())
       const article = new Article(req.body)
       article.save()
+      generateSiteMap()
       res.redirect(302, '/admin/svi-artikli')
     }
     catch (e) {
@@ -110,6 +114,7 @@ articleRouter.patch('/admin/edit-article/:id', auth, async (req, res) => {
         if(err) console.log(err)
       })
       if (!article) return res.status(404).send()
+      generateSiteMap()
       res.status(302).send()
     }
     catch (e) {
@@ -136,6 +141,53 @@ findOrder = async (course) => {
   const order = await Article.findOne({ courseName: course }).select('order -_id').sort({ order: -1 })
   if(!order) return 0
   return order.order + 1
+}
+
+generateSiteMap = async () => {
+  const header = `
+  <?xml version="1.0" encoding="UTF-8"?>
+  <urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\n\r`
+  let pages = `
+  <url>
+    <loc>https://www.kodiranje.in.rs/</loc>
+    <lastmod>${Date()}</lastmod>
+    <changefreq>always</changefreq>
+    <priority>1.0</priority>
+  </url>\r\n`
+  const close = `\n\r</urlset>`
+  const data = await Article.find({published: true}).select(`-articleContent 
+    -__v 
+    -socImage 
+    -_id 
+    -tags 
+    -googDesc 
+    -socDesc 
+    -socTitle 
+    -googTitle 
+    -created 
+    -edited 
+    -order
+    -createdAt
+    -navName
+    -published
+    -author`)
+  //let otherPages = ``
+  data.forEach(article => {
+    pages += `
+  <url>
+    <loc>https://www.kodiranje.in.rs/${article.courseName}/${article.selectedURL}/</loc>
+    <lastmod>${article.updatedAt}</lastmod>
+    <changefreq>always</changefreq>
+    <priority>1.0</priority>
+  </url>\r\n`
+  })
+  const sitemap = header + pages + close
+  fs.writeFile('src/sitemap.xml', sitemap, (er) => {
+    if (er) console.log(er)
+  })
+  console.log()
 }
 
 module.exports = {

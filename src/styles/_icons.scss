@@ -113,7 +113,7 @@
   width: 0px;
 }
 
-// smilies
+// smilies https://unicode.org/emoji/charts/full-emoji-list.html
 
 .em {
   font-size: 1.5rem;
@@ -126,6 +126,18 @@
 
 .smiley:before {
   content: '\1F642';
+}
+
+.sad:before {
+  content: '\1F61E';
+}
+
+.confused:before {
+  content: '\1F615';
+}
+
+.duh:before {
+  content: '\1F616';
 }
 
 .cray:before {
