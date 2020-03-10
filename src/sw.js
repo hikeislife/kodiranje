@@ -1,6 +1,7 @@
 const CACHE = "kodiranje";
 const precacheFiles = [
-  '/styles/style.css'
+  '/styles/style.css',
+  '/'
 ];
 
 const offlineFallbackPage = "offline.html";
