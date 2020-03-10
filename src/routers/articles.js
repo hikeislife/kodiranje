@@ -16,8 +16,6 @@ articleRouter.get('/admin/svi-artikli', auth, async (req, res) => {
     if(x.published) publishedArticles.push(x)
     else notPublished.push(x)
   })
-  // TODO: remove following line after testing is done :)
-  generateSiteMap()
   res.render('articles/listAllArticles', { 
     googTitle: "Lista lekcija", 
     robots: true, 
