@@ -37,6 +37,10 @@ function comparePaths(requestUrl, pathsArray) {
 self.addEventListener("install", function (event) {
   console.log("Install Event processing");
 
+  if (e.request.cache === 'only-if-cached' && e.request.mode !== 'same-origin') {
+    return;
+  }
+
   console.log("Skip waiting on install");
   self.skipWaiting();
 
@@ -63,6 +67,9 @@ self.addEventListener("activate", function (event) {
 
 // If any fetch fails, it will look for the request in the cache and serve it from there first
 self.addEventListener("fetch", function (event) {
+  if (e.request.cache === 'only-if-cached' && e.request.mode !== 'same-origin') {
+    return;
+  }
   if (event.request.method !== "GET") return;
 
   if (comparePaths(event.request.url, networkFirstPaths)) {
