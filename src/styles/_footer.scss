@@ -54,10 +54,21 @@ footer {
   & a {
     display: inline-block;
     height: 26px;
+    width: 26px;
 
     span {
-      height: 26px;
       display: inline-block;
+      height: 26px;
+      width: 26px;
+      overflow: hidden;
+
+      &:before {
+        display: inline-block;
+        height: 26px;
+        width: 26px;
+        position: relative;
+        top: -8px;
+      }
     }
   }
 }
