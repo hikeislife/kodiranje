@@ -109,7 +109,17 @@
   position: absolute;
 }
 
+.saveButton:before {
+  content: '\F2B8';
+}
 
+.allButton:before {
+  content: '\F2C7';
+}
+
+.trashButton:before {
+  content: '\F2BD';
+}
 
 
 // smilies https://unicode.org/emoji/charts/full-emoji-list.html
