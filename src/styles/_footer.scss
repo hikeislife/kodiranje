@@ -81,6 +81,11 @@ footer {
   display: inline-flex;
   align-items: center;
   margin: 20px 0 0;
+  font-size: 1em !important;
+
+  &::before {
+    padding-right: 5px;
+  }
 }
 
 .links {
