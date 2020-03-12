@@ -113,11 +113,11 @@ label {
 
 input[type="checkbox"]:checked ~ label[for="active"]:after,
 input[type="checkbox"]:checked ~ label[for]:after {
-  font-family: "Font Awesome 5 Free";
+  font-family: Kodiranje;
   position: relative;
   // margin-bottom: 2em;
   // left: .95em;
-  content: "\f058";
+  content: "\F2C2";
   font-size: 40px;
   background: $buttonBackground;
 }
