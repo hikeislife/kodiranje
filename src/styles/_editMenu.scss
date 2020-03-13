@@ -79,20 +79,20 @@
     
 
     .showMeCode:before {
-      font-family: "Font Awesome 5 Free";
-      content: '\f1c9';
+      font-family: Kodiranje;
+      content: '\F2D8';
       font-weight: bold;
     }
 
     .showMeGui:before {
-      font-family: "Font Awesome 5 Free";
-      content: '\f571';
+      font-family: Kodiranje;
+      content: '\F2D9';
       font-weight: bold;
     }
   }
 
   .highlights:before {
-    font-family: "Font Awesome 5 Free";
+    font-family: Kodiranje;
   }
 
   // :hover {
@@ -103,7 +103,7 @@
     color: $sg;
     
     &:before {
-      content: '\f0c8'
+      content: '\F2E8'
     }
   }
 
@@ -112,15 +112,14 @@
     font-weight: bold;
 
     &::before {
-      content: '\f591';
+      content: '\F2E4';
     }
   }
 
   .sb {
     &::before {
-      font-family: "Font Awesome 5 Free";
-      content: '\f49e';
-      font-weight: bold;
+      font-family: Kodiranje;
+      content: '\F2DE';
     }
   }
 
@@ -145,72 +144,72 @@
   }
 
   .terminal::before {
-    font-family: "Font Awesome 5 Free";
-    content: '\f120';
+    font-family: Kodiranje;
+    content: '\F3D7';
     font-weight: bold;
   }
 
   .cons::before {
-    font-family: "Font Awesome 5 Brands";
-    content: '\f3b9';
+    font-family: Kodiranje;
+    content: '\F2EE';
   }
 
   .ard::before {
-    font-family: "Font Awesome 5 Free";
-    content: '\f534';
+    font-family: Kodiranje;
+    content: '\F3EC';
     font-weight: bold;
     color: $ardLight;
   }
 
   .insertImg:before {
-    font-family: "Font Awesome 5 Free";
-    content: '\f03e';
+    font-family: Kodiranje;
+    content: '\F2CA';
   }
 
   .headings:before {
-    font-family: "Font Awesome 5 Free";
-    content: '\f1dc';
+    font-family: Kodiranje;
+    content: '\F2E0';
     font-weight: bold;
   }
 
   .quotation::before {
-    font-family: "Font Awesome 5 Free";
-    content: '\f10e';
+    font-family: Kodiranje;
+    content: '\F34B';
     font-weight: bold;
   }
 
   .tooltip::before {
-    font-family: "Font Awesome 5 Free";
-    content: '\f27a';
+    font-family: Kodiranje;
+    content: '\F2E9';
     color: $dy;
   }
 
   .insDetails::before {
-    font-family: "Font Awesome 5 Free";
-    content: '\f152';
+    font-family: Kodiranje;
+    content: '\F396';
   }
 
   .extLink::before {
-    font-family: "Font Awesome 5 Free";
-    content: '\f35d';
+    font-family: Kodiranje;
+    content: '\F2EB';
     font-weight: bold;
   }
 
   .intLink::before {
-    font-family: "Font Awesome 5 Free";
-    content: '\f0c1';
+    font-family: Kodiranje;
+    content: '\F2EA';
     font-weight: bold;
   }
 
   .ref::before {
-    font-family: "Font Awesome 5 Free";
-    content: '\f08d';
+    font-family: Kodiranje;
+    content: '\F2EC';
     font-weight: bold;
   }
 
   .insCode::before {
-    font-family: "Font Awesome 5 Free";
-    content: '\f121';
+    font-family: Kodiranje;
+    content: '\F2DA';
     font-weight: bold;
   }
 
@@ -231,8 +230,8 @@
   }
 
   .spell::before {
-    font-family: "Font Awesome 5 Free";
-    content: '\f891';
+    font-family: Kodiranje;
+    content: '\F232';
     font-weight: bold;
     color: $wr;
   }
