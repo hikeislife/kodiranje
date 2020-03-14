@@ -3,7 +3,12 @@
   border-radius: .25em;
   padding: 1em;
   color: $darkF;
-  margin: 1em 0;
+  margin: 1em 0;// 0 30px !important;
+
+  // &:before {
+  //   position: absolute;
+  //   left: -20px;
+  // }
 }
 
 .why {
@@ -131,3 +136,6 @@
   margin: 0;
 }
 
+details.warning:before {
+  content: '';
+}

@@ -59,6 +59,14 @@
   content: '\F3D3';
 }
 
+.sublimeIcon::before {
+  content: '\F298';
+}
+
+.ffIcon::before {
+  content: '\F296';
+}
+
 // soc
 
 .twitterIcon:before {
@@ -80,30 +88,39 @@
 .warningIcon {
   background-color: $wr;
 }
+
 .warningIcon:before {
   content: '\f350';
 }
+
 .tipIcon {
   background-color: $dg;
 }
+
 .tipIcon:before {
   content: '\F358';
 }
+
 .kvizIcon {
   background-color: $qy;
 }
+
 .kvizIcon:before {
   content: '\F353';
 }
+
 .errorIcon {
   background-color: $dy;
 }
+
 .errorIcon:before {
   content: '\F357';
 }
+
 .solIcon {
   background: #f5fffa;
 }
+
 .solIcon:before {
   content: '';
   position: absolute;
