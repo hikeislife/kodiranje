@@ -51,6 +51,7 @@ const handleFetch = e => {
     socImage:   form.querySelector('#socImage').files[0],
     courseName: form.querySelector('#courseName').value,
     navName:    form.querySelector('#navName').value,
+    subSec:     form.querySelector('#subSec').value,
     tags
   }
 

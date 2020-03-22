@@ -11,6 +11,9 @@ const articleSchema = new mongoose.Schema({
     type: String,
     required: [true, `Skraćeni naziv je obavezno polje`]
   },
+  subSec: {
+    type: String
+  },
   order: {
     type: Number,
     required: [true, `Redosled je obavezno polje`],

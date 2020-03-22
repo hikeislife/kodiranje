@@ -100,7 +100,7 @@ articleRouter.patch('/admin/edit-article/:id', auth, async (req, res) => {
         req.body.socImage = req.file.buffer
       else
         delete req.body.socImage
-
+      console.log(req.body.subSec)
       if (req.data.user) req.body.author = req.data.user
       if (req.body.tags) req.body.tags = req.body.tags.split(',').map(x => x.trim())
       let article =  Article.findByIdAndUpdate(_id, { $set: 
