@@ -93,9 +93,13 @@ app.use((er, req, res, text) => {
   res.render('500')
 })
 
-// app.get('/.well-known/acme-challenge/:content', function (req, res) {
-//   res.send(lER);
-// });
+app.get('/.well-known/brave-rewards-verification.txt', function (req, res) {
+  res.send(`This is a Brave Rewards publisher verification file.
+
+Domain: kodiranje.in.rs
+Token: aacb4fb39be4701ed30b31c8cc3fbf025c65ba34b8a296321bfbbea027806a30
+`);
+});
 
 /* PATHS */
 /* front page */
