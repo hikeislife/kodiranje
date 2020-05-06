@@ -97,7 +97,7 @@ app.get('/.well-known/brave-rewards-verification.txt', function (req, res) {
   res.send(`This is a Brave Rewards publisher verification file.
 
 Domain: kodiranje.in.rs
-Token: aacb4fb39be4701ed30b31c8cc3fbf025c65ba34b8a296321bfbbea027806a30
+Token: abcb4fb39be4701ed30b31c8cc3fbf025c65ba34b8a296321bfbbea027806a30
 `);
 });
 
