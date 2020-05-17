@@ -67,6 +67,14 @@
   content: '\F296';
 }
 
+.vscodePlugins::before {
+  content: '\F29C'
+}
+
+.runCode::before {
+  content: '\F29D'
+}
+
 // soc
 
 .twitterIcon:before {
