@@ -1,9 +1,9 @@
 const express = require('express')
-                require('../db/mongoose')
-const Course  = require('../db/models/course')
+require('../db/mongoose')
+const Course = require('../db/models/course')
 const Article = require('../db/models/article')
-const hbs     = require('hbs')
-const auth    = require('../middleware/auth')
+const hbs = require('hbs')
+const auth = require('../middleware/auth')
 
 hbs.registerHelper("increment", function (value, options) {
   return parseInt(value) + 1;
@@ -14,7 +14,7 @@ const courseRouter = new express.Router()
 courseRouter.get('/admin/svi-kursevi', auth, async (req, res) => {
   const kursevi = await Course.find().select('-__v').sort({ order: 1 })
   const admin = req.data.user
-  
+
   res.render('courses/showAllCourses', { googTitle: "Svi kursevi", robots: true, kursevi, admin })
 })
 
@@ -40,7 +40,8 @@ courseRouter.post('/admin/addNewCourse', auth, async (req, res) => {
   if (req.body.active) {
     req.body.active = true;
   }
-  //console.log(req.body)
+  console.log(req.body)
+  console.log('\x1b[4m\x1b[35mFINDING ORDER IN CHAOS')
   req.body.setId = req.body.name.toLowerCase().replace(/ /gi, '-')
   const courseName = new Course(req.body)
   try {
@@ -64,10 +65,10 @@ courseRouter.get('/admin/izmeni-kurs/:id', auth, async (req, res) => {
   const admin = req.data.user
   try {
     const course = await Course.findById(_id)
-    
+
     if (!course) return res.status(404).send()
 
-    res.render('courses/editCourse', { course, robots: true, googTitle: "Izmeni kurs", admin})
+    res.render('courses/editCourse', { course, robots: true, googTitle: "Izmeni kurs", admin })
   } catch (e) {
     console.log(e)
     res.status(500).send()
@@ -81,7 +82,7 @@ courseRouter.patch('/admin/edit-course/:id', auth, async (req, res) => {
       new: true,
       runValidators: true
     })
-    
+
     if (!course) return res.status(404).send()
 
     course = await Course.findById(_id)
@@ -130,7 +131,10 @@ courseRouter.delete('/admin/delete-course/:id', auth, async (req, res) => {
 })
 
 const findOrder = async () => {
-  const order = await Course.findOne().select('order -_id').sort({ order: -1 })
+  let order = await Course.findOne().select('order -_id').sort({ order: -1 })
+  console.log(`${order}`)
+  if (!order) order = 0
+
   return order
 }
 
