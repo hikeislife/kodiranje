@@ -1,7 +1,8 @@
 <article>
   <h1>Lista svih artikala</h1>
   {{#if token}}<p>{{token}}</p>{{/if}}
-  <a href="/admin/dodaj-lekciju" class="nocolor"><button class="wideAdminButton admin-newButton">Dodaj novu lekciju</button></a>
+  <a href="/admin/dodaj-lekciju" class="nocolor"><button class="wideAdminButton admin-newButton">Dodaj novu
+      lekciju</button></a>
   <div class="column">
     <div class="published">
       <h2>Objavljeni</h2>
@@ -10,9 +11,9 @@
           <p>Front page</p>
         </summary>
         {{#each publishedArticles}}
-          {{#if (eq courseName "mp")}}
-            <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
-          {{/if}}
+        {{#if (eq courseName "mp")}}
+        <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
+        {{/if}}
         {{/each}}
       </details>
       <details>
@@ -20,9 +21,9 @@
           <p>Html i css</p>
         </summary>
         {{#each publishedArticles}}
-          {{#if (eq courseName "html-i-css")}}
-            <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
-          {{/if}}
+        {{#if (eq courseName "html-i-css")}}
+        <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
+        {{/if}}
         {{/each}}
       </details>
       <details>
@@ -30,9 +31,9 @@
           <p>JavaScript</p>
         </summary>
         {{#each publishedArticles}}
-          {{#if (eq courseName "javascript")}}
-            <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
-          {{/if}}
+        {{#if (eq courseName "javascript")}}
+        <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
+        {{/if}}
         {{/each}}
       </details>
       <details>
@@ -40,9 +41,9 @@
           <p>Git</p>
         </summary>
         {{#each publishedArticles}}
-          {{#if (eq courseName "git-i-cmd")}}
-            <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
-          {{/if}}
+        {{#if (eq courseName "git-i-cmd")}}
+        <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
+        {{/if}}
         {{/each}}
       </details>
       <details>
@@ -70,9 +71,19 @@
           <p>C#</p>
         </summary>
         {{#each publishedArticles}}
-          {{#if (eq courseName "csharp")}}
-            <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
-          {{/if}}
+        {{#if (eq courseName "csharp")}}
+        <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
+        {{/if}}
+        {{/each}}
+      </details>
+      <details>
+        <summary>
+          <p>Docker</p>
+        </summary>
+        {{#each publishedArticles}}
+        {{#if (eq courseName "docker")}}
+        <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
+        {{/if}}
         {{/each}}
       </details>
     </div>
@@ -83,9 +94,9 @@
           <p>Front page</p>
         </summary>
         {{#each notPublished}}
-          {{#if (eq courseName "mp")}}
-            <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
-          {{/if}}
+        {{#if (eq courseName "mp")}}
+        <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
+        {{/if}}
         {{/each}}
       </details>
       <details>
@@ -93,9 +104,9 @@
           <p>Html i css</p>
         </summary>
         {{#each notPublished}}
-          {{#if (eq courseName "html-i-css")}}
-            <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
-          {{/if}}
+        {{#if (eq courseName "html-i-css")}}
+        <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
+        {{/if}}
         {{/each}}
       </details>
       <details>
@@ -103,9 +114,9 @@
           <p>JavaScript</p>
         </summary>
         {{#each notPublished}}
-          {{#if (eq courseName "javascript")}}
-            <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
-          {{/if}}
+        {{#if (eq courseName "javascript")}}
+        <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
+        {{/if}}
         {{/each}}
       </details>
       <details>
@@ -113,9 +124,9 @@
           <p>Git</p>
         </summary>
         {{#each notPublished}}
-          {{#if (eq courseName "git-i-cmd")}}
-            <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
-          {{/if}}
+        {{#if (eq courseName "git-i-cmd")}}
+        <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
+        {{/if}}
         {{/each}}
       </details>
       <details>
@@ -123,9 +134,9 @@
           <p>Arduino</p>
         </summary>
         {{#each notPublished}}
-          {{#if (eq courseName "arduino")}}
-            <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
-          {{/if}}
+        {{#if (eq courseName "arduino")}}
+        <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
+        {{/if}}
         {{/each}}
       </details>
       <details>
@@ -143,12 +154,22 @@
           <p>C#</p>
         </summary>
         {{#each notPublished}}
-          {{#if (eq courseName "csharp")}}
-            <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
-          {{/if}}
+        {{#if (eq courseName "csharp")}}
+        <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
+        {{/if}}
+        {{/each}}
+      </details>
+      <details>
+        <summary>
+          <p>Docker</p>
+        </summary>
+        {{#each notPublished}}
+        {{#if (eq courseName "docker")}}
+        <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
+        {{/if}}
         {{/each}}
       </details>
     </div>
-    
+
   </div>
 </article>

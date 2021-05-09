@@ -1,42 +1,42 @@
-.toolbox {
-  border: 2px solid #ccff66;
-  width: auto;
-  display: block;
-  padding: 10px;
-  border-radius: 4px;
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKAQMAAAC3/F3+AAAAA3NCSVQICAjb4U/gAAAABlBMVEW7u7v///94sIz1AAAACXBIWXMAAAsSAAALEgHS3X78AAAAFnRFWHRDcmVhdGlvbiBUaW1lADA3LzI4LzE4c84bEgAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAAASSURBVAiZY/h/gAGOviOxwQgABsoRb6NK2doAAAAASUVORK5CYII=");
+// .toolbox {
+//   border: 2px solid #ccff66;
+//   width: auto;
+//   display: block;
+//   padding: 10px;
+//   border-radius: 4px;
+//   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKAQMAAAC3/F3+AAAAA3NCSVQICAjb4U/gAAAABlBMVEW7u7v///94sIz1AAAACXBIWXMAAAsSAAALEgHS3X78AAAAFnRFWHRDcmVhdGlvbiBUaW1lADA3LzI4LzE4c84bEgAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAAASSURBVAiZY/h/gAGOviOxwQgABsoRb6NK2doAAAAASUVORK5CYII=");
 
-  & .tool {
-    border: 2px solid #88cc00;
-    border-radius: 4px;
-    outline: none;
-    height: 150px;
-    background-color: white;
-    box-sizing: border-box;
-    --moz-box-sizing: border-box;
-    --webkit-box-sizing: border-box;
-    width: 100%;
+//   & .tool {
+//     border: 2px solid #88cc00;
+//     border-radius: 4px;
+//     outline: none;
+//     height: 150px;
+//     background-color: white;
+//     box-sizing: border-box;
+//     --moz-box-sizing: border-box;
+//     --webkit-box-sizing: border-box;
+//     width: 100%;
 
-    &:focus {
-      box-shadow: 0 0 3px 2px #ccff66;
-    }
-  }
-}
+//     &:focus {
+//       box-shadow: 0 0 3px 2px #ccff66;
+//     }
+//   }
+// }
 
-button {
-  margin: 10px;
-  background-color: #eeffcc;
-  border: 2px outset $dg;
-  border-radius: 4px;
-  outline: none;
-  color: black;
-  font-weight: 700;
-  width: 70px;
-  height: 30px;
+// button {
+//   margin: 10px;
+//   background-color: #eeffcc;
+//   border: 2px outset $dg;
+//   border-radius: 4px;
+//   outline: none;
+//   color: black;
+//   font-weight: 700;
+//   width: 70px;
+//   height: 30px;
 
-  &:active {
-    background-color: $mainG;
-    border: 2px inset $dg;
-    color: $dg;
-  }
-}
+//   &:active {
+//     background-color: $mainG;
+//     border: 2px inset $dg;
+//     color: $dg;
+//   }
+// }

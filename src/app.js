@@ -107,8 +107,19 @@ app.get('/', async (req, res) => {
   try {
     if (req.header('Cookie')) {
       // console.log(req.header('Cookie'))
-      const token = req.header('Cookie').split('=')[1]
-      userId = await jwt.verify(token, process.env.JWT_P_KEY)._id
+      const cookies = req.header('Cookie').split(';')
+      let token
+      cookies.forEach(x => {
+        const halves = x.split('=')
+        if (halves[0].trim() === 'token')
+          token = halves[1]
+      })
+      // console.log('TOKEN:' + token)
+      try {
+        userId = await jwt.verify(token, process.env.JWT_P_KEY)._id
+      } catch (error) {
+        console.log('token expired')
+      }
     }
   } catch (er) {
     console.log(er)
@@ -121,7 +132,7 @@ app.get('/', async (req, res) => {
         return res.status(404).send()
       }
 
-      res.render('home', {
+      res.render('home/home', {
         mainMenu: menu,
         userId: userId,
         title: "Kodiranje",
@@ -187,7 +198,7 @@ app.get('/:kurs/:lekcija', (req, res) => {
     })
     .select('-__v -published -_id')
     .then((post) => {
-      if (post.socImage) {
+      if (post?.socImage) {
         //         let buffer = Buffer.from(post.socImage.buffer)
         //         // Saves ogImage from db localy so that url can be provided 
         //         const fileName = `src/imgs/og/og-${req.params.kurs}-${req.params.lekcija}.webp`
@@ -209,8 +220,8 @@ app.get('/:kurs/:lekcija', (req, res) => {
           }
           res.render('article', { menu, post })
         })
-      //     }).catch((er) => {
-      //       res.status(418).send(er)
+    }).catch((er) => {
+      res.status(418).send(er)
     })
   // res.send('hello ')
 })

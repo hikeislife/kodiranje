@@ -1,0 +1,220 @@
+
+
+// .page-contents {
+//   border: 1px solid #dadada;
+//   padding: 5px 10px 5px 40px;
+//   background: #eeffcc;
+// }
+
+// @media only screen and (max-width: 40em) {
+//   .page-contents {
+//     margin: 1em -1.05em -1px -2.05em !important;
+//   }
+// }
+
+// ul {
+//   margin-right: 1em;
+//   padding-left: 2em;
+
+//   & ul {
+//     padding-left: 0;
+//   }
+// }
+
+// .shortlist li {
+//   padding: 0;
+// }
+
+// @media only screen and (min-width: 40em) {
+//   .placeholder {
+//     font-size: 1.2rem;
+
+//     & p {
+//       padding: 0;
+//     }
+//   }
+// }
+
+// .page-nav .listless {
+//   margin-top: .1em;
+//   margin-right: 0; // ???
+//   padding-left: 0;
+// }
+
+// .page-nav .listless li { 
+//   padding: .3em 1em !important;
+//   box-shadow: 0 1px 0px 0 rgba(0, 0, 0, 0.3), 0 0px 2px 0 rgba(0, 0, 0, 0.3);
+//   background-color: $sg;
+
+//   &:hover {
+//     background: dimgray;
+//     color: $lg;
+//   }
+
+//   & a.nocolor {
+//     display: block;
+//     width: 100%;
+//     height: 100%;
+//   }
+// }
+
+// .listless {
+//   list-style-type: none;
+//   padding-left: 0;
+// }
+
+
+// .highlight {
+//   background-color: $highlight; // #f7e80649
+//   color: $mainFont;
+//   padding: .1em 0;
+//   display: inline;
+
+//   &::before {
+//     content: ' .';
+//     background: $white;
+//     clip-path: polygon(0 0, 0% 100%, 50% 0);
+//     color: $white;
+//     height: 100%;
+//     display: inline-block;
+//     padding-left: 10px;
+//   }
+
+//   &::after {
+//     content: ' .';
+//     background: $white;
+//     clip-path: polygon(50% 100%, 100% 100%, 100% 0);
+//     color: $white;
+//     height: 100%;
+//     display: inline-block;
+//     padding-right: 10px;
+//   }
+// }
+
+// .tip .highlight:before,
+// .tip .highlight:after {
+//   background: $dg;
+// }
+
+// .warning .highlight:before,
+// .warning .highlight:after {
+//   background: $wr;
+// }
+
+// .kviz .highlight:before,
+// .kviz .highlight:after {
+//   background: $qy;
+// }
+
+// .why .highlight:before,
+// .why .highlight:after {
+//   background: $dy;
+// }
+
+// .inl {
+//   display: inline;
+// }
+
+// h2.inl {
+//   text-align: center;
+// }
+
+// .ind {
+//   padding-left: 20px;
+// }
+
+// .deeppink,
+// .pink {
+//   color: #C0C;
+// }
+
+// .seagreen,
+// .green {
+//   color: #066;
+// }
+
+// .dimgray,
+// .dim {
+//   color: dimgray;
+// }
+
+// .darkviolet,
+// .violet {
+//   color: darkviolet;
+// }
+
+// .royal,
+// .royalblue {
+//   color: royalblue;
+// }
+
+// .firebrick,
+// .opeka {
+//   color: firebrick;
+// }
+
+// .fullWidth {
+//   width: 100%;
+//   height: 5px;
+//   position: relative;
+//   top: -5px;
+  
+//   .indicator {
+//     background: navy;
+//     width: 0%;
+//     height: 5px;
+//     z-index: 3;
+//   }
+// }
+
+// @media only screen and (max-width: 30em) {
+//   .breakall {
+//     overflow-wrap: break-word;
+//     word-wrap: break-word;
+//     word-break: break-all;
+//     -ms-hyphens: auto;
+//     -moz-hyphens: auto;
+//     -webkit-hyphens: auto;
+//     hyphens: auto;
+//   }
+// }
+
+// @media only screen and (max-width: 22.5em) {
+//   .ellipses {
+//     overflow: hidden;
+//     // white-space: nowrap; // won't break anything, w/o it it will break where it can and insert ... where it can't 
+//     text-overflow: ellipsis;
+//     width: 300px !important; // doesn't quite work with 100% width
+//   }
+// }
+
+// @media only screen and (min-width: 40em) {
+//   .page-nav .listless {
+//     margin: 0;
+//   }
+// }
+
+// .colorSwatch {
+//   display: inline-block; 
+//   width: 1em; 
+//   height: 1em; 
+//   border: 2px solid whitesmoke; 
+//   position: relative; 
+//   top: 4px;
+// }
+
+// .squigly {
+//   text-decoration-line: underline;
+//   text-decoration-style: wavy;
+//   text-decoration-color: red;
+// }
+
+// .center {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+
+// [data-ind] {
+//   display: inline-block;
+// }

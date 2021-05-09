@@ -1,0 +1,54 @@
+// table {
+//   border-spacing: 0;
+//   border: 1px solid $mainFont;
+//   border-radius: 5px;
+//   margin: 1em 1em 0 2em;
+//   font-size: 0.8em;
+
+//   & thead tr {
+
+//     & th {
+//       background: $mainG;
+//       border: 1px solid blanchedalmond;
+//       padding: .1em 1em;
+//       text-transform: uppercase;
+//     }
+//   }
+
+//   & tbody {
+//     // 
+//         counter-reset: table;
+//     tr {
+//       background: $lg;
+
+//       &:nth-child(odd) {
+//         background: $sg;
+//       }
+
+//       & td {
+//         word-break: break-word; 
+//         padding: .2em .8em;
+//         border: 1px solid blanchedalmond;
+        
+//       }
+//     }
+//   }
+// }
+
+// @media only screen and (min-width: 48em) {
+//   table {
+//     width: 100%;
+//     margin: 1em 0;
+//     font-size: 1rem;
+//   }
+// }
+// .counter {
+//   background: $mainG;
+
+//   &:before {
+//     counter-increment: table;
+//     content: counter(table) " ";
+//     display: flex;
+//     justify-content: center;
+//   }
+// }

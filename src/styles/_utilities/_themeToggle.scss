@@ -1,0 +1,40 @@
+#themeToggle {
+  position: absolute;
+  right: 2rem;
+  top: calc((#{$logoHeight} - #{$toggleHeight}) / 2);
+  height: $toggleHeight;
+  width: $toggleHeight;
+  cursor: pointer;
+}
+
+.themeToggle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transition : all 500ms ease-out;
+}
+
+.sun {
+  background: $toggleClearSky;
+}
+
+.sun .themeToggle {
+  background: $sunDisk;
+  border: $sunDisk $borderWidth dotted;
+  background-clip: content-box;
+  transition : all 500ms ease-out;
+}
+
+.moon {
+  background: $nightSky;
+}
+
+.moon .themeToggle {
+  background: $moonLight;
+  border: transparent $borderWidth solid;
+  background-clip: content-box;
+  box-shadow: #f8f8ff66 1px 1px 5px,
+              #f8f8ff66 -1px 1px 5px,
+              #f8f8ff66 1px -1px 5px,
+              #f8f8ff66 -1px -1px 5px;
+}

@@ -7,10 +7,10 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node src/app.js --trace-warnings",
-    "dev": "env-cmd nodemon --trace-warnings src/app.js -e js,hbs,scss,css",
-    "sass": "node-sass --watch -c src/styles/style.scss src/styles/style.css --style compressed",
-    "mongo": "md mongo-db & \"C:/Program Files/MongoDB/Server/4.4/bin/mongod.exe\" --dbpath=c:/Projects/MongoDB-data"
+    "start": "env-cmd nodemon --trace-warnings src/app.js -e js,hbs,scss,css",
+    "sass": "node-sass -c src/styles/_themes/_dark_theme/dark.scss:src/styles/dark.css src/styles/style.scss:src/styles/style.css --source-map true --output-style compressed -w",
+    "mongo": "md mongo-db & \"C:/Program Files/MongoDB/Server/4.4/bin/mongod.exe\" --dbpath=c:/Projects/MongoDB-data",
+    "dark": "node-sass -c src/styles/_themes/_dark_theme/dark.scss src/styles/dark.css --source-map true --output-style compressed -w"
   },
   "keywords": [],
   "author": "",
@@ -33,6 +33,7 @@
     "multer": "^1.4.2",
     "nodemailer": "^6.5.0",
     "request": "^2.88.2",
+    "sass": "^1.32.12",
     "sharp": "^0.23.4",
     "validator": "^12.2.0"
   },

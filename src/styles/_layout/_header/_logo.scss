@@ -1,0 +1,18 @@
+#header-top {
+  padding: 0px;
+  height: $logoHeight;
+  background-color: $lightLogoBcg;
+}
+
+#logo-text text {
+  font-size: 48px; 
+  fill: $lightFont;
+}
+
+#rounded-square {
+  fill: none;
+  stroke: $lightFont;
+  stroke-width: 2;
+  width: 35;
+  height: 35;
+}

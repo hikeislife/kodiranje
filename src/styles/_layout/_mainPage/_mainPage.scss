@@ -1,0 +1,69 @@
+.main-page-course {
+  text-align: center;
+  padding: 1rem;
+
+  h1 {
+    font-size: 1.1rem;
+    padding: 2rem 0;
+  }
+
+  svg {
+    width: 50vw;
+    padding-bottom: 2rem;
+  }
+}
+
+@media only screen and (min-width: 30rem) { // > 480px
+  .main-page-course {
+    svg {
+      width: 40vw;
+      padding-bottom: 2rem;
+    }
+
+    .main-page-boxes:nth-child(even) {
+      align-self: center;
+    }
+  }
+}
+
+@media only screen and (min-width: 36rem) { // > 576px
+  .main-page {
+    svg {
+      width: 40vw;
+      padding-bottom: 2rem;
+    }
+
+    .main-page-boxes:nth-child(even) {
+      align-self: center;
+    }
+  }
+}
+
+@media only screen and (min-width: 62rem) { // > 992px
+  
+}
+
+@media only screen and (min-width: 75rem) { // > 992px
+  svg {
+    width: 22vw !important;
+  }
+
+  // .main-page-course {
+  //   width: calc((100vw - 280px) / 3 );
+  // }
+
+}
+
+
+
+
+
+.mob_hide {
+  display: none;
+}
+
+@media only screen and (min-width: 30rem) { // > 480px
+  .mob_hide {
+    display: block;
+  }
+}

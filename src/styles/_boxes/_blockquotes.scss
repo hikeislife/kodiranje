@@ -1,0 +1,43 @@
+// blockquote {
+//   font-weight: bold;
+//   font-size: 1.6rem;
+//   position: relative;
+//   padding: 20px;
+//   padding-bottom: 60px;
+//   border: 2px solid black;
+//   border-radius: 4px;
+//   background-color: $lg;
+
+//   &::before { 
+//     font-family: "Kodiranje";
+//     content: '\F34A';
+//     color: $dg;
+//     font-size: 32px;
+//     position: relative;
+//     bottom: 9px;
+//   }
+
+//   &::after {
+//     font-family: "Kodiranje";
+//     content: '\F34B'; 
+//     color: $dg;
+//     font-size: 32px;
+//     position: relative;
+//     top: 14px;
+//   }
+
+//   cite {
+//     display: block;
+//     right: 30px;
+//     position: absolute;
+//     bottom: 10px;
+
+//     &::before {
+//       font-family: "Kodiranje";
+//       content: '\F34C'; 
+//       color: $dg;
+//       font-size: 32px;
+//       position: relative;
+//     }
+//   }
+// }
