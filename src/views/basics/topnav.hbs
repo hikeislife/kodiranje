@@ -1,6 +1,7 @@
-<nav id="header-bottom" style="padding-left: 50px">
-  <div class="menuitems">
-    <span id="hc" class="top-nav">
+<nav id="header-bottom">
+  <div class="top-nav">
+
+    <span id="hc" class="menuitems">
       <a href="/html-i-css/uvod-u-html-i-css" class="nocolor" rel="chapter" aria-label="html css tut">
         <span class="menu-lg">HTML &amp; CSS</span>
         <span class="menu-sm">
@@ -9,31 +10,39 @@
         </span>
 
       </a>
-    </span> |
-    <span id="gc" class="top-nav"><a href="/git-i-cmd/uvod-u-terminal" class="nocolor" rel="chapter"
-        aria-label="git tutorijal"><span class="menu-lg">git</span>
+    </span>
+
+    <span id="gc" class="menuitems"><a href="/git-i-cmd/uvod-u-terminal" class="nocolor" rel="chapter"
+        aria-label="git tutorijal"><span class="menu-lg">cmd & git</span>
         <span class="menu-sm">
           <span class="icon cmdIcon"></span>
           <span class="icon gitIcon"></span>
-        </span></a></span> |
-    <span id="js" class="top-nav"><a href="/javascript/uvod-u-javascript" class="nocolor" rel="chapter"
+        </span></a></span>
+
+    <span id="js" class="menuitems"><a href="/javascript/uvod-u-javascript" class="nocolor" rel="chapter"
         aria-label="javascript tutorijal"><span class="menu-lg">JavaScript</span>
         <span class="menu-sm">
           <span class="icon jsIcon"></span>
           <span class="icon nodeIcon"></span>
-        </span></a></span> |
-    <span id="ar" class="top-nav"><a href="/arduino/uvod" class="nocolor" rel="chapter"
+        </span></a></span>
+
+    <span id="ar" class="menuitems"><a href="/arduino/uvod" class="nocolor" rel="chapter"
         aria-label="arduino tutorijal"><span class="menu-lg">Arduino</span><span class="menu-sm">
           <span class="icon arduinoIcon"></span>
-        </span></a></span> |
-    <span id="ar" class="top-nav"><a href="/python/podesavanje-radne-sredine" class="nocolor" rel="chapter"
+        </span></a></span>
+
+    <span id="ar" class="menuitems"><a href="/python/podesavanje-radne-sredine" class="nocolor" rel="chapter"
         aria-label="python tutorijal"><span class="menu-lg">Python</span><span class="menu-sm">
-          <span class="icon arduinoIcon"></span>
+          <span class="icon pyIcon"></span>
         </span></a></span>
   </div>
-  <span id="backhome"><a href="/" class="nocolor" rel="start chapter" aria-label="pocetna">
+
+  <span id="backhome">
+    <a href="/" class="nocolor" rel="start chapter" aria-label="pocetna">
       <span class="icon backHome"></span>
-    </a></span>
+    </a>
+  </span>
+
   {{# if userId}}
   <span id="ar" class="top-nav">
     <a href="/admin/novi-post" class="nocolor" rel="chapter" aria-label="arduino tutorijal">

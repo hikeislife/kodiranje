@@ -1,5 +1,5 @@
 $lightFont: #003333;
-$darkFont: #daf7cc;;
+$darkFont: #daf7cc;
 $lightBcg: #eeffcc; // $lg
 $darkBcg: #020402;
 $lightLogoBcg: whitesmoke;
@@ -10,6 +10,13 @@ $darkTopNavTopGreen: #253c08;
 $darkTopNavBottomGreen: #579905;
 $lightPageBcg: azure; // $white
 $darkPageBcg: #000f01;
+$lightInputBcg: #f7ffe8;
+$darkInputBcg: #f7ffe8; // TODO:
+
+$darkYellow: #ffb600; // $dy
+$warning: #f2cec2; // $wr
+$linkColor: #000f01;
+$linkHoverBcg: #fbe989;
 
 
 // SideNav
@@ -18,6 +25,17 @@ $darkSideNavBcg: #0b1302; // $sg
 $lightSideNavHover: dimgray;
 $darkSideNavHover: rgb(51, 51, 51);
 
+$borderColor: #497118;
+$borderColorTrans: #497118AA;
+
+$mainBorder: #031c00;
+
+// sol box side
+$solBoxGreen: green;
+$lightSolBoxBcg: honeydew;
+$darkSolBoxBcg: honeydew;
+$lightCodeBcg: mintcream;
+$darkCodeBcg: mintcream;
 
 // Theme toggle
 $toggleClearSky: cornflowerblue;
@@ -25,3 +43,11 @@ $sunDisk: rgb(255, 230, 0);
 // $corona: yellow;
 $nightSky: rgb(1, 13, 36);
 $moonLight: gainsboro;
+
+
+// Resistor colors 
+$silver: #b0b0b8;
+
+// Arduino colors 
+$ardLight: rgb(23,161,165);
+$ardDark: rgb(0, 100, 104);

@@ -2,29 +2,18 @@
   <h1>Log in...</h1>
   <p class="adminError" style="display: none"></p>
   {{#if errorMessage}}<p class="adminError">{{errorMessage}}</p>{{/if}}
-  <form>
-  <div     class=   "adminInput">
-    <label for=     "username">Unesi korisničko ime:</label>
-    <input type=    "text" 
-           id=      "username" 
-           name=    "username"  
-           class=   "admin"
-           required
-           autofocus>
-  </div>
-  <div     class=   "adminInput">
-    <label for=     "password">Unesi lozinku:</label>
-    <input type=    "password" 
-           id=      "password" 
-           name=    "password" 
-           class=   "admin"
-           required>
-  </div>
-  <div     class=   "adminInput">
-    <button
-           id=      "dugme" 
-           class=   "admin wideAdminButton admin-loginButton">Uloguj se :)</button>
-  </div>
+  <form method="POST" action="/admin/login">
+    <div class="adminInput">
+      <label for="username">Unesi korisničko ime:</label>
+      <input type="text" id="username" name="username" class="admin" required autofocus>
+    </div>
+    <div class="adminInput">
+      <label for="password">Unesi lozinku:</label>
+      <input type="password" id="password" name="password" class="admin" required>
+    </div>
+    <div class="adminInput">
+      <button id="dugme" class="admin wideAdminButton admin-loginButton">Uloguj se :)</button>
+    </div>
   </form>
 </article>
 <script src="../../js/admin/handleLogin.js"></script>

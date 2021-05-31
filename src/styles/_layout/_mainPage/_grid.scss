@@ -3,6 +3,7 @@
     a {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      grid-gap: 1rem;
     }
 
     // flips the even course around 
@@ -25,18 +26,23 @@
 
   .main-page-course a {
     display: inline-block;
+
+    .mob_hide {
+      margin-top: 1rem;
+    }
   }
 }
 
+
 @media only screen and (min-width: 62rem) { // > 992px
   .main-page {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
-  .main-page-course a {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
+  // .main-page-course a {
+  //   display: grid;
+  //   grid-template-columns: 1fr 1fr;
+  // }
 }
 
 @media only screen and (min-width: 75rem) { // > 992px

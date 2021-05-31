@@ -1,26 +1,80 @@
 #header-bottom {
   display: flex;
   justify-content: space-between;
-  // background-color: $lightMainGreen;
   background: linear-gradient(to bottom, $lightTopNavBottomGreen 0%, $lightTopNavTopGreen 100%);
-  padding: 16px;
+  padding: 1.3rem;
+  padding-left: 4rem; // bumped away from the cog
   width: 100vw; /* it shrinks on scroll so this keeps it spread */
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-//   overflow: visible;
   height: $topNavHeight;
+  z-index: 3;
+  text-transform: uppercase;
+}
+
+.top-nav {
+  vertical-align: middle;
+  display: flex;
+}
+
+.menuitems {
+  padding-right: .3rem;
+  padding-left: .4rem;
+  border-right: 1px solid;
+  display: flex;
+  align-items: center;  
+}
+
+.menuitems:last-child {
+  border-right: none;
+}
+
+.menu-lg {
+  display: none;
+}
+
+.menu-sm {
+  font-weight: lighter;
+  
+
+  .icon {
+    font-size: 1.3rem;
+  }
 }
 
 #backhome {
   font-size: 1.5em;
   visibility: hidden;
   margin-right: 1rem;
-  // display:inline;
 }
 
-/* classes added through js */
-.fixed-top { 
+// classes added through js 
+
+.fixed-top { // green bar od the header section
   position: fixed;
-  // overflow: hidden;
   top: 0;
-//   z-index: 1;
+}
+
+@media only screen and (min-width: 48rem) { // > 768
+  #header-bottom {
+    padding-left: 2rem;
+  }
+
+  .menuitems {
+    padding: 0 1.5rem;
+    height: 100%;
+    border-top: $borderWidth solid transparent;
+    border-bottom: $borderWidth solid transparent;
+
+    &:hover {
+      border-bottom: $borderWidth solid $darkYellow;
+    }
+  }
+
+  .menu-sm {
+    display: none;
+  }
+
+  .menu-lg {
+    display: flex;
+  }
 }

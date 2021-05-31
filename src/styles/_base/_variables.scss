@@ -1,6 +1,8 @@
 $font: 'Roboto Mono', 'Courier New', monospace;
 
 $borderWidth: .125rem;
+$borderRadius: .3rem;
+$halfBorder: calc(#{$borderWidth} / 2);
 $sideNavWidth: 15.6rem;
 
 // top nav
@@ -8,16 +10,16 @@ $logoHeight: 4.4rem;
 $toggleHeight: 1.2rem;
 $topNavHeight: 4rem;
 
+//blockquote
+$clipSize: 1.37rem;
+
 // $mainFont: #003333 !default;
 
 // // main colors 
 // $sgt: rgba(229, 229, 229, .7); // #e5e5e588
 // $highlight: rgba(181, 255, 92, 0.62);
 
-// $dy: #ffb600; // dark yellow */
 // $qy: #fffd3e; // quiz yellow */
-
-// $wr: #ff6633; // warning red */
 
 // $lightF: #535353;
 
@@ -28,9 +30,7 @@ $topNavHeight: 4rem;
 // $rBlack: #212121;
 // $gold: #f7bd2d;
 
-// // Arduino colors */
-// $ardLight: rgb(23,161,165);
-// $ardDark: rgb(0, 100, 104);
+
 
 // // git colors */
 // $gityellow: #808000;

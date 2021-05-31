@@ -20,6 +20,28 @@
   content: '\F295';
 }
 
+.coronaIcon:before {
+  content: '\f29B';
+}
+
+// Tools used:
+
+.firefoxIcon:before {
+  content: '\f296';
+}
+
+.chromeIcon:before {
+  content: '\f297';
+}
+
+.braveIcon:before {
+  content: '\f27a';
+}
+
+.vsCodeIcon::before {
+  content: '\F299';
+}
+
 // .windows-old::before {
 //   content: '\f28f';
 // }
@@ -33,45 +55,49 @@
 //   padding-left: 1em;
 // }
 
-// // nav icons
+// nav icons
+
+.htmlIcon:before {
+  content: '\F3CD';
+}
+
+.cssIcon:before {
+  content: '\F3CE';
+}
+
+.gitIcon:before {
+  content: '\F3D8';
+}
+
+.cmdIcon:before {
+  content: '\F3D7';
+}
+
+.jsIcon:before {
+  content: '\F3D2';
+}
+
+.nodeIcon:before {
+  content: '\F3D3';
+}
+
+.arduinoIcon::before {
+  content: '\F3EC';
+}
+
+.pyIcon::before {
+  content: '\f3dc';
+}
 
 
-// .htmlIcon:before {
-//   content: '\F3CD';
-// }
 
-// .cssIcon:before {
-//   content: '\F3CE';
-// }
-
-// .arduinoIcon::before {
-//   content: '\F3EC';
-// }
-
-// .jsIcon:before {
-//   content: '\F3D2';
-// }
-
-// .gitIcon:before {
-//   content: '\F3D8';
-// }
-
-// .cmdIcon:before {
-//   content: '\F3D7';
-// }
-
-// .nodeIcon:before {
-//   content: '\F3D3';
-// }
 
 // .sublimeIcon::before {
 //   content: '\F298';
 // }
 
 
-// .vsCodeIcon::before {
-//   content: '\F299';
-// }
+
 
 // .ffIcon::before {
 //   content: '\F296';
@@ -144,54 +170,67 @@
 //   position: absolute;
 // }
 
-// .saveButton:before {
-//   content: '\F2B8';
-// }
+// As seen on floating menu
 
-// .allButton:before {
-//   content: '\F2C7';
-// }
+.saveButton:before {
+  content: '\F2B8';
+}
 
-// .trashButton:before {
-//   content: '\F2BD';
-// }
+.allButton:before {
+  content: '\F2C7';
+}
+
+.trashButton:before {
+  content: '\F2BD';
+}
 
 
-// // smilies https://unicode.org/emoji/charts/full-emoji-list.html
+// For jupyter
 
-// .em {
-//   font-size: 1.5rem;
-//   text-shadow: 1px 1px 2px gray;
-// }
+.reload:before {
+  content: '\F29f';
+}
 
-// .unamused:before {
-//   content: '\1F612'
-// }
+.ff:before {
+  content: "\F29e";
+}
 
-// .smiley:before {
-//   content: '\1F642';
-// }
 
-// .sad:before {
-//   content: '\1F61E';
-// }
+// smilies https://unicode.org/emoji/charts/full-emoji-list.html
 
-// .confused:before {
-//   content: '\1F615';
-// }
+.em {
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 2px gray;
+}
 
-// .duh:before {
-//   content: '\1F616';
-// }
+.unamused:before {
+  content: '\1F612'
+}
 
-// .cray:before {
-//   content: '\1F92A';
-// }
+.smiley:before {
+  content: '\1F642';
+}
 
-// .plaz::before {
-//   content: '\1f61c';
-// }
+.sad:before {
+  content: '\1F61E';
+}
 
-// .up::before {
-//   content: '\1F446';
-// }
+.confused:before {
+  content: '\1F615';
+}
+
+.duh:before {
+  content: '\1F616';
+}
+
+.cray:before {
+  content: '\1F92A';
+}
+
+.plaz::before {
+  content: '\1f61c';
+}
+
+.up::before {
+  content: '\1F446';
+}

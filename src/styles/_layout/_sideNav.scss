@@ -1,56 +1,85 @@
-#side-nav {
-  width: $sideNavWidth;
-  top: 5px;
+.sideNav {
+  display: none;
+  width: 100%;
   position: fixed;
-  left: 2rem;
-//   overflow-x: hidden;
-//   z-index: 999;
-  // height: inherit!important;
+  z-index: 2;
 
-  &:first-child {
-    border-radius: 2px 2px 0 0;
-  }
-
-  &:last-child {
-    border-radius: 0 0 2px 2px;
-  }
-
-  & li {
-    box-shadow: 0 1px 0px 0 rgba(0, 0, 0, 0.3), 0 0px 2px 0 rgba(0, 0, 0, 0.3);
-    padding: 5px 10px;
+  ul {
     background-color: $lightSideNavBcg;
-    list-style-type: none;
+    padding: 3rem;
 
-    &.active {
-      background-color: $lightBcg;
-      font-weight: bold;
+    li:first-child {
+      border-top: 1px solid $lightSideNavHover;
     }
+ 
+    li {
+      height: 2rem;
+      padding: .5rem 1rem;
+      border-bottom: 1px solid $lightSideNavHover;
 
-    &:hover {
-      background: $lightSideNavHover;
-      color: $lightBcg;
+      &:hover {
+        background: $lightSideNavHover;
+        
+        & a {
+          color: $lightBcg;
+        }
+      }
     }
   }
 }
 
 
-@media only screen and (min-width: 62rem) { // > 1000px
-  #side-menu {
-    padding: 0;
-//     height: inherit;
+@media only screen and (min-width: 48rem) { // > 768px
+  .sideNav {
+    position: relative; // otherwise it doesn't see the body is grid
+    display: block;
+    top: $borderWidth;
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+
+    ul:first-child {
+      border-radius: 2px 2px 0 0;
+    }
+
+    &:last-child {
+      border-radius: 0 0 2px 2px;
+    }
+
+    .sideMenu {
+      padding: 0;
+
+      li {
+        @include lightGrayNavs;
+        border: none;
+        padding: .31rem .66rem;
+
+        &:first-child {
+          border-top: none;
+        }
+      }
+    }
   }
+
+  
 }
 
 // #side-menu {
 //   overflow-y: scroll !important;
 // }
 
-@media only screen and (min-width: 62rem) { // > 1000px
+@media only screen and (min-width: 48rem) { // > 768px
   #side-nav {
-    grid-column: 1 / 2;
-    grid-row: 3 / 4;
-    position: relative;
-    left: unset;    
+   
+
+    
+
+  & li {
+    
+
+    &.active {
+      background-color: $lightBcg;
+      font-weight: bold;
+    }}
 
     &[style] {
       display: inline-grid !important; // Visibility
@@ -65,9 +94,9 @@
 //   }
 }
 
-span.selected {
+// span.selected {
 //   font-weight: bold;
-}
+// }
 
 // @media only screen and (max-width: 540px) { 
 //   .menuitems {

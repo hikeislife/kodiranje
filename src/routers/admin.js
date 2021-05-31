@@ -15,7 +15,9 @@ adminRouter.get('/admin', signedIn, (req, res) => {
 // POST/login
 adminRouter.post('/admin/login', async (req, res) => {
   try {
+
     const admin = await Admin.findByCredentials(req.body.username, req.body.password)
+
     let token = ''
     if (!admin) {
       return res.status(401).json({ errorMessage: "log in podaci nisu ispravni" })
@@ -23,11 +25,12 @@ adminRouter.post('/admin/login', async (req, res) => {
     else {
       try {
         token = await admin.generateAuthToken()
+        // console.log(token)
       }
       catch (e) {
         console.log(e)
       }
-      res.status(200).json({ token, robots: true, googTitle: "Sve lekcije" })
+      res.status(200).json({ token, robots: true, googTitle: "" })
     }
   } catch (er) {
     console.log(er)

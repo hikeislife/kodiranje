@@ -1,3 +1,15 @@
+.ttip {
+  border-bottom: $borderWidth solid $darkYellow;
+
+  &::after {
+    content: ' ('attr(data-tooltip)')';
+  }
+
+  & em {
+//     border-bottom: 2px solid $dy;
+  }
+}
+
 // // .tt {
 // //   border: none;
 // // }
@@ -81,11 +93,7 @@
 
 
 
-// .ttip {
-//   &::after {
-//     content: ' ('attr(data-tooltip)')';
-//   }
-// }
+
 
 // @media only screen and (min-width: 40em) { /* > 640px */
 //   .ttip {
@@ -129,10 +137,3 @@
 //   }
 // }
 
-// .ttip {
-//   border-bottom: 2px solid $dy;
-
-//   & em {
-//     border-bottom: 2px solid $dy;
-//   }
-// }

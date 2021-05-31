@@ -55,3 +55,20 @@ footer {
 
   }
 }
+
+.backToTop {
+  background: $darkBcg;
+  color: $darkFont;
+}
+
+h1 {
+  background: $darkBcg;
+}
+
+.sol {
+  background: $darkSolBoxBcg;
+
+  code {
+    background: $darkCodeBcg;
+  }
+}

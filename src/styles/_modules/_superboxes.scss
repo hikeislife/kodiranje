@@ -1,0 +1,169 @@
+.superbox {
+  border: $borderWidth solid $mainBorder;
+  border-radius: $borderRadius;
+  padding: 1em;
+//   color: $mainFont;
+  // margin: 1em 0;
+}
+
+// .why {
+//   background-color: $dy;
+
+//   &::before {
+//     content: 'Zašto ovo radimo? ';
+//     font-weight: bolder;
+//   }
+// }
+
+// .placeholder .superbox {
+//   & p:first-of-type {
+//     display: inline;
+//   }
+
+//   & p:last-of-type {
+//     margin-bottom: 0!important;
+//   }
+// }
+
+.sol {
+  background-image: url('data:image/webp;base64,UklGRlgAAABXRUJQVlA4WAoAAAAQAAAACQAACQAAQUxQSA4AAAABDzD/ERFiICL6HwABAFZQOCAkAAAAkAEAnQEqCgAKAADAEiWkAAM3HtHQAP79vUf/QB6/2Gb2AAAA');
+  border-left: 5px solid $solBoxGreen;
+  box-shadow: 2px 2px 10px dimgray;
+  background-color: $lightSolBoxBcg;
+//   font-weight: bold;
+  // color: midnightblue;
+  // line-height: 0px;
+
+  &:before {
+    counter-reset: solCode;
+  }
+
+  & code {
+    counter-increment: solCode;
+    display:block;
+    border-left: 2px solid $darkFont;
+    padding-left: 5px;
+    background: $lightCodeBcg;
+    white-space: pre-wrap;
+    font-weight: bold;
+    margin: 0 0 0 2em;
+    text-align: left; // this is important for front page only
+    line-height: 1.2rem;
+
+//     border: none;
+    // font-size: 1.2em;
+
+    &::before {
+      font-family: 'lucida console';
+      content: counter(solCode) " ";
+      display: inline-block;
+      margin-left: -2em;
+      width: 2em;
+      // margin-right: .5em;
+    }
+  }
+}
+
+// .placeholder .ex {
+//   background: whitesmoke;
+//   color: $mainFont;
+//   margin-top: 1em !important;
+//   white-space: normal; /* to offset one from the sol */
+
+//   & p:first-of-type {
+//     display: block;
+//   }
+// }
+
+// .kviz {
+//   background-color: $qy!important;
+
+//   &::before {
+//     font-family: 'Kodiranje';
+//     content: '\F353';
+//     padding-right: 15px;
+//   }
+// }
+
+// .error {
+//   background-color: $dy!important;
+
+//   &::before {
+//     content: '\F357';
+//     font-family: "Kodiranje";
+//     padding-right: 15px;
+//   }
+// }
+
+// .tip {
+//   background-color: $dg!important;
+//   font-weight: bold;
+//   white-space: normal; /* this offsets white-space from sol when it's embeded there */
+
+//   &::before {
+//     content: '\F358';
+//     font-family: "Kodiranje";
+//     padding-right: 15px;
+//   }
+
+//   & a {
+//     background-color: $dy;
+//   }
+// }
+
+.warning {
+  background-color: $warning;
+//   color: #222; /* for color contrast reason */ 
+  p:first-child {
+    display: inline-block;
+  }
+
+  &::before {
+    font-family: "Kodiranje";
+    content: '\F350';
+    padding-right: 1rem;
+  }
+}
+
+// .depr {
+//    border-color: $wr;
+// }
+
+// .placeholder .superbox .superbox {
+//   margin: 0;
+// }
+
+// details.warning:before {
+//   content: '';
+// }
+
+
+.deeppink,
+.pink {
+  color: #C0C;
+}
+
+.seagreen,
+.green {
+  color: #066;
+}
+
+.dimgray,
+.dim {
+  color: dimgray;
+}
+
+.darkviolet,
+.violet {
+  color: darkviolet;
+}
+
+.royal,
+.royalblue {
+  color: royalblue;
+}
+
+.firebrick,
+.opeka {
+  color: firebrick;
+}

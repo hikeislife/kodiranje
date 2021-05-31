@@ -8,35 +8,41 @@
 @import "_layout/_header/_logo";
 @import "_layout/_header/_cog";
 @import "_layout/_header/_headerBottom";
+
 @import "_layout/_mainPage/_mainPage";
 @import "_layout/_mainPage/_grid";
 @import "_layout/_mainPage/_zigZagColors";
+
+@import "_layout/_pageNav";
 @import "_layout/_main";
 @import "_layout/_sideNav.scss";
 @import "_layout/_footer";
 
-@import "_boxes/_blockquotes";
+@import "_layout/_general/_imgs";
+@import "_layout/_general/_links";
+@import "_layout/_general/_lists";
+
+@import "_modules/_details";
+@import "_modules/_superboxes";
+@import "_modules/_blockquotes";
 @import "_boxes/_arduino";
-@import "_boxes/_superboxes";
 @import "_boxes/_cmd";
 @import "_boxes/_jupyter";
-@import "_boxes/_details";
 @import "_boxes/_console";
 @import "_boxes/_devTools";
 
 @import "_utilities/_backToTop";
 @import "_utilities/_toolTips";
-@import "_utilities/_links";
-@import "_utilities/_lists";
-@import "_utilities/_imgs";
 @import "_utilities/_table";
 @import "_utilities/_themeToggle";
 
 @import "_admin/_editMenu";
+@import "_admin/_editMenuIcons.scss";
 @import "_admin/_editMenuHelpers";
 @import "_admin/_floatingMenu";
 @import "_admin/_adminButtons";
 @import "_admin/_admin";
+@import "_admin/_forms";
 
 @import "sideWaysNav";
 @import "a2a";

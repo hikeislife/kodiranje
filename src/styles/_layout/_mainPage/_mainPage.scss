@@ -4,6 +4,7 @@
 
   h1 {
     font-size: 1.1rem;
+    line-height: 1.6rem;
     padding: 2rem 0;
   }
 
@@ -13,10 +14,11 @@
   }
 }
 
+
 @media only screen and (min-width: 30rem) { // > 480px
   .main-page-course {
     svg {
-      width: 40vw;
+      width: 30vw;
       padding-bottom: 2rem;
     }
 
@@ -25,12 +27,18 @@
     }
   }
 }
+
 
 @media only screen and (min-width: 36rem) { // > 576px
   .main-page {
     svg {
-      width: 40vw;
+      width: 30vw;
+      padding: 1rem;
       padding-bottom: 2rem;
+    }
+
+    h1 {
+      padding: 1rem;
     }
 
     .main-page-boxes:nth-child(even) {
@@ -39,20 +47,44 @@
   }
 }
 
+
+@media only screen and (min-width: 48rem) { // > 768px where side nav appears 
+  .main-page {
+    svg {
+      width: 25vw;
+    }
+  }
+}
+
+
 @media only screen and (min-width: 62rem) { // > 992px
-  
+  .main-page {
+    svg {
+      width: 22vw;
+    }
+  }
 }
 
 @media only screen and (min-width: 75rem) { // > 992px
-  svg {
-    width: 22vw !important;
+  * .main-page .sol code {
+      font-size: 1rem;
+      line-height: 1.2rem !important;
+    }
+  
+  .main-page {
+    svg {
+      width: 17vw !important;
+    }
   }
-
-  // .main-page-course {
-  //   width: calc((100vw - 280px) / 3 );
-  // }
-
 }
+
+.main-page-boxes:nth-child(odd) { // svgs
+  @include boxShadow;
+  border: 1px solid $lightFont;
+  background: $lightBcg;
+  // padding: 1em;
+  // width: calc(100vw - 4em);
+} 
 
 
 

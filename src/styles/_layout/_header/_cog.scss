@@ -2,35 +2,21 @@
   position: fixed;
   top: 12px;
   left: 5px;
-  z-index: 1;
-  // width: 40px;
-  // height: 40px;
+  z-index: 3;
+  width: 40px;
+  height: 40px;
   // overflow: hidden;
 }
 
 .logo-cog {
-  // position: absolute;
-  // top: 25%;
+  position: fixed;
+  top: .5rem;
   // left: 25%;
 //   width: 40px;
 //   height: 40px;
 //   margin:-10px 0 0 -10px;
-  // -webkit-animation:spin 10s linear infinite;
-  // -moz-animation:spin 10s linear infinite;
   animation:spin 10s linear infinite;
 }
-
-// @-moz-keyframes spin { 
-//   100% { 
-//     -moz-transform: rotate(360deg); 
-//   } 
-// }
-
-// @-webkit-keyframes spin {
-//   100% {
-//     -webkit-transform: rotate(360deg);
-//   } 
-// }
 
 @keyframes spin { 
   100% { 
@@ -39,7 +25,7 @@
   } 
 }
 
-@media only screen and (min-width: 62.5rem) { // > 1000px
+@media only screen and (min-width: 48rem) { // > 767
   #mobile-cog {
     display: none;
   }
@@ -50,6 +36,5 @@
 
   #header-bottom[style] {
     padding-left: 10px !important;
-//     // z-index: 10 !important;
   }
 }

@@ -1,42 +1,54 @@
-// .floatingMenu {
-//   border: 9px double black;
-//   border-radius: .5em;
-//   display: inline-block;
-//   position: fixed;
-//   top: 126px;
-//   padding-top: 62px;
-//   left: 14.3em;
-//   width: 91.2px; /* so it doesn't jump */
-//   background: rgb(86, 86, 86);
-//   background-clip: padding-box;
-//   box-shadow: 1px 1px 10px gray;
+.floatingMenu {
+  position: fixed;
+  border: 9px double $lightFont;
+  border-radius: $borderRadius;
+  background-clip: padding-box !important;
+  background: rgb(86, 86, 86);
+  box-shadow: 1px 1px 10px gray;
+  top: 10rem;
+  right: -1rem;
+  display: inline-block;
+  padding-top: 4.5rem;
+  z-index: 1;
+  // width: 91.2px; /* so it doesn't jump */
 
-//   label, span {
-//     font-size: 2.5em;
-//     display: flex;
-//     align-content: center;
-//     justify-content: center;
-//     cursor: pointer;
-//     padding: 0;
-//   }
+  label, span {
+    font-size: 2.5em;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    // cursor: pointer;
+    // padding: 0;
+  }
 
-//   .floater {
-//     margin: .3em 0;
-//   }
+  #saveButton {
+    position: relative;
+    top: -1.5rem;
+  }
 
-//   .floatingGreen {
-//     color: $mainG;
-//     text-shadow: 1px 1px 15px $mainG;
-//   }
+  .allButton {
+    position: relative;
+    top: -.5rem;
+  }
 
-//   .floatingYellow {
-//     color: $dy;
-//     text-shadow: 1px 1px 15px $dy;
-//   }
+  .floatingGreen {
+    color: $lightTopNavTopGreen;
+    text-shadow: 1px 1px 15px $lightTopNavTopGreen;
+  }
 
-//   .floatingWarning {
-//     color: $wr;
-//     text-shadow: 1px 1px 15px $wr;
-//   }
+  .floatingYellow {
+    color: $darkYellow;
+    text-shadow: 1px 1px 15px $darkYellow;
+  }
 
-// }
+  .floatingWarning {
+    color: $warning;
+    text-shadow: 1px 1px 15px $warning;
+  }
+}
+
+@media only screen and (min-width: 75rem) {
+  .floatingMenu {
+    right: 1rem;
+  }
+}
