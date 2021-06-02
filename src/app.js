@@ -126,11 +126,12 @@ app.get('/', async (req, res) => {
     userId = undefined
   }
 
+
   try {
     Article.find({ courseName: 'mp', published: true }).sort({ order: 1 }).select('_id navName selectedURL ').then(menu => {
       if (!menu) {
         return res.status(404).send()
-      }
+      } else { console.log(menu) }
 
       res.render('home/home', {
         mainMenu: menu,
@@ -146,6 +147,13 @@ app.get('/', async (req, res) => {
 app.get('/kontakt', (req, res) => {
   res.render('contact')
 })
+
+app.get('/donirajte', (req, res) => {
+  const googTitle = "Donacije"
+  res.render('donations/donations', { googTitle })
+})
+
+
 
 // app.post('/send', (req, res) => {
 //   const output = `
@@ -185,10 +193,10 @@ app.get('/kontakt', (req, res) => {
 //   res.send('rečnik')
 // })
 
-// // app.get('/:kurs', (req, res) => {
-// //   const resp = req.params.kurs
-// //   res.send('tutorijal ' + resp)
-// // })
+app.get('/:kurs', (req, res) => {
+  const resp = req.params.kurs
+  res.send('tutorijal ' + resp)
+})
 
 app.get('/:kurs/:lekcija', (req, res) => {
   Article

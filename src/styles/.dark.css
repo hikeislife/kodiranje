@@ -162,13 +162,13 @@ header {
   fill: #003333;
 }
 #logo-text .svgTextObscurer {
-  fill: whitesmoke;
+  fill: #031c00;
   width: 284px;
   height: 49px;
   animation: typeWrite 1s steps(10) forwards;
 }
 #logo-text .svgCursorBlinker {
-  fill: whitesmoke;
+  fill: #031c00;
   width: 30px;
   height: 49px;
   animation: blinker 0.8s linear 0.5s 4 forwards;
@@ -229,7 +229,7 @@ header {
     padding-left: 10px !important;
   }
 }
-.headerBottom {
+#header-bottom {
   display: flex;
   justify-content: space-between;
   background: linear-gradient(to bottom, #7cc91c 0%, #9af629 100%);
@@ -243,7 +243,7 @@ header {
   text-transform: uppercase;
 }
 
-.topNav {
+.top-nav {
   vertical-align: middle;
   display: flex;
 }
@@ -278,12 +278,12 @@ header {
 }
 
 .fixed-top {
-  position: fixed !important;
+  position: fixed;
   top: 0;
 }
 
 @media only screen and (min-width: 48rem) {
-  .headerBottom {
+  #header-bottom {
     padding-left: 2rem;
   }
 
@@ -529,7 +529,7 @@ article h1 {
   border-radius: 5px;
   background: #eeffcc;
   margin: 2.1em -0.7em 2.1em -0.7em;
-  box-shadow: 0.0625rem 0.0625rem 0.625rem dimgray;
+  box-shadow: 0.2em 0.2em 2em #497118AA;
   padding: 0.5rem;
 }
 
@@ -1625,4 +1625,84 @@ input[type=checkbox]:checked ~ label[for]:after {
   top: -4px;
 }
 
-/*# sourceMappingURL=style.css.map */
+.main-page-course:nth-child(even) {
+  background: #0b1302;
+}
+
+.main-page-boxes:nth-child(odd) {
+  background: #112011;
+}
+
+* {
+  color: #daf7cc;
+}
+
+body {
+  background-color: #112011;
+}
+
+#header-top {
+  background-color: #031c00;
+}
+
+#logo-text text {
+  fill: #daf7cc;
+}
+
+.svgTextObscurer {
+  fill: #031c00;
+}
+
+.svgCursorBlinker {
+  fill: #031c00;
+}
+
+#rounded-square {
+  stroke: #daf7cc;
+}
+
+#header-bottom {
+  background: linear-gradient(to bottom, #579905 0%, #253c08 100%);
+  box-shadow: 0 1px 2px 0 #293906, 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.placeholder {
+  background-color: #000f01;
+  box-shadow: 0 1px 2px 0 rgba(245, 245, 245, 0.3), 0 1px 2px 0 rgba(245, 245, 245, 0.3);
+}
+
+a, a:visited {
+  background-color: #9af629;
+  color: #daf7cc;
+}
+
+footer {
+  background: linear-gradient(to bottom, #112011 0%, #579905 30%);
+}
+
+#side-nav li {
+  background-color: #0b1302;
+  box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.3), 0 0px 2px 0 rgba(255, 255, 255, 0.3);
+}
+#side-nav li:hover {
+  background: #333333;
+  color: #9af629;
+}
+
+.backToTop {
+  background: #112011;
+  color: #daf7cc;
+}
+
+h1 {
+  background: #112011;
+}
+
+.sol {
+  background: honeydew;
+}
+.sol code {
+  background: mintcream;
+}
+
+/*# sourceMappingURL=dark.css.map */

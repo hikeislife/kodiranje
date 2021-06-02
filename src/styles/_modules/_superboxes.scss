@@ -1,34 +1,20 @@
+
+
 .superbox {
   border: $borderWidth solid $mainBorder;
   border-radius: $borderRadius;
   padding: 1em;
-//   color: $mainFont;
-  // margin: 1em 0;
+  margin: 1em 0;
+
+  p:first-child {
+    display: inline;
+  }
 }
 
-// .why {
-//   background-color: $dy;
-
-//   &::before {
-//     content: 'Zašto ovo radimo? ';
-//     font-weight: bolder;
-//   }
-// }
-
-// .placeholder .superbox {
-//   & p:first-of-type {
-//     display: inline;
-//   }
-
-//   & p:last-of-type {
-//     margin-bottom: 0!important;
-//   }
-// }
-
 .sol {
-  background-image: url('data:image/webp;base64,UklGRlgAAABXRUJQVlA4WAoAAAAQAAAACQAACQAAQUxQSA4AAAABDzD/ERFiICL6HwABAFZQOCAkAAAAkAEAnQEqCgAKAADAEiWkAAM3HtHQAP79vUf/QB6/2Gb2AAAA');
-  border-left: 5px solid $solBoxGreen;
-  box-shadow: 2px 2px 10px dimgray;
+  @include boxShadow;
+  background-image: url($solBcg);
+  border-left: $accentBorder solid $solBoxGreen;
   background-color: $lightSolBoxBcg;
 //   font-weight: bold;
   // color: midnightblue;
@@ -48,7 +34,7 @@
     font-weight: bold;
     margin: 0 0 0 2em;
     text-align: left; // this is important for front page only
-    line-height: 1.2rem;
+    line-height: 1.4rem;
 
 //     border: none;
     // font-size: 1.2em;
@@ -64,6 +50,36 @@
   }
 }
 
+.warning {
+  background-color: $warning;
+//   color: #222; /* for color contrast reason */ 
+  // p:first-child {
+  //   display: inline-block;
+  // }
+
+  &::before {
+    font-family: "Kodiranje";
+    content: '\F350';
+    padding-right: 1rem;
+  }
+}
+
+.tip {
+  background-color: $tip;
+//   font-weight: bold;
+//   white-space: normal; /* this offsets white-space from sol when it's embeded there */
+
+  &::before {
+    font-family: "Kodiranje";
+    content: '\F358';
+    padding-right: 1rem;
+  }
+
+//   & a {
+//     background-color: $dy;
+//   }
+}
+
 // .placeholder .ex {
 //   background: whitesmoke;
 //   color: $mainFont;
@@ -75,15 +91,15 @@
 //   }
 // }
 
-// .kviz {
-//   background-color: $qy!important;
+.kviz {
+  background-color: $quizYellow;
 
-//   &::before {
-//     font-family: 'Kodiranje';
-//     content: '\F353';
-//     padding-right: 15px;
-//   }
-// }
+  &::before {
+    font-family: 'Kodiranje';
+    content: '\F353';
+    padding-right: 15px;
+  }
+}
 
 // .error {
 //   background-color: $dy!important;
@@ -95,35 +111,27 @@
 //   }
 // }
 
-// .tip {
-//   background-color: $dg!important;
-//   font-weight: bold;
-//   white-space: normal; /* this offsets white-space from sol when it's embeded there */
 
-//   &::before {
-//     content: '\F358';
-//     font-family: "Kodiranje";
-//     padding-right: 15px;
+
+.why {
+  background-color: $darkYellow;
+
+  &::before {
+    content: 'Zašto ovo radimo? ';
+    font-weight: bolder;
+  }
+}
+
+// .placeholder .superbox {
+//   & p:first-of-type {
+//     display: inline;
 //   }
 
-//   & a {
-//     background-color: $dy;
+//   & p:last-of-type {
+//     margin-bottom: 0!important;
 //   }
 // }
 
-.warning {
-  background-color: $warning;
-//   color: #222; /* for color contrast reason */ 
-  p:first-child {
-    display: inline-block;
-  }
-
-  &::before {
-    font-family: "Kodiranje";
-    content: '\F350';
-    padding-right: 1rem;
-  }
-}
 
 // .depr {
 //    border-color: $wr;

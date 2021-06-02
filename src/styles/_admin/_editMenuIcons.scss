@@ -9,11 +9,15 @@ span.editMenuItem {
 }
 
 .showMeCode:before {
+  font-family: Kodiranje;
   content: '\F2D8';
+  font-weight: bold;
 }
 
 .showMeGui:before {
+  font-family: Kodiranje;
   content: '\F2D9';
+  font-weight: bold;
 }
 
 .headings:before {

@@ -1,5 +1,6 @@
 export default (function loadTheme() {
   const cookies = document.cookie
+  console.group(cookies)
   const toggle = document.querySelector('.themeToggle')
   const url = `./../../styles/`
   const ext = `.css`

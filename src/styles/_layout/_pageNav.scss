@@ -1,44 +1,30 @@
-.page-contents { // Page nav title
-  border: $halfBorder solid $borderColor;
-  padding: .5rem 1rem .5rem .66rem;
-  background: $lightBcg;
-}
 
-@media only screen and (max-width: 36rem) {
-  .page-contents {
-//     margin: 1em -1.05em -1px -2.05em !important;
-  }
-}
 
-.page-nav {
-  margin-bottom: 2rem;
-}
-
-.page-nav .listless {
-  margin-top: .1rem;
-//   margin-right: 0; // ???
-//   padding-left: 0;
-}
-
-.page-nav .listless li { 
-  @include lightGrayNavs;
-  padding: .31rem .66rem;
-//   padding: .3em 1em !important;
-
-  &:hover {
-//     background: dimgray;
-//     color: $lg;
-  }
-
-  & a.nocolor {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-}
-
-// @media only screen and (min-width: 40em) {
-//   .page-nav .listless {
-//     margin: 0;
+// @media only screen and (max-width: 36rem) {
+//   .referalItem {
+// //     margin: 1em -1.05em -1px -2.05em !important;
 //   }
 // }
+
+// .page-nav {
+//   margin-bottom: 2rem;
+// }
+
+// .page-nav .listless {
+//   margin-top: .1rem;
+// //   margin-right: 0; // ???
+// //   padding-left: 0;
+// }
+
+
+
+// .squeezeReferences {
+//   display: inline-block; 
+//   width: 80%;
+// }
+
+// // @media only screen and (min-width: 40em) {
+// //   .page-nav .listless {
+// //     margin: 0;
+// //   }
+// // }

@@ -1,7 +1,7 @@
 $lightFont: #003333;
 $darkFont: #daf7cc;
 $lightBcg: #eeffcc; // $lg
-$darkBcg: #020402;
+$darkBcg: #112011;
 $lightLogoBcg: whitesmoke;
 $darkLogoBcg: #031c00;
 $lightTopNavTopGreen: #9af629; // $mainG 
@@ -11,17 +11,24 @@ $darkTopNavBottomGreen: #579905;
 $lightPageBcg: azure; // $white
 $darkPageBcg: #000f01;
 $lightInputBcg: #f7ffe8;
-$darkInputBcg: #f7ffe8; // TODO:
+$darkInputBcg: #f7ffe8; 
 
 $darkYellow: #ffb600; // $dy
 $warning: #f2cec2; // $wr
+$darkWarning: #3e0f00;
+$tip: #d3f4a8;
+$darkTip: #1f3304;
+$quizYellow: #fffe93; // $qy
+$quiz: #fdeabc;
 $linkColor: #000f01;
 $linkHoverBcg: #fbe989;
+$shadow: dimgray;
 
 
 // SideNav
 $lightSideNavBcg: #e5e5e5; // $sg
-$darkSideNavBcg: #0b1302; // $sg
+$darkSideNavBcg: #0b1302;
+$lightSideNavTranspBcg: #e5e5e588;
 $lightSideNavHover: dimgray;
 $darkSideNavHover: rgb(51, 51, 51);
 
@@ -51,3 +58,8 @@ $silver: #b0b0b8;
 // Arduino colors 
 $ardLight: rgb(23,161,165);
 $ardDark: rgb(0, 100, 104);
+
+// cmd
+
+$cmdFont: #c6c6c6;
+$cmdBorderColor: rgb(176, 209, 243);

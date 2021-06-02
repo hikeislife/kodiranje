@@ -72,7 +72,8 @@ article h1 { // article limits style away from landing page
   border-radius: 5px;
   background: $lightBcg;
   margin: 2.1em -0.7em 2.1em -0.7em; 
-  box-shadow: .2em .2em 2em $borderColorTrans;
+  // box-shadow: .2em .2em 2em $borderColorTrans;
+  @include boxShadow;
   padding: .5rem;
 }
 
@@ -128,19 +129,19 @@ p {
 //   }
 // }
 
+em {
+  border: $px solid $mainBorder;
+  border-radius: $borderRadius;
+  background-color: $lightSideNavTranspBcg;
+  padding: 0 .3rem;
+  display: inline-block;
+}
+
 // li {
 //   padding: 1em 0;
 // }
 
-// em {
-//   border: 1px solid black;
-//   border-radius: 3px;
-//   font-style: normal;
-//   background-color: $sgt;
-//   padding: 0 5px;
-//   color: $mainFont;
-//   display: inline-block;
-// }
+
 
 // hr {
 //   border-style: solid;

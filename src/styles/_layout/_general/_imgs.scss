@@ -17,12 +17,12 @@ img:not([alt]) {
 //   }
 // }
 
-// .responsive {
-//   width: 80%;
+.responsive {
+  width: 80%;
 //   height: auto;
-//   text-align: center;
+  text-align: center;
 //   margin: 1em .5em 0 1.4em;
-// }
+}
 
 // figure {
 //   text-align: center;
@@ -74,7 +74,9 @@ img:not([alt]) {
 //   max-width: 800px;
 // }
 
-
+figure {
+  text-align: center;
+}
 
 // // article > section > figure:first-child {
 // //   margin-top: 1em;

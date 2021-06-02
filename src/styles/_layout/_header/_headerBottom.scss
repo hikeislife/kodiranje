@@ -1,4 +1,4 @@
-#header-bottom {
+.headerBottom {
   display: flex;
   justify-content: space-between;
   background: linear-gradient(to bottom, $lightTopNavBottomGreen 0%, $lightTopNavTopGreen 100%);
@@ -11,7 +11,7 @@
   text-transform: uppercase;
 }
 
-.top-nav {
+.topNav {
   vertical-align: middle;
   display: flex;
 }
@@ -50,23 +50,23 @@
 // classes added through js 
 
 .fixed-top { // green bar od the header section
-  position: fixed;
+  position: fixed !important;
   top: 0;
 }
 
 @media only screen and (min-width: 48rem) { // > 768
-  #header-bottom {
+  .headerBottom {
     padding-left: 2rem;
   }
 
   .menuitems {
-    padding: 0 1.5rem;
-    height: 100%;
-    border-top: $borderWidth solid transparent;
-    border-bottom: $borderWidth solid transparent;
-
-    &:hover {
-      border-bottom: $borderWidth solid $darkYellow;
+    @include spread;
+    width: 11rem;
+    white-space: nowrap;
+    // padding: 0 1.5rem;
+    
+    a {
+      @include spread;
     }
   }
 
@@ -75,6 +75,25 @@
   }
 
   .menu-lg {
+    @include spread;
     display: flex;
+    position: relative;
+    justify-content: center;
+
+    &:before {
+      content: '';
+      width: 0%;
+      height: .3rem;
+      background: $darkYellow;
+      position: absolute;
+      top: -.75rem;
+      transition: width .5s ease-in;
+    }
+
+    &:hover {
+      &::before {
+        width: 100%;
+      }
+    }
   }
 }

@@ -1,9 +1,12 @@
 $font: 'Roboto Mono', 'Courier New', monospace;
 
 $borderWidth: .125rem;
+$px: .0625rem;
 $borderRadius: .3rem;
-$halfBorder: calc(#{$borderWidth} / 2);
 $sideNavWidth: 15.6rem;
+$accentBorder: .44rem;
+$diffusedShadow: .625rem;
+$margin: 1rem;
 
 // top nav
 $logoHeight: 4.4rem;
@@ -13,13 +16,16 @@ $topNavHeight: 4rem;
 //blockquote
 $clipSize: 1.37rem;
 
+// cmd
+$cmdPadding: .3125rem;
+$cmdBorderWidth: 7px;
+
 // $mainFont: #003333 !default;
 
 // // main colors 
 // $sgt: rgba(229, 229, 229, .7); // #e5e5e588
 // $highlight: rgba(181, 255, 92, 0.62);
 
-// $qy: #fffd3e; // quiz yellow */
 
 // $lightF: #535353;
 

@@ -2,12 +2,12 @@
   <ul class="sideMenu listless">
     {{# if menu}}
     {{# each menu as |key value|}}
-    <li id="{{key._id}}"><a href="{{key.selectedURL}}" class="nocolor">{{key.navName}}</a></li>
+    <li id="{{key._id}}" class="referalItem"><a href="{{key.selectedURL}}" class="nocolor">{{key.navName}}</a></li>
     {{/each}}
     {{/if}}
     {{# if mainMenu}}
     {{# each mainMenu as |key value|}}
-    <li id="{{key._id}}"><a href="/mp/{{key.selectedURL}}" class="nocolor">{{key.navName}}</a></li>
+    <li id="{{key._id}}" class="referalItem"><a href="/mp/{{key.selectedURL}}" class="nocolor">{{key.navName}}</a></li>
     {{/each}}
     {{/if}}
     {{#if admin}}

@@ -11,8 +11,25 @@
 @mixin lightGrayNavs {
   background-color: $lightSideNavBcg;
   box-shadow: 0 1px 0px 0 rgba(0, 0, 0, 0.3), 0 0px 2px 0 rgba(0, 0, 0, 0.3);
+  line-height: 1.5rem;
+}
+
+@mixin darkGrayNavs {
+  background-color: $darkSideNavBcg;
+  box-shadow: 0 1px 0px 0 rgba(0, 0, 0, 0.3), 0 0px 2px 0 rgba(0, 0, 0, 0.3);
+  line-height: 1.5rem;
 }
 
 @mixin boxShadow {
-  box-shadow: 1px 1px 3px $lightSideNavHover;
+  box-shadow: $px $px $diffusedShadow $shadow;
+}
+
+// @mixin darkBoxShadow {
+//   box-shadow: $px $px $diffusedShadow $shadow;
+// }
+
+@mixin spread {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
 }
