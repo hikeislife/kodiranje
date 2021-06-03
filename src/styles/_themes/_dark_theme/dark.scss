@@ -37,6 +37,10 @@ body {
   box-shadow: 0 1px 2px 0 rgba(245, 245, 245, .3), 0 1px 2px 0 rgba(245, 245, 245, .3);
 }
 
+.svgCursorBlinker {
+  fill: $darkFont !important;
+}
+
 a, a:visited {
   background-color: $lightTopNavTopGreen;
   color: $darkFont;

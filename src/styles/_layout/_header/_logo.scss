@@ -17,18 +17,25 @@
 
   .svgTextObscurer {
     fill: $lightLogoBcg;
-    width: 284px;
+    width: $kodiranjeLength;
     height: 49px;
-    animation: typeWrite 1s steps(10) forwards;
+    animation: $typeWrite;
   }
 
   .svgCursorBlinker {
-    fill: $lightLogoBcg;
+    fill: $lightFont;
     width: 30px;
-    height: 49px;
-    animation: blinker .8s linear .5s 4 forwards;
-    // animation: name duration timing-function delay iteration-count direction fill-mode;
+    height: 2px;
+    animation: blinker .8s linear .5s 8, $typeWrite;
   }
+
+  // .svgCursorBlinker {
+  //   fill: $lightLogoBcg;
+  //   width: 30px;
+  //   height: 49px;
+  //   animation: blinker .8s linear .5s 4 forwards;
+  //   // animation: name duration timing-function delay iteration-count direction fill-mode;
+  // }
 }
 
 #rounded-square {
@@ -41,7 +48,7 @@
 
 @keyframes typeWrite {
   to { 
-    transform: translate(284px, 0px) 
+    transform: translate($kodiranjeLength, 0px) 
   }
 }
 
