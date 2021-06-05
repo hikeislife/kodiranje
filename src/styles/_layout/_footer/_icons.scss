@@ -1,0 +1,129 @@
+.iconSection,
+.doubleFooterLinks {
+  display: grid;
+  margin:3rem 0;
+  grid-template-columns: min-content auto;
+
+  .iconLinks {
+    display: grid;
+    grid-auto-flow: column;
+    margin: $margin;
+  }
+
+  .legend {
+  border: $borderWidth solid $mainBorder;
+  border-radius: $borderRadius;
+  margin: $margin;
+  display: inline-block;
+  width: fit-content;
+  width: -moz-fit-content;
+  padding: .4rem 1rem;
+  font-family: inherit;
+  white-space: nowrap;
+  font-size: 1.2rem !important;
+
+  &::before {
+    font-family: Kodiranje;  
+  }
+}
+
+  .iconItem {
+    width: fit-content;
+    width: -moz-fit-content;
+    block-size: fit-content;
+  }
+
+  .iconItem:hover span:before {
+    color: $darkYellow;
+    text-shadow: $px $px $borderWidth $shadow;
+  }
+}
+
+@media only screen and (min-width: 48rem) { // 768px
+  .legends {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+
+  .f48 {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    grid-gap: 5rem;
+  }
+
+  .doubleFooterLinks {
+    position: relative;
+    top: -12rem;
+    margin-bottom: -10rem;
+  }
+}
+
+.twitterIcon:before {
+  content: '\F32E';
+}
+
+.t2:before {
+  content: '\F332';
+}
+
+.gitterIcon:before {
+  content: '\F330';
+}
+
+.facebookIcon:before {
+  content: '\F331';
+  font-weight: bold;
+}
+
+.fb2:before {
+  content: '\F32f';
+}
+
+.mailIcon:before {
+  content: '\F333';
+}
+
+.telegramIcon:before {
+  content: '\F32D';
+}
+
+.slackIcon:before {
+  content: '\F32C';
+}
+
+.solIcon {
+  background: $lightSolBoxBcg;
+    background-image: url($solBcg);
+}
+
+.warningIcon {
+  background-color: $warning;
+
+  &:before {
+    content: '\f350';
+  }
+}
+
+.tipIcon {
+  background-color: $tip;
+
+  &:before {
+    content: '\F358';
+  }
+}
+
+.kvizIcon {
+  background-color: $quizYellow;
+
+  &:before {
+    content: '\F353';
+  }
+}
+
+.errorIcon {
+  background-color: $darkYellow;
+
+  &:before {
+    content: '\F357';
+  }
+}

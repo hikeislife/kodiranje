@@ -1,8 +1,11 @@
 <html lang="sr">
+
 <head>
   <meta charset="UTF-8">
-  {{#if robots}}<meta name="robots" content="noindex, nofollow">{{/if}}
-  <meta name="description" content="{{# if post.googDesc}}{{post.googDesc}}{{else}}Tutorijali za ljude koji žele da nauče da kodiraju, na Srpskom jeziku{{/if}}">
+  {{#if robots}}
+  <meta name="robots" content="noindex, nofollow">{{/if}}
+  <meta name="description"
+    content="{{# if post.googDesc}}{{post.googDesc}}{{else}}Tutorijali za ljude koji žele da nauče da kodiraju, na Srpskom jeziku{{/if}}">
   <meta name="keywords" content="{{post.tags}}">
   <meta name="author" content="ČĎŠ">
   <meta name="theme-color" content="#ccff66">
@@ -16,11 +19,13 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@kodiranje">
   <meta name="twitter:creator" content="@kodiranje">
-  <meta name="twitter:title" content="{{# if post.socTitle}}{{post.socTitle}}{{else}}Nauči da praviš web sajtove{{/if}}">
+  <meta name="twitter:title"
+    content="{{# if post.socTitle}}{{post.socTitle}}{{else}}Nauči da praviš web sajtove{{/if}}">
   <meta name="twitter:description"
     content="{{# if post.socDesc}}{{post.socDesc}}{{else}}Detaljan opis, narodskim jezikom, kako se prave sajtovi. Bez prodaje magle i mućenja vode{{/if}}">
   {{#if (gt post.socImage.buffer.byteLength 0)}}
-  <meta name="twitter:image" content="https://www.kodiranje.in.rs/og-{{post.courseName}}-{{post.selectedURL}}.webp">{{else}}
+  <meta name="twitter:image" content="https://www.kodiranje.in.rs/og-{{post.courseName}}-{{post.selectedURL}}.webp">
+  {{else}}
   <meta name="twitter:image" content="https://www.kodiranje.in.rs/imgs/og/og-default.webp">
   {{/if}}
   <meta name="twitter:url" content="https://kodiranje.in.rs/">
@@ -35,27 +40,39 @@
   <meta property="og:image" content="https://www.kodiranje.in.rs/og-default.webp">
   {{/if}}
   {{#if (gt post.socImage.buffer.byteLength 0)}}
-  <meta property="og:image:secure_url" content="https://www.kodiranje.in.rs/og-{{post.courseName}}-{{post.selectedURL}}.webp">{{else}}
+  <meta property="og:image:secure_url"
+    content="https://www.kodiranje.in.rs/og-{{post.courseName}}-{{post.selectedURL}}.webp">{{else}}
   <meta property="og:image:secure_url" content="https://www.kodiranje.in.rs/og-default.webp">{{/if}}
   <meta property="og:image:type" content="image/webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:url" content="https://www.kodiranje.in.rs/{{#if post.courseName}}{{post.courseName}}/{{/if}}{{#if post.selectedURL}}{{post.selectedURL}}/{{/if}}">
+  <meta property="og:url"
+    content="https://www.kodiranje.in.rs/{{#if post.courseName}}{{post.courseName}}/{{/if}}{{#if post.selectedURL}}{{post.selectedURL}}/{{/if}}">
   <meta property="og:site_name" content="Kodiranje">
   <meta property="og:type" content="website">
   <meta property="fb:app_id" content="2628437480546534">
   <meta name="pinterest-rich-pin" content="true">
   <meta name="msapplication-square310x310logo" content="https://www.kodiranje.in.rs/imgs/cog310.png">
   <title>Kodiranje {{# if post.googTitle}}| {{post.googTitle}}{{else}}| {{googTitle}}{{/if}}</title>
-  <link rel="canonical" href="https://www.kodiranje.in.rs/{{#if post.courseName}}{{post.courseName}}/{{/if}}{{#if post.selectedURL}}{{post.selectedURL}}/{{/if}}">
+  <link rel="canonical"
+    href="https://www.kodiranje.in.rs/{{#if post.courseName}}{{post.courseName}}/{{/if}}{{#if post.selectedURL}}{{post.selectedURL}}/{{/if}}">
   <link rel="manifest" href="../../manifest.json">
-  <link rel="stylesheet" href="/styles/style.css" media="screen" defer async>
+  <link rel="stylesheet" href="./../../styles/style.css" media="screen" defer async>
   <link rel="icon" href="../../imgs/cog192.webp" sizes="192x192">
+<<<<<<< HEAD
   {{!-- <link rel="stylesheet" defer async
         href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
         integrity="sha384-REHJTs1r2ErKBuJB0fCK99gCYsVjwxHrSU0N7I1zl9vZbggVJXRMsv/sLlOAGb4M" 
         crossorigin="anonymous"
         media="all"> --}}
   {{!-- <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/all.css"
+=======
+  {{!--
+  <link rel="stylesheet" defer async href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
+    integrity="sha384-REHJTs1r2ErKBuJB0fCK99gCYsVjwxHrSU0N7I1zl9vZbggVJXRMsv/sLlOAGb4M" crossorigin="anonymous"
+    media="all"> --}}
+  {{!--
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/all.css"
+>>>>>>> f6b6f2208eb2a691f113a6e4eca299a3cb89a77c
     integrity="sha384-ekOryaXPbeCpWQNxMwSWVvQ0+1VrStoPJq54shlYhR8HzQgig1v5fas6YgOqLoKz" crossorigin="anonymous"> --}}
 </head>

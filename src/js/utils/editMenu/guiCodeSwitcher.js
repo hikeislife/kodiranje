@@ -1,12 +1,12 @@
 export default (function guiCodeSwitcher() {
-  const gui      = document.querySelector('.showMeGui'),
-        code     = document.querySelector('.showMeCode'),
-        switcher = document.querySelector('.switcher')
+  const gui = document.querySelector('.showMeGui'),
+    code = document.querySelector('.showMeCode'),
+    switcher = document.querySelector('.switcher')
 
   gui.addEventListener('click', e => {
     if (document.querySelector('.contentTextArea')) {
-      let codeContent = document.querySelector('.contentTextArea').value
-      
+      let codeContent = document.querySelector('.contentTextArea').value.trim()
+
       const gui = document.createElement('div')
       gui.id = 'articleContent'
       gui.classList.add('editContent')
@@ -20,8 +20,8 @@ export default (function guiCodeSwitcher() {
 
   code.addEventListener('click', e => {
     if (document.querySelector('.editContent')) {
-      let guiContent = document.querySelector('.editContent').innerHTML
-      
+      let guiContent = document.querySelector('.editContent').innerHTML.trim()
+
       const textArea = document.createElement('textarea')
       textArea.classList.add('contentTextArea')
       textArea['name'] = 'articleContent'
@@ -30,6 +30,6 @@ export default (function guiCodeSwitcher() {
       switcher.appendChild(textArea)
       textArea.value = guiContent
     }
-    
+
   })
 })()

@@ -1,21 +1,23 @@
-const jwt   = require('jsonwebtoken')
+const jwt = require('jsonwebtoken')
 const Admin = require('../db/models/admin')
 
 const auth = async (req, res, next) => {
   try {
     const cookie = await req.header('Cookie')
+    console.log(cookie)
     const cookies = cookie.split(';')
     let token = ''
     cookies.forEach(x => {
-      if (x.split('=')[0].includes('token')) { token = x.split('=')[1] 
-    }
+      if (x.split('=')[0].includes('token')) {
+        token = x.split('=')[1]
+      }
     })
     const decoded = jwt.verify(token, process.env.JWT_P_KEY)
-    const admin = await Admin.findOne({ 
-      _id: decoded._id, 
-      'tokens.token' : token
+    const admin = await Admin.findOne({
+      _id: decoded._id,
+      'tokens.token': token
     })
-    if(!admin) {
+    if (!admin) {
       throw new Error()
     }
     req.data = req.data || {}

@@ -1,0 +1,183 @@
+@font-face {
+  font-family: "Kodiranje";
+  font-style: normal;
+  font-weight: normal;
+  font-display: auto;
+  //src: url("kodiranje.eot");
+  //src: url("kodiranje.eot?#iefix") format("embedded-opentype"),
+  src: url("kodiranje.woff2") format("woff2"),
+       url("kodiranje.woff") format("woff"),
+       url("kodiranje.ttc") format("truetype"),
+       url("kodiranje.svg") format("svg")
+}
+
+.icon {
+  font-family: 'Kodiranje';
+  font-size: 26px;
+}
+
+.backHome:before {
+  content: '\F295';
+}
+
+.coronaIcon:before {
+  content: '\f29B';
+}
+
+// Tools used:
+
+.firefoxIcon:before {
+  content: '\f296';
+}
+
+.chromeIcon:before {
+  content: '\f297';
+}
+
+.braveIcon:before {
+  content: '\f27a';
+}
+
+.vsCodeIcon::before {
+  content: '\F299';
+}
+
+.sublimeIcon::before {
+  content: '\F298';
+}
+
+.windows-old::before {
+  content: '\f28f';
+}
+
+// .windows:before {
+//   content: '\f28f'
+// }
+
+// .icon-red {
+//   color: firebrick;
+//   padding-left: 1em;
+// }
+
+// nav icons
+
+.htmlIcon:before {
+  content: '\F3CD';
+}
+
+.cssIcon:before {
+  content: '\F3CE';
+}
+
+.gitIcon:before {
+  content: '\F3D8';
+}
+
+.cmdIcon:before {
+  content: '\F3D7';
+}
+
+.jsIcon:before {
+  content: '\F3D2';
+}
+
+.nodeIcon:before {
+  content: '\F3D3';
+}
+
+.arduinoIcon::before {
+  content: '\F3EC';
+}
+
+.pyIcon::before {
+  content: '\f3dc';
+}
+
+
+
+
+
+
+
+
+
+// .ffIcon::before {
+//   content: '\F296';
+// }
+
+// .vscodePlugins::before {
+//   content: '\F29C'
+// }
+
+// .runCode::before {
+//   content: '\F29D'
+// }
+
+
+
+
+
+// As seen on floating menu
+
+.saveButton:before {
+  content: '\F2B8';
+}
+
+.allButton:before {
+  content: '\F2C7';
+}
+
+.trashButton:before {
+  content: '\F2BD';
+}
+
+
+// For jupyter
+
+.reload:before {
+  content: '\F29f';
+}
+
+.ff:before {
+  content: "\F29e";
+}
+
+
+// smilies https://unicode.org/emoji/charts/full-emoji-list.html
+
+.em {
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 2px gray;
+}
+
+.unamused:before {
+  content: '\1F612'
+}
+
+.smiley:before {
+  content: '\1F642';
+}
+
+.sad:before {
+  content: '\1F61E';
+}
+
+.confused:before {
+  content: '\1F615';
+}
+
+.duh:before {
+  content: '\1F616';
+}
+
+.cray:before {
+  content: '\1F92A';
+}
+
+.plaz::before {
+  content: '\1f61c';
+}
+
+.up::before {
+  content: '\1F446';
+}

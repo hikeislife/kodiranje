@@ -1,15 +1,20 @@
-console.log('log me in')
+// const cookies = document.cookie
+// console.log(cookies)
+
+// console.log('log me in')
 
 const handleRedirect = () => {
   window.location = `../admin/svi-artikli/`
 }
 
+
+
 const runValidation = () => {
-  const username     = document.querySelector('#username').value,
-        password     = document.querySelector('#password').value,
-        adminError   = document.querySelector('.adminError')
-  let   errorMessage = ''
-  
+  const username = document.querySelector('#username').value,
+    password = document.querySelector('#password').value,
+    adminError = document.querySelector('.adminError')
+  let errorMessage = ''
+
   if (!username) errorMessage = 'Korisničko ime je obavezno!'
   else if (!password) errorMessage = 'Lozinka je obavezno polje!'
   if (errorMessage) {
@@ -25,7 +30,7 @@ const runValidation = () => {
 
 const runAuthentication = async () => {
   const reqData = runValidation()
-  if(reqData) {
+  if (reqData) {
     const response = await fetch(`/admin/login`, {
       method: 'POST',
       cache: 'no-cache',
@@ -37,14 +42,14 @@ const runAuthentication = async () => {
     const data = await response.json()
     return data
   }
-  
+
 }
 
 const handleLogin = async e => {
   e.preventDefault()
   const adminError = document.querySelector('.adminError')
   const response = await runAuthentication()
-  if(!response) return false
+  if (!response) return false
   if (response.errorMessage) {
     adminError.style.display = 'block'
     adminError.innerHTML = response.errorMessage

@@ -1,0 +1,26 @@
+// zigzag background 
+.main-page-course:nth-child(even) {
+  background: $lightSideNavBcg;
+}
+
+@media only screen and (min-width: 36rem) {
+  .main-page-course:nth-child(even) {
+    background: unset;
+  }
+
+  .main-page-course:nth-child(4n+2),
+  .main-page-course:nth-child(4n+3) {
+    background: $lightSideNavBcg;
+  }
+}
+
+@media only screen and (min-width: 62rem) {
+  .main-page-course:nth-child(4n+2),
+  .main-page-course:nth-child(4n+3) {
+    background: unset;
+  }
+
+  .main-page-course:nth-child(even) {
+    background: $lightSideNavBcg;
+  }
+}

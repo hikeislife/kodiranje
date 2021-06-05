@@ -1,0 +1,99 @@
+.headerBottom {
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(to bottom, $lightTopNavBottomGreen 0%, $lightTopNavTopGreen 100%);
+  padding: 1.3rem;
+  padding-left: 4rem; // bumped away from the cog
+  width: 100vw; /* it shrinks on scroll so this keeps it spread */
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  height: $topNavHeight;
+  z-index: 3;
+  text-transform: uppercase;
+}
+
+.topNav {
+  vertical-align: middle;
+  display: flex;
+}
+
+.menuitems {
+  padding-right: .3rem;
+  padding-left: .4rem;
+  border-right: 1px solid;
+  display: flex;
+  align-items: center;  
+}
+
+.menuitems:last-child {
+  border-right: none;
+}
+
+.menu-lg {
+  display: none;
+}
+
+.menu-sm {
+  font-weight: lighter;
+  
+
+  .icon {
+    font-size: 1.3rem;
+  }
+}
+
+#backhome {
+  font-size: 1.5em;
+  visibility: hidden;
+  margin-right: 1rem;
+}
+
+// classes added through js 
+
+.fixed-top { // green bar od the header section
+  position: fixed !important;
+  top: 0;
+}
+
+@media only screen and (min-width: 48rem) { // > 768
+  .headerBottom {
+    padding-left: 2rem;
+  }
+
+  .menuitems {
+    @include spread;
+    width: 11rem;
+    white-space: nowrap;
+    // padding: 0 1.5rem;
+    
+    a {
+      @include spread;
+    }
+  }
+
+  .menu-sm {
+    display: none;
+  }
+
+  .menu-lg {
+    @include spread;
+    display: flex;
+    position: relative;
+    justify-content: center;
+
+    &:before {
+      content: '';
+      width: 0%;
+      height: .3rem;
+      background: $darkYellow;
+      position: absolute;
+      top: -.75rem;
+      transition: width .5s ease-in;
+    }
+
+    &:hover {
+      &::before {
+        width: 100%;
+      }
+    }
+  }
+}

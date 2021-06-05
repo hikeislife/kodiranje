@@ -1,0 +1,66 @@
+.listless {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+// dt {
+//   font-size: 1.2em;
+//   font-weight: bold;
+//   border: 2px solid $mainFont;
+//   border-radius: 5px;
+//   background: $mainG;
+//   padding: 0 10px;
+//   display: inline-block;
+// }
+
+// dd {
+//   margin-left: 2em;
+//   padding: 20px 0;
+// }
+
+// ul.styleList {
+//   //margin-right: -2em;
+//   list-style-type: none;
+//   border: 2px solid currentColor;
+//   width: 100%;
+//   padding: 5px;
+//   border-radius: 5px;
+
+//   li {
+//     padding: .1em .5em;
+//     //left: -2em;
+//     position: relative;
+//     background: lightpink;
+//     margin-bottom: .5em;
+//     border-radius: 5px;
+//     height: auto;
+//     text-align: left; // it streatches out without it
+
+//     &:after {
+//       border-bottom: 3px solid currentColor;
+//       content: ' ';
+//       position: relative;
+//       width: calc(100% - 4em);
+//       display: inline-block;
+//       bottom: .5em;
+//       margin: 0 2em;
+//     }
+
+//     &:last-child {
+//       margin-bottom: 0;
+//     }
+//   }
+// }
+
+// ul {
+//   margin-right: 1em;
+//   padding-left: 2em;
+
+//   & ul {
+//     padding-left: 0;
+//   }
+// }
+
+// .shortlist li {
+//   padding: 0;
+// }

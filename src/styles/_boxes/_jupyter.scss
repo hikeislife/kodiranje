@@ -1,0 +1,89 @@
+// .jupwrap {
+//   counter-reset: jupyter;
+//   background: #fff;
+// }
+
+// .jup {
+//   border: 2px solid #66BB6A;
+//   border-left: 10px solid #66BB6A;
+//   padding: .5rem;
+//   margin-bottom: .5rem;
+//   margin-top: .5rem;
+//   display: flex;
+
+//   &::before {
+//     width: 9rem;
+//     margin-right: .5rem;
+//     text-align: right;
+//     padding-top: .3rem;
+//     color: darkblue;
+//     counter-increment: jupyter;
+//   }
+
+//   & div {
+//     padding: .3rem .5rem;
+//     width: 100%
+//   }
+// }
+
+
+// .injup {
+//   & div {
+//   background: #f7f7f7;
+//   border: 2px solid #c0c0c0;
+//   border-radius: .2rem;
+//   }
+
+
+//   &:before {
+//     content: 'In ['counter(jupyter)']:';
+//   }
+// }
+
+// .outjup:before {
+//   content: 'Out ['counter(jupyter)']:';
+// }
+
+// .outjup {
+//   & table {
+//     border: none;
+
+//     & thead {
+//       & th {
+//         background: transparent;
+//         border: none;
+//         border-bottom: 1px solid black;
+//         text-transform: capitalize
+//       }
+//       & td {
+//         font-weight: bold;
+//       }
+    
+//     }
+
+//     & tbody {
+//       & tr {
+//         &:hover {
+//           background: #D9EDFD;
+//         }
+
+//         &:nth-child(odd) {
+//           background: #F5F5F5;
+//         }
+
+//         &:nth-child(even) {
+//           background: #FFF;
+//         }
+
+//         & td:first-child {
+//           font-weight: bold;
+//         }
+
+//         td {
+//           border: none;
+//         }
+//       }
+      
+//     }
+//   }
+// }

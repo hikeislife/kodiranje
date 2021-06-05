@@ -1,0 +1,54 @@
+.floatingMenu {
+  position: fixed;
+  border: 9px double $lightFont;
+  border-radius: $borderRadius;
+  background-clip: padding-box !important;
+  background: rgb(86, 86, 86);
+  box-shadow: 1px 1px 10px gray;
+  top: 10rem;
+  right: -1rem;
+  display: inline-block;
+  padding-top: 4.5rem;
+  z-index: 1;
+  // width: 91.2px; /* so it doesn't jump */
+
+  label, span {
+    font-size: 2.5em;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    // cursor: pointer;
+    // padding: 0;
+  }
+
+  #saveButton {
+    position: relative;
+    top: -1.5rem;
+  }
+
+  .allButton {
+    position: relative;
+    top: -.5rem;
+  }
+
+  .floatingGreen {
+    color: $lightTopNavTopGreen;
+    text-shadow: 1px 1px 15px $lightTopNavTopGreen;
+  }
+
+  .floatingYellow {
+    color: $darkYellow;
+    text-shadow: 1px 1px 15px $darkYellow;
+  }
+
+  .floatingWarning {
+    color: $warning;
+    text-shadow: 1px 1px 15px $warning;
+  }
+}
+
+@media only screen and (min-width: 75rem) {
+  .floatingMenu {
+    right: 1rem;
+  }
+}

@@ -1,0 +1,109 @@
+// Import basic theme:
+@import "../../style.scss";
+@import "_main_page.scss";
+
+* {
+  color: $darkFont;
+}
+
+body {
+  background-color: $darkBcg;
+}
+
+#header-top {
+  background-color: $darkLogoBcg;
+}
+
+#logo-text text {
+  fill: $darkFont;
+}
+
+.svgTextObscurer,
+.svgCursorBlinker {
+  fill: $darkLogoBcg !important;
+}
+
+#rounded-square {
+  stroke: $darkFont;
+}
+
+.headerBottom {
+  background: linear-gradient(to bottom, $darkTopNavBottomGreen 0%, $darkTopNavTopGreen 100%);
+  box-shadow: 0 1px 2px 0 rgb(41, 57, 6),0 1px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.placeholder {
+  background-color: $darkPageBcg;
+  box-shadow: 0 1px 2px 0 rgba(245, 245, 245, .3), 0 1px 2px 0 rgba(245, 245, 245, .3);
+}
+
+.svgCursorBlinker {
+  fill: $darkFont !important;
+}
+
+a, a:visited {
+  background-color: $lightTopNavTopGreen;
+  color: $darkFont;
+}
+
+footer {
+  background: linear-gradient(to bottom, $darkBcg 0%, $darkTopNavBottomGreen 30%);
+}
+
+#side-nav {
+  & li {
+    background-color: $darkSideNavBcg;
+    box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.3), 0 0px 2px 0 rgba(255, 255, 255, 0.3);
+
+    &.active {}
+
+    &:hover {
+      background: $darkSideNavHover;
+      color: $lightTopNavTopGreen;
+    }
+
+  }
+}
+
+.backToTop {
+  background: $darkBcg;
+  color: $darkFont;
+}
+
+// h1 {
+//   background: $darkBcg;
+// }
+
+article h1 {
+  background: $darkBcg;
+}
+
+.sol {
+  background: $darkSolBoxBcg;
+
+  code {
+    background: $darkCodeBcg;
+  }
+}
+
+.referalItem { 
+  @include darkGrayNavs;
+}
+
+.referalTitle { // titles such as "Reference" & "Sadržaj strane
+  border-top: $px solid $borderColor;
+  background: linear-gradient(0deg, $darkBcg, $darkSideNavBcg 55%); 
+}
+
+.warning {
+  background: $darkWarning;
+}
+
+.tip {
+  background: $darkTip;
+}
+
+a, a:visited {
+  // color: $linkColor;
+  background: $darkBcg;
+}

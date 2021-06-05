@@ -1,132 +1,81 @@
-{{>articles/floatingMenu}}
-{{>articles/editMenu}}
 <article>
-  <form        data-articleId="{{post._id}}">
-    <div       class=         "moveToFloatingMenu">
-      <input   type=          "checkbox" 
-               name=          "published" 
-               {{#if post.published}}
-               checked 
-               {{/if}}
-               id=            "published">
-               
-      <label   for=           "published" 
-               class=         "reorderCheckbox"></label>
+  <form data-articleId="{{post._id}}">
+    <div class="moveToFloatingMenu">
+      <input type="checkbox" name="published" {{#if post.published}} checked {{/if}} id="published">
+
+      <label for="published" class="reorderCheckbox"></label>
     </div>
     <details>
       <summary>SEO optimizacija</summary>
-      <div     class=         "adminInput">
-        <label for=           "googTitle"> Naslov google pretrage</label><br>
-        <input type=          "text" 
-               id=            "googTitle" 
-               class=         "admin countMe m2r" 
-               name=          "googTitle" 
-               value=         "{{post.googTitle}}">
-        <span  class=         "adminCounter googTitle" 
-               data-counter=  "70">70</span>
+      <div class="adminInput">
+        <label for="googTitle"> Naslov google pretrage</label><br>
+        <input type="text" id="googTitle" class="admin countMe m2r" name="googTitle" value="{{post.googTitle}}">
+        <span class="adminCounter googTitle" data-counter="70">70</span>
       </div>
-      <div     class=         "adminInput">
-        <label for=           "googDesc"> Opis u google pretrazi</label><br>
-        <input type=          "text" 
-               id=            "googDesc" 
-               class=         "admin m2r countMe" 
-               name=          "googDesc"
-               value=         "{{post.googDesc}}">
-        <span  class=         "adminCounter googDesc" 
-               data-counter=  "155">155</span>
+      <div class="adminInput">
+        <label for="googDesc"> Opis u google pretrazi</label><br>
+        <input type="text" id="googDesc" class="admin m2r countMe" name="googDesc" value="{{post.googDesc}}">
+        <span class="adminCounter googDesc" data-counter="155">155</span>
       </div>
     </details>
-    
+
     <details>
       <summary>Optimizacija za društvene mreže</summary>
-      <div     class=         "adminInput">
-        <label for=           "socTitle"> Naslov posta na društvenim mrežama</label><br>
-        <input type=          "text" 
-               id=            "socTitle" 
-               class=         "admin countMe m2r" 
-               name=          "socTitle" 
-               value=         "{{post.socTitle}}">
-        <span  class=         "adminCounter socTitle" 
-               data-counter=  "88">88</span>
+      <div class="adminInput">
+        <label for="socTitle"> Naslov posta na društvenim mrežama</label><br>
+        <input type="text" id="socTitle" class="admin countMe m2r" name="socTitle" value="{{post.socTitle}}">
+        <span class="adminCounter socTitle" data-counter="88">88</span>
       </div>
-      <div     class=         "adminInput">
-        <label for=           "socDesc"> Opis u postu na društvenim mrežama</label><br>
-        <input type=          "text" 
-               id=            "socDesc" 
-               class=         "admin m2r countMe" 
-               name=          "socDesc"
-               value=         "{{post.socDesc}}">
-        <span  class=         "adminCounter socDesc" 
-               data-counter=  "200">200</span>
+      <div class="adminInput">
+        <label for="socDesc"> Opis u postu na društvenim mrežama</label><br>
+        <input type="text" id="socDesc" class="admin m2r countMe" name="socDesc" value="{{post.socDesc}}">
+        <span class="adminCounter socDesc" data-counter="200">200</span>
       </div>
       {{#if post.displayImage}}<p>Trenutna slika u bazi:</p>
-      <img src="data:image/webp;base64,{{post.displayImage}}" alt="current socImage" style="width: 100%">{{else}}<p>Nema slike trenutno</p>{{/if}}
-      <div     class=         "adminInput">
-        <label for=           "socImage"> Slika za društvene mreže 1200x630px sa banerom</label>
-        <input type=          "file" 
-               class=         "admin" 
-               id=            "socImage" 
-               name=          "socImage">
+      <img src="data:image/webp;base64,{{post.displayImage}}" alt="current socImage" style="width: 100%">{{else}}<p>Nema
+        slike trenutno</p>{{/if}}
+      <div class="adminInput">
+        <label for="socImage"> Slika za društvene mreže 1200x630px sa banerom</label>
+        <input type="file" class="admin" id="socImage" name="socImage">
       </div>
     </details>
-    
+
     <details>
       <summary>
         Osnovni sadržaj
       </summary>
-      <div      class=        "adminInput">
-        <label  for=          "courseName"> Kurs</label>
-        <select class=        "admin" 
-                id=           "courseName" 
-                name=         "courseName" 
-                data-selected="{{courseList.selected}}">
+      <div class="adminInput">
+        <label for="courseName"> Kurs</label>
+        <select class="admin" id="courseName" name="courseName" data-selected="{{courseList.selected}}">
           {{#each courseList}}
-            <option value="{{setId}}" {{#if (eq selected setId)}} selected="selected" {{/if}}> 
-              {{name}} 
-            </option>
+          <option value="{{setId}}" {{#if (eq selected setId)}} selected="selected" {{/if}}>
+            {{name}}
+          </option>
           {{/each}}
         </select>
       </div>
-      <div     class=         "adminInput">
-        <label for=           "subSec"> Podgrupa</label>
-        <input type=          "text" 
-               class=         "admin" 
-               id=            "subSec" 
-               name=          "subSec"
-               value=         "{{post.subSec}}">
+      <div class="adminInput">
+        <label for="subSec"> Podgrupa</label>
+        <input type="text" class="admin" id="subSec" name="subSec" value="{{post.subSec}}">
       </div>
-      <div      class=        "adminInput">
-        <label  for=          "navName">       Skraćeni naziv</label>
-        <input  type=         "text" 
-                class=        "admin" 
-                name=         "navName" 
-                id=           "navName" 
-                value=        "{{post.navName}}">
+      <div class="adminInput">
+        <label for="navName"> Skraćeni naziv</label>
+        <input type="text" class="admin" name="navName" id="navName" value="{{post.navName}}">
       </div>
-      <div       class=       "adminInput">
-          <label for=         "tags">          Tagovi</label><br>
-          <input type=        "text" 
-                 id=          "tags" 
-                 class=       "admin m2r" 
-                 name=        "tags" 
-                 value=       "{{post.tags}}">
-        </div>
+      <div class="adminInput">
+        <label for="tags"> Tagovi</label><br>
+        <input type="text" id="tags" class="admin m2r" name="tags" value="{{post.tags}}">
+      </div>
     </details>
-    
+
     <div class="switcher">
-      <div      contenteditable="true" 
-                class=          "editContent" 
-                id=             "articleContent"
-                name=           "articleContent">
+      <div contenteditable="true" class="editContent" id="articleContent" name="articleContent">
         {{{post.articleContent}}}
-        
+
       </div>
     </div>
-  <input        type=        "submit" 
-                value=       "Sačuvaj" 
-                id=          "dugme" 
-                style=       "display: none">
-  
+    <input type="submit" value="Sačuvaj" id="dugme" style="display: none">
+
   </form>
 
   <div class="artMeta">
@@ -135,5 +84,10 @@
     {{# if post.author}}<p>Autor teksta: <b>{{post.author}}.</b></p>{{/if}}
   </div>
 </article>
-{{!-- <script type="application/javascript+module" src="../../js/articles/editMenu.js"></script> --}}
+
+{{>articles/floatingMenu}}
+{{>articles/editMenu}}
+
+{{!--
+<script type="application/javascript+module" src="../../js/articles/editMenu.js"></script> --}}
 <script type="module" src="../../js/articles/articleEditMain.js"></script>

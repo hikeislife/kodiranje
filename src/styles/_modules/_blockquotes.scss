@@ -1,0 +1,33 @@
+blockquote {
+  position: relative;
+  border: 2px solid $mainBorder;
+  border-radius: $borderRadius;
+  padding: 2rem;
+  background-color: $lightBcg;
+  padding-bottom: 4rem;
+
+  &::before { 
+    font-family: "Kodiranje";
+    content: '\F34A';
+    font-size: 2rem;
+  }
+
+  &::after {
+    font-family: "Kodiranje";
+    content: '\F34B'; 
+    font-size: 2rem;
+  }
+
+  cite {
+    display: block;
+    right: 30px;
+    position: absolute;
+    bottom: 10px;
+
+    &::before {
+      font-family: "Kodiranje";
+      content: '\F34C'; 
+      font-size: $clipSize;
+    }
+  }
+}

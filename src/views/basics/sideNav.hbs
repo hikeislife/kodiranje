@@ -1,17 +1,17 @@
-<ul id="side-menu">
-  {{# if menu}}
-  {{# each menu as |key value|}}
-  <a href="{{key.selectedURL}}"><li id="{{key._id}}">{{key.navName}}</li></a>
-  {{/each}}
-  {{/if}}
-  {{# if mainMenu}}
-  {{# each mainMenu as |key value|}}
-  <a href="/mp/{{key.selectedURL}}">
-    <li id="{{key._id}}">{{key.navName}}</li>
-  </a>
-  {{/each}}
-  {{/if}}
-  {{#if admin}}
-  {{>admin/sidenav}}
-  {{/if}}
-</ul>
+<nav class="sideNav">
+  <ul class="sideMenu listless">
+    {{# if menu}}
+    {{# each menu as |key value|}}
+    <li id="{{key._id}}" class="referalItem"><a href="{{key.selectedURL}}" class="nocolor">{{key.navName}}</a></li>
+    {{/each}}
+    {{/if}}
+    {{# if mainMenu}}
+    {{# each mainMenu as |key value|}}
+    <li id="{{key._id}}" class="referalItem"><a href="/mp/{{key.selectedURL}}" class="nocolor">{{key.navName}}</a></li>
+    {{/each}}
+    {{/if}}
+    {{#if admin}}
+    {{>admin/sidenav}}
+    {{/if}}
+  </ul>
+</nav>

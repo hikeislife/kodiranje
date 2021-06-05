@@ -1,0 +1,191 @@
+.adminButton {
+//   display: flex;
+//   align-items: center;
+//   width: 4em;
+//   height: 4em;
+//   justify-content: center;
+//   font-size: 1em;
+//   box-shadow: 1px 1px 2px rgb(128, 128, 128);
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+#dugme {
+  &::before {
+    font-family: Kodiranje;
+    font-size: 2em;
+  }
+}
+
+.wideAdminButton {
+  @include boxShadow;
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 2rem 0;
+  height: 4rem;
+  display: grid;
+  grid-template-columns: auto 60%;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.admin-newButton {
+  background: $lightTopNavTopGreen;
+  text-shadow: 1px 1px 15px $warning;
+  // width: 4em;
+//   height: 4em;
+//   font-size: 1em;
+
+  &:hover {
+    background: $lightTopNavBottomGreen;
+  }
+
+  &:active {
+    color: $darkYellow;
+  }
+
+  &:before {
+    font-family: Kodiranje;
+    content: '\F2C1';
+    font-size: 2em;
+  }
+}
+
+.admin-loginButton {
+  background: $lightTopNavTopGreen !important;
+  text-shadow: 1px 1px 15px $warning !important;
+
+  &:hover {
+    background: $lightTopNavBottomGreen;
+  }
+
+  &:active {
+    color: $darkYellow;
+  }
+
+  &:before {
+    content: '\F2BB';
+  }
+}
+
+// .admin-warningButton {
+//   background: $wr;
+//   text-shadow: 1px 1px 15px red;
+
+//   &:hover {
+//     background: rgb(240, 62, 62);
+//   }
+
+//   &:before {
+//     font-family: Kodiranje;
+//     content: '\F2BD';
+//     font-size: 2em;
+//   }
+// }
+
+
+// .admin-editButton {
+//   background: $dy;
+//   width: 4em;
+//   height: 4em;
+//   text-shadow: 1px 1px 15px ivory;
+//   font-size: 1em;
+
+//   &:hover {
+//     background: rgb(255, 199, 59);
+//   }
+
+//   &:before {
+//     font-family: Kodiranje;
+//     content: '\F2C5';
+//     font-size: 2em;
+//   }
+// }
+
+// .admin-detailsButton {
+//   background: $dy;
+//   width: 4em;
+//   height: 4em;
+//   text-shadow: 1px 1px 15px ivory;
+//   font-size: 1em;
+
+//   &:hover {
+//     background: rgb(255, 199, 59);
+//   }
+
+//   &:before {
+//     font-family: Kodiranje;
+//     content: '\F355';
+//     font-size: 2em;
+//   }
+// }
+
+// .admin-allButton {
+//   background: $dy;
+//   width: 4em;
+//   height: 4em;
+//   text-shadow: 1px 1px 15px ivory;
+//   font-size: 1em;
+
+//   &:hover {
+//     background: rgb(255, 199, 59);
+//   }
+
+//   &:before {
+//     font-family: Kodiranje;
+//     content: '\F2C7';
+//     font-size: 2em;
+//   }
+// }
+
+// .admin-reorderButton {
+//   background: $dy;
+//   width: 4em;
+//   height: 4em;
+//   text-shadow: 1px 1px 15px ivory;
+//   font-size: 1em;
+
+//   &:hover {
+//     background: rgb(255, 199, 59);
+//   }
+
+//   &:before {
+//     font-family: Kodiranje;
+//     content: '\F2BE';
+//     font-size: 2em;
+//   }
+// }
+
+
+// .admin-saveButton {
+//   background: $mainG;
+//   width: 4em;
+//   height: 4em;
+//   text-shadow: 1px 1px 15px $wr;
+//   font-size: 1em;
+
+//   &:hover {
+//     background: $dg;
+//     color: $mainFont;
+//   }
+
+//   &:active {
+//     color: $dy;
+//   }
+
+//   &:before {
+//     font-family: Kodiranje;
+//     content: '\F2B8';
+//     font-size: 2em;
+//   }
+// }
+
+
+// // f302 <i class="far fa-images"></i>
