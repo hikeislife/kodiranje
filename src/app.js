@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 // const session = require('express-session');
 // const nm = require('nodemailer')
 const jwt = require('jsonwebtoken')
+const soft = require('./middleware/soft')
 // const fs = require('fs')
 
 // const MongoStore = require('connect-mongo')(session)
@@ -102,8 +103,7 @@ app.use(express.static(dir))
 
 /* PATHS */
 /* front page */
-app.get('/', async (req, res) => {
-  let userId
+app.get('/', soft, async (req, res) => {
   try {
     if (req.header('Cookie')) {
       // console.log(req.header('Cookie'))
@@ -115,15 +115,14 @@ app.get('/', async (req, res) => {
           token = halves[1]
       })
       // console.log('TOKEN:' + token)
-      try {
-        userId = await jwt.verify(token, process.env.JWT_P_KEY)._id
-      } catch (error) {
-        console.log('token expired')
-      }
+      // try {
+      // userId = await jwt.verify(token, process.env.JWT_P_KEY)._id
+      // } catch (error) {
+      // console.log('token expired')
+      // }
     }
   } catch (er) {
     console.log(er)
-    userId = undefined
   }
 
 
@@ -131,11 +130,12 @@ app.get('/', async (req, res) => {
     Article.find({ courseName: 'mp', published: true }).sort({ order: 1 }).select('_id navName selectedURL ').then(menu => {
       if (!menu) {
         return res.status(404).send()
-      } else { console.log(menu) }
+      } else {
+        //console.log(menu) 
+      }
 
       res.render('home/home', {
         mainMenu: menu,
-        userId: userId,
         title: "Kodiranje",
       })
     })

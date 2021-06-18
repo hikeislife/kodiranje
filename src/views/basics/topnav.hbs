@@ -2,46 +2,38 @@
   <div class="topNav">
 
     <span id="html-i-css" class="menuitems">
-      <a href="/html-i-css/uvod-u-html-i-css" class="nocolor" rel="chapter" aria-label="html css tut">
+      <a href="/html-i-css/uvod-u-html-i-css" class="nocolor" rel="chapter"
+        aria-label="html css tut">
         <span class="menu-lg">HTML &amp; CSS</span>
         <span class="menu-sm">
           <span class="icon htmlIcon"></span>
           <span class="icon cssIcon"></span>
         </span>
       </a>
-    </span>
-
-    <span id="git-i-cmd" class="menuitems">
-      <a href="/git-i-cmd/uvod-u-terminal" class="nocolor" rel="chapter" aria-label="git tutorijal">
-        <span class="menu-lg">cmd &amp; git</span>
-        <span class="menu-sm">
-          <span class="icon cmdIcon"></span>
-          <span class="icon gitIcon"></span>
-        </span>
-      </a>
-    </span>
-
-    <span id="javascript" class="menuitems">
-      <a href="/javascript/uvod-u-javascript" class="nocolor" rel="chapter" aria-label="javascript tutorijal">
+    </span><span id="git-i-cmd" class="menuitems"><a href="/git-i-cmd/uvod-u-terminal"
+        class="nocolor" rel="chapter" aria-label="git tutorijal"><span class="menu-lg">cmd
+          &amp; git</span><span class="menu-sm"><span class="icon cmdIcon"></span><span
+            class="icon gitIcon"></span></span></a></span><span id="javascript"
+      class="menuitems">
+      <a href="/javascript/uvod-u-javascript" class="nocolor" rel="chapter"
+        aria-label="javascript tutorijal">
         <span class="menu-lg">JavaScript</span>
         <span class="menu-sm">
           <span class="icon jsIcon"></span>
           <span class="icon nodeIcon"></span>
         </span>
       </a>
-    </span>
-
-    <span id="arduino" class="menuitems">
-      <a href="/arduino/uvod" class="nocolor" rel="chapter" aria-label="arduino tutorijal">
+    </span><span id="arduino" class="menuitems">
+      <a href="/arduino/uvod" class="nocolor" rel="chapter"
+        aria-label="arduino tutorijal">
         <span class="menu-lg">Arduino</span>
         <span class="menu-sm">
           <span class="icon arduinoIcon"></span>
         </span>
       </a>
-    </span>
-
-    <span id="python" class="menuitems">
-      <a href="/python/podesavanje-radne-sredine" class="nocolor" rel="chapter" aria-label="python tutorijal">
+    </span><span id="python" class="menuitems">
+      <a href="/python/podesavanje-radne-sredine" class="nocolor" rel="chapter"
+        aria-label="python tutorijal">
         <span class="menu-lg">Python</span>
         <span class="menu-sm">
           <span class="icon pyIcon"></span>
@@ -55,10 +47,11 @@
       <span class="icon backHome"></span>
     </a>
   </span>
-
+  {{#if admin}}<p>Ulogovani ste kao <a href="/admin">{{admin}}</a></p>{{/if}}
   {{# if userId}}
   <span id="ar" class="top-nav">
-    <a href="/admin/novi-post" class="nocolor" rel="chapter" aria-label="arduino tutorijal">
+    <a href="/admin/novi-post" class="nocolor" rel="chapter"
+      aria-label="arduino tutorijal">
       <span class="menu-lg">Admin</span></a></span>
   {{/if}}
 
@@ -70,7 +63,6 @@
     if (current) {
       const select = document.querySelector(`#${current}`)
       select.classList.add('active')
-      console.log(select)
     }
   })()
 </script>

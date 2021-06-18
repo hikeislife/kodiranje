@@ -1,109 +1,102 @@
-// Import basic theme:
+// @use "../../base/colors" with (
+  $fontColor: #daf7cc !important;
+  $bcgColor: #002b00; //112011
+  $logoBcg: #031c00;
+  $topNavLightGreen: #579905;
+  $topNavDarkGreen: #253c08;
+  $pageBcg: #000f01;
+  $lightInputBcg: #f7ffe8;
+  $refBcg: #0b1302;
+  $solBcgColor: #0b2200;
+// );
+
 @import "../../style.scss";
-@import "_main_page.scss";
 
-* {
-  color: $darkFont;
+// Import basic theme:
+// @import "_main_page.scss";
+
+
+.referalTitle { // titles such as "Reference" & "Sadržaj strane
+  background: linear-gradient(0deg, $refBcg, $bcgColor 55%); 
 }
 
-body {
-  background-color: $darkBcg;
-}
+// #header-top {
+//   background-color: $darkLogoBcg;
+// }
 
-#header-top {
-  background-color: $darkLogoBcg;
-}
 
-#logo-text text {
-  fill: $darkFont;
-}
+// .placeholder {
+//   background-color: $darkPageBcg;
+//   box-shadow: 0 1px 2px 0 rgba(245, 245, 245, .3), 0 1px 2px 0 rgba(245, 245, 245, .3);
+// }
 
-.svgTextObscurer,
-.svgCursorBlinker {
-  fill: $darkLogoBcg !important;
-}
+// .svgCursorBlinker {
+//   fill: $darkFont !important;
+// }
 
-#rounded-square {
-  stroke: $darkFont;
-}
+// a, a:visited {
+//   background-color: $lightTopNavTopGreen;
+//   // color: $darkFont;
+// }
 
-.headerBottom {
-  background: linear-gradient(to bottom, $darkTopNavBottomGreen 0%, $darkTopNavTopGreen 100%);
-  box-shadow: 0 1px 2px 0 rgb(41, 57, 6),0 1px 2px 0 rgba(0, 0, 0, 0.3);
-}
+// footer {
+  // background: linear-gradient(to bottom, $darkBcg 0%, $darkTopNavBottomGreen 30%);
+// }
 
-.placeholder {
-  background-color: $darkPageBcg;
-  box-shadow: 0 1px 2px 0 rgba(245, 245, 245, .3), 0 1px 2px 0 rgba(245, 245, 245, .3);
-}
+// #side-nav {
+//   & li {
+//     background-color: $darkSideNavBcg;
+//     box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.3), 0 0px 2px 0 rgba(255, 255, 255, 0.3);
 
-.svgCursorBlinker {
-  fill: $darkFont !important;
-}
+//     &.active {}
 
-a, a:visited {
-  background-color: $lightTopNavTopGreen;
-  color: $darkFont;
-}
+//     &:hover {
+//       background: $darkSideNavHover;
+//       color: $lightTopNavTopGreen;
+//     }
 
-footer {
-  background: linear-gradient(to bottom, $darkBcg 0%, $darkTopNavBottomGreen 30%);
-}
+//   }
+// }
 
-#side-nav {
-  & li {
-    background-color: $darkSideNavBcg;
-    box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.3), 0 0px 2px 0 rgba(255, 255, 255, 0.3);
-
-    &.active {}
-
-    &:hover {
-      background: $darkSideNavHover;
-      color: $lightTopNavTopGreen;
-    }
-
-  }
-}
-
-.backToTop {
-  background: $darkBcg;
-  color: $darkFont;
-}
+// .backToTop {
+  // background: $darkBcg;
+  // color: $darkFont;
+// }
 
 // h1 {
 //   background: $darkBcg;
 // }
 
-article h1 {
-  background: $darkBcg;
-}
+// article h1 {
+//   background: $darkBcg;
+// }
 
-.sol {
-  background: $darkSolBoxBcg;
+// .sol {
+//   background: $darkSolBoxBcg;
 
-  code {
-    background: $darkCodeBcg;
-  }
-}
+//   code {
+//     background: $darkCodeBcg;
+//   }
+// }
 
-.referalItem { 
-  @include darkGrayNavs;
-}
+// .referalItem { 
+//   @include darkGrayNavs;
+// }
 
-.referalTitle { // titles such as "Reference" & "Sadržaj strane
-  border-top: $px solid $borderColor;
-  background: linear-gradient(0deg, $darkBcg, $darkSideNavBcg 55%); 
-}
+// .referalTitle { // titles such as "Reference" & "Sadržaj strane
+//   border-top: $px solid $borderColor;
+//   background: linear-gradient(0deg, $darkBcg, $darkSideNavBcg 55%); 
+// }
 
-.warning {
-  background: $darkWarning;
-}
+// .warning {
+//   background: $darkWarning;
+// }
 
-.tip {
-  background: $darkTip;
-}
+// .tip {
+//   background: $darkTip;
+// }
 
-a, a:visited {
-  // color: $linkColor;
-  background: $darkBcg;
-}
+// a, a:visited {
+//   // color: $linkColor;
+//   background: $darkBcg;
+// }

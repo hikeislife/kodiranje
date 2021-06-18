@@ -16,8 +16,10 @@ articleRouter.get('/admin/svi-artikli', auth, async (req, res) => {
     if (x.published) publishedArticles.push(x)
     else notPublished.push(x)
   })
+  const courses = await Course.find()
   res.render('articles/listAllArticles', {
     googTitle: "Lista lekcija",
+    courses,
     robots: true,
     publishedArticles,
     notPublished,

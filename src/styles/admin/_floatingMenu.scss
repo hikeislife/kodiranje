@@ -1,0 +1,54 @@
+.floatingMenu {
+  position: fixed;
+  background: rgb(86, 86, 86);
+  display: flex;
+  flex-direction: column;
+  border: .7rem double $fontColor;
+  border-radius: $borderRadius;
+  background-clip: padding-box !important;
+  box-shadow: 1px 1px 10px gray;
+  top: 10rem;
+  left: 17rem;
+  padding-top: 3.5rem;
+  z-index: 1;
+
+  label, span {
+    font-size: 2rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+  }
+
+  .allButton {
+    position: relative;
+  }
+
+  .floatingGreen {
+    color: $topNavLightGreen;
+    text-shadow: 1px 1px 15px $topNavLightGreen;
+  }
+
+  .floatingYellow {
+    color: $darkYellow;
+    text-shadow: 1px 1px 15px $darkYellow;
+    margin-bottom: 1rem;
+  }
+
+  .floatingWarning {
+    color: $warning;
+    text-shadow: 1px 1px 15px $warning;
+  }
+}
+
+// Icons
+
+.saveButton:before {
+  content: '\F2B8';
+}
+
+.allButton:before {
+  content: '\F2C7';
+}
+
+.trashButton:before {
+  content: '\F2BD';
+}

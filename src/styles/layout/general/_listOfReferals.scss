@@ -1,0 +1,102 @@
+// sidenav, page nav and reference list
+.pageNav {
+  margin: 2rem 0;
+}
+
+.referalTitle { // titles such as "Reference" & "Sadržaj strane
+  @include boxShadow;
+  border-top: $px solid $borderColor;
+  background: linear-gradient(0deg, rgba(229,229,229,1), rgba(238,255,204,1) 55%); 
+  padding: .5rem 1rem .5rem;
+}
+
+// @media only screen and (min-width: 48rem) { // > 768px
+.referalItem { 
+  @include navs;
+  @include boxShadow;
+  @include spread;
+  min-height: 2.5rem;
+  display: flex;
+  
+  align-items: center;
+
+  & > a { // pageNav and sideNav
+    @include spread;
+    min-height: 2.5rem;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+  }
+
+  &:hover {
+  background: $shadow;
+
+    a {
+      color: $bcgColor;
+    }
+  }
+}
+
+.references {
+  ul li {
+    display: grid;
+    grid-template-columns: 4rem auto;
+  }
+    // span,
+  // span a { // fixes issues with reference list
+  //   @include spread;
+  //   min-height: 2.5rem;
+  //   align-items: center;
+  //   display: flex;
+  // }
+}
+
+@media only screen and (max-width: 47.95rem) { // > 768px
+  .sideNav {
+    display: none;
+    width: 100%;
+    position: fixed;
+    z-index: 3;
+
+    ul {
+      @include navs;
+      padding: 3rem;
+
+      .referalItem {
+        box-shadow: none;
+      }
+  
+  
+      li:first-child {
+        border-top: $px solid $sideNavHover;
+      }
+ 
+      li {
+        border-bottom: $px solid $sideNavHover;
+        // padding-left: 1rem;
+
+        // a {
+        //   @include spread;
+        //   min-height: 2.5rem;
+        //   display: flex;
+        //   align-items: center;
+        // }
+
+        &:hover {
+          background: $shadow;
+
+          a {
+            color: $bcgColor;
+          }
+        }
+      }
+    }
+  }
+
+  // #mobile-cog:before {
+  //   content: 'X';
+  //   position: absolute;
+  //   left: 1.3rem;
+  //   top: .8rem;
+  // }
+}

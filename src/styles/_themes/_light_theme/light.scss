@@ -1,1 +1,10 @@
+// @use "../../base/colors" with (
+  $fontColor: #003333;
+  $bcgColor: #eeffcc; // $lg
+  $lightLogoBcg: #031c00;
+  $lightTopNavTopGreen: #253c08; // $mainG 
+  $lightTopNavBottomGreen: #579905; // $dg
+  $lightPageBcg: #000f01; // $white
+  $lightInputBcg: #f7ffe8;
+// );
 @import "../../style.scss";

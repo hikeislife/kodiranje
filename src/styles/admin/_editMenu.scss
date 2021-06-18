@@ -1,0 +1,59 @@
+// @import "../_base/mixins";
+
+// .editMenu {
+//   @include adminmenues;
+//   position: absolute;
+//   display: none;
+
+//   sub { // Positions indexes next to headings
+//     position: relative;
+//     top: 8px;
+//     font-weight: bolder;
+//   }
+
+//   ul {
+//     margin: 0 .1em;
+//   }
+
+//   li {
+//   padding: .16rem 1rem;
+//   border-bottom: 1px solid lightTopNavBottomGreen;
+//   text-shadow: 1px 1px 15px rgb(154, 246, 41);
+//   box-shadow: 1px 1px 5px rgb(154, 246, 41);
+//   display: grid;
+//   grid-template-columns: repeat(5, auto);
+//   justify-items: center;
+
+//   &:last-child {
+//     border: none;
+//   }
+// }
+
+// span.editMenuItem:hover {
+//   cursor: pointer;
+//   background: $lightBcg;
+//   color: $font;
+// }
+
+// .switch {
+//   display: grid;
+//   width: 100%;
+//   grid-template-columns: 1fr 1fr;
+// //     align-items: center;
+// //     justify-items: center;
+// //     grid-gap: 1em;
+//   font-size: 2em;
+
+//     span {
+//       // display: inline-block;
+//       // width: 100%;
+// //       text-align: center;
+
+//     &:hover {
+//       cursor: pointer;
+//       background: $lightBcg;
+//       color: $font;
+//     }
+//   }
+// }
+// }
