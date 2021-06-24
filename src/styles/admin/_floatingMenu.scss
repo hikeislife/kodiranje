@@ -1,16 +1,13 @@
+@import "../base/mixins";
+
 .floatingMenu {
+  @include adminmenues;
   position: fixed;
-  background: rgb(86, 86, 86);
   display: flex;
   flex-direction: column;
-  border: .7rem double $fontColor;
-  border-radius: $borderRadius;
-  background-clip: padding-box !important;
-  box-shadow: 1px 1px 10px gray;
   top: 10rem;
   left: 17rem;
   padding-top: 3.5rem;
-  z-index: 1;
 
   label, span {
     font-size: 2rem;
@@ -36,6 +33,11 @@
   .floatingWarning {
     color: $warning;
     text-shadow: 1px 1px 15px $warning;
+  }
+
+  .nocolor {
+    @include spread;
+    @include center;
   }
 }
 

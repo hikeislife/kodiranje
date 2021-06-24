@@ -1,12 +1,12 @@
-// @mixin adminmenues {
-//   border: 9px double rgb(0, 0, 0);
-//   border-radius: .5em;
-//   background: rgb(86, 86, 86);
-//   background-clip: padding-box;
+@mixin adminmenues {
+  border: .7rem double $fontColor;
+  border-radius: $borderRadius;
+  background: #565656E6;
+  background-clip: padding-box;
 //   color: #efefef;
-//   box-shadow: 1px 1px 10px gray;
+  box-shadow: 1px 1px 10px gray;
 //   z-index: 5;
-// }
+}
 
 @mixin navs {
   background-color: $refBcg;
@@ -24,8 +24,14 @@
   height: 100%;
 }
 
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @mixin border {
   border: $borderWidth solid $fontColor; 
   border-radius: $borderRadius;
-  padding: 1rem;
+  padding: $margin;
 }

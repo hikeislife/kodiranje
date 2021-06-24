@@ -1,4 +1,4 @@
-// @import "../_base/mixins";
+@import "../base/mixins";
 
 // // .overlay {
 // //   width: 100%;
@@ -12,12 +12,12 @@
 // //   bottom: 0;
 // // }
 
-// .editHelper {
+.editHelper {
 //   @include adminmenues;
 // //   position: absolute;
 // //   width: 500px;
 // //   padding: 2em;
-//   display: none;
+  display: none;
 
 // //   .linkBoxTitle, .boxTitle {
 // //     margin-top: 0;
@@ -38,7 +38,7 @@
 // //     &:hover {
 // //       cursor: text;
 // //     }
-//   }
+  }
 
 // //   input ~ label {
 // //     position: absolute;

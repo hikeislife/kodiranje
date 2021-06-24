@@ -33,10 +33,10 @@
 @import "modules/superboxes";
 @import "modules/blockquotes";
 @import "modules/cmd";
-@import "_boxes/arduino";
-@import "_boxes/jupyter";
-@import "_boxes/console";
-@import "_boxes/devTools";
+@import "boxes/arduino";
+@import "boxes/jupyter";
+@import "boxes/console";
+@import "boxes/devTools";
 
 @import "utilities/backToTop";
 @import "utilities/toolTips";

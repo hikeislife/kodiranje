@@ -15,7 +15,7 @@
       {{#each courses}}
       <details class="listAllArticles">
         <summary>
-          {{name}} <span class="counter"></span>
+          {{name}} <span class="sum"></span>
         </summary>
         {{#each ../publishedArticles}}
         {{#if (eq courseName ../setId)}}
@@ -34,7 +34,7 @@
       {{#each courses}}
       <details class="listAllArticles">
         <summary>
-          {{name}} <span class="counter"></span>
+          {{name}} <span class="sum"></span>
         </summary>
         {{#each ../notPublished}}
         {{#if (eq courseName ../setId)}}
@@ -54,7 +54,7 @@
 
   lists.forEach(x => {
     const items = x.querySelectorAll('p')
-    const counter = x.querySelector('.counter')
+    const counter = x.querySelector('.sum')
     counter.innerHTML = `(${items.length})`
   })
 </script>

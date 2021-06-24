@@ -1,129 +1,125 @@
-// .iconSection,
-// .doubleFooterLinks {
-//   display: grid;
-//   margin:3rem 0;
-//   grid-template-columns: min-content auto;
+.iconSection,
+.doubleFooterLinks {
+  display: grid;
+  margin: 3rem 0;
+  grid-template-columns: min-content auto;
 
-//   .iconLinks {
-//     display: grid;
-//     grid-auto-flow: column;
-//     margin: $margin;
-//   }
+  .iconLinks {
+    display: grid;
+    grid-auto-flow: column;
+    margin: $margin;
+    justify-content: start;
+    grid-gap: 1rem;
+  }
 
-//   .legend {
-//   border: $borderWidth solid $mainBorder;
-//   border-radius: $borderRadius;
-//   margin: $margin;
-//   display: inline-block;
-//   width: fit-content;
-//   width: -moz-fit-content;
-//   padding: .4rem 1rem;
-//   font-family: inherit;
-//   white-space: nowrap;
-//   font-size: 1.2rem !important;
+  .legend {
+    @include border;
+    margin: $margin;
+    display: inline-block;
+    width: fit-content;
+    width: -moz-fit-content;
+    padding: .4rem 1rem;
+    font-family: inherit;
+    white-space: nowrap;
+    font-size: 1.2rem !important;
 
-//   &::before {
-//     font-family: Kodiranje;  
-//   }
-// }
+    &::before {
+      font-family: Kodiranje;  
+    }
+  }
 
-//   .iconItem {
-//     width: fit-content;
-//     width: -moz-fit-content;
-//     block-size: fit-content;
-//   }
+  .iconItem {
+    width: fit-content;
+    width: -moz-fit-content;
+    block-size: fit-content;
+  }
 
-//   .iconItem:hover span:before {
-//     color: $darkYellow;
-//     text-shadow: $px $px $borderWidth $shadow;
-//   }
-// }
+  .iconItem:hover span:before {
+    color: $darkYellow;
+    text-shadow: $px $px $borderWidth $shadow;
+  }
+}
 
-// @media only screen and (min-width: 48rem) { // 768px
-//   .legends {
-//     grid-column: 1 / 2;
-//     grid-row: 2 / 3;
-//   }
+@media only screen and (min-width: 48rem) { // 768px
+  .legends {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
 
-//   .f48 {
-//     grid-column: 2 / 3;
-//     grid-row: 2 / 3;
-//     grid-gap: 5rem;
-//   }
+  .f48 {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    grid-gap: 5rem;
+  }
 
-//   .doubleFooterLinks {
-//     position: relative;
-//     top: -12rem;
-//     margin-bottom: -10rem;
-//   }
-// }
+  .iconLinks {
+    grid-gap: 2rem;
+  }
 
-// .twitterIcon:before {
-//   content: '\F32E';
-// }
+  .doubleFooterLinks {
+    position: relative;
+    top: -5rem;
+    margin-bottom: -5rem;
+  }
+}
 
-// .t2:before {
-//   content: '\F332';
-// }
+.twitterIcon:before {
+  content: '\F32E';
+}
 
-// .gitterIcon:before {
-//   content: '\F330';
-// }
+.gitterIcon:before {
+  content: '\F330';
+}
 
-// .facebookIcon:before {
-//   content: '\F331';
-//   font-weight: bold;
-// }
+.facebookIcon:before {
+  content: '\F32f';
+}
 
-// .fb2:before {
-//   content: '\F32f';
-// }
+.mailIcon:before {
+  content: '\F333';
+}
 
-// .mailIcon:before {
-//   content: '\F333';
-// }
+.telegramIcon:before {
+  content: '\F32D';
+}
 
-// .telegramIcon:before {
-//   content: '\F32D';
-// }
+.slackIcon:before {
+  content: '\F32C';
+}
 
-// .slackIcon:before {
-//   content: '\F32C';
-// }
+.solIcon {
+  background: $solBcgColor;
+    background-image: url($solBcg);
+}
 
-// .solIcon {
-//   background: $lightSolBoxBcg;
-//     background-image: url($solBcg);
-// }
+.warningIcon {
+  background-color: $warning;
 
-// .warningIcon {
-//   background-color: $warning;
+  &:before {
+    content: '\f350';
+  }
+}
 
-//   &:before {
-//     content: '\f350';
-//   }
-// }
+.tipIcon {
+  background-color: $tip;
 
-// .tipIcon {
-//   background-color: $tip;
+  &:before {
+    content: '\F358';
+  }
+}
 
-//   &:before {
-//     content: '\F358';
-//   }
-// }
+.kvizIcon {
+  background-color: $quizYellow;
 
-// .kvizIcon {
-//   background-color: $quizYellow;
+  &:before {
+    content: '\F353';
+  }
+}
 
-//   &:before {
-//     content: '\F353';
-//   }
-// }
+.errorIcon {
+  background-color: $darkYellow;
 
-// .errorIcon {
-//   background-color: $darkYellow;
-
-//   &:before {
-//     content: '\F357';
-//   }
-// }
+  &:before {
+    content: '\F357';
+  }
+}
