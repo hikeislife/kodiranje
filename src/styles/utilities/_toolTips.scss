@@ -50,7 +50,9 @@
   }
 }
 
-.tt {
+// this is so that old code can be easily noticed and replaced with new code.
+// once all pages are fixed, this can be removed
+.tt { 
   border: 5px solid red;
 }
 

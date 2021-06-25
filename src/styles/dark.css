@@ -424,6 +424,67 @@ em {
   z-index: 3;
 }
 
+.main-page-course {
+  text-align: center;
+  padding: 1rem;
+}
+.main-page-course h1 {
+  font-size: 1.1rem;
+  line-height: 1.6rem;
+  padding: 2rem 0;
+}
+
+.main-page-course svg {
+  width: 30vw;
+}
+.main-page-course .main-page-boxes:nth-child(even) {
+  align-self: center;
+}
+
+@media only screen and (min-width: 36rem) {
+  .main-page svg {
+    width: 30vw;
+    padding: 1rem;
+  }
+  .main-page h1 {
+    padding: 1rem;
+  }
+}
+@media only screen and (min-width: 48rem) {
+  .main-page svg {
+    width: 25vw;
+  }
+}
+@media only screen and (min-width: 30rem) {
+  .main-page-course a {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+    align-tracks: stretch;
+  }
+  .main-page-course:nth-child(even) .main-page-boxes:nth-child(odd) {
+    grid-column: 2/3;
+  }
+  .main-page-course:nth-child(even) .main-page-boxes:nth-child(even) {
+    grid-column: 1/2;
+    grid-row: 1;
+  }
+}
+@media only screen and (min-width: 36rem) {
+  .main-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .main-page-course a {
+    display: inline-block;
+  }
+}
+@media only screen and (min-width: 62rem) {
+  .main-page {
+    grid-template-columns: repeat(3 1fr);
+  }
+}
 footer {
   background: linear-gradient(to bottom, #002b00 0%, #253c08 30%);
   grid-column: 1/3;
