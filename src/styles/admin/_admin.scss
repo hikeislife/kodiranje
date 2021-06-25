@@ -14,6 +14,12 @@
   }
 }
 
+.editContent:focus,
+.editContent:active { // content editable div
+  outline: $px dotted $shadow; // important for chrome where outline is as thick and as dark as borders on this page
+  outline-offset: $margin;
+}
+
 // .adminInput {
 //   position: relative; // For counter
 //   margin: 2em 0;

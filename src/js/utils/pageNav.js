@@ -47,11 +47,10 @@ export default function createPageNav() {
     container.append(referalList)
 
     // generate list of items
-    let navContent = ''
+    let navContent = `<ul class="listless">`
     bookmarks.forEach(x => {
       //title ? 
       navContent += `
-    <ul class="listless">
       <li class="pageNavItem referalItem">
         <a href="#${x.attributes.name.nodeValue}" 
            aria-label="${x.attributes["aria-label"].nodeValue}" 
@@ -60,9 +59,9 @@ export default function createPageNav() {
            class="nocolor">
           ${x.attributes.title?.nodeValue || x.dataset.title}
         </a>
-      </li>\n
-    </ul>\n`
+      </li>\n`
     })
+    navContent += `</ul>\n`
     referalList.innerHTML = navContent
   }
 

@@ -123,3 +123,15 @@ header {
     }
   }
 }
+
+
+@media only screen and (max-width: 36rem) {
+  .menuitems {
+    white-space: nowrap;
+  }
+
+  .topNav {
+    position: relative;
+    left: -.5rem;
+  }
+}
