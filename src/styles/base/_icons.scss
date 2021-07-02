@@ -169,6 +169,10 @@
   content: '\1F446';
 }
 
+.wink::before {
+  content: '\1F609'
+}
+
 // // dev tools 
 
 // .inspectorIcon:before {
