@@ -9,8 +9,8 @@ $font: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", mo
   font-display: swap;
   //src: url("kodiranje.eot");
   //src: url("kodiranje.eot?#iefix") format("embedded-opentype"),
-  src: url("kodiranje.woff2") format("woff2"),
-       url("kodiranje.woff") format("woff"),
-       url("kodiranje.ttc") format("truetype"),
-       url("kodiranje.svg") format("svg")
+  src: url("fonts/kodiranje.woff2") format("woff2"),
+       url("fonts/kodiranje.woff") format("woff"),
+       url("fonts/kodiranje.ttc") format("truetype"),
+       url("fonts/kodiranje.svg") format("svg")
 }
