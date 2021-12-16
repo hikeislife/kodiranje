@@ -71,17 +71,7 @@
 // //   }
 }
 
-.placeholder .ex {
-  background: whitesmoke;
-  color: $fontColor;
-  margin-bottom: 0;
-  // margin-top: 1em !important;
-  white-space: normal; /* to offset one from the sol */
 
-  // & p:first-of-type {
-  //   display: block;
-  // }
-}
 
 .kviz {
   background-color: $quizYellow;
@@ -114,24 +104,13 @@
 //   }
 // }
 
-// // .placeholder .superbox {
-// //   & p:first-of-type {
-// //     display: inline;
-// //   }
 
-// //   & p:last-of-type {
-// //     margin-bottom: 0!important;
-// //   }
-// // }
 
 
 // // .depr {
 // //    border-color: $wr;
 // // }
 
-// // .placeholder .superbox .superbox {
-// //   margin: 0;
-// // }
 
 // // details.warning:before {
 // //   content: '';

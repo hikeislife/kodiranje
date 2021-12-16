@@ -9,10 +9,13 @@ import indentCode from "./js/utils/indentCode.js"
 //import register             from "./js/serviceWorker/register.js"
 import themeToggle from "./js/utils/themeToggle.js"
 import loadTheme from "./js/utils/loadTheme.js"
+import homePageBoxLeveling from "./js/front/homePageBoxLeveling.js"
 
 window.onscroll = () => bindMenu()
 renderReferenceList()
 createPageNav()
+homePageBoxLeveling()
+window.addEventListener('resize', homePageBoxLeveling)
 
 // const url = `https://raw.githubusercontent.com/Fyrd/caniuse/main/data.json`
 

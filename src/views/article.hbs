@@ -1,9 +1,13 @@
 <article>
-  {{{post.articleContent}}}
+
+  {{>basics/reader}}
+  <div class="sitespeaker-read-aloud">{{{post.articleContent}}}</div>
 
   <div class="artMeta">
-    {{# if post.createdAt}}<p>Članak prvi put objavljen: <b>{{formatDate post.createdAt}}</b></p>{{/if}}
-    {{# if post.updatedAt}}<p>Poslednje izmene: <b>{{formatDate post.updatedAt}}</b></p>{{/if}}
+    {{# if post.createdAt}}<p>Članak prvi put objavljen: <b>{{formatDate
+        post.createdAt}}</b></p>{{/if}}
+    {{# if post.updatedAt}}<p>Poslednje izmene: <b>{{formatDate post.updatedAt}}</b></p>
+    {{/if}}
     {{# if post.author}}<p>Autor: <b>{{post.author}}</b>.</p>{{/if}}
   </div>
 </article>

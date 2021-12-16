@@ -1,9 +1,19 @@
-#header-top {
+.cog {
+  fill:#cdff65; 
+  stroke:#2a2a2c; 
+  stroke-width:5;
+  position: absolute; 
+  z-index: 4;
+  width: 2.5rem; // 40px
+  height: 2.5rem;
+}
+
+#logoBcg { 
   height: $logoHeight;
   background-color: $logoBcg;
 }
 
-#rounded-square {
+#logoRoundedSquare {
   fill: none;
   stroke: $fontColor;
   stroke-width: 2;
@@ -11,7 +21,7 @@
   height: 35;
 }
 
-#logo-text {
+#logoText {
   text {
     font-size: 3rem; 
     fill: $fontColor;
@@ -21,30 +31,13 @@
     fill: $logoBcg;
     width: $kodiranjeLength;
     height: 3.2rem;
-    animation: $typeWrite;
+    animation: $typeWriter;
   }
 
   .svgCursorBlinker {
     fill: $fontColor;
     width: 1.875rem;
     height: $borderWidth;
-    animation: blinker .8s linear .5s 6, $typeWrite;
-  }
-}
-
-
-
-@keyframes typeWrite {
-  to { 
-    transform: translate($kodiranjeLength, 0px) 
-  }
-}
-
-@keyframes blinker {
-  50% {
-    opacity: 1
-  }
-  100% {
-    opacity: 0
+    animation: logoCursorBlinker .8s linear .5s 6, $typeWriter;
   }
 }

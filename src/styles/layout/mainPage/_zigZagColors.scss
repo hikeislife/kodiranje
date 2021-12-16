@@ -1,26 +1,40 @@
-// // zigzag background 
-// .main-page-course:nth-child(even) {
-//   background: $lightSideNavBcg;
-// }
+// zigzag background 
+.mainPageCourse:nth-child(even) {
+  background: $refBcg;
+}
 
-// @media only screen and (min-width: 36rem) {
-//   .main-page-course:nth-child(even) {
-//     background: unset;
-//   }
+@media only screen and (min-width: 30rem) {
+  .mainPageCourse:nth-child(even) {
+    background: unset;
+  }
 
-//   .main-page-course:nth-child(4n+2),
-//   .main-page-course:nth-child(4n+3) {
-//     background: $lightSideNavBcg;
-//   }
-// }
+  .mainPageCourse:nth-child(4n+2),
+  .mainPageCourse:nth-child(4n+3) {
+    background: $refBcg;
+  }
+}
 
-// @media only screen and (min-width: 62rem) {
-//   .main-page-course:nth-child(4n+2),
-//   .main-page-course:nth-child(4n+3) {
-//     background: unset;
-//   }
+@media only screen and (min-width: 62rem) {
+  .mainPageCourse:nth-child(4n+2),
+  .mainPageCourse:nth-child(4n+3) {
+    background: unset;
+  }
 
-//   .main-page-course:nth-child(even) {
-//     background: $lightSideNavBcg;
-//   }
-// }
+  .mainPageCourse:nth-child(even) {
+    background: $refBcg;
+  }
+}
+
+@media only screen and (min-width: 75rem) { // 1200px
+  .mainPageCourse:nth-child(4n+2),
+  .mainPageCourse:nth-child(4n+3) {
+    background: unset;
+  }
+  
+  .mainPageCourse:nth-child(8n + 2),
+  .mainPageCourse:nth-child(8n + 4),
+  .mainPageCourse:nth-child(8n + 5),
+  .mainPageCourse:nth-child(8n + 7) {
+    background: $refBcg;
+  }
+}

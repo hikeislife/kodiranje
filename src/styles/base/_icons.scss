@@ -1,16 +1,3 @@
-@font-face {
-  font-family: "Kodiranje";
-  font-style: normal;
-  font-weight: normal;
-  font-display: auto;
-  //src: url("kodiranje.eot");
-  //src: url("kodiranje.eot?#iefix") format("embedded-opentype"),
-  src: url("kodiranje.woff2") format("woff2"),
-       url("kodiranje.woff") format("woff"),
-       url("kodiranje.ttc") format("truetype"),
-       url("kodiranje.svg") format("svg")
-}
-
 .icon {
   font-family: 'Kodiranje';
   font-size: 26px;
@@ -173,6 +160,9 @@
   content: '\1F609'
 }
 
+.cookie::before {
+  content: '\1F36A'
+}
 // // dev tools 
 
 // .inspectorIcon:before {

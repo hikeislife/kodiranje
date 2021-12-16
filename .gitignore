@@ -10,3 +10,16 @@ src/app-stari.js
 sitemap.xml
 src/js/utils/images/
 src/imgs/og/
+kopilot.js
+.well-known/
+*.zip
+src/certs/
+maybeObsolete/
+delete/
+_atf.scss
+mlCourse.hbs
+_cookies.scss
+_unsorted.scss
+cookie.hbs
+embededCss.hbs
+contact.hbs

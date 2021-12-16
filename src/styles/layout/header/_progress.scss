@@ -1,0 +1,16 @@
+progress {
+  width: 100%;
+  position: relative;
+  top: -7px;
+  color: green;
+  background: transparent;
+  height: 7px;
+  border: none;
+  display: block;
+  z-index: 3;
+}
+
+progress::-moz-progress-bar,
+progress::-webkit-progress-value {
+  background: green;
+}

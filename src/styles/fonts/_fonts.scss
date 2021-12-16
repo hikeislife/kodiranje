@@ -1,0 +1,16 @@
+$font: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace; //'Roboto Mono', was original font, but it just never clicked 
+// $codeFont: Lucida Console, Consolas, Monaco, monospace;
+
+@font-face {
+  font-family: "Kodiranje";
+  font-style: normal;
+  font-weight: normal;
+  font-display: auto;
+  font-display: swap;
+  //src: url("kodiranje.eot");
+  //src: url("kodiranje.eot?#iefix") format("embedded-opentype"),
+  src: url("kodiranje.woff2") format("woff2"),
+       url("kodiranje.woff") format("woff"),
+       url("kodiranje.ttc") format("truetype"),
+       url("kodiranje.svg") format("svg")
+}

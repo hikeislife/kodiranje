@@ -1,0 +1,15 @@
+{{!-- https://dashboard.sitespeaker.com/dashboard.html --}}
+
+<script src="../../js/utils/reader.js"></script>
+
+
+<div id="ra-player" data-skin="https://assets.sitespeaker.link/embed/skins/default">
+  <div class="ra-button"
+    onclick="readAloud(document.getElementById('ra-audio'), document.getElementById('ra-player'))">
+    <img src="https://assets.sitespeaker.link/embed/skins/default/play-icon.png"
+      alt="play/pause button" /> Slušaj robot čitača
+  </div>
+  <sub>Nemojte se žaliti na "njen" akcenat, nije u pitanju osoba</sub>
+</div>
+<audio id="ra-audio" data-lang="sr-RS" data-voice="Google sr-rs-Standard-A"
+  data-key="7697d44035cbe50bf9a0d4341f994e0a"></audio>

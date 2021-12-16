@@ -1,35 +1,34 @@
-$font: 'Roboto Mono', 'Courier New', monospace;
-$codeFont: Consolas, monaco, monospace;
-           //'Lucida Console', 'Lucida Sans Typewriter', monaco, 'Bitstream Vera Sans Mono', monospace;
+// top nav
+$logoHeight: 4.4rem; // height of checkered field
+$kodiranjeLength: 259px;
+// $toggleHeight: 1.2rem;
+$topNavHeight: 4rem;
+
+// animations
+$typeWriter: typeWriter 1s steps(9) 2s forwards;
+
 
 $borderWidth: .125rem;
 $px: .0625rem;
 $borderRadius: .3rem;
-$sideNavWidth: 15.6rem;
-$accentBorder: .44rem;
+// $sideNavWidth: 15.6rem;
+// $accentBorder: .44rem;
 $diffusedShadow: .3125rem;
 $margin: 1rem;
 
-// top nav
-$logoHeight: 4.4rem;
-$toggleHeight: 1.2rem;
-$topNavHeight: 4rem;
 
-// logo
-$kodiranjeLength: 259px;
-$typeWrite: typeWrite 1s steps(9) 2s forwards;
+// //blockquote:
+// $clipSize: 1.37rem;
 
-//blockquote:
-$clipSize: 1.37rem;
+// // cmd:
+// $cmdPadding: .3125rem;
+// $cmdBorderWidth: 7px;
 
-// cmd:
-$cmdPadding: .3125rem;
-$cmdBorderWidth: 7px;
+// // Back to top:
+// $BTT_position: 3.125rem;
+// $BTT_borderBottom: .44rem;
 
-// Back to top:
-$BTT_position: 3.125rem;
-$BTT_borderBottom: .44rem;
-
+////////////////////////////////////////////
 
 // $mainFont: #003333 !default;
 

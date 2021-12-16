@@ -1,101 +1,162 @@
-.main-page-course { // course card
+.mainPage {
+  @include boxShadow;
+  // all other mainPage styles are in main page grid.scss file
+}
+
+.mobHide {
+  display: none;
+}
+
+.mainPageCourse { // course card
+  @include center;
   text-align: center;
-  padding: 1rem;
 
   h1 {
+    background: #00000005;
     font-size: 1.1rem;
-    line-height: 1.6rem;
-    padding: 2rem 0;
-  }
-
-  // svg {
-  //   width: 50vw;
-    // padding-bottom: 2rem;
-  // }
-}
-
-
-// @media only screen and (min-width: 30rem) { // > 480px
-  .main-page-course {
-    svg {
-      width: 30vw;
-//       padding-bottom: 2rem;
-    }
-
-    .main-page-boxes:nth-child(even) { // code example boxes
-      align-self: center;
-    }
-  }
-// }
-
-
-@media only screen and (min-width: 36rem) { // > 576px
-  .main-page {
-    svg {
-      width: 30vw;
-      padding: 1rem;
-//       padding-bottom: 2rem;
-    }
-
-    h1 {
-      padding: 1rem;
-    }
-
-    // .main-page-boxes:nth-child(even) {
-    //   align-self: center;
-    // }
+    color: honeydew;
+    padding: 1rem 0;
+    margin: 0 0 2rem;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #1ebd309c;
+            font-size: 4.5vw;
+    text-shadow: 1px 1px 20px aliceblue;
+    font-family: verdana, 'lucida console', monospace;
+    text-transform: uppercase;
+    line-height: 1.7;
   }
 }
 
+.courseCard {
+  @include boxShadow;
+  background: black;
+  background-position: center !important;
+  background-size: cover !important;
+  margin: 2rem 0;
+  position: relative;
+  display: flex;
+  align-items: center ;
+  border-radius: 12px;
+  width: calc(100vw - 8rem);
+
+  &::before {
+    content: '';
+    background-image: url(../../../imgs/cogless.svg);
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: -8px;
+    left: -7px;
+    transition: transform 1s cubic-bezier(.67,.76,.49,1.66);
+  }
+
+  &:hover {
+    background: radial-gradient(circle, $logoBcgHover 33%, $logoBcg 64%);
+  }
+
+  &:hover::before,
+  &:focus::before {
+    transform: rotate(.5turn);
+  }
+
+  .courseLink { // w/o this, arduino card alone gets left aligned
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.mainPageBoxes:not(.mobHide) {
+  width: 15rem;
+  padding: 1rem;
+  @include spread;
+  text-align: center;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.cardSVG {
+  padding: 1rem;
+  width: fit-content;
+  text-align: center;
+  margin: auto;
+  border-radius: 12px;
+  background: #0006;
+
+  svg {
+    filter: drop-shadow($px $px 3px #5ddb6b);
+    width: 40vw;
+    height: 40vw;
+  }
+} 
+
+@media only screen and (min-width: 30rem) { // > 480px
+  .mobHide { // overriden by previous tag by @include spread
+    display: none;
+  }
+
+  .mainPageCourse h1 {
+    font-size: 3.5vw;
+  }
+
+  .courseCard {
+    width: calc(100% - 2rem);
+  }
+
+  .cardSVG {
+    svg {
+      filter: drop-shadow($px $px 5px #5ddb6b);
+      width: 30vw;
+      height: 30vw;
+    }
+  }
+}
 
 @media only screen and (min-width: 48rem) { // > 768px where side nav appears 
-  .main-page {
+  .mainPageCourse {
+    h1 {
+      font-size: 2vw;
+    }
+  }
+
+  .courseCard {
+    width: calc(50vw - 10rem);
+  }
+  
+  .cardSVG {
     svg {
-      width: 25vw;
+      filter: drop-shadow($px $px 7px #5ddb6b);
+      width: 20vw;
+      height: 20vw;
     }
   }
 }
 
+@media only screen and (min-width: 62rem) { // 992px
+  .courseCard {
+    width: calc(33vw - 7rem);
+  }
 
-// @media only screen and (min-width: 62rem) { // > 992px
-//   .main-page {
-//     svg {
-//       width: 22vw;
-//     }
-//   }
-// }
+  .cardSVG svg {
+    width: 15vw;
+    height: 15vw;
+  }
 
-// @media only screen and (min-width: 75rem) { // > 992px
-//   * .main-page .sol code {
-//       font-size: 1rem;
-//       line-height: 1.2rem !important;
-//     }
+  .mainPageCourse h1 {
+    font-size: 1.5vw;
+  }
+}
+
+@media only screen and (min-width: 75rem) { // 1200px
+  .courseCard {
+    width: calc(25vw - 7rem);
+  }
   
-//   .main-page {
-//     svg {
-//       width: 17vw !important;
-//     }
-//   }
-// }
+  .mainPageCourse h1 {
+    font-size: 1.3vw;
+  }
 
-// .main-page-boxes:nth-child(odd) { // svgs
-//   @include boxShadow;
-//   border: 1px solid $font;
-//   background: $lightBcg;
-//   // padding: 1em;
-//   // width: calc(100vw - 4em);
-// } 
-
-
-
-
-
-// .mob_hide {
-//   display: none;
-// }
-
-// @media only screen and (min-width: 30rem) { // > 480px
-//   .mob_hide {
-//     display: block;
-//   }
-// }
+  .cardSVG svg {
+    width: 10vw;
+    height: 10vw;
+  }
+}

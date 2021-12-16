@@ -1,7 +1,7 @@
 // Side nav handler for mobile
 export default (() => {
   const nav = document.querySelector('.sideNav')
-  const cog = document.querySelector('.logo-cog')
+  const cog = document.querySelector('#cog')
   let handler
 
   const closeMenu = () => {

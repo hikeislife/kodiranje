@@ -1,7 +1,13 @@
 a, a:visited {
   text-decoration: none;
   color: $fontColor;
-  background: $linkColor;
+
+  &:not(.nocolor) {
+    font-style: italic;
+    background: $linkColor;
+    text-decoration: underline;
+  }
+  
 }
 
 // // a.tt:hover,
@@ -10,9 +16,11 @@ a, a:visited {
 //   background: $linkHoverBcg;
 // }
 
-a.nocolor {
-  background-color: transparent;
-}
+// a.nocolor {
+  // background-color: transparent;
+  // text-decoration: none;
+  // font-style: ;
+// }
 
 main a[href^="http"]::before, 
 main a[href^="https"]::before {

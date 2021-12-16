@@ -1,0 +1,17 @@
+.ra-button {
+  @include border;
+  @include boxShadow;
+  padding: .3em .9em;
+  background: linear-gradient(to bottom, #9af62975 50%, #7cc91c75 100%);
+  display: inline-flex;
+  font-weight: 900;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.ra-button img {
+  height: 1em;
+  margin: 0 .5em 0 0;
+  width: auto;
+}

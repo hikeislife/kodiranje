@@ -1,10 +1,15 @@
 const indicateScrollPosition = e => {
-  const indicator = document.querySelector('.indicator'),
-    totalPageHeight = document.documentElement.offsetHeight - document.documentElement.clientHeight,
-    currentPos = document.documentElement.scrollTop,
-    percentige = currentPos * 100 / totalPageHeight
-  indicator.style.width = `${percentige}%`
+  let indicator = document.querySelector('progress')
+  const totalPageHeight = document.documentElement.offsetHeight - document.documentElement.clientHeight
+  const currentPos = document.documentElement.scrollTop
+  const percentige = currentPos * 100 / totalPageHeight
+  indicator.attributes[0].value = `${percentige}`
+  if (percentige < 10) {
+    indicator.style.top = '-7px'
+  }
 }
+
+indicateScrollPosition()
 
 export default (function scrollPos() {
   window.addEventListener('scroll', indicateScrollPosition)

@@ -4,9 +4,19 @@ const hbs = require('hbs')
 const bodyParser = require('body-parser')
 // const session = require('express-session');
 // const nm = require('nodemailer')
-const jwt = require('jsonwebtoken')
+// const jwt = require('jsonwebtoken')
 const soft = require('./middleware/soft')
 // const fs = require('fs')
+const https = require('https')
+
+// will automatically resize all of your pics, definitely not to be used like this
+// const sharp = require('sharp');
+// const directory = './src/imgs';
+// fs.readdirSync(directory).forEach(file => {
+//   sharp(`${directory}/${file}`)
+//     .resize(200, 100) // width, height
+//     .toFile(`${directory}/${file}-small.jpg`);
+//   });
 
 // const MongoStore = require('connect-mongo')(session)
 // const mongoose = require('mongoose')
@@ -25,11 +35,29 @@ app.use(bodyParser.json({
   limit: '50mb',
   type: 'application/json'
 }))
+
 app.use(bodyParser.urlencoded({
   parameterLimit: 10000000,
   extended: true,
   limit: '50mb'
 }))
+
+
+
+// const env = process.env.NODE_ENV || 'development'
+// const forceSSL = function (req, res, next) {
+//   if (req.headers['x-forwarded-proto'] !== 'https') {
+//     return res.redirect(['https://', req.get('Host'), req.url].join(''))
+//   }
+//   next()
+// }
+// app.use(forceSSL)
+
+// app.configure(function () {
+//   if (process.env.NODE_ENV === 'production') {
+//     app.use(forceSSL)
+//   }
+// })
 
 // // app.use((req, res, next) => {
 // //   res.status(503).send('Sajt trenutno nije dostupan usled updejta, molimo proverite ponovo za par minuta')
@@ -42,6 +70,75 @@ app.use(articleRouter)
 
 // //const lER = process.env.CERTBOT_RESPONSE;
 const port = process.env.PORT
+
+const privateKey = `-----BEGIN RSA PRIVATE KEY-----
+MIIEowIBAAKCAQEAvV90ykKjOLS+YRw+vfOGcByPHrOYUG+2PljhbYkABIa8R+7N
+I3swbpApeCgzYM9MRYHd5cUpWH0eJOINCTmE+0hJva8Zm27aJ0pjN9Y2lsMgO/fg
+kkQtz98x8TWOAjVRKI1r5arL2dqGmO0nWP/r+s4IKA8DBOvcTrKwR34h2PImdcXZ
+5YNSRtWWrZ4FYjKMrY6JcE58KNhN5FdWYCqtlmkuEL/jJZtfJapcx4T5LBoSiitg
+RBTutyA1/Lfqy2s95jtVmRTns7aiaIYPVSaqtSunNvlE59oTrUzSkHyfYl0UbB/J
+u4BeBuASkjNBXkjIRaQYrQ4KF2OILpOpkXcqdwIDAQABAoIBAESwx1BGc6YyCYx4
+DlogZ3drJI7iXjFvFA/xdXOh6hu6M7lz6X0hRiQUrrYi/t/y0Zu0y6R4q9KpL7H5
+PPlHn/D1+6mORh+XShJObUbnsM1m4d5ev1rO2D86mocAAg7TAClRgv2/wkm3dnMq
+MseZrSNAcLz3FQVH+JWjQ0XrfqOOMiyHIgkv20M2hqzGqE2AsxvDeIS43WIcHHrx
+J+ijmqT3S4Nzoq3X0v8NzOj4EuAqwG8+1BZjNMxl3Kam+sE0yf4Cv7ryFEa0/o5y
+MqRStHm0ApLq/dCiYuzexj/hPv28JOCZdzqZlGXYBb/0nHgynEx5KBASi38Nb9fn
+7jSxb6ECgYEA7XqHqWVgRKafV1MbH33+8xIv9kZuJtUQ6FP2C2r5AiSb+S6xQRWz
+v3n2TMh49+Un4sppK5f4j2SgMSgFfw8HvH0EcYIf3Hfz/Byk+qzVA+Sd+PukKEot
+S4hS+eMZhKhz8AIyE+QZ7DsTbktGdz3nwzyWbo2t9Ba+92ol00L0VVMCgYEAzCRz
+1ZtiMphPTByNyNtGKL47riuKlvFgogJ4b9rALCYuuagLCOlTLNes3oPs5+cgs7ZK
+NBlm5wP8tldOmU7lCxguQc33l/85nJE5KL8tgJoZrJs+4HFkCAizKxiQu+JTQMr0
+C1iphkNqpgAVMK50AsMgI2k470KU++HwP4jL7c0CgYEAxZgIPPhu63BAcKZjkQaD
+FbjyU1Yy3Pi3wrfpp4Jwgkn3xZQGRINMNmvCdgzwKkNvtpJ4g59FX/p4F66XNCtL
+YpgbFF8TJ5xfVEx5MWKRM1YL41luM1/U5F4fvHArkWegX/lTtZ07vIVDG6hij2Dg
+8F//Qyl7rfcnGjImGuxA5KUCgYAcxcKBx93GTctXaerd9XHlCjL1MHPfJHQ/QWPi
+OA2/6z3IsxOjFOfBOUDHOAbrBJuKWNYKk836H4i91n5gg0srDiRu5+3OwY1IMPvC
+b3elWZLmzhbFoZW8wCUonNTBdnvPdQuCkeOK5fOhI//Yla4KOaBM/Wal6ld/TPAE
+tG4xvQKBgANecAC5e5Laq9XFoJD9JhMF0NdfokEJScedYB03uTwPUzodm/JVkc80
+o1vaktLyxsv0MDAjkj9cLBo86Z3oy6T7WMq1MkvAzzgqOAloFHaC7UYdvSd9PMi7
+L6kVy690mURAMe0T285+Q8lPVpLiZpOApCN7/rX2/LhmDLcPN73m
+-----END RSA PRIVATE KEY-----`
+
+const certificate = `-----BEGIN CERTIFICATE-----
+MIIGgjCCBGqgAwIBAgIRAJwG6Wh4jJHyfZ1crHqfTFIwDQYJKoZIhvcNAQEMBQAw
+SzELMAkGA1UEBhMCQVQxEDAOBgNVBAoTB1plcm9TU0wxKjAoBgNVBAMTIVplcm9T
+U0wgUlNBIERvbWFpbiBTZWN1cmUgU2l0ZSBDQTAeFw0yMTEyMDgwMDAwMDBaFw0y
+MjAzMDgyMzU5NTlaMBoxGDAWBgNVBAMTD2tvZGlyYW5qZS5pbi5yczCCASIwDQYJ
+KoZIhvcNAQEBBQADggEPADCCAQoCggEBAL1fdMpCozi0vmEcPr3zhnAcjx6zmFBv
+tj5Y4W2JAASGvEfuzSN7MG6QKXgoM2DPTEWB3eXFKVh9HiTiDQk5hPtISb2vGZtu
+2idKYzfWNpbDIDv34JJELc/fMfE1jgI1USiNa+Wqy9nahpjtJ1j/6/rOCCgPAwTr
+3E6ysEd+IdjyJnXF2eWDUkbVlq2eBWIyjK2OiXBOfCjYTeRXVmAqrZZpLhC/4yWb
+XyWqXMeE+SwaEoorYEQU7rcgNfy36strPeY7VZkU57O2omiGD1UmqrUrpzb5ROfa
+E61M0pB8n2JdFGwfybuAXgbgEpIzQV5IyEWkGK0OChdjiC6TqZF3KncCAwEAAaOC
+ApAwggKMMB8GA1UdIwQYMBaAFMjZeGii2Rlo1T1y3l8KPty1hoamMB0GA1UdDgQW
+BBRA06ONvxUCQbeOBjxDnATlGIgS8DAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/
+BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwSQYDVR0gBEIwQDA0
+BgsrBgEEAbIxAQICTjAlMCMGCCsGAQUFBwIBFhdodHRwczovL3NlY3RpZ28uY29t
+L0NQUzAIBgZngQwBAgEwgYgGCCsGAQUFBwEBBHwwejBLBggrBgEFBQcwAoY/aHR0
+cDovL3plcm9zc2wuY3J0LnNlY3RpZ28uY29tL1plcm9TU0xSU0FEb21haW5TZWN1
+cmVTaXRlQ0EuY3J0MCsGCCsGAQUFBzABhh9odHRwOi8vemVyb3NzbC5vY3NwLnNl
+Y3RpZ28uY29tMIIBBAYKKwYBBAHWeQIEAgSB9QSB8gDwAHYARqVV63X6kSAwtaKJ
+afTzfREsQXS+/Um4havy/HD+bUcAAAF9nGx+4gAABAMARzBFAiEAz8RYGCMX6er0
+wYqva2rWVjnIchNle57/XGWf+kVeQ18CIGecn1BtaADep0uY0mnY1Wj497bnp6TC
+XJ96eHwvCU/zAHYAQcjKsd8iRkoQxqE6CUKHXk4xixsD6+tLx2jwkGKWBvYAAAF9
+nGx+pwAABAMARzBFAiEA2XkwXwRVAxgbm8LgTdPbDAoR1KDuDRcDe6IhZbrJqUAC
+IH1vDPoULaiJRUFqb6kRJWDlY0qLIlSoH1uFPmIqppEyMC8GA1UdEQQoMCaCD2tv
+ZGlyYW5qZS5pbi5yc4ITd3d3LmtvZGlyYW5qZS5pbi5yczANBgkqhkiG9w0BAQwF
+AAOCAgEAa+LFr6i4frk2vMbJrKBRIuiPnwCu2Khed7l8qyn35b9HCSRNACQUaNbK
+h797jsaI8oNKL5EOrh2gXN2Uu3FGj/ciu5DbKIHs1pRNYGpn3xG7/Tj0hFL6US3v
+H/s2Z/1fO6OBX7FZGRiyUbVIy882nWSobU7oMaHFSw/yY7HX6yeCcMvsAABjxNrr
+ofRG7M4+SywFAUXH7PoFC+qsxTIG3AqacofDDEgDv4a6TrKCqU0/JrAiB2q6HTiH
+rzFGGX7HCXEjjbLqiDC1U9o1pAO3mCTTETaQWwag2yxt2UFRdtoLoQAj6CAaoyEh
+gzEvDTJCWs0j1wCh3B/GGiKtIZV+CwWw7rOHWVM7EPc8Fpzcb6KQcEQ1JOMI7BX6
+sTmpeE5yN+aK9ncg+02GQtYMHHZSgBURInxOjJD6IixGe3X3lFm4fcTnbEb+aDRU
+ga9Uf1V8+aRZ4D3ZwRFPPDsmYRu4hvhlOY6vyJxUcOhpXGfGSrionNd/KMlBdRcx
+Jdv/XzNirw8Epya8qdQSx4wbQUmLjdEgum0z5upEF3ojyx5XQCf3QcjYJctNq6T5
+snU5fg0l1bXBOGJTQm6D+clsPhj02Cth66c+MUfWukIL/zuurifwM3V7MsOz1BIl
+iRtN4+eDDKEu50/W4sTbSwRRX4AkED68A1l/+P1JzNtM4ceSo8Y=
+-----END CERTIFICATE-----
+`
+
+
 const dir = path.join(__dirname)
 // const og = path.join(__dirname, 'imgs/og')
 const views = path.join(__dirname, 'views')
@@ -246,6 +343,14 @@ app.get('/:kurs/:lekcija', (req, res) => {
 //   })
 // })
 
-app.listen(port, () => {
+// app.listen(port, () => {
+//   console.log(`Server podignut na portu http://localhost:${port}`)
+// })
+
+
+https.createServer({
+    key: privateKey,
+    cert: certificate
+}, app).listen(port, () => {
   console.log(`Server podignut na portu http://localhost:${port}`)
-})
+});

@@ -31,12 +31,7 @@ figcaption {
   margin: .1em 1em 2.6em;
 }
 
-.responsive {
-  // width: 80%;
-//   height: auto;
-  // text-align: center;
-//   margin: 1em .5em 0 1.4em;
-}
+
 
 // // @media only screen and (max-width: 40em) {
 // //   figure {
@@ -94,3 +89,10 @@ figcaption {
 // //     display: inline-block;
 // //   }
 // // }
+
+.responsive {
+  @include boxShadow;
+  width: 100%;
+  padding: .5rem;
+  margin: 2rem 0;
+}

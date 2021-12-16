@@ -1,12 +1,12 @@
-@mixin adminmenues {
-  border: .7rem double $fontColor;
-  border-radius: $borderRadius;
-  background: #565656E6;
-  background-clip: padding-box;
-//   color: #efefef;
-  box-shadow: 1px 1px 10px gray;
-//   z-index: 5;
-}
+// @mixin adminmenues {
+//   border: .7rem double $fontColor;
+//   border-radius: $borderRadius;
+//   background: #565656E6;
+//   background-clip: padding-box;
+// //   color: #efefef;
+//   box-shadow: 1px 1px 10px gray;
+// //   z-index: 5;
+// }
 
 @mixin navs {
   background-color: $refBcg;

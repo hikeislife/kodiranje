@@ -27,8 +27,10 @@ export default function createPageNav() {
   }
 
   // add title, both for old and new
-
   if (container) {
+
+    // add top of te page anchor here
+
     const title = document.createElement('div')
     title.className = 'referalTitle'
     title.innerHTML = `Sadržaj strane:`

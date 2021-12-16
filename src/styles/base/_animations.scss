@@ -1,0 +1,21 @@
+@keyframes typeWriter {
+  to { 
+    transform: translate($kodiranjeLength, 0px) 
+  }
+}
+
+@keyframes logoCursorBlinker {
+  50% {
+    opacity: 1
+  }
+  100% {
+    opacity: 0
+  }
+}
+
+@keyframes spin { 
+  100% { 
+    -webkit-transform: rotate(360deg); 
+    transform:rotate(360deg); 
+  } 
+}

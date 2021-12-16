@@ -31,10 +31,16 @@ fieldset {
   textarea {
     background: $bcgColor;
     resize: vertical;
+    width: 100%;	
+  }
+  
+  textarea.contentTextArea {
+    width: 100%;
   }
 
   textarea#articleContent {
     height: 20rem;
+    width: 100%;
     padding: 1rem;
     outline: none;
     border-radius: $borderRadius;
