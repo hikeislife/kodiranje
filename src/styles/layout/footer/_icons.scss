@@ -10,6 +10,7 @@
     margin: $margin;
     justify-content: start;
     grid-gap: 1rem;
+    gap: 1rem;
   }
 
   .legend {
@@ -50,10 +51,12 @@
     grid-column: 2 / 3;
     grid-row: 2 / 3;
     grid-gap: 5rem;
+    gap: 5rem;
   }
 
   .iconLinks {
     grid-gap: 2rem;
+    gap: 2rem;
   }
 
   .doubleFooterLinks {

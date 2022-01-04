@@ -1,0 +1,236 @@
+.courseCard {
+  @include boxShadow;
+  background: aliceblue;
+  max-width: 300px;
+  position: relative; // for corner cog
+  z-index: 0;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    background-image: url(../../../imgs/cogless.svg);
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 1;
+    transition: transform 1s cubic-bezier(.67,.76,.49,1.66);
+  }
+
+  &:hover::before,
+  &:focus::before {
+    transform: rotate(.5turn);
+  }
+}
+
+.cardSVG {
+  padding: 1rem;
+  background-position: center !important;
+  // background-size: cover !important;
+  // border-radius: 9px;
+
+  svg {
+    filter: drop-shadow(0.0625rem 0.0625rem 1rem white);
+    width: 40vw;
+    height: 40vw;
+  }
+}
+
+.courseLink {
+  text-decoration: none;
+  color: $fontColor;
+  font-size: .8rem;
+  text-align: center
+}
+
+.courseDesc {
+  padding: 2rem;
+  margin-top: -6rem;
+  position: relative;
+  
+  h1 {
+    text-transform: capitalize;
+    font-size: 8.5vw;
+    font-weight: bolder;
+    z-index: 9999;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: $fontColor;
+    color: $bcgColor;
+    text-shadow: 0px -2px 3px #fff;
+  }
+}
+
+.corseCat {
+  font-size: .8rem;
+  text-align: left;
+  margin: 2rem 0 1rem;
+}
+
+.easyCat, .easyMath,
+.medCat, .medMath,
+.hardCat, .hardMath {
+  position: relative;
+  margin: .1rem 0;
+  display: inline-block;
+}
+
+.easyCat::before, .easyMath::before,
+.medCat::before, .medMath::before,
+.hardCat::before, .hardMath::before {
+  content: ' ';
+  display: inline-block;
+  width: .8rem;
+  height: .8rem;
+  border-radius: 50%;
+  border: $px solid $fontColor;
+  margin-right: .3rem;
+  position: absolute;
+}
+
+.easyCat::after, .easyMath::after,
+.medCat::after, .medMath::after,
+.hardCat::after, .hardMath::after {
+  margin-left: 1.3rem;
+}
+
+.easyCat::before {
+  background: $trlGreen;
+}
+
+.easyCat::after {
+  content: 'Lak kurs';
+}
+
+.medCat::before {
+  background: $trlYellow;
+}
+
+.medCat::after {
+  content: 'Osrednji kurs';
+}
+
+.hardCat::before {
+  background: $trlRed;
+}
+
+.hardCat::after {
+  content: 'Teži kurs';
+}
+
+.easyMath::before {
+  background: $trlGreen;
+}
+
+.easyMath::after {
+  content: 'Nema matematike';
+}
+
+.medMath::before {
+  background: $trlYellow;
+}
+
+.medMath::after {
+  content: 'Nešto matematike';
+}
+
+.courseReqs {
+  text-align: left;
+
+  ul {
+    list-style: circle inside;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: .5rem;
+  }
+
+  .icon {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (min-width: 30rem) { // > 480px
+  .courseDesc {
+    padding: .5rem;
+    margin-top: -4rem;
+    
+    h1 {
+      font-size: 4.5vw;
+    }
+  }
+  
+  .corseCat, .courseReqs {
+    margin: 2rem ;
+  }
+
+  .cardSVG {
+    svg {
+      width: 35vw;
+      height: 35vw;
+    }
+  }
+}
+
+@media only screen and (min-width: 36rem) { // > 576px 
+  .cardSVG {
+    svg {
+      width: 25vw;
+      height: 25vw;
+    }
+  }
+}
+
+@media only screen and (min-width: 48rem) { // > 768px sideNav appears
+  .courseDesc h1 {
+    font-size: 3.5vw;
+  }
+
+  .cardSVG {
+    svg {
+      width: 20vw;
+      height: 20vw;
+    }
+  }
+}
+
+@media only screen and (min-width: 62rem) { // > 992px
+  .courseDesc h1 {
+    font-size: 2.8vw;
+  }
+
+  .cardSVG {
+    svg {
+      width: 15vw;
+      height: 15vw;
+    }
+  }
+}
+
+@media only screen and (min-width: 75rem) { // > 1200px
+  .courseDesc h1 {
+    font-size: 2vw;
+  }
+
+  .cardSVG {
+    svg {
+      // filter: drop-shadow($px $px 7px #5ddb6b);
+      width: 10vw;
+      height: 10vw;
+    }
+  }
+}
+
+@media only screen and (min-width: 100rem) { // > 1600px
+  .courseDesc h1 {
+    font-size: 1.5vw;
+  }
+
+  .cardSVG {
+    svg {
+      width: 10vw;
+      height: 10vw;
+    }
+  }
+}

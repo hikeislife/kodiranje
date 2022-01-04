@@ -6,15 +6,18 @@ $topNavLightGreen: #9af629 !default; // $mainG
 $topNavDarkGreen: #7cc91c !default; // $dg
 $articleBcg: honeydew !default; // $white
 // $lightInputBcg: #f7ffe8 !default;
-$refBcg: #e5e5e5 !default; // $sg
+$refBcg: #e5e5e5 !default; // $sg #c7c7c7 courseCards zigzag bcg vs aliceblue
+
+$cogGreen: #c7f763 !default;
+$cogGray: #b3b3b3 !default;
 
 
 $darkYellow: #ffb600; // $dy
-// $warning: #f2cec2; // $wr
+$trlRed: #f2cec2; // $wr
 // $darkWarning: #3e0f00;
-// $tip: #d3f4a8;
+$trlGreen: #d3f4a8;
 // $darkTip: #1f3304;
-// $quizYellow: #fffe93; // $qy
+$trlYellow: #fffe93; // $qy
 // $quiz: #fdeabc;
 // $linkColor: #bdff3a99;
 // $linkHoverBcg: #fbe989;
@@ -46,7 +49,7 @@ $borderColor: #497118;
 // $highlight: #f7e80649;
 
 // // Resistor colors 
-// $silver: #b0b0b8;
+$silver: #b0b0b8;
 
 // // Arduino colors 
 // $ardLight: rgb(23,161,165);

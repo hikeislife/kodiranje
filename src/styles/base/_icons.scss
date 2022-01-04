@@ -1,31 +1,40 @@
 .icon {
   font-family: 'Kodiranje';
   font-size: 26px;
+  font-display: swap;
+}
+
+.prevIcon::before {
+  content: '\F39E'
+}
+
+.nextIcon::before {
+  content: '\F39F'
 }
 
 // Nav icons
 
-.htmlIcon:before {
+.htmlIcon::before {
   content: '\F3CD';
 }
 
-.cssIcon:before {
+.cssIcon::before {
   content: '\F3CE';
 }
 
-.gitIcon:before {
+.gitIcon::before {
   content: '\F3D8';
 }
 
-.cmdIcon:before {
+.cmdIcon::before {
   content: '\F3D7';
 }
 
-.jsIcon:before {
+.jsIcon::before {
   content: '\F3D2';
 }
 
-.nodeIcon:before {
+.nodeIcon::before {
   content: '\F3D3';
 }
 
@@ -37,21 +46,22 @@
   content: '\f3dc';
 }
 
-.backHome:before {
+.backHome::before {
   content: '\F295';
+  padding-right: 1rem;
 }
 
 // Tools used:
 
-.firefoxIcon:before {
+.firefoxIcon::before {
   content: '\f296';
 }
 
-.chromeIcon:before {
+.chromeIcon::before {
   content: '\f297';
 }
 
-.braveIcon:before {
+.braveIcon::before {
   content: '\f27a';
 }
 
@@ -67,7 +77,7 @@
 //   content: '\f28f';
 // }
 
-// // .windows:before {
+// // .windows::before {
 // //   content: '\f28f'
 // // }
 
@@ -108,11 +118,11 @@
 
 // // For jupyter
 
-// .reload:before {
+// .reload::before {
 //   content: '\F29f';
 // }
 
-// .ff:before {
+// .ff::before {
 //   content: "\F29e";
 // }
 
@@ -124,27 +134,27 @@
   text-shadow: 1px 1px 2px gray;
 }
 
-.unamused:before {
+.unamused::before {
   content: '\1F612'
 }
 
-.smiley:before {
+.smiley::before {
   content: '\1F642';
 }
 
-.sad:before {
+.sad::before {
   content: '\1F61E';
 }
 
-.confused:before {
+.confused::before {
   content: '\1F615';
 }
 
-.duh:before {
+.duh::before {
   content: '\1F616';
 }
 
-.cray:before {
+.cray::before {
   content: '\1F92A';
 }
 
@@ -165,7 +175,7 @@
 }
 // // dev tools 
 
-// .inspectorIcon:before {
+// .inspectorIcon::before {
 //   content: '\F2F1';
 // }
 
@@ -173,6 +183,6 @@
 //   content: '\F2EE';
 // }
 
-// .coronaIcon:before {
+// .coronaIcon::before {
 //   content: '\f29B';
 // }

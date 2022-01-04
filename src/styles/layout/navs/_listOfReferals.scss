@@ -1,0 +1,113 @@
+@media only screen and (max-width: 48rem) { // where sidenav disapears 
+  .sideNav {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    border: 1rem solid $refBcg;
+    z-index: 2;
+
+    ul {
+
+      li {
+        box-shadow: none;
+        border-bottom: 1px solid;
+      }
+
+      li:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+.referalTitle { // titles such as "Reference" & "Sadržaj strane
+  @include boxShadow;
+  border-top: $px solid $borderColor;
+  background: linear-gradient(0deg, rgba(229,229,229,1), rgba(238,255,204,1) 55%); 
+  padding: .5rem 1rem .5rem;
+}
+
+// // nav elements:
+.referalList {
+  margin-top: 0.313rem; // 5px
+}
+
+.sideNav {
+  margin: 0;
+}
+
+.listless {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+// // li elements
+.referalItem { 
+  @include navs;
+  @include boxShadow;
+  @include spread;
+  min-height: 2.5rem;
+  
+  // the > makes this rule not apply to reference list
+  // because if it does, flex makes the line break after arrow
+  & > a { // pageNav and sideNav
+    @include spread;
+    align-items: center;
+  }
+
+  & a {
+    min-height: 2.5rem;
+    padding: 0 1rem;
+    text-decoration: none;
+    font-weight: 900;
+  }
+
+  &:hover {
+    background: $shadow;
+
+    a {
+      color: $bcgColor;
+    }
+  }
+}
+
+.references {
+  ul li {
+    display: grid;
+    grid-template-columns: 3rem auto;
+  }
+
+  .squeezeReferences {
+    @include center;
+    @include spread;
+    min-height: 100%;
+    align-self: center;
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+
+    & a {
+      display: flex;
+      align-items: center;
+      padding-left: 0;
+    }
+  }
+}
+
+@media only screen and (min-width: 48rem) { // where sidenav apears 
+  .sideNav {
+    width: 250px;
+    display: block;
+    position: static;
+    border: none;
+    margin-top: -.5rem;
+    z-index: 0;
+    
+    ul {
+      li {
+        border: none;
+        @include navs;
+        @include boxShadow;
+      }
+    }
+  }
+}

@@ -1,91 +1,173 @@
 * {
-  font-family: $font;
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
   color: $fontColor;
   margin: 0px;
   box-sizing: border-box;
 }
 
 body {
-  overflow-x: hidden;
   background: $bcgColor;
   display: grid;
   grid-template-columns: 250px 1fr;
+  overflow-x: hidden;
 }
 
 main {
   grid-column: 1 / 3;
-  margin: .5rem;
-}
-
-@media only screen and (min-width: 48rem) { // > 768
-  main {
-    grid-column: 2 / 3;
-    margin: 1rem;
-  }
-}
-
-.placeholder {
-  // border-radius: .2em;
-  background-color: $articleBcg;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  text-align: justify;
-  width: 100%;
-}
-
-/// #TODO: FOR MAIN PAGE see if still required (480-768)
-@media only screen and (min-width: 30rem) { 
-  .placeholder {
-    width: calc(100vw - 1rem);
-  }
-}
-
-@media only screen and (min-width: 48rem) {
-  .placeholder {
-    font-size: 1.2rem;
-    width: calc(100vw - 200px - 4rem);
-  }
+  margin-top: -1rem;
 }
 
 article {
-  padding: 2rem 1rem;
-  line-height: 2rem;
+  background-color: $articleBcg;
+  text-align: justify;
+  padding: 2ch;
+  line-height: 1.5rem;
+
+  h1 { // article limits style away from landing page
+    text-align: center;
+    font-size: 1.3rem;
+    line-height: 4rem;
+    text-transform: uppercase;
+    margin: 5rem 0;
+    font-size: 2.5rem;
+    font-weight: bolder;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: $fontColor;
+    color: $bcgColor;
+    text-shadow: 2px 2px 8px honeydew;
+  }
 }
 
-@media only screen and (min-width: 48rem) { //> 768
+@media only screen and (min-width: 30rem) { //> 480px 
+  article {
+    padding: 4ch;
+
+    h1 {
+      font-size: 3rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 36rem) { //> 576px 
+  article {
+    padding: 14vw;
+  }
+}
+
+
+@media only screen and (min-width: 48rem) { //> 768px where side nav appears
+  main {
+    grid-column: 2 / 3;
+  }
+
+  .placeholder {
+  }
+
   article {
     margin: auto;
-    width: 27.5rem;
+    background: transparent;
+    padding: 10vw;
+    background: $articleBcg;
+    margin: 0.5rem;
+    @include boxShadow;
   }
 }
 
-@media only screen and (min-width: 62rem) {
+@media only screen and (min-width: 62rem) { // > 992px
   article {
-    width: 30rem; // 480px
+    padding: 10vw 13vw;
+    max-width: 60rem;
   }
 }
 
-@media only screen and (min-width: 75rem) { // > 1200px
+@media only screen and (min-width: 75rem) { // > 992px
   article {
-    width: 42.5rem; // 680px
+    padding: 5vw 13vw;
+    max-width: 80rem;
   }
 }
 
-article h1 { // article limits style away from landing page
-  text-align: center;
-  font-size: 1.7rem;
-  text-transform: uppercase;
-  line-height: 4rem;
-  border: 1px solid $borderColor;
-  border-radius: 5px;
-  background: $bcgColor;
-  margin: 2.1em -0.7em 2.1em -0.7em; 
-  @include boxShadow;
-  padding: .5rem;
-}
+// body {
+//   overflow-x: hidden;
+//   background: $bcgColor;
+//   display: grid;
+//   grid-template-columns: 250px 1fr;
+// }
 
-@media only screen and (min-width: 48rem) { // >768px
-  article h1 {
-    margin: 3rem auto;
-    line-height: 2.5rem;
-  }
-}
+// main {
+//   grid-column: 1 / 3;
+//   margin: .5rem;
+// }
+
+// @media only screen and (min-width: 48rem) { // > 768
+//   main {
+//     grid-column: 2 / 3;
+//     margin: 1rem;
+//   }
+// }
+
+// .placeholder {
+//   // border-radius: .2em;
+//   background-color: $articleBcg;
+//   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+//   text-align: justify;
+//   width: 100%;
+// }
+
+// /// #TODO: FOR MAIN PAGE see if still required (480-768)
+// @media only screen and (min-width: 30rem) { 
+//   .placeholder {
+//     width: calc(100vw - 1rem);
+//   }
+// }
+
+// @media only screen and (min-width: 48rem) {
+//   .placeholder {
+//     font-size: 1.2rem;
+//     width: calc(100vw - 200px - 4rem);
+//   }
+// }
+
+// article {
+//   padding: 2rem 1rem;
+//   line-height: 2rem;
+// }
+
+// @media only screen and (min-width: 48rem) { //> 768
+//   article {
+//     margin: auto;
+//     width: 27.5rem;
+//   }
+// }
+
+// @media only screen and (min-width: 62rem) {
+//   article {
+//     width: 30rem; // 480px
+//   }
+// }
+
+// @media only screen and (min-width: 75rem) { // > 1200px
+//   article {
+//     width: 42.5rem; // 680px
+//   }
+// }
+
+// article h1 { // article limits style away from landing page
+//   text-align: center;
+//   font-size: 1.7rem;
+//   text-transform: uppercase;
+//   line-height: 4rem;
+//   border: 1px solid $borderColor;
+//   border-radius: 5px;
+//   background: $bcgColor;
+//   margin: 2.1em -0.7em 2.1em -0.7em; 
+//   @include boxShadow;
+//   padding: .5rem;
+// }
+
+// @media only screen and (min-width: 48rem) { // >768px
+//   article h1 {
+//     margin: 3rem auto;
+//     line-height: 2.5rem;
+//   }
+// }

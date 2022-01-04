@@ -1,0 +1,101 @@
+.bottomNav {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 2;
+}
+
+.mobileNav {
+  background: linear-gradient(to bottom, $topNavDarkGreen 50%, $topNavLightGreen 100%);
+  padding-top: .5rem;
+  box-shadow: 0 -1px 2px 0 rgba(0,0,0,.3),0 1px 2px 0 rgba(0,0,0,.3);
+}
+
+.mobNavItems {
+  list-style: none;
+  padding: 0;
+  height: 3.6rem;
+  display: flex;
+  align-items: center; // vert
+  justify-content: space-evenly; // horiz
+
+  li {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    align-content: space-between;
+    height: 100%;
+  }
+
+  li div {
+    overflow: hidden;
+    font-size: .8rem;
+    @include center;
+    padding-bottom: .2rem;
+    cursor: pointer;
+  }
+
+  li .logoCog{
+    display: inline-flex;
+    height: 2.32rem;
+    width: 2.32rem;
+    position: relative;
+    top: 0.2rem;
+  }
+  
+  .burger {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 5rem;
+    top: 6px;
+  }
+}
+
+.bTop, .bMiddle {
+  background: #45473e;
+  height: 23%;
+  width: 100%;
+  border-radius: 33%;
+}
+
+.bMiddle {
+  position: relative;
+  top: 11px;
+}
+
+@media only screen and (min-width: 48rem) { //> 768px where side nav appears
+  .bottomNav {
+    display: none;
+  }
+}
+
+.obscHome, .obscToggle {
+  display: inline-grid;
+  width: 50vw;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    text-decoration: none;
+    @include spread;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.obscToggle {
+  border-left: $px solid $fontColor;
+}
+
+.twoButtons {
+  display: none; //grid;
+  grid-column: 1/3;
+  background: $refBcg;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 3rem;
+  position: fixed;
+  bottom: 4.1rem;
+}

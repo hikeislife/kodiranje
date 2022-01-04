@@ -3,33 +3,33 @@ img:not([alt]) {
   filter: grayscale(100%);
 }
 
-.tt img,
-.ttip img {
-  width: 100%;
-}
+// .tt img,
+// .ttip img {
+//   width: 100%;
+// }
 
-.tri {
-  max-width: 18.75rem;
-}
+// .tri {
+//   max-width: 18.75rem;
+// }
 
-.pet {
-  max-width: 31.25rem;
-}
+// .pet {
+//   max-width: 31.25rem;
+// }
 
-.osam {
-  max-width: 50rem;
-}
+// .osam {
+//   max-width: 50rem;
+// }
 
-figure {
-  text-align: center;
-  margin-top: 2rem; // remaining gap is margin on article
-}
+// figure {
+//   text-align: center;
+//   margin-top: 2rem; // remaining gap is margin on article
+// }
 
-figcaption {
-  font-size: .9rem;
-  line-height: 1rem;
-  margin: .1em 1em 2.6em;
-}
+// figcaption {
+//   font-size: .9rem;
+//   line-height: 1rem;
+//   margin: .1em 1em 2.6em;
+// }
 
 
 
@@ -61,10 +61,10 @@ figcaption {
 // //   }
 // // }
 
-// // .cent {
-// //   text-align: center;
-// //   border: 0;
-// // }
+// .cent {
+//   text-align: center;
+// // //   border: 0;
+// }
 
 
 
@@ -95,4 +95,5 @@ figcaption {
   width: 100%;
   padding: .5rem;
   margin: 2rem 0;
+  background: aliceblue;
 }

@@ -1,5 +1,5 @@
 // top nav
-$logoHeight: 4.4rem; // height of checkered field
+$logoHeight: 4rem; // height of checkered field
 $kodiranjeLength: 259px;
 // $toggleHeight: 1.2rem;
 $topNavHeight: 4rem;
@@ -24,9 +24,10 @@ $margin: 1rem;
 // $cmdPadding: .3125rem;
 // $cmdBorderWidth: 7px;
 
-// // Back to top:
-// $BTT_position: 3.125rem;
-// $BTT_borderBottom: .44rem;
+// Back to top:
+$BTT_position: 3.125rem;
+$BTT_borderBottom: .44rem;
+$BTT_shadow: 1px 1px 5px $silver;
 
 ////////////////////////////////////////////
 

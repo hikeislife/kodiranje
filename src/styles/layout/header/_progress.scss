@@ -1,16 +1,27 @@
 progress {
   width: 100%;
-  position: relative;
-  top: -7px;
-  color: green;
-  background: transparent;
-  height: 7px;
   border: none;
-  display: block;
-  z-index: 3;
+  border-radius: 0;
+  background: transparent;
+  height: .2rem;
+  position: fixed;
+}
+
+progress::-webkit-progress-bar {
+  background: transparent;
 }
 
 progress::-moz-progress-bar,
 progress::-webkit-progress-value {
-  background: green;
+  background: $borderColor;
+}
+
+@media only screen and (min-width: 48rem) { 
+  // > 768px where side nav appears
+  progress {
+    display: none;
+    height: 6px;
+    position: fixed;
+    top: 58px;
+  }
 }

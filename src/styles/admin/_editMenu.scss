@@ -43,7 +43,8 @@ span.editMenuItem:hover {
   grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-items: center;
-  grid-gap: 1em;
+  grid-gap: 1rem;
+  gap: 1rem;
   font-size: 2em;
 
   span {

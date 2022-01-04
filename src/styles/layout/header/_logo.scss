@@ -1,30 +1,49 @@
-.cog {
-  fill:#cdff65; 
-  stroke:#2a2a2c; 
-  stroke-width:5;
-  position: absolute; 
-  z-index: 4;
-  width: 2.5rem; // 40px
-  height: 2.5rem;
+.logoBcg, .logoCog {
+  display: none;
 }
 
-#logoBcg { 
-  height: $logoHeight;
-  background-color: $logoBcg;
+.cogness {
+  fill: $cogGray;
 }
 
-#logoRoundedSquare {
-  fill: none;
-  stroke: $fontColor;
-  stroke-width: 2;
-  width: 35;
-  height: 35;
+.cogBcg {
+  fill: transparent;
 }
 
-#logoText {
-  text {
-    font-size: 3rem; 
-    fill: $fontColor;
+@media only screen and (min-width: 48rem) { //> 768px where side nav appears
+  .logoBcg { 
+    display: block;
+    height: $logoHeight;
+    background-color: $logoBcg;
+  }
+
+  .logoCog {
+    display: block;
+    position: fixed;
+    height: 2.6rem;
+    width: 2.6rem;
+    top: 11px;
+    left: 4px;
+    z-index: 1;
+  }
+
+  .cogness {
+    fill: $cogGreen;
+  }
+
+  #logoRoundedSquare {
+    fill: none;
+    stroke: $fontColor;
+    stroke-width: 2;
+    width: 35px;
+    height: 35px;
+  }
+
+  #logoText {
+    text {
+      font-size: 3rem; 
+      fill: $fontColor;
+    }
   }
 
   .svgTextObscurer {
@@ -33,7 +52,7 @@
     height: 3.2rem;
     animation: $typeWriter;
   }
-
+  
   .svgCursorBlinker {
     fill: $fontColor;
     width: 1.875rem;

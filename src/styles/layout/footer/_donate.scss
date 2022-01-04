@@ -1,7 +1,7 @@
 .donate {
   @include border;
   margin: $topNavHeight $margin;
-  background-color: $quizYellow;
+  background-color: $trlYellow;
   text-align: justify;
 
   p {
@@ -27,9 +27,13 @@
     font-size: 1.2rem;
     font-weight: bold;
 
-    &:active,
-    &:focus {
-      box-shadow: none;
+    a {
+      text-decoration: none;
     }
+
+//     &:active,
+//     &:focus {
+//       box-shadow: none;
+//     }
   }
 }

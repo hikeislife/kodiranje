@@ -1,7 +1,7 @@
 // Side nav handler for mobile
 export default (() => {
   const nav = document.querySelector('.sideNav')
-  const cog = document.querySelector('#cog')
+  const cog = document.querySelector('.mobMenuButton')
   let handler
 
   const closeMenu = () => {
@@ -37,11 +37,6 @@ export default (() => {
 
     window.onresize = handler
   })()
-
-
-
-
-
 })();
 
 

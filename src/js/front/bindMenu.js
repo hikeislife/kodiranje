@@ -1,18 +1,23 @@
 export default function bindMenu() {
   const topMenu = document.querySelector(".topNavWrapper")
   const home = document.querySelector(".backHome")
-  const indicator = document.querySelector('progress')
+  const progress = document.querySelector('progress')
 
-  if (document.body.scrollTop >= 70 || document.documentElement.scrollTop >= 70) {
+  const topBump = 64 
+  const magicWidth = 768
+  const currentWidth = topMenu.parentElement.scrollWidth
+
+  if ((document.body.scrollTop >= topBump || document.documentElement.scrollTop >= topBump) && currentWidth >= magicWidth) {
+    console.log(currentWidth)
     topMenu.classList.add("fixed-top")
     home.style.visibility = "visible"
-    indicator.style.position = "fixed"
-    indicator.style.top = '58px'
+    progress.style.display = "block"
+    progress.style.position = "fixed"
+    progress.style.top = '58px'
   }
   else {
     topMenu.classList.remove("fixed-top")
     home.style.visibility = "hidden"
-    indicator.style.position = "relative"
-    //indicator.style.top = '-5px'
+    progress.style.top = '0px'
   }
 }

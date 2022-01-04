@@ -1,109 +1,70 @@
-header {
-  grid-column: 1 / 3;
-  position: relative; // for themeToggle
+header { 
+  // needs to fit only tiny undisruptive progress bar on mobile
+  height: .2rem;
+  top: 0;
+  z-index: 1;
+  grid-column: 1/3;
 }
 
 .topNavWrapper {
-  @include spread;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: linear-gradient(to bottom, $topNavDarkGreen 50%, $topNavLightGreen 100%);
-  padding-left: 4rem; // bumped away from the cog
-  width: 100vw; // position fixed added thr js, shrinks it
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  height: $topNavHeight;
-  z-index: 3; // #TODO: check if this is needed
-  text-transform: uppercase;
-}
-
-.topNav {
-  @include center;
-  height: 100%;
-
-  & .active {
-    font-weight: bolder;
-  }
-}
-
-.menuitems {
-  padding: .6rem;
-  border-right: 1px solid;
-  text-shadow: $px $px $diffusedShadow $shadow;
-  
-  & a  {
-    text-decoration: none;
-
-    & span::before {
-      color: $darkYellow;
-    }
-  }
-
-  &:last-child {
-    border-right: none;
-  } 
-}
-
-.menu-lg {
   display: none;
 }
 
-.menu-sm {
-  @include spread;
-}
-
-.fixed-top { // class will throug js fix the top nav to the top of the screen
+.fixed-top { // via js will fix the top nav to the top of the screen
   position: fixed !important;
   top: 0;
 }
 
-@media only screen and (min-width: 48rem) { // > 768
+@media only screen and (min-width: 48rem) { 
+  // > 768px where side nav appears
+  header {
+    height: unset;
+//   position: relative; // for themeToggle
+  }
+
   .topNavWrapper {
-    padding-left: 0;
-  }
-
-  .topNav {
-
-    .menu-lg {
-      @include spread;
-      @include center;
-      text-shadow: .03rem .03rem .03rem darkslategray;
-      white-space: nowrap;
-      padding: 1rem;
-    }
-
-    & .active {
-      @include spread;
-      background: $topNavDarkGreen;
-      font-weight: bolder;
-
-      .menu-lg {
-        text-decoration: underline !important;
-      }
-    }
-  }
-
-  .menuitems {
     @include spread;
-    font-size: 1rem;
-    width: minmax(8rem, fit-content);
-    padding: 0;
-        
-    a {
-      @include spread;
-    }
+    height: $topNavHeight;
+    display: flex;
+    justify-content: space-between; // affects only home button
+    align-items: center; // vert
+    background: linear-gradient(to bottom, $topNavDarkGreen 50%, $topNavLightGreen 100%);
+    padding-left: 3rem; // bumped away from the cog
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+//   z-index: 3; // #TODO: check if this is needed
+    text-transform: uppercase;
+    margin-bottom: 1rem;
   }
 
   .menu-sm {
     display: none;
   }
 
-  .menu-lg {
+  .topNav {
     @include spread;
-    @include center;
-    position: relative; // for before
+    white-space: nowrap;
+    // gap: 1rem;
+    text-shadow: .03rem .03rem .03rem darkslategray;
 
-    &:before {
+    & .active {
+      font-weight: bolder;
+      background: $topNavDarkGreen;
+    }
+  }
+
+  .menuitems {
+    padding-inline: 1rem;
+    position: relative; // for ::before
+    @include center; // makes anim go from center out
+    width: fit-content;
+    border-right: 1px solid;
+        
+    a {
+      @include center;
+      @include spread;
+    }
+
+    &::before {
       content: '';
       width: 0%;
       height: .3rem;
@@ -118,32 +79,9 @@ header {
         width: 100%;
       }
     }
-  }
-}
 
-//// ????????????????????????????????????????????????????????????
-
-// @media only screen and (max-width: 36rem) {
-//   .menuitems {
-//     white-space: nowrap;
-//   }
-
-//   .topNav {
-//     position: relative;
-//     left: -.5rem;
-//   }
-// }
-
-
-
-/////// BEYOND THE FOLD ///////
-
-.backHome {
-  font-size: 1.5em;
-  visibility: hidden;
-  margin-right: 1rem;
-
-  &::before {
-    margin-right: 1rem;
+    &:first-child {
+      border-left: $px solid;
+    } 
   }
 }

@@ -1,20 +1,16 @@
-<div id="logoBcg">
-  <svg id="logo" preserveAspectRatio="none" style="height: 70px;width: 100vw; position: relative;">
-    {{>basics/header/logo/cogAnimation}}
+<div class="logoBcg" id="logoBcg">
+  <svg class="logo" preserveAspectRatio="none" style="height: 70px;width: 100vw; position: relative;">
+    {{>basics/header/logo/cog/cogAnimation}}
 
     <title>Kodiranje_ logo</title>
     <desc>logo sajta</desc>
     
     {{>basics/header/logo/kodiranje}}
-    {{>basics/header/logo/logoBcg}}
+    {{>basics/header/logo/bcg}}
     {{>basics/header/logo/roundedSquare}}
     {{>basics/header/logo/fakeSelection}}
     
-    <g transform="scale(0.2) translate(15 50)" id="cog">
-      {{>basics/header/logo/cog/cogness}}
-      <circle id="cogBcg" r="49.816082" cy="102.78233" cx="103.92336" style="fill:#ffffff" />
-      {{>basics/header/logo/cog/contour}}
-      {{>basics/header/logo/cog/burger}}
-    </g>
+    
   </svg>
 </div>
+{{>basics/header/logo/cog/cog}}
