@@ -1,21 +1,31 @@
 <article>
   <h1>Kursevi</h1>
-  <table>
+  <table class="centeredTable">
     <tbody>
       {{#each kursevi}}
       <tr>
         <td>{{increment order}}</td>
         <td class="{{#if active}}aktvanKurs{{else}}neaktanKurs{{/if}}">{{name}}</td>
-        <td><a href="/admin/detalji-kursa/{{_id}}" class="nocolor"><button class="adminButton admin-detailsButton"></button></a></td>
-        <td><a href="/admin/izmeni-kurs/{{_id}}" class="nocolor"><button class="adminButton admin-editButton"></button></a></td>
+
+        <td><a href="/admin/detalji-kursa/{{_id}}" class="nocolor"><button
+              class="admin-btn admin-detailsBtn"></button></a></td>
+
+        <td><a href="/admin/izmeni-kurs/{{_id}}" class="nocolor"><button
+              class="admin-btn admin-editBtn"></button></a></td>
+
         <td>{{#if active}}{{else}}
-        <a href="/admin/ukloni-kurs/{{_id}}" class="nocolor"><button class="adminButton admin-warningButton"></button></a>
-        {{/if}}</td>
+          <a href="/admin/ukloni-kurs/{{_id}}" class="nocolor"><button
+              class="admin-btn admin-warningBtn"></button></a>
+          {{/if}}
+        </td>
       </tr>
       {{/each}}
     </tbody>
   </table>
-  <a href="/admin/dodaj-kurs/" class="nocolor"><button class="wideAdminButton admin-newButton">Dodaj kurs</button></a>
-  <a href="/admin/reorganizuj-kurseve/" class="nocolor"><button class="wideAdminButton admin-reorderButton">Reorganizuj kurseve</button></a>
-  
+  <a href="/admin/dodaj-kurs/" class="nocolor"><button
+      class="wideAdminButton admin-btn admin-newButton">Dodaj kurs</button></a>
+  <a href="/admin/reorganizuj-kurseve/" class="nocolor"><button
+      class="wideAdminButton admin-btn admin-reorderButton">Reorganizuj
+      kurseve</button></a>
+
 </article>

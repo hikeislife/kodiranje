@@ -1,8 +1,3 @@
-// const cookies = document.cookie
-// console.log(cookies)
-
-// console.log('log me in')
-
 const handleRedirect = () => {
   window.location = `../admin/svi-artikli/`
 }
@@ -57,12 +52,17 @@ const handleLogin = async e => {
   else if (response.token) {
     adminError.style.display = 'none'
     localStorage.setItem('token', response.token)
-    document.cookie = `token=${response.token}`
+    const d = new Date()
+
+    d.setTime(d.getTime() + 24 * 60 * 60 * 1000) // in a day, in milliseconds
+
+    const expires = `;expires=${d.toUTCString()};`
+    document.cookie = `token=${response.token}${expires}`
     handleRedirect()
   }
 }
 
 const login = (() => {
-  const button = document.querySelector('.admin-loginButton')
+  const button = document.querySelector('.admin-loginBtn')
   button.addEventListener('click', handleLogin)
 })()

@@ -1,0 +1,141 @@
+fieldset {
+  background-image: url($solBcg);
+  border-radius: $borderRadius;
+}
+
+.adminInput {
+  position: relative; // for adminCounters
+
+  * {
+    width: 100%;
+  }
+
+  input {
+    font-size: 1.2rem;
+    padding: .2em .4em;
+    border-radius: $borderRadius;
+    background: $bcgColor;
+    outline: none;
+
+    &:focus {
+      @include border;
+      padding: .2em .4em;
+    }
+  }
+
+  label {
+    display: inline-block; // so text doesn't stretch 
+    margin: 1rem 0 .2rem;
+  }
+
+  textarea {
+    background: $bcgColor;
+    resize: vertical;
+  }
+
+  textarea#articleContent {
+    height: 20rem;
+    padding: 1rem;
+    outline: none;
+    border-radius: $borderRadius;
+
+    &:focus {
+      @include border;
+      outline: none;
+    }
+  }
+
+  select {
+    font-size: 1.2rem;
+    background: $bcgColor;
+    border-radius: $borderRadius;
+  }
+
+  .adminCounter {
+    position: absolute;
+    display: inline-block;
+    max-width: min-content;
+    right: .5rem;
+    text-align: right;
+    font-size: .8rem;
+  }
+
+  input[type="file"] { // hides file upload button
+    display: none;
+  }
+
+  label[for="socImage"] {
+    @include border;
+    display: flex;
+    flex-direction: column;
+    background: $bcgColor;
+    border: dashed;
+    padding: 2rem;
+    margin: 2rem 0;
+    text-align: center;
+    cursor: pointer;
+
+    &::before {
+      font-family: Kodiranje;
+      content: '\F2CA';
+      font-size: 3rem;
+    }
+  }
+}
+
+.moveToFloatingMenu {
+  position: fixed;
+  height: 2rem;
+  width: 2rem;
+  left: 17.9rem;
+  top: 11.4rem;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+
+  #published {
+    display: none;
+  }
+}
+
+
+
+.reorderCheckbox { // Label
+  position: absolute;
+  width: calc(2rem - 4px);
+  height: calc(2rem - 4px);
+  border: 4px solid $fontColor;
+  border-radius: 50%;
+  background: $bcgColor;
+
+  &:after {
+    content: '';
+    display: inline-flex;
+    justify-content: center;
+    align-content: center;
+    font-size: 1.7rem;
+    position: absolute;
+    top: -6px;
+    left: -4px;
+  }
+}
+
+input[type="checkbox"]:checked ~ label[for="active"]:after,
+input[type="checkbox"]:checked ~ label[for]:after {
+  font-family: Kodiranje;
+  content: "\F2C2";
+}
+
+// @media only screen and (min-width: 48rem) {
+//   .reorderCheckbox {
+//     top: -2.6rem;
+//     // right: .5rem;
+//   }
+// }
+
+// @media only screen and (min-width: 48rem) {
+//   .moveToFloatingMenu {
+//     top: 10.2rem;
+//     right: .5rem;
+//   }
+// }

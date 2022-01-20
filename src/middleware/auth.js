@@ -4,7 +4,7 @@ const Admin = require('../db/models/admin')
 const auth = async (req, res, next) => {
   try {
     const cookie = await req.header('Cookie')
-    console.log(cookie)
+
     const cookies = cookie.split(';')
     let token = ''
     cookies.forEach(x => {
@@ -12,7 +12,9 @@ const auth = async (req, res, next) => {
         token = x.split('=')[1]
       }
     })
+    // console.log(`iz auth ${token}`)
     const decoded = jwt.verify(token, process.env.JWT_P_KEY)
+
     const admin = await Admin.findOne({
       _id: decoded._id,
       'tokens.token': token
@@ -24,7 +26,8 @@ const auth = async (req, res, next) => {
     req.data.user = admin.name
     next()
   } catch (er) {
-    console.log('there be an error matey: ' + er)
+
+    // console.log('there be an error matey: ' + er)
     res.status(403).redirect('/admin')
   }
 }

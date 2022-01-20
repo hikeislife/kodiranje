@@ -1,175 +1,65 @@
 <article>
   <h1>Lista svih artikala</h1>
-  {{#if token}}<p>{{token}}</p>{{/if}}
-  <a href="/admin/dodaj-lekciju" class="nocolor"><button class="wideAdminButton admin-newButton">Dodaj novu
+  {{#if admin}}<p>Ulogovani ste kao {{admin}}</p>{{/if}}
+
+  <a href="/admin/dodaj-lekciju" class="nocolor"><button
+      class="admin-wideBtn admin-btn admin-newBtn">Dodaj novu
       lekciju</button></a>
+  {{#each courses2}}<p>{{name}} {{setId}}</p>{{/each}}
+
+
   <div class="column">
     <div class="published">
       <h2>Objavljeni</h2>
-      <details>
+
+      {{#each courses}}
+      <details class="listAllArticles">
         <summary>
-          <p>Front page</p>
+          {{name}} <span class="sum"></span>
         </summary>
-        {{#each publishedArticles}}
-        {{#if (eq courseName "mp")}}
-        <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
+        {{#each ../publishedArticles}}
+        {{#if (eq courseName ../setId)}}
+        <p><a href="/admin/{{courseName}}/{{selectedURL}}" class="nocolor">{{navName}}</a>
+        </p>
         {{/if}}
         {{/each}}
       </details>
-      <details>
-        <summary>
-          <p>Html i css</p>
-        </summary>
-        {{#each publishedArticles}}
-        {{#if (eq courseName "html-i-css")}}
-        <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
-        {{/if}}
-        {{/each}}
-      </details>
-      <details>
-        <summary>
-          <p>JavaScript</p>
-        </summary>
-        {{#each publishedArticles}}
-        {{#if (eq courseName "javascript")}}
-        <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
-        {{/if}}
-        {{/each}}
-      </details>
-      <details>
-        <summary>
-          <p>Git</p>
-        </summary>
-        {{#each publishedArticles}}
-        {{#if (eq courseName "git-i-cmd")}}
-        <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
-        {{/if}}
-        {{/each}}
-      </details>
-      <details>
-        <summary>
-          <p>Arduino</p>
-        </summary>
-        {{#each publishedArticles}}
-        {{#if (eq courseName "arduino")}}
-        <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
-        {{/if}}
-        {{/each}}
-      </details>
-      <details>
-        <summary>
-          <p>Python</p>
-        </summary>
-        {{#each publishedArticles}}
-        {{#if (eq courseName "python")}}
-        <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
-        {{/if}}
-        {{/each}}
-      </details>
-      <details>
-        <summary>
-          <p>C#</p>
-        </summary>
-        {{#each publishedArticles}}
-        {{#if (eq courseName "csharp")}}
-        <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
-        {{/if}}
-        {{/each}}
-      </details>
-      <details>
-        <summary>
-          <p>Docker</p>
-        </summary>
-        {{#each publishedArticles}}
-        {{#if (eq courseName "docker")}}
-        <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
-        {{/if}}
-        {{/each}}
-      </details>
+      {{/each}}
+
+
     </div>
     <div class="notPublished">
       <h2>Neobjavljeni</h2>
-      <details>
+
+      {{#each courses}}
+      <details class="listAllArticles">
         <summary>
-          <p>Front page</p>
+          {{name}} <span class="sum"></span>
         </summary>
-        {{#each notPublished}}
-        {{#if (eq courseName "mp")}}
-        <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
+        {{#each ../notPublished}}
+        {{#if (eq courseName ../setId)}}
+        <p><a href="/admin/{{courseName}}/{{selectedURL}}" class="nocolor">{{navName}}</a>
+        </p>
         {{/if}}
         {{/each}}
       </details>
-      <details>
-        <summary>
-          <p>Html i css</p>
-        </summary>
-        {{#each notPublished}}
-        {{#if (eq courseName "html-i-css")}}
-        <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
-        {{/if}}
-        {{/each}}
-      </details>
-      <details>
-        <summary>
-          <p>JavaScript</p>
-        </summary>
-        {{#each notPublished}}
-        {{#if (eq courseName "javascript")}}
-        <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
-        {{/if}}
-        {{/each}}
-      </details>
-      <details>
-        <summary>
-          <p>Git</p>
-        </summary>
-        {{#each notPublished}}
-        {{#if (eq courseName "git-i-cmd")}}
-        <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
-        {{/if}}
-        {{/each}}
-      </details>
-      <details>
-        <summary>
-          <p>Arduino</p>
-        </summary>
-        {{#each notPublished}}
-        {{#if (eq courseName "arduino")}}
-        <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
-        {{/if}}
-        {{/each}}
-      </details>
-      <details>
-        <summary>
-          <p>Python</p>
-        </summary>
-        {{#each notPublished}}
-        {{#if (eq courseName "python")}}
-        <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
-        {{/if}}
-        {{/each}}
-      </details>
-      <details>
-        <summary>
-          <p>C#</p>
-        </summary>
-        {{#each notPublished}}
-        {{#if (eq courseName "csharp")}}
-        <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
-        {{/if}}
-        {{/each}}
-      </details>
-      <details>
-        <summary>
-          <p>Docker</p>
-        </summary>
-        {{#each notPublished}}
-        {{#if (eq courseName "docker")}}
-        <p><a href="/admin/{{courseName}}/{{selectedURL}}">{{navName}}</a></p>
-        {{/if}}
-        {{/each}}
-      </details>
+      {{/each}}
     </div>
 
   </div>
 </article>
+
+<script>
+  const lists = document.querySelectorAll('details')
+
+  lists.forEach(x => {
+    const items = x.querySelectorAll('p')
+    const counter = x.querySelector('.sum')
+    counter.innerHTML = `(${items.length})`
+  })
+</script>
+{{!-- <ul>
+  {{#each courses}}
+  <li>{{@index}} {{@key}} {{this}}</li>
+  {{/each}}
+</ul> --}}

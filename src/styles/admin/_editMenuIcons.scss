@@ -1,0 +1,136 @@
+span.editMenuItem {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2em;
+  height: 2em;
+  font-family: Kodiranje;
+  font-weight: bold;
+}
+
+.showMeCode:before {
+  font-family: Kodiranje;
+  content: '\F2D8';
+  font-weight: bold;
+}
+
+.showMeGui:before {
+  font-family: Kodiranje;
+  content: '\F2D9';
+  font-weight: bold;
+}
+
+.headings:before {
+  content: '\F2E0';
+}
+
+.grayHighlight {
+  color: $bcgColor;
+    
+  &:before {
+    content: '\F2E8'
+  }
+}
+
+.greenHighlight {
+  color: $topNavLightGreen;
+
+  &::before {
+    content: '\F2E4';
+  }
+}
+
+.quotation::before {
+  content: '\F34B';
+}
+
+.tooltip::before {
+  content: '\F2E9';
+  color: $darkYellow;
+}
+
+.insertImg:before {
+  content: '\F2CA';
+}
+
+.insDetails::before {
+  content: '\F396';
+}
+
+.extLink::before {
+  content: '\F2EB';
+}
+
+.intLink::before {
+  content: '\F2EA';
+}
+
+.ref::before {
+  content: '\F2EC';
+}
+
+.sb {
+  &::before {
+    content: '\F2DE';
+  }
+}
+
+.sb-tip {
+  color: $topNavDarkGreen;
+}
+
+.sb-warning {
+  color: $warning;
+}
+
+.sb-quiz {
+  color: $darkYellow;
+}
+
+.sb-why, .sb-bug {
+  color: $darkYellow;
+}
+
+.sb-sol {
+  color: wheat;
+}
+
+.terminal::before {
+  content: '\F3D7';
+}
+
+.cons::before {
+  content: '\F2EE';
+}
+
+.ard::before {
+  content: '\F3EC';
+  color: $ardLight;
+}
+
+
+
+.insCode::before {
+  content: '\F2DA';
+}
+
+.pinkCode::before {
+  color: deeppink;
+}
+
+.greenCode::before {
+  color: seagreen;
+}
+
+.violetCode::before {
+  color: darkviolet;
+}
+
+.blueCode::before {
+  color: royalblue;
+}
+
+.spell::before {
+  content: '\f2f0';
+  color: red;
+}

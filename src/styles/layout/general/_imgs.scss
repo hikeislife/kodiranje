@@ -1,0 +1,96 @@
+// warn me if I forget to add alt attribute:
+img:not([alt]) {
+  filter: grayscale(100%);
+}
+
+.tt img,
+.ttip img {
+  width: 100%;
+}
+
+.tri {
+  max-width: 18.75rem;
+}
+
+.pet {
+  max-width: 31.25rem;
+}
+
+.osam {
+  max-width: 50rem;
+}
+
+figure {
+  text-align: center;
+  margin-top: 2rem; // remaining gap is margin on article
+}
+
+figcaption {
+  font-size: .9rem;
+  line-height: 1rem;
+  margin: .1em 1em 2.6em;
+}
+
+.responsive {
+  // width: 80%;
+//   height: auto;
+  // text-align: center;
+//   margin: 1em .5em 0 1.4em;
+}
+
+// // @media only screen and (max-width: 40em) {
+// //   figure {
+// //     margin: -1em 0.35em 2em -3.4em;
+// //   }
+
+// //   details {
+// //     figure {
+// //       margin: auto;
+
+// //       .responsive {
+// //         width: 80%;
+// //       }
+// //     }
+  
+// //   }
+
+// //   .responsive {
+// //     width: 100%;
+// //     //margin: 0 -1em 0 -2em;
+// //   }
+// // }
+
+// // @media only screen and (min-width: 40em) {
+// //   .responsive {
+// //     margin: 0;
+// //   }
+// // }
+
+// // .cent {
+// //   text-align: center;
+// //   border: 0;
+// // }
+
+
+
+// // // article > section > figure:first-child {
+// // //   margin-top: 1em;
+// // // }
+
+
+
+// // @media only screen and (min-width: 40em) {
+// //   figcaption {
+// //     margin: 0;
+// //   }
+// // }
+
+// // figure .ttt {
+// //   display: none;
+// // }
+
+// // @media only screen and (min-width: 40em) {
+// //   figure .ttt {
+// //     display: inline-block;
+// //   }
+// // }

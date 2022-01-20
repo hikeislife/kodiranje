@@ -1,0 +1,138 @@
+.column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+
+  * {
+    font-size: 1rem;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
+
+.editContent:focus,
+.editContent:active { // content editable div
+  outline: $px dotted $shadow; // important for chrome where outline is as thick and as dark as borders on this page
+  outline-offset: $margin;
+}
+
+// .adminInput {
+//   position: relative; // For counter
+//   margin: 2em 0;
+  // top: 5px;
+  // left: 57px;
+// }
+
+// span[data-counter] {
+//   font-size: .8rem;
+//   position: absolute;
+//   top: 3.2rem;
+//   right: .5rem;
+//   z-index: 1;
+//   color: $lightSideNavHover;
+// }
+
+// label {
+//   display: flex;
+//   align-items: center;
+//   // margin-bottom: 2em;
+// }
+// label[for]:after {
+//   font-size: 40px;
+//   font-weight: bold;
+// }
+
+// .m2r {
+//   padding-right: 2.5em;
+// }
+
+// /* js added class */
+// .redColor {
+//   color: firebrick !important;
+// }
+
+// .added-items {
+//   position: relative;
+//   margin-right: 0;
+//   padding: 1em;
+//   border: 2px solid $mainFont;
+//   border-radius: $inputBorderRadius;
+// }
+
+// .added-items li {
+//   background: rgb(140, 224, 102);
+//   display: grid;
+//   grid-template-columns: 80% auto;
+//   align-items: center;
+//   justify-content: center;
+//   position: absolute;
+//   border: 2px solid $mainFont;
+//   border-radius: $inputBorderRadius;
+//   padding: 1em;
+//   width: calc(100% - 2em - 4px);
+//   height: 85px;
+//   cursor: move;
+//   margin: 1em auto;
+  
+//   &.inactive-item {
+//     background: lightgray;
+//   }
+// }
+
+// .placeholder .adminError {
+//   background: $wr;
+//   color: ivory;
+//   padding: .5em;
+//   text-align: center;
+//   border-radius: .3em;
+//   text-shadow: 1px 1px 1px black; 
+//   font-weight: bolder;
+//   box-shadow: 1px 1px 1px black;
+// }
+
+// .adminButton {
+//   width: 100px;
+// }
+
+// .dragged {
+//   background-color:$mainG !important;
+//   color: white;
+//   border: white !important;
+// }
+
+// .editContent {
+//   position: relative;
+// }
+
+// .showMeGUI, .showMeCode {
+//   cursor: pointer;
+// }
+
+// label[for=dugme] {
+//   border: 1px solid $mainFont;
+//   text-align: center;
+//   height: 2em;
+//   border-radius: $inputBorderRadius;
+//   background: $buttonBackground;
+//   box-shadow: 1px 1px 2px gray;
+//   display: inline-flex;
+//   align-items: center;
+//   justify-content: center;
+  
+//   &:hover {
+//     cursor: pointer;
+//     background: $dy;
+//   }
+
+//   &:active {
+//     box-shadow: -1px -1px 2px gray;
+//   }
+// }
+
+// #dugme {
+//   display: none;
+// }

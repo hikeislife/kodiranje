@@ -1,54 +1,54 @@
-@import "_base/_variables";
-@import "_base/_colors";
-@import "_base/_mixins";
-@import "_base/_icons";
-@import "_base/_common";
-@import "_base/_urls";
+@import "base/variables";
+@import "base/mixins";
+@import "base/icons";
+@import "base/urls";
+@import "base/colors";
+@import "base/common";
 
-@import "_layout/_header/_topNav";
-@import "_layout/_header/_logo";
-@import "_layout/_header/_cog";
-@import "_layout/_header/_headerBottom";
+@import "layout/header/topNav";
+@import "layout/header/logo";
+@import "layout/header/cog";
 
-@import "_layout/_mainPage/_mainPage";
-@import "_layout/_mainPage/_grid";
-@import "_layout/_mainPage/_zigZagColors";
+@import "layout/main";
+@import "layout/sideNav.scss";
+@import "layout/pageNav";
 
-@import "_layout/_pageNav";
-@import "_layout/_main";
-@import "_layout/_sideNav.scss";
+@import "layout/mainPage/mainPage";
+@import "layout/mainPage/grid";
+@import "layout/mainPage/zigZagColors";
 
-@import "_layout/_footer/_footer";
-@import "_layout/_footer/_donate";
-@import "_layout/_footer/_cog";
-@import "_layout/_footer/_icons";
 
-@import "_layout/_general/_imgs";
-@import "_layout/_general/_links";
-@import "_layout/_general/_lists";
-@import "_layout/listOfReferals";
+@import "layout/footer/footer";
+@import "layout/footer/donate";
+@import "layout/footer/cog";
+@import "layout/footer/icons";
 
-@import "_modules/_details";
-@import "_modules/_superboxes";
-@import "_modules/_blockquotes";
-@import "_modules/_cmd";
-@import "_boxes/_arduino";
-@import "_boxes/_jupyter";
-@import "_boxes/_console";
-@import "_boxes/_devTools";
+@import "layout/general/imgs";
+@import "layout/general/links";
+@import "layout/general/lists";
+@import "layout/general/listOfReferals";
+@import "layout/general/table";
 
-@import "_utilities/_backToTop";
-@import "_utilities/_toolTips";
-@import "_utilities/_table";
-@import "_utilities/_themeToggle";
+@import "modules/details";
+@import "modules/superboxes";
+@import "modules/blockquotes";
+@import "modules/cmd";
+@import "boxes/arduino";
+@import "boxes/jupyter";
+@import "boxes/console";
+@import "boxes/devTools";
 
-@import "_admin/_editMenu";
-@import "_admin/_editMenuIcons.scss";
-@import "_admin/_editMenuHelpers";
-@import "_admin/_floatingMenu";
-@import "_admin/_adminButtons";
-@import "_admin/_admin";
-@import "_admin/_forms";
+@import "utilities/backToTop";
+@import "utilities/toolTips";
+@import "utilities/themeToggle";
+
+@import "admin/editMenu";
+@import "admin/editMenuIcons.scss";
+@import "admin/editMenuHelpers";
+@import "admin/floatingMenu";
+@import "admin/adminButtons";
+@import "admin/admin";
+@import "admin/forms";
 
 @import "sideWaysNav";
 @import "a2a";

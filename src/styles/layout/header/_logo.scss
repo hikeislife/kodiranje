@@ -1,0 +1,50 @@
+#header-top {
+  height: $logoHeight;
+  background-color: $logoBcg;
+}
+
+#rounded-square {
+  fill: none;
+  stroke: $fontColor;
+  stroke-width: 2;
+  width: 35;
+  height: 35;
+}
+
+#logo-text {
+  text {
+    font-size: 3rem; 
+    fill: $fontColor;
+  }
+
+  .svgTextObscurer {
+    fill: $logoBcg;
+    width: $kodiranjeLength;
+    height: 3.2rem;
+    animation: $typeWrite;
+  }
+
+  .svgCursorBlinker {
+    fill: $fontColor;
+    width: 1.875rem;
+    height: $borderWidth;
+    animation: blinker .8s linear .5s 6, $typeWrite;
+  }
+}
+
+
+
+@keyframes typeWrite {
+  to { 
+    transform: translate($kodiranjeLength, 0px) 
+  }
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 1
+  }
+  100% {
+    opacity: 0
+  }
+}

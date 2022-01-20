@@ -1,0 +1,35 @@
+.donate {
+  @include border;
+  margin: $topNavHeight $margin;
+  background-color: $quizYellow;
+  text-align: justify;
+
+  p {
+    margin: $margin 0;
+  }
+
+  p:first-child {
+    margin-top: 0;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.donateBtn {
+  text-align: center;
+
+  button {
+    @include boxShadow;
+    @include border;
+    background: $darkYellow;
+    font-size: 1.2rem;
+    font-weight: bold;
+
+    &:active,
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}

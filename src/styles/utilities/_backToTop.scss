@@ -1,0 +1,23 @@
+$BTT_shadow: 1px 1px 5px $silver;
+
+.backToTop {
+  position: fixed;
+  bottom: $BTT_position;
+  right: $BTT_position;
+  width: $BTT_position;
+  height: $BTT_position;
+  background: $bcgColor;
+  color: $fontColor;
+  border-bottom: $BTT_borderBottom solid $topNavLightGreen;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px 5px 0 0;
+  box-shadow: $BTT_shadow;
+  text-shadow: $BTT_shadow;
+
+  &:hover {
+    border-bottom: $BTT_borderBottom solid $darkYellow;
+    box-shadow: 1px 1px 5px $darkYellow;
+  }
+}

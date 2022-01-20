@@ -15,7 +15,6 @@ adminRouter.get('/admin', signedIn, (req, res) => {
 // POST/login
 adminRouter.post('/admin/login', async (req, res) => {
   try {
-
     const admin = await Admin.findByCredentials(req.body.username, req.body.password)
 
     let token = ''
@@ -67,7 +66,7 @@ adminRouter.get('/admin/dodaj-admina', auth, (req, res) => {
 // POST/addNewAdmin  ~  register
 adminRouter.post('/admin/addNewAdmin/', auth, async (req, res, body) => {
   const newAdmin = new Admin(req.body)
-  console.log(req)
+  // console.log(req)
   try {
     await newAdmin.save()
     const admin = await Admin.findById(newAdmin._id).select('-password -__v -tokens')

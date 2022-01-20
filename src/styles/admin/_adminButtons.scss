@@ -1,0 +1,186 @@
+.admin-btn {
+  @include boxShadow;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 2rem 0;
+  height: 4rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &::before {
+    font-family: Kodiranje;
+    font-size: 2rem;
+  }
+}
+
+.admin-wideBtn {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 60%;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin-loginBtn {
+  background: $topNavLightGreen;
+  text-shadow: 1px 1px 15px $warning;
+
+  &:hover {
+    background: $topNavDarkGreen;
+  }
+
+  &:active {
+    color: $darkYellow;
+  }
+
+  &:before {
+    content: '\F2BB';
+  }
+}
+
+.admin-newBtn {
+  background: $topNavLightGreen;
+  text-shadow: 1px 1px 15px $warning;
+
+  &:hover {
+    background: $topNavDarkGreen;
+  }
+
+  &:active {
+    color: $darkYellow;
+  }
+
+  &:before {
+    content: '\F2C1';
+  }
+}
+
+.admin-detailsBtn {
+  background: $darkYellow;
+  width: 4rem;
+  height: 4rem;
+  text-shadow: 1px 1px 15px ivory;
+
+  &:hover {
+    background: rgb(255, 199, 59);
+  }
+
+  &:before {
+    font-family: Kodiranje;
+    content: '\F355';
+  }
+}
+
+.admin-editBtn {
+  background: $darkYellow;
+  width: 4rem;
+  height: 4rem;
+  text-shadow: 1px 1px 15px ivory;
+
+  &:hover {
+    background: rgb(255, 199, 59);
+  }
+
+  &:before {
+    font-family: Kodiranje;
+    content: '\F2C5';
+  }
+}
+
+.admin-warningBtn {
+  background: tomato;
+  width: 4rem;
+  height: 4rem;
+  text-shadow: 1px 1px 15px red;
+
+  &:hover {
+    background: rgb(240, 62, 62);
+  }
+
+  &:before {
+    font-family: Kodiranje;
+    content: '\F2BD';
+  }
+}
+
+
+
+
+
+
+// .admin-allButton {
+//   background: $dy;
+//   width: 4em;
+//   height: 4em;
+//   text-shadow: 1px 1px 15px ivory;
+//   font-size: 1em;
+
+//   &:hover {
+//     background: rgb(255, 199, 59);
+//   }
+
+//   &:before {
+//     font-family: Kodiranje;
+//     content: '\F2C7';
+//     font-size: 2em;
+//   }
+// }
+
+// .admin-reorderButton {
+//   background: $dy;
+//   width: 4em;
+//   height: 4em;
+//   text-shadow: 1px 1px 15px ivory;
+//   font-size: 1em;
+
+//   &:hover {
+//     background: rgb(255, 199, 59);
+//   }
+
+//   &:before {
+//     font-family: Kodiranje;
+//     content: '\F2BE';
+//     font-size: 2em;
+//   }
+// }
+
+
+// .admin-saveButton {
+//   background: $mainG;
+//   width: 4em;
+//   height: 4em;
+//   text-shadow: 1px 1px 15px $wr;
+//   font-size: 1em;
+
+//   &:hover {
+//     background: $dg;
+//     color: $mainFont;
+//   }
+
+//   &:active {
+//     color: $dy;
+//   }
+
+//   &:before {
+//     font-family: Kodiranje;
+//     content: '\F2B8';
+//     font-size: 2em;
+//   }
+// }
+
+
+// .adminButton {
+  // display: flex;
+  // align-items: center;
+  // width: 4em;
+  // height: 4em;
+//   justify-content: center;
+//   font-size: 1em;
+//   box-shadow: 1px 1px 2px rgb(128, 128, 128);
+
+//   &:hover {
+//     cursor: pointer;
+//   }
+// }

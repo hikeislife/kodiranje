@@ -1,8 +1,8 @@
 import bindMenu from "./js/front/bindMenu.js"
 import mobileSideNavHandler from './js/front/mobileSideNav.js'
 import copyd from "./js/front/copyDate.js"
-import createPageNav from "./js/front/pageNav.js"
-import renderReferenceList from "./js/front/renderReferenceList.js"
+import renderReferenceList from "./js/utils/renderReferenceList.js"
+import createPageNav from "./js/utils/pageNav.js"
 import backToTop from "./js/front/backToTop.js"
 import scrollPos from "./js/utils/scrollPosIndicator.js"
 import indentCode from "./js/utils/indentCode.js"
@@ -11,8 +11,8 @@ import themeToggle from "./js/utils/themeToggle.js"
 import loadTheme from "./js/utils/loadTheme.js"
 
 window.onscroll = () => bindMenu()
-createPageNav()
 renderReferenceList()
+createPageNav()
 
 // const url = `https://raw.githubusercontent.com/Fyrd/caniuse/main/data.json`
 

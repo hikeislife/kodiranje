@@ -1,8 +1,7 @@
 export default function bindMenu() {
   const topMenu = document.querySelector(".headerBottom"),
-    home = document.querySelector("#backhome"),
+    home = document.querySelector(".backHome"),
     indicator = document.querySelector('.indicator')
-
 
   if (document.body.scrollTop >= 70 || document.documentElement.scrollTop >= 70) {
     topMenu.classList.add("fixed-top")
