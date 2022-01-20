@@ -7,15 +7,26 @@
   background: $bcgColor;
   color: $fontColor;
   border-bottom: $BTT_borderBottom solid $topNavLightGreen;
-  display: none;
+  // display: none;
   justify-content: center;
   align-items: center;
   border-radius: 5px 5px 0 0;
   box-shadow: $BTT_shadow;
   text-shadow: $BTT_shadow;
+  display: flex;
 
   &:hover {
     border-bottom: $BTT_borderBottom solid $darkYellow;
     box-shadow: 1px 1px 5px $darkYellow;
+  }
+}
+
+.backToTopLink {
+  display: none;
+}
+
+@media screen and (min-width: 48rem) {
+  .backToTopLink {
+    display: flex;
   }
 }

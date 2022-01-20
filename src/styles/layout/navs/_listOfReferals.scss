@@ -7,7 +7,6 @@
     z-index: 2;
 
     ul {
-
       li {
         box-shadow: none;
         border-bottom: 1px solid;
@@ -25,28 +24,43 @@
   border-top: $px solid $borderColor;
   background: linear-gradient(0deg, rgba(229,229,229,1), rgba(238,255,204,1) 55%); 
   padding: .5rem 1rem .5rem;
+  margin-block: 0;
 }
 
 // // nav elements:
 .referalList {
   margin-top: 0.313rem; // 5px
+  
+  .listless {
+    list-style-type: none;
+    padding-left: 0;
+    margin-block: 0;
+  }
 }
 
 .sideNav {
   margin: 0;
+
+  .sideMenu li.active * {
+    font-weight: 900;
+    background: cornsilk;
+    // color: $topNavDarkGreen;
+
+    &:hover {
+      background: #696969;
+    }
+  }
 }
 
-.listless {
-  list-style-type: none;
-  padding-left: 0;
-}
 
 // // li elements
 .referalItem { 
   @include navs;
   @include boxShadow;
   @include spread;
+  height: unset;
   min-height: 2.5rem;
+  margin-block: 0;
   
   // the > makes this rule not apply to reference list
   // because if it does, flex makes the line break after arrow
@@ -59,7 +73,6 @@
     min-height: 2.5rem;
     padding: 0 1rem;
     text-decoration: none;
-    font-weight: 900;
   }
 
   &:hover {
@@ -75,6 +88,7 @@
   ul li {
     display: grid;
     grid-template-columns: 3rem auto;
+    
   }
 
   .squeezeReferences {
@@ -89,6 +103,12 @@
       display: flex;
       align-items: center;
       padding-left: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2; // show two lines, then ellipsis
+      -webkit-box-orient: vertical;
+      font-size: .8rem;
     }
   }
 }
@@ -109,5 +129,17 @@
         @include boxShadow;
       }
     }
+  }
+}
+
+.insertRef {
+  // since it's inline element, this is not visible on the page, but
+  // it serves a purpose that when arrow link in list of references is clicked
+  // it will position the [] square below the topnav instead of behind it
+  padding-top: 10rem;
+
+  sup a {
+    font-size: .6rem;
+    text-decoration: none;
   }
 }

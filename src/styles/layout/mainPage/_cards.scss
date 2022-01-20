@@ -1,9 +1,11 @@
 .courseCard {
   @include boxShadow;
   background: aliceblue;
-  max-width: 300px;
+  max-width: 320px;
   position: relative; // for corner cog
   z-index: 0;
+  //#TODO: see why overflow hidden on body, chops off the shadow of course cards?!?
+  margin-bottom: 5px;
 
   &::before {
     content: '';
@@ -50,10 +52,11 @@
   position: relative;
   
   h1 {
+    @include center;
     text-transform: capitalize;
     font-size: 8.5vw;
     font-weight: bolder;
-    z-index: 9999;
+    // z-index: 9999;
     -webkit-text-stroke-width: 1.5px;
     -webkit-text-stroke-color: $fontColor;
     color: $bcgColor;
@@ -151,6 +154,13 @@
   }
 }
 
+@media only screen and (min-width: 22.5rem) { // > 360px
+  .courseCard h1 {
+    font-size: 8vw;
+  }
+}
+
+
 @media only screen and (min-width: 30rem) { // > 480px
   .courseDesc {
     padding: .5rem;
@@ -162,7 +172,11 @@
   }
   
   .corseCat, .courseReqs {
-    margin: 2rem ;
+    margin: .5rem ;
+
+    * {
+      font-size: .8rem;
+    }
   }
 
   .cardSVG {
@@ -183,8 +197,16 @@
 }
 
 @media only screen and (min-width: 48rem) { // > 768px sideNav appears
+  .courseCard{
+    max-width: 236px;
+  }
+
+  .courseDesc {
+    margin-top: -3rem;
+  }
+
   .courseDesc h1 {
-    font-size: 3.5vw;
+    font-size: 2.5vw;
   }
 
   .cardSVG {
@@ -197,7 +219,7 @@
 
 @media only screen and (min-width: 62rem) { // > 992px
   .courseDesc h1 {
-    font-size: 2.8vw;
+    font-size: 2.2vw;
   }
 
   .cardSVG {
@@ -222,6 +244,18 @@
   }
 }
 
+@media only screen and (min-width: 85rem) { // > 1200px
+  .courseDesc h1 {
+    font-size: 1.8vw;
+  }
+}
+
+@media only screen and (min-width: 94rem) { // > 1200px
+  .courseDesc h1 {
+    font-size: 1.8vw;
+  }
+}
+
 @media only screen and (min-width: 100rem) { // > 1600px
   .courseDesc h1 {
     font-size: 1.5vw;
@@ -232,5 +266,11 @@
       width: 10vw;
       height: 10vw;
     }
+  }
+}
+
+@media only screen and (min-width: 112rem) { // > 1200px
+  .courseDesc h1 {
+    font-size: 1.2vw;
   }
 }

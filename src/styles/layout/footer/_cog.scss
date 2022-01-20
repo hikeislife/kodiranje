@@ -1,10 +1,11 @@
-.bigcog {
-  text-align: center;
+.bigcogWrap {
+  --cogWidth: 12rem;
 }
 
 .cogitself {
   position: relative; // for word Kodiranje_
   overflow: hidden;
+  width: var(--cogWidth);
 
   & img {
     animation: spin 60s linear infinite;
@@ -20,10 +21,17 @@
   border-radius: $borderRadius;
   background: $darkYellow;
   position: absolute;
-  width: 12rem;
+  width: var(--cogWidth);
   height: 2.5rem;
   left: calc(100% / 2 - 6rem);
   top: 5rem;
+}
+
+.bigcog,
+.bigcogWrap {
+  text-align: center;
+  width: calc(var(--cogWidth) + 1.5rem);
+  margin-inline: auto;
 }
 
 // @media only screen and (min-width: 48rem) { // 768px

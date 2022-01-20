@@ -1,6 +1,8 @@
+$fontSize: 16px;
+
 // top nav
 $logoHeight: 4rem; // height of checkered field
-$kodiranjeLength: 259px;
+$kodiranjeLength: 16.2rem;
 // $toggleHeight: 1.2rem;
 $topNavHeight: 4rem;
 
@@ -12,13 +14,13 @@ $borderWidth: .125rem;
 $px: .0625rem;
 $borderRadius: .3rem;
 // $sideNavWidth: 15.6rem;
-// $accentBorder: .44rem;
-$diffusedShadow: .3125rem;
+$accentBorder: .44rem;
+$diffusedShadow: .3125rem; // 5px
 $margin: 1rem;
 
 
-// //blockquote:
-// $clipSize: 1.37rem;
+//blockquote:
+$iconSize: 2rem;
 
 // // cmd:
 // $cmdPadding: .3125rem;
@@ -27,11 +29,9 @@ $margin: 1rem;
 // Back to top:
 $BTT_position: 3.125rem;
 $BTT_borderBottom: .44rem;
-$BTT_shadow: 1px 1px 5px $silver;
+$BTT_shadow: $px $px $diffusedShadow $silver;
 
 ////////////////////////////////////////////
-
-// $mainFont: #003333 !default;
 
 // // main colors 
 // $sgt: rgba(229, 229, 229, .7); // #e5e5e588

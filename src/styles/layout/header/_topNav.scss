@@ -25,6 +25,7 @@ header {
   .topNavWrapper {
     @include spread;
     height: $topNavHeight;
+    width: 100vw;
     display: flex;
     justify-content: space-between; // affects only home button
     align-items: center; // vert

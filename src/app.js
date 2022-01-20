@@ -1,7 +1,9 @@
 const express = require('express')
+const compression = require('compression')
 const path = require('path')
 const hbs = require('hbs')
 const bodyParser = require('body-parser')
+// const connectDB = require('./db/mongoose')()
 // const session = require('express-session');
 // const nm = require('nodemailer')
 // const jwt = require('jsonwebtoken')
@@ -20,7 +22,6 @@ const https = require('https')
 
 // const MongoStore = require('connect-mongo')(session)
 // const mongoose = require('mongoose')
-
 const Article = require('./db/models/article')
 const { adminRouter } = require('./routers/admin.js')
 const { courseRouter } = require('./routers/courses.js')
@@ -30,6 +31,8 @@ const { articleRouter } = require('./routers/articles.js')
 // //   process.exit(1)
 // // } 
 const app = new express()
+app.use(compression())
+
 app.use(bodyParser.json({
   parameterLimit: 10000000,
   limit: '50mb',
@@ -142,6 +145,7 @@ iRtN4+eDDKEu50/W4sTbSwRRX4AkED68A1l/+P1JzNtM4ceSo8Y=
 const dir = path.join(__dirname)
 // const og = path.join(__dirname, 'imgs/og')
 const views = path.join(__dirname, 'views')
+const highlighter = path.join(__dirname, 'js/utils/syntax')
 
 app.set('view engine', 'hbs')
 app.set('views', views)
@@ -182,7 +186,8 @@ hbs.registerHelper({
 
 app.use(express.static(dir))
 // app.use(express.static(og))
-// app.use(express.static('./js/front'))
+// app.use(express.static(highlighter))
+app.use(express.static(path.join(__dirname, 'js')))
 
 // app.use((er, req, res, text) => {
 //   console.error(er.stack)
@@ -200,7 +205,7 @@ app.use(express.static(dir))
 
 /* PATHS */
 /* front page */
-app.get('/', soft, async (req, res) => {
+app.get('/', /*soft,*/ async (req, res) => {
   try {
     if (req.header('Cookie')) {
       // console.log(req.header('Cookie'))
@@ -301,7 +306,7 @@ app.get('/:kurs/:lekcija', (req, res) => {
       courseName: req.params.kurs,
       selectedURL: req.params.lekcija
     })
-    .select('-__v -published -_id')
+    .select('-__v -published')
     .then((post) => {
       if (post?.socImage) {
         //         let buffer = Buffer.from(post.socImage.buffer)

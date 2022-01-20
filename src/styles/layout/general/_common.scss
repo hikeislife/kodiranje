@@ -1,0 +1,285 @@
+em {
+  border: $px solid $borderColor;
+  border-radius: $borderRadius;
+  background-color: $emGray;
+  font-style: normal;
+  padding: 0 .3rem;
+}
+
+.artMeta {
+  @include border;
+  text-align: right;
+  background: $bcgColor;
+  margin: 6rem 0;
+
+  p {
+    margin: 0;
+    padding: 0;
+    font-size: .8rem;
+  }
+}
+
+abbr {
+  font-size: inherit;
+}
+
+.unbreak {
+  white-space: break-spaces;
+}
+
+//////////////////////////////// colors
+.firebrick,
+.opeka {
+  color: $opeka;
+}
+
+.deeppink,
+.pink {
+  color: #C0C;
+}
+
+.darkviolet,
+.violet {
+  color: darkviolet;
+}
+
+
+.green {
+  color: $codeGreen;
+}
+
+// .dimgray,
+// .dim {
+//   color: dimgray;
+// }
+
+
+.royal,
+.royalblue {
+  color: royalblue;
+}
+
+// a[name] {
+//   text-decoration: none !important;
+// }
+
+.one-click-select {
+  user-select: all;
+}
+
+// .math {
+//   font-family: 'Cambria Math Regular';
+//   font-size: 1.3rem;
+//   font-weight: 400;
+//   letter-spacing: normal;
+//   line-height: 1.6;
+//   font-style: italic;
+// }
+
+// #TODO: add grid notebook paper as bcg for math
+
+// dfn {
+//   font-style: normal;
+// }
+
+.sicemboy {
+  font-style: italic;
+  font-size: .8rem;
+  text-decoration: none;
+}
+
+
+
+
+.highlight {
+  background-color: $highYellow;
+  border-color: $highPink;
+}
+
+.highGreen {
+  background-color: $highGreen;
+  @include highlight;
+}
+
+.highYellow {
+  background-color: $highYellow;
+  @include highlight;
+}
+
+.highPink {
+  background-color: $highPink;
+  @include highlight;
+}
+
+.highGreen::before,
+.highGreen::after,
+.highYellow::before,
+.highYellow::after,
+.highPink::before,
+.highPink::after {
+  background: aliceblue;
+}
+
+.tip {
+  .highGreen::before,
+  .highGreen::after,
+  .highYellow::before,
+  .highYellow::after,
+  .highPink::before,
+  .highPink::after {
+    background-color: $trlGreen;
+  }
+}
+
+.warning {
+  .highGreen::before,
+  .highGreen::after,
+  .highYellow::before,
+  .highYellow::after,
+  .highPink::before,
+  .highPink::after {
+    background-color: $trlRed;
+  }
+}
+
+.why {
+  .highGreen::before,
+  .highGreen::after,
+  .highYellow::before,
+  .highYellow::after,
+  .highPink::before,
+  .highPink::after {
+    background-color: $darkYellow;
+  }
+}
+
+.quiz {
+  .highGreen::before,
+  .highGreen::after,
+  .highYellow::before,
+  .highYellow::after,
+  .highPink::before,
+  .highPink::after {
+    background-color: $quiz;
+  }
+}
+
+.quiz .highlight:before,
+.quiz .highlight:after,
+.quiz .highlight,
+.tip .highlight:before,
+.tip .highlight:after,
+.tip .highlight {
+  background-color: $lowYellow;
+  border: $lowPink solid;
+}
+
+.warning .highlight:before,
+.warning .highlight:after,
+.warning .highlight {
+  background-color: $lowYellow;
+  border: $lowPink solid;
+}
+
+// // // .quiz .highlight:before,
+// // // .quiz .highlight:after {
+// // //   background: $qy;
+// // // }
+
+// // // .why .highlight:before,
+// // // .why .highlight:after {
+// // //   background: $dy;
+// // // }
+
+// // // .inl {
+// // //   display: inline;
+// // // }
+
+// // // h2.inl {
+// // //   text-align: center;
+// // // }
+
+// // // .ind {
+// // //   padding-left: 20px;
+// // // }
+
+
+
+
+
+// // // @media only screen and (max-width: 30em) {
+  .breakall {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+// // // }
+
+// // // @media only screen and (max-width: 22.5em) {
+// // //   .ellipses {
+// // //     overflow: hidden;
+// // //     // white-space: nowrap; // won't break anything, w/o it it will break where it can and insert ... where it can't 
+// // //     text-overflow: ellipsis;
+// // //     width: 300px !important; // doesn't quite work with 100% width
+// // //   }
+// // // }
+
+
+
+// .colorSwatch {
+//   display: inline-block; 
+//   width: 1em; 
+//   height: 1em; 
+//   border: 2px solid whitesmoke; 
+//   position: relative; 
+//   top: 4px;
+// }
+
+// // // .squigly {
+// // //   text-decoration-line: underline;
+// // //   text-decoration-style: wavy;
+// // //   text-decoration-color: red;
+// // // }
+
+.center {
+  @include center;
+}
+
+// // // [data-ind] {
+// // //   display: inline-block;
+// // // }
+
+//////////////////////////////////////////// temp
+
+*[lang] {
+//   color: #f06; /*#f06292;*/
+  font-size: inherit;
+  font-family: inherit;
+}
+
+h1 [lang] {
+  color: burlywood;
+}
+
+.lazy {
+  // content-visibility: auto;
+  // contain-intrinsic-size: 1px 400px;
+}
+
+figure {
+  margin-block: 2rem;
+}
+
+::selection {
+  background: #f06;
+  color: #fff;
+}
+.plop {
+  font-size: inherit;
+  font-family: inherit;
+  color: burlywood;
+}

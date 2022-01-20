@@ -3,65 +3,66 @@
 @import "base/colors";
 @import "base/variables";
 @import "base/mixins";
-// @import "base/atf";
 @import "base/animations";
-
 @import "base/icons";
-// // // @import "base/urls";
-// // // @import "base/common";
+@import "base/urls";
+
+@import "layout/main";
+
+@import "layout/general/imgs"; // synced undone
+@import "layout/general/links";
+@import "layout/general/lists";
+// @import "layout/general/table";
+@import "layout/general/common";
+// @import "base/atf";
 
 @import "layout/header/topNav"; // synced
 @import "layout/header/logo"; // synced
 @import "layout/header/progress"; // synced
 
 @import "layout/navs/mobMenu"; // synced
-
-@import "layout/main";
-
 @import "layout/navs/listOfReferals"; // synced
+
 
 @import "layout/mainPage/grid"; // synced
 @import "layout/mainPage/zigZagColors"; // synced
 @import "layout/mainPage/cards"; // synced
 
-
 @import "layout/footer/footer";
 @import "layout/footer/donate";
 @import "layout/footer/cog";
-// // // @import "layout/footer/icons";
+// @import "layout/footer/icons";
 
 
-@import "layout/general/imgs"; // synced undone
-// // // @import "layout/general/links";
-// // // @import "layout/general/lists";
-// // // @import "layout/general/table";
 
-// // // @import "modules/details";
-// // // @import "modules/superboxes";
-// // // @import "modules/blockquotes";
-// // // @import "modules/cmd";
-// // // @import "boxes/arduino";
-// // // @import "boxes/jupyter";
-// // // @import "boxes/console";
-// // // @import "boxes/devTools";
+@import "modules/details";
+@import "modules/superboxes";
+@import "modules/blockquotes"; // done
+// @import "modules/cmd";
+// @import "boxes/arduino";
+// @import "boxes/jupyter";
+// @import "boxes/console";
+// @import "boxes/devTools";
 
 @import "utilities/backToTop"; // done
-// // // @import "utilities/toolTips";
-// // // @import "utilities/themeToggle";
-// // // @import "utilities/cookies";
+@import "utilities/toolTips"; // done
+// @import "utilities/themeToggle";
+// @import "utilities/cookies";
 @import "utilities/reader";  // synced
 
-// // // @import "admin/editMenu";
-// // // @import "admin/editMenuIcons.scss";
-// // // @import "admin/editMenuHelpers";
-// // // @import "admin/floatingMenu";
-// // // @import "admin/adminButtons";
-// // // @import "admin/admin";
-// // // @import "admin/forms";
+@import "admin/editMenu";
+@import "admin/editMenuIcons.scss";
+// @import "admin/editMenuHelpers";
+@import "admin/floatingMenu";
+@import "admin/adminButtons";
+// @import "admin/admin";
+@import "admin/forms";
 
-// // // @import "sideWaysNav";
-// // // @import "a2a";
-// // // @import "pieChart";
-// // // @import "toolbox";
-// // // @import "temp";
-// // // @import "usedOnce";
+// @import "sideWaysNav";
+// @import "a2a";
+// @import "pieChart";
+// @import "toolbox";
+// @import "temp";
+// @import "usedOnce";
+
+@import "codeExamples/htmlCourse";

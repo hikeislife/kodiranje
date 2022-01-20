@@ -1,37 +1,51 @@
 .icon {
-  font-family: 'Kodiranje';
+  font-family: $kodiranje;
   font-size: 26px;
   font-display: swap;
 }
 
+// mobile nav
+
 .prevIcon::before {
-  content: '\F39E'
+  content: '\003c';
 }
 
 .nextIcon::before {
-  content: '\F39F'
+  content: '\003e';
 }
+
+// superboxes
+
+summary::before {
+  font-family: $kodiranje;
+  content: '\25b9';
+}
+
+// details[open] summary::before {
+//     content: '\F39B';
+// }
+
 
 // Nav icons
 
 .htmlIcon::before {
-  content: '\F3CD';
+  content: '\0068';
 }
 
 .cssIcon::before {
-  content: '\F3CE';
+  content: '\0063';
 }
 
 .gitIcon::before {
-  content: '\F3D8';
+  content: '\0067';
 }
 
 .cmdIcon::before {
-  content: '\F3D7';
+  content: '\0074';
 }
 
 .jsIcon::before {
-  content: '\F3D2';
+  content: '\006a';
 }
 
 .nodeIcon::before {
@@ -39,26 +53,26 @@
 }
 
 .arduinoIcon::before {
-  content: '\F3EC';
+  content: '\0061';
 }
 
 .pyIcon::before {
-  content: '\f3dc';
+  content: '\0070';
 }
 
 .backHome::before {
-  content: '\F295';
-  padding-right: 1rem;
+  content: '\002f';
+  padding-right: 1.5rem;
 }
 
 // Tools used:
 
 .firefoxIcon::before {
-  content: '\f296';
+  content: '\0046';
 }
 
 .chromeIcon::before {
-  content: '\f297';
+  content: '\0043';
 }
 
 .braveIcon::before {
@@ -66,7 +80,20 @@
 }
 
 .vsCodeIcon::before {
-  content: '\F299';
+  content: '\0056';
+}
+
+// media controls
+.playIcon::before {
+  content: '\25b6';
+}
+
+.pauseIcon::before {
+  content: '\23b8';
+}
+
+.replayIcon::before {
+  content: '\1f504';
 }
 
 // .sublimeIcon::before {
@@ -154,7 +181,8 @@
   content: '\1F616';
 }
 
-.cray::before {
+.cray::before,
+.crey::before {
   content: '\1F92A';
 }
 

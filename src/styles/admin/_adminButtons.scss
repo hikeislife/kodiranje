@@ -25,7 +25,7 @@
 
 .admin-loginBtn {
   background: $topNavLightGreen;
-  text-shadow: 1px 1px 15px $warning;
+  text-shadow: 1px 1px 15px $trlRed;
 
   &:hover {
     background: $topNavDarkGreen;
@@ -36,13 +36,13 @@
   }
 
   &:before {
-    content: '\F2BB';
+    content: '\00c4';
   }
 }
 
 .admin-newBtn {
   background: $topNavLightGreen;
-  text-shadow: 1px 1px 15px $warning;
+  text-shadow: 1px 1px 15px $trlRed;
 
   &:hover {
     background: $topNavDarkGreen;
@@ -53,7 +53,7 @@
   }
 
   &:before {
-    content: '\F2C1';
+    content: '\002b';
   }
 }
 
@@ -69,7 +69,7 @@
 
   &:before {
     font-family: Kodiranje;
-    content: '\F355';
+    content: '\1f6c8';
   }
 }
 
@@ -85,7 +85,7 @@
 
   &:before {
     font-family: Kodiranje;
-    content: '\F2C5';
+    content: '\00c5';
   }
 }
 
@@ -101,7 +101,7 @@
 
   &:before {
     font-family: Kodiranje;
-    content: '\F2BD';
+    content: '\00c3';
   }
 }
 
@@ -128,8 +128,8 @@
 //   }
 // }
 
-// .admin-reorderButton {
-//   background: $dy;
+.admin-reorderButton {
+  background: $darkYellow;
 //   width: 4em;
 //   height: 4em;
 //   text-shadow: 1px 1px 15px ivory;
@@ -139,12 +139,12 @@
 //     background: rgb(255, 199, 59);
 //   }
 
-//   &:before {
-//     font-family: Kodiranje;
-//     content: '\F2BE';
+  &:before {
+    font-family: Kodiranje;
+    content: '\00c6';
 //     font-size: 2em;
-//   }
-// }
+  }
+}
 
 
 // .admin-saveButton {

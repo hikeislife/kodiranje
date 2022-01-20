@@ -3,11 +3,19 @@ a, a:visited {
   color: $fontColor;
 
   &:not(.nocolor) {
-    font-style: italic;
-    background: $linkColor;
     text-decoration: underline;
   }
   
+}
+
+// a:not(.nocolor),
+
+a[name] {
+  font-style: normal;
+}
+
+a[rel="help"] {
+  text-decoration: none;
 }
 
 // // a.tt:hover,
@@ -25,13 +33,15 @@ a, a:visited {
 main a[href^="http"]::before, 
 main a[href^="https"]::before {
   content: "" url($outsideLink);
+  padding-right: .2rem;
 }
 
 
 
 a[name] {
-//   text-decoration: none;
+  text-decoration: none;
   padding-top: 7rem;
+  // font-style: normal;
   // background: transparent;
 }
 

@@ -3,33 +3,39 @@ img:not([alt]) {
   filter: grayscale(100%);
 }
 
-// .tt img,
-// .ttip img {
-//   width: 100%;
-// }
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 0.25rem;
+}
 
 // .tri {
 //   max-width: 18.75rem;
 // }
 
-// .pet {
-//   max-width: 31.25rem;
-// }
+.pet {
+  max-width: 31.25rem;
+}
 
-// .osam {
-//   max-width: 50rem;
-// }
+.osam {
+  max-width: 50rem;
+}
 
-// figure {
-//   text-align: center;
-//   margin-top: 2rem; // remaining gap is margin on article
-// }
+figure {
+  text-align: center;
 
-// figcaption {
-//   font-size: .9rem;
-//   line-height: 1rem;
-//   margin: .1em 1em 2.6em;
-// }
+}
+figure:not(:where(.superbox > figure)) {
+  // not just for style, this prevents jumping in animation if figure is first element after the summary
+  margin-block: 2rem;
+}
+
+figcaption {
+  font-size: .9rem;
+  margin: -1.5rem 0 1rem;
+}
 
 
 
@@ -96,4 +102,14 @@ img:not([alt]) {
   padding: .5rem;
   margin: 2rem 0;
   background: aliceblue;
+  display: block;
 }
+
+.superbox figure:first-child,
+.superbox img:first-child  {
+  margin-top: 0;
+}
+
+// .responsive:not(:where(.superbox *)) {
+//   margin-block: 0;
+// }

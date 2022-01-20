@@ -4,12 +4,11 @@
 
 
 <div id="ra-player" data-skin="https://assets.sitespeaker.link/embed/skins/default">
-  <div class="ra-button"
-    onclick="readAloud(document.getElementById('ra-audio'), document.getElementById('ra-player'))">
-    <img src="https://assets.sitespeaker.link/embed/skins/default/play-icon.png"
-      alt="play/pause button" /> Slušaj robot čitača
+  <div class="ra-button" onclick="readAloud(document.getElementById('ra-audio'), document.getElementById('ra-player'))">
+    <p class="playIcon icon"></p>
+    {{!-- <img src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAlCAYAAAC+uuLPAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAM3SURBVFiFvdZNTBxVAAfw/3sz7O7wBsh0EUUMbNzQqDRES7oxu5tll+XDJUI/ku1FyW5jQaRYQomhGq3VeOVkYuLBg3jTg4mJGo2xHAhNk1atTevBEjm0khiIAYbOLPvmjYd2KbWUr52d/3Hee/nNf/LmzZDOzk5mmmsXAChC8Hemp6e/BSBQwtDq6pqvOeeHOOcHhMA3iUTyr2g0+nQpUUnT9n0uhCCFC5ZlVdk2Rhob9ysNDfVTc3NzjremnHOy2YBpmuO2TRYikciLjqNbDebz+SrbJhfb2tonU6mU1xW0ENM0+3T9zlIkEkm5hgKAZVle2ybfJZPt38fjcdUVtBDDMF/iXCxFo619ADbdD46jACCEoEJYk8lk+6VQKOR3BS3EMMxDsuxZiMXiY9hFaxIOR+1i4EK8Xu9sLmd0zczMzG43t6imG5PL5YIAvZlIJD5Mp9OSK+h9PP/ewsLi3+Fw+HnX0LvwWg1Af21tTX7a1NTkcQUtJJ/PDfj9jz10lJJoNObIRtouPp/3S87zmampKZPEYglXUAAoKyvTLWutVqZSSZ/wA7GEpT7+RN3PMqXuoQBACF5wHR16Y/Bf11BKKcbOjKKl5eDbMqVbHh6OpLb2SXxw/pzh92unGWOflbzp8XQaR48e+Y1SvMIYuwEAJUMDDQ0YH3+La9q+CcaUc4SQtcKY4yilFCeyGSQS8RlCcFJVy//4/xxH0VAohIH+15Z8PuV9xpSPCSGb/r7KVCp+I1VUVGB05DQaG4NfCSGGVbX8n63mF930yOHD6Hk5NStJ0hBj7MedrJGlPaKBQD2GTw1zTdMmGFPOE0LMna7ddVNF8WFwcBDPPfvMT5YlDamq78/d3vCu0I72JHp7e+Y9nrKzjJV/QQjZ0xdqRydSIFCPE9ksr6mp/sQwjHdVVVvZC7YBfXRTj8eDbOZVNDc3XwDsN1VVvV4Mto7KsgwhHn6duru70NnRMS9J9KyqqpNOYOto3VN19u1bt9d/lIPBILKZvnxlZeUEY8pHhJBVJ0EAwOUrv9zqf33IHhkds69evWbr+uoPy8vmfsehjdF1PbO8vLKo66u/r6zcOVZS7F7+Aw38B2/1hCXwAAAAAElFTkSuQmCC" alt="play/pause button" width="29" height="37" aria-label="robot čitač teksta"/> --}}
   </div>
-  <sub>Nemojte se žaliti na "njen" akcenat, nije u pitanju osoba</sub>
+  <p class="ra-label">Slušaj robot čitača</p>
 </div>
 <audio id="ra-audio" data-lang="sr-RS" data-voice="Google sr-rs-Standard-A"
   data-key="7697d44035cbe50bf9a0d4341f994e0a"></audio>

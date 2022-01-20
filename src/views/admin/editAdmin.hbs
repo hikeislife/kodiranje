@@ -25,11 +25,11 @@
       </div>
       <div class="adminInput">
         {{!-- <label for="dugme" ><button >Sačuvaj izmene</button></label> --}}
-        <button id="dugme" class="wideAdminButton admin-saveButton" data-admin-id="{{user._id}}">Sačuvaj</button>
+        <button id="dugme" class="admin-wideBtn admin-saveButton" data-admin-id="{{user._id}}">Sačuvaj</button>
       </div>
     </form>
   </div>
-  <a href="/admin/svi-admini" class="nocolor"><button class="wideAdminButton admin-allButton">Lista svih admina</button></a>
-  <a href="/admin/ukloni-admina/{{user._id}}" class="nocolor"><button class="wideAdminButton admin-warningButton">Obriši ovog admina</button></a>
+  <a href="/admin/svi-admini" class="nocolor"><button class="admin-wideBtn admin-allButton">Lista svih admina</button></a>
+  <a href="/admin/ukloni-admina/{{user._id}}" class="nocolor"><button class="admin-wideBtn admin-warningButton">Obriši ovog admina</button></a>
 </article>
 <script src="../../js/admin/editAdmin.js"></script>

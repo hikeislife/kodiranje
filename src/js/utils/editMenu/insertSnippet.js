@@ -148,8 +148,8 @@ export default function insertSnippet (e, details = {}) {
     case "bug":
       insert = `${stringBefore}<div class="superbox bug"><p>${preserveMe}</p></div> ${stringAfter}`
       break
-    case "sol":
-      insert = `${stringBefore}<div class="superbox sol"><code>${preserveMe}</code></div>${stringAfter}`
+    case "ex":
+      insert = `${stringBefore}<div class="superbox ex"><code>${preserveMe}</code></div>${stringAfter}`
       break
     case "terminal":
       insert = `${stringBefore}${preserveMe}${stringAfter}`

@@ -1,53 +1,71 @@
 .ttip {
-  border-bottom: $borderWidth solid $darkYellow;
   display: inline;
 
   &::after {
     content: ' ('attr(data-tooltip)')';
+    // font-size: .8rem;
+    display: inline;
+    color: $opeka;
+    white-space: break-spaces;
   }
 
-//   & em {
-// //     border-bottom: 2px solid $darkYellow;
-//   }
+  // & em {
+  //   border-bottom: 2px solid $darkYellow;
+  // }
 }
 
-@media only screen and (min-width: 48em) { /* > 640px */
+figure {
   .ttip {
-    position: relative;
+    background: none;
+    font-weight: normal;
+    box-shadow: none;
+    padding-inline: 0;
+  }
+
+  .ttip::after {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 48em) { // > 768px sidenav visible
+  .ttip {
+    @include tipBasic;
+    // don't make tipbox wider than double margin, so even if it materializes at the end of the text, it doesn't go off the page
+    // --tipWidth: calc(2 * var(--artPadding));
+    // display: inline-block;
+    font-weight: bolder;
+    box-shadow: inset 0 -.7rem 0 #ffb600,inset 0 .8rem #ffee61;
+    padding-inline: .33rem;
   
     &:hover::before,
     &:hover::after {
-      --scale: 1;
+      @include tipHoverBeforeAfter;
     }
 
     &::before,
     &::after {
-      --scale: 0;
-      position: absolute;
-      top: -.25rem;
-      left: 50%;
-      transform: translateX(-50%) translateY(-100%) scale(var(--scale));
-      transition: 200ms transform;
-    }
-
-    &::before {
-      @include border;
-      content: attr(data-tooltip);
-      background: $darkYellow;
-      width: max-content;
-      max-width: 25rem;
-      transform-origin: bottom center;
-      text-align: center;
+      @include tipBeforeAfter;
     }
 
     &::after {
-      content: '';
-      border: .33em solid transparent;
-      border-top: .33em solid $fontColor;
-      top: .33em;
-      transform-origin: top center;
+      @include tipAfter;
+      color: $fontColor;
+    }
+
+    &::before {
+      @include tipBefore;
     }
   }
+
+  figure {
+  .ttip::after {
+    display: inline-block;
+  }
+}
+}
+
+.why .ttip {
+  box-shadow: inset 0 -.7rem 0 $topNavDarkGreen,inset 0 .8rem $topNavLightGreen;
 }
 
 // this is so that old code can be easily noticed and replaced with new code.
@@ -55,79 +73,3 @@
 .tt { 
   border: 5px solid red;
 }
-
-// // .ttt:before {
-// //   content: ' (';
-// // }
-
-// // .ttt:after {
-// //   content: ')';
-// // }
-
-// // .warning .ttt, 
-// // .warning .tt {
-// //   color: #222;
-// // }
-
-// // @media only screen and (min-width: 40em) {
-// //   .tt {
-// //     position: relative;
-// //     border-bottom: 2px solid $dy;
-// //     cursor: help;
-// //     color: black;
-// //     display: inline-block;
-
-// //     & .ttt {
-// //       visibility: hidden;
-// //       position: absolute;
-// //       text-align: center;
-// //       z-index: 1;
-// //       background-color: $dy;
-// //       border: 2px solid $mainFont;
-// //       border-radius: 4px;
-// //       padding: 4px;
-// //       width: 40vw;
-// //       margin-left: -20vw;
-// //       bottom: 100%;
-// //       left: 50%;
-// //       margin-bottom: 5px;
-// //       opacity: 0;
-// //       transition: opacity 1s;
-// //       display: inline-block;
-
-// //       &::after {
-// //         content: " ";
-// //         position: absolute;
-// //         top: 100%;
-// //         left: 50%;
-// //         margin-left: -7px;
-// //         border-style: solid;
-// //         border-width: 7px;
-// //         border-color: black transparent transparent transparent;
-// //       }
-
-// //       &::before {
-// //         content: " ";
-// //       }
-// //     }
-
-// //     &:hover .ttt {
-// //       visibility: visible;
-// //       opacity: 1;
-// //     }
-// //   }
-
-// //   .error span.tt, 
-// //   .why span.tt {
-// //     border-bottom: 2px solid $mainFont;
-// //   }
-
-// //   .error .tt .ttt, 
-// //   .why .tt .ttt {
-// //     background-color: $mainG;
-// //   }
-
-// //   // .warning .ttt {
-// //   //   color: $mainFont;
-// //   // }
-// // }

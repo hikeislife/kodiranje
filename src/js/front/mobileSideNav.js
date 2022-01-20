@@ -2,10 +2,13 @@
 export default (() => {
   const nav = document.querySelector('.sideNav')
   const cog = document.querySelector('.mobMenuButton')
+  const twoButtons = document.querySelector('.twoButtons')
   let handler
+  const magicWidth = 768
 
   const closeMenu = () => {
     nav.style.display = 'none'
+    twoButtons.style.display = 'none'
     window.removeEventListener('click', closeMenu)
   }
 
@@ -13,23 +16,26 @@ export default (() => {
     const displayState = nav.style.display
     if (displayState == 'none') {
       nav.style.display = 'block'
+      twoButtons.style.display = 'grid'
       setTimeout(() => {
         window.addEventListener('click', closeMenu)
       }, 1000);
 
     } else {
       nav.style.display = 'none'
+      twoButtons.style.display = 'none'
     }
   }
 
   (handler = function () {
     const width = window.innerWidth
-
-    if (width < 768) {
+    
+    // mobile
+    if (width < magicWidth) {
       nav.style.display = 'none'
       cog.addEventListener('click', mobMenuHandler)
-    }
-    else if (width => 768) {
+    } // desktop
+    else if (width => magicWidth) {
       nav.style.display = 'block'
       window.removeEventListener('click', closeMenu)
       cog.removeEventListener('click', mobMenuHandler)
@@ -38,22 +44,3 @@ export default (() => {
     window.onresize = handler
   })()
 })();
-
-
-// // hides menu on outside click:
-//   window.onmouseup = () => document.querySelector(".sideNav").style.display = "none";
-
-//   // adding mobile menu to the cog click
-//   document.querySelector("#mobile-cog").addEventListener("click", loadMenu);
-
-//   // toggles mobile menu on cog click
-//   function loadMenu() {
-//     let menuStatus = document.querySelector(".sideNav");
-
-//     if (menuStatus.style.display.match("block")) {
-//       menuStatus.style.display = "none";
-//     }
-//     else {
-//       menuStatus.style.display = "block";
-//     }
-//   }

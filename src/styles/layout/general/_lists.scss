@@ -3,6 +3,18 @@
   padding-left: 0;
 }
 
+li {
+  list-style: circle inside;
+  margin-block: 1rem;
+
+  ::marker {
+    color: $fontColor;
+  }
+}
+
+ul{
+  padding-left: 0;
+}
 // // dt {
 // //   font-size: 1.2em;
 // //   font-weight: bold;
