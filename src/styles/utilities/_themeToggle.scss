@@ -1,7 +1,7 @@
 #themeToggle {
   position: absolute;
   right: 2rem;
-  top: calc((#{$logoHeight} - #{$toggleHeight}) / 2);
+  top: calc((#{$logo-height} - #{$toggleHeight}) / 2);
   height: $toggleHeight;
   width: $toggleHeight;
   cursor: pointer;

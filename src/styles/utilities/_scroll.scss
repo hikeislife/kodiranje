@@ -1,0 +1,16 @@
+@use "../base/colors" as c;
+
+html, * {
+  scrollbar-color: c.$borderColor transparent;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    background-color: transparent;
+    border: 5px solid transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: c.$borderColor;
+  }
+}

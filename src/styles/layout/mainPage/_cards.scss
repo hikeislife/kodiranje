@@ -1,11 +1,13 @@
+@use "../../base" as *;
+
 .courseCard {
-  @include boxShadow;
+  @include box-shadow;
   background: aliceblue;
-  max-width: 320px;
+  // max-width: 320px;
   position: relative; // for corner cog
   z-index: 0;
   //#TODO: see why overflow hidden on body, chops off the shadow of course cards?!?
-  margin-bottom: 5px;
+  // margin-bottom: 5px;
 
   &::before {
     content: '';
@@ -33,7 +35,9 @@
   // border-radius: 9px;
 
   svg {
-    filter: drop-shadow(0.0625rem 0.0625rem 1rem white);
+    // filter: drop-shadow(.1rem .1rem .1rem $main-700) 
+    // drop-shadow(-.1rem -.1rem .1rem $main-700);
+    filter: drop-shadow(.07rem .07rem .07rem $main-700) drop-shadow(-.07rem -.07rem .07rem $main-700);
     width: 40vw;
     height: 40vw;
   }
@@ -41,14 +45,14 @@
 
 .courseLink {
   text-decoration: none;
-  color: $fontColor;
+  color: $side-900;
   font-size: .8rem;
   text-align: center
 }
 
 .courseDesc {
   padding: 2rem;
-  margin-top: -6rem;
+  margin-top: -4rem;
   position: relative;
   
   h1 {
@@ -56,10 +60,11 @@
     text-transform: capitalize;
     font-size: 8.5vw;
     font-weight: bolder;
+    font-family: $heading-font;
     // z-index: 9999;
     -webkit-text-stroke-width: 1.5px;
-    -webkit-text-stroke-color: $fontColor;
-    color: $bcgColor;
+    -webkit-text-stroke-color: $side-900;
+    color: $main-400;
     text-shadow: 0px -2px 3px #fff;
   }
 }
@@ -86,7 +91,7 @@
   width: .8rem;
   height: .8rem;
   border-radius: 50%;
-  border: $px solid $fontColor;
+  border: $px solid $side-900;
   margin-right: .3rem;
   position: absolute;
 }
@@ -98,7 +103,7 @@
 }
 
 .easyCat::before {
-  background: $trlGreen;
+  background: $trl-green;
 }
 
 .easyCat::after {
@@ -106,7 +111,7 @@
 }
 
 .medCat::before {
-  background: $trlYellow;
+  background: $trl-yellow;
 }
 
 .medCat::after {
@@ -114,7 +119,7 @@
 }
 
 .hardCat::before {
-  background: $trlRed;
+  background: $trl-red;
 }
 
 .hardCat::after {
@@ -122,7 +127,7 @@
 }
 
 .easyMath::before {
-  background: $trlGreen;
+  background: $trl-green;
 }
 
 .easyMath::after {
@@ -130,7 +135,7 @@
 }
 
 .medMath::before {
-  background: $trlYellow;
+  background: $trl-yellow;
 }
 
 .medMath::after {
@@ -167,7 +172,7 @@
     margin-top: -4rem;
     
     h1 {
-      font-size: 4.5vw;
+      font-size: 6vw;
     }
   }
   
@@ -198,7 +203,7 @@
 
 @media only screen and (min-width: 48rem) { // > 768px sideNav appears
   .courseCard{
-    max-width: 236px;
+    // max-width: 236px;
   }
 
   .courseDesc {

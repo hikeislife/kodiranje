@@ -1,33 +1,51 @@
-<article>
-  <h1>Detalji kursa "{{course.name}}"</h1>
-  <p>Kurs redni broj <b>{{increment course.order}}</b> ima ukupno <b>{{total}}</b> lekcija</p>
+<article class="backend">
+  <section>
+    <h1>Detalji kursa "{{course.name}}"</h1>
+  {{!-- increment increases by 1 --}}
+  <p>Kurs <b>{{increment course.order}}</b>. <b>{{course.name}}</b>, ima ukupno <b>{{total}}</b> lekcija, od čega</p>
   <div class="column">
-    <div>
-      <details>
-        <summary>Objavljenih {{activeCourses}}</summary>
-        <ul class="listless">
-          {{#each active}}
-          <a href="/admin/{{courseName}}/{{selectedURL}}" class="nocolor">
-            <li>{{navName}}</li>
-          </a>
-          {{/each}}
-        </ul>
-      </details>
-    </div>
-    <div>
-      <details>
-        <summary>Neobjavljenih {{inactiveCourses}}</summary>
-        <ul class="listless">
-          {{#each inactive}}
-          <a href="/admin/{{courseName}}/{{selectedURL}}" class="nocolor">
-            <li>{{navName}}</li>
-          </a>
-          {{/each}}
-        </ul>
-      </details>
-    </div>
+    <ul class="listless added-items">
+      {{#each allLessons}}
+        <li draggable="true" data-order="{{order}}" data-my-id="{{_id}}" class="{{#if published}}{{else}}inactive-item{{/if}}">
+          <p class="backendListItem"><a href="/admin/{{courseName}}/{{selectedURL}}" class="nocolor">{{navName}}</a></p>
+
+          <div class="adminInputCheckbox">
+            <input type="checkbox" name="active" id="{{_id}}" {{#if published}}checked{{else}}{{/if}}>
+            <label for="{{_id}}" class="reorderCheckbox"> </label>
+          </div>
+
+          <p class="backendListItem"><a href="/admin/{{../course.setId}}/{{_id}}" class="nocolor"><button
+         class="admin-editBtn"></button></a></p>
+
+          {{#if active}}<p></p>{{else}}
+          <a href="/admin/ukloni-kurs/{{_id}}" class="nocolor"><button
+             class="admin-warningBtn"></button></a>
+          {{/if}}
+
+          <p>{{increment order}}</p>
+
+        </li>
+      {{/each}}
+    </ul>
   </div>
-  <a href="/admin/izmeni-kurs/{{course._id}}" class="nocolor"><button class="admin-wideBtn admin-editButton">Izmeni kurs</button></a>
-  <a href="/admin/svi-kursevi" class="nocolor"><button class="admin-wideBtn admin-allButton">Svi kursevi</button></a>
-  {{#if course.active}}{{else}}<a href="/admin/ukloni-kurs/{{course._id}}" class="nocolor"><button class="admin-warningButton admin-wideBtn">Obriši kurs</button></a>{{/if}}
+
+  <a href="/admin/izmeni-kurs/{{course._id}}" class="nocolor">
+    <button class="admin-wideBtn admin-btn admin-editButton">Izmeni kurs</button>
+  </a>
+
+  <a href="/admin/svi-kursevi" class="nocolor">
+    <button class="admin-wideBtn admin-btn admin-allButton">Svi kursevi</button>
+  </a>
+
+  {{#if course.active}}{{else}}<a href="/admin/ukloni-kurs/{{course._id}}" class="nocolor">
+    <button class="admin-warningButton admin-btn admin-wideBtn">Obriši kurs</button>
+  </a>{{/if}}
+
+  <a href="/admin/" class="nocolor">
+    <button class="admin-wideBtn admin-btn admin-saveButton" id="gumb">Sačuvaj izmene</button>
+  </a>
+  </section>
 </article>
+
+<script type="module" src="../../js/courses/batchEditCourses/handleItemList.js"></script>
+<script src="../../js/courses/batchEditCourses/batchEditCourses.js"></script>

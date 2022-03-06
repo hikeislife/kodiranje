@@ -26,6 +26,7 @@ const Article = require('./db/models/article')
 const { adminRouter } = require('./routers/admin.js')
 const { courseRouter } = require('./routers/courses.js')
 const { articleRouter } = require('./routers/articles.js')
+const { dictRouter } = require('./routers/dictionaries.js')
 // // if (!process.env.JWT_P_KEY) { // Breaks app down if no jwt secret is provided 
 // //   console.log('FATAL ERROR JWT_P_KEY not defined')
 // //   process.exit(1)
@@ -45,6 +46,12 @@ app.use(bodyParser.urlencoded({
   limit: '50mb'
 }))
 
+// cors
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization')
+  next()
+})
 
 
 // const env = process.env.NODE_ENV || 'development'
@@ -70,6 +77,7 @@ app.use(bodyParser.urlencoded({
 app.use(adminRouter)
 app.use(courseRouter)
 app.use(articleRouter)
+app.use(dictRouter)
 
 // //const lER = process.env.CERTBOT_RESPONSE;
 const port = process.env.PORT
@@ -145,7 +153,7 @@ iRtN4+eDDKEu50/W4sTbSwRRX4AkED68A1l/+P1JzNtM4ceSo8Y=
 const dir = path.join(__dirname)
 // const og = path.join(__dirname, 'imgs/og')
 const views = path.join(__dirname, 'views')
-const highlighter = path.join(__dirname, 'js/utils/syntax')
+const styles = path.join(__dirname, 'styles')
 
 app.set('view engine', 'hbs')
 app.set('views', views)
@@ -291,14 +299,29 @@ app.get('/donirajte', (req, res) => {
 //   })
 // })
 
-// app.get('/recnik', (req, res) => {
-//   res.send('rečnik')
-// })
 
-app.get('/:kurs', (req, res) => {
-  const resp = req.params.kurs
-  res.send('tutorijal ' + resp)
-})
+
+// app.get('/:kurs', (req, res) => {
+//   const courseName = req.params.kurs
+//   try {
+//     if (path.existsSync(filePath))
+//     {
+//         res.sendfile(filePath)
+//     }
+//     else
+//     {
+//       const data = Article.find({ courseName: courseName, published: true }).sort({ order: 1 })//.select('_id navName selectedURL ')
+//     console.log(data.courseName)
+//       //  res.statusCode = 404;
+//       //  res.write('404 sorry not found');
+//       //  res.end();
+//       res.send('tutorijal ' + data.courseName)
+//     }
+//   } catch (er) {
+//     res.send(`/${courseName}`)
+//   }
+  
+// })
 
 app.get('/:kurs/:lekcija', (req, res) => {
   Article
@@ -357,5 +380,7 @@ https.createServer({
     key: privateKey,
     cert: certificate
 }, app).listen(port, () => {
-  console.log(`Server podignut na portu http://localhost:${port}`)
+  console.log(`Server podignut na portu https://kodiranje.in.rs`)
 });
+
+// http://localhost:${port}

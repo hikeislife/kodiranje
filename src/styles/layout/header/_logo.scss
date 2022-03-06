@@ -1,22 +1,31 @@
-
+@use "../../base" as *;
 
 .logoBcg, .logoCog {
   display: none;
 }
 
 .cogness {
-  fill: $cogGray;
+  fill: $side-400;
 }
 
 .cogBcg {
   fill: transparent;
 }
 
-@media only screen and (min-width: 48rem) { //> 768px where side nav appears
+@include media-768 {
+
+// @media only screen and (min-width: 48rem) { //> 768px where side nav appears
   .logoBcg { 
     display: block;
-    height: $logoHeight;
-    background-color: $logoBcg;
+    height: $logo-height;
+    background-color: $side-100;
+
+    #bcg path {
+      stroke-dasharray: 2;
+      stroke: #b1b1b1;
+      stroke-width: 1;
+      stroke-dasharray: 1, 10;
+    }
   }
 
   .logoCog {
@@ -24,18 +33,18 @@
     position: fixed;
     height: 2.6rem;
     width: 2.6rem;
-    top: 18px;
-    left: 8px;
+    top: 9px;
+    left: 5px;
     z-index: 1;
   }
 
   .cogness {
-    fill: $cogGreen;
+    fill: $main-700;
   }
 
   #logoRoundedSquare {
     fill: none;
-    stroke: $fontColor;
+    stroke: $side-900;
     stroke-width: 2;
     width: 35px;
     height: 35px;
@@ -43,20 +52,20 @@
 
   #logoText {
     text {
-      font-size: 3rem; 
-      fill: $fontColor;
+      font-size: $logo-font-size; 
+      fill: $side-900;
     }
   }
 
   .svgTextObscurer {
-    fill: $logoBcg;
-    width: $kodiranjeLength;
+    fill: $side-100;
+    width: $kodiranje-length;
     height: 3.2rem;
     animation: $typeWriter;
   }
   
   .svgCursorBlinker {
-    fill: $fontColor;
+    fill: $side-900;
     width: 1.875rem;
     height: $borderWidth;
     animation: logoCursorBlinker .8s linear .5s 6, $typeWriter;

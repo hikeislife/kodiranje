@@ -1,16 +1,18 @@
+@use "../base" as *;
+
 .admin-btn {
-  @include boxShadow;
+  @include box-shadow;
   font-size: 1.5rem;
   font-weight: bold;
-  margin: 2rem 0;
-  height: 4rem;
+  margin-block: 1rem;
+  padding: 1rem;
 
   &:hover {
     cursor: pointer;
   }
 
   &::before {
-    font-family: Kodiranje;
+    font-family: $kodiranje;
     font-size: 2rem;
   }
 }
@@ -24,15 +26,15 @@
 }
 
 .admin-loginBtn {
-  background: $topNavLightGreen;
-  text-shadow: 1px 1px 15px $trlRed;
+  background: $main-800;
+  // text-shadow: 1px 1px 15px $trl-red;
 
   &:hover {
-    background: $topNavDarkGreen;
+    background: $main-900;
   }
 
   &:active {
-    color: $darkYellow;
+    color: $dark-yellow;
   }
 
   &:before {
@@ -41,66 +43,101 @@
 }
 
 .admin-newBtn {
-  background: $topNavLightGreen;
-  text-shadow: 1px 1px 15px $trlRed;
+  background: linear-gradient(to bottom, $trl-green 50%, $main-800 100%);
+  // text-shadow: 1px 1px 15px $side-400;
 
-  &:hover {
-    background: $topNavDarkGreen;
-  }
+  // &:hover {
+  //   background: $main-900;
+  // }
 
-  &:active {
-    color: $darkYellow;
-  }
+  // &:active {
+  //   color: $dark-yellow;
+  // }
 
   &:before {
     content: '\002b';
   }
 }
 
-.admin-detailsBtn {
-  background: $darkYellow;
-  width: 4rem;
-  height: 4rem;
-  text-shadow: 1px 1px 15px ivory;
+.admin-saveButton {
+  background: linear-gradient(to bottom, $trl-green 50%, $main-800 100%);
+  // padding: 1rem;
+  // text-shadow: 1px 1px 15px $side-400;
+  font-size: 1.5rem;
+  font-weight: 900;
 
   &:hover {
-    background: rgb(255, 199, 59);
+//     background: $dg;
+//     color: $mainFont;
+  }
+
+  &:active {
+//     color: $dy;
   }
 
   &:before {
-    font-family: Kodiranje;
-    content: '\1f6c8';
+    font-family: $kodiranje;
+    content: '\00c1';
+    font-size: 2rem;
   }
 }
 
-.admin-editBtn {
-  background: $darkYellow;
-  width: 4rem;
-  height: 4rem;
-  text-shadow: 1px 1px 15px ivory;
+// .admin-detailsBtn {
+//   background: transparent;
+//   width: 4rem;
+//   height: 4rem;
+//   // text-shadow: 1px 1px 15px ivory;
+//   border: none;
+//   box-shadow: none;
+//   cursor: pointer;
 
-  &:hover {
-    background: rgb(255, 199, 59);
+//   &:hover {
+//     // background: rgb(255, 199, 59);
+//   }
+
+//   &:before {
+//     font-family: Kodiranje;
+//     content: '\1f6c8';
+//     font-size: 1.5rem;
+//     font-weight: bold;
+//   }
+// }
+
+.admin-editBtn {  
+  @include blankAdminButton;
+  justify-content: center;
+  
+  &:before {
+    // font-family: $kodiranje;
+    content: '\00c5';
   }
+}
+
+.admin-editButton {
+  background: linear-gradient(to bottom, $trl-yellow 50%, $dark-yellow 100%);
+  // padding: 1rem;
+  // text-shadow: 1px 1px 15px $side-400;
+  font-size: 1.5rem;
+  font-weight: 900;
 
   &:before {
-    font-family: Kodiranje;
     content: '\00c5';
   }
 }
 
 .admin-warningBtn {
-  background: tomato;
-  width: 4rem;
-  height: 4rem;
-  text-shadow: 1px 1px 15px red;
+  @include blankAdminButton;
+  // background: tomato;
+  // width: 4rem;
+  // height: 4rem;
+  // text-shadow: 1px 1px 15px red;
 
-  &:hover {
-    background: rgb(240, 62, 62);
-  }
+  // &:hover {
+  //   background: rgb(240, 62, 62);
+  // }
 
   &:before {
-    font-family: Kodiranje;
+    // font-family: Kodiranje;
     content: '\00c3';
   }
 }
@@ -110,26 +147,19 @@
 
 
 
-// .admin-allButton {
-//   background: $dy;
-//   width: 4em;
-//   height: 4em;
-//   text-shadow: 1px 1px 15px ivory;
-//   font-size: 1em;
+.admin-allButton {
+  background: linear-gradient(to bottom, $trl-yellow 50%, $dark-yellow 100%);
+  // text-shadow: 1px 1px 15px $side-400;
+  font-size: 1.5rem;
+  font-weight: 900;
 
-//   &:hover {
-//     background: rgb(255, 199, 59);
-//   }
-
-//   &:before {
-//     font-family: Kodiranje;
-//     content: '\F2C7';
-//     font-size: 2em;
-//   }
-// }
+  &:before {
+    content: '\00C2';
+  }
+}
 
 .admin-reorderButton {
-  background: $darkYellow;
+  background: $dark-yellow;
 //   width: 4em;
 //   height: 4em;
 //   text-shadow: 1px 1px 15px ivory;
@@ -140,35 +170,14 @@
 //   }
 
   &:before {
-    font-family: Kodiranje;
+    font-family: $kodiranje;
     content: '\00c6';
 //     font-size: 2em;
   }
 }
 
 
-// .admin-saveButton {
-//   background: $mainG;
-//   width: 4em;
-//   height: 4em;
-//   text-shadow: 1px 1px 15px $wr;
-//   font-size: 1em;
 
-//   &:hover {
-//     background: $dg;
-//     color: $mainFont;
-//   }
-
-//   &:active {
-//     color: $dy;
-//   }
-
-//   &:before {
-//     font-family: Kodiranje;
-//     content: '\F2B8';
-//     font-size: 2em;
-//   }
-// }
 
 
 // .adminButton {

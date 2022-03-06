@@ -1,0 +1,65 @@
+.face-recognition {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  border: 1px solid antiquewhite;
+  opacity: 0;
+  animation: fadeOut .5s ease-out;
+}
+
+.face-recognition:hover {
+  opacity: 1;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.face-recognition::before {
+  content: attr(data-person);
+  transform: translate(-50%);
+  display: block;
+  position: absolute;
+  color: antiquewhite;
+  background: #0000008c;
+  padding: 0 .2rem;
+  border: 1px solid;
+  top: 110%;
+  left: 50%;
+}
+
+.face-recognition[data-person='McCool'] {
+  top: 41%;
+  right: 12%;
+}
+.face-recognition[data-person='Montulli'] {
+  top: 12%;
+  right: 21%;
+}
+
+.face-recognition[data-person='Clark'] {
+  top: 16%;
+  right: 29%;
+}
+
+.face-recognition[data-person='Mittelhauser'] {
+  top: 31%;
+  left: 48%;
+}
+
+.face-recognition[data-person='Andreessen'] {
+  top: 14%;
+  left: 33%;
+}
+
+.face-recognition[data-person='Totić'] {
+  top: 17%;
+  left: 18%;
+}
+
+.face-recognition[data-person='Houck'] {
+  top: 42%;
+  left: 13%;
+}
+
+.netscapeTeam {
+  width: 6%;
+  height: 14%;
+}

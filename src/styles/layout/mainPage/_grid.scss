@@ -1,3 +1,5 @@
+@use "../../base" as *;
+
 .mainPage {
   margin: .5rem;
   margin-top: 2.5rem;
@@ -28,9 +30,12 @@
 
 @media only screen and (min-width: 48rem) { // > 768px sideNav appears
   .mainPage {
+    @include box-shadow;
     padding-inline: .5rem;
     margin-top: .5rem;
     // column-gap: 1rem;
+    padding-block: 2rem;
+    background: $main-300;
   }
 }
 

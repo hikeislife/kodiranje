@@ -59,14 +59,13 @@ export default function createPageNav() {
     let navContent = `<ul class="listless">`
     const bookmarks = [...page.querySelectorAll('a[name]')]
     bookmarks.forEach(x => {
-      //title ? 
       navContent += `
       <li class="pageNavItem referalItem">
         <a href="#${x.attributes.name.nodeValue}" 
-           aria-label="${x.attributes["data-aria-label"].nodeValue}" 
+           aria-label="${x.attributes["data-aria-label"]?.nodeValue || x.attributes["aria-label"].nodeValue}" 
            rel="bookmark subsection" 
            hreflang="sr"
-           class="nocolor">
+           class="nocolor${x.attributes["data-aria-label"] ? '' : ' remindme'}">
           ${x.attributes.title?.nodeValue || x.dataset.title}
         </a>
       </li>\n`

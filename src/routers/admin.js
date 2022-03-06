@@ -9,7 +9,7 @@ const adminRouter = new express.Router()
 
 // GET/login
 adminRouter.get('/admin', signedIn, (req, res) => {
-  res.render('admin/login', { googTitle: "Log in", robots: true })
+  res.render('admin/login', { googTitle: "Log in", robots: true, admin: true })
 })
 
 // POST/login

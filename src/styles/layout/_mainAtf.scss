@@ -1,0 +1,137 @@
+@use "../base" as *;
+
+:root {
+  font-size: $font-size;
+}
+
+// progress {
+//   display: none !important;
+// }
+
+* {
+  font-family: $font;
+  color: $side-900;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: $main-400;
+  display: grid;
+  grid-template-columns: $side-nav-width 1fr;
+  overflow-x: clip;
+}
+
+main {
+  grid-column: 1 / 3;
+  margin-top: calc(-#{$short-header})
+}
+
+@include media-768 { // sidenav
+  main {
+    grid-column: 2 / 3;
+  }
+}
+
+article {
+  background-color: $main-300;
+  text-align: justify;
+  --artPadding: 2ch;
+  padding: var(--artPadding);
+
+// article limits style away from landing page
+  h1 { 
+    font-family: $heading-font;
+    text-align: center;
+    line-height: 3rem;
+    text-transform: uppercase;
+    margin: 5rem 0;
+    font-size: $heading-size;
+    font-weight: bolder;
+    color: $main-400;
+    text-shadow: 2px 2px 8px #001500;
+    // memefy
+    -webkit-text-stroke-width: 2.3px;
+    -webkit-text-stroke-color: $side-900;
+
+    & * {
+      color: burlywood;
+    }
+  }
+
+  p {
+    margin: 2rem 0;
+  }
+}
+
+section {
+  overflow-x: wrap;
+
+  p, div {
+    line-height: 2;
+  }
+}
+
+@include media-480 {
+  article {
+    --artPadding: 4ch;
+
+    h1 {
+      font-size: 3rem;
+    }
+  }
+}
+
+@include media-576 {
+  article {
+    --artPadding: 14vw;
+  }
+}
+
+@include media-768 { // sidenav
+  article {
+    @include box-shadow;
+    background: transparent;
+    --artPadding: 7vw;
+    background: $main-300;
+    margin: $short-margin;
+    width: min(calc(100% - $long-margin));
+  }
+}
+
+@include media-992 {
+  article {
+    max-width: 60rem;
+    //padding: var(--artPadding);
+    --artPadding: 12vw;
+  }
+}
+
+@include media-1200 {
+  article {
+    --artPadding: 14vw;
+    max-width: unset;
+  }
+}
+
+@include media-1400 {
+  article {
+    --artPadding: 18vw;
+  }
+}
+
+@include media-1600 {
+  article {
+    --artPadding: calc((100% - 40rem) / 2);
+    margin: auto;
+    margin-top: $short-margin;
+    padding-top: 8rem;
+    @include center;
+    // display: grid;
+    // justify-content: center;
+
+    & > * {
+      max-width: 40rem;
+    }
+  }
+}

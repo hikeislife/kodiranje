@@ -1,13 +1,13 @@
 // // @use "../../base/colors" with (
-//   $fontColor: #daf7cc !important;
-//   $bcgColor: #002b00; //112011
-//   $logoBcg: #031c00;
-//   $topNavLightGreen: #579905;
-//   $topNavDarkGreen: #253c08;
-//   $articleBcg: #000f01;
+//   $side-900: #daf7cc !important;
+//   $main-400: #002b00; //112011
+//   $side-100: #031c00;
+//   $main-800: #579905;
+//   $main-900: #253c08;
+//   $main-300: #000f01;
 //   $lightInputBcg: #f7ffe8;
-//   $refBcg: #0b1302;
-//   $solBcgColor: #0b2200;
+//   $side-200: #0b1302;
+//   $main-300: #0b2200;
 // // );
 
 // @import "../../style.scss";
@@ -17,7 +17,7 @@
 
 
 // .referalTitle { // titles such as "Reference" & "Sadržaj strane
-//   background: linear-gradient(0deg, $refBcg, $bcgColor 55%); 
+//   background: linear-gradient(0deg, $side-200, $main-400 55%); 
 // }
 
 // // #logoBcg {
@@ -48,7 +48,7 @@
 // //     &.active {}
 
 // //     &:hover {
-// //       background: $darkSideNavHover;
+// //       background: $side-400;
 // //       color: $lightTopNavTopGreen;
 // //     }
 

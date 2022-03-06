@@ -1,6 +1,9 @@
+@use "variables.scss" as v;
+// @use "base" as *;
+
 @keyframes typeWriter {
   to { 
-    transform: translate($kodiranjeLength, 0px) 
+    transform: translate(v.$kodiranje-length, 0px) 
   }
 }
 
@@ -46,5 +49,50 @@
   100% {
     opacity: 0; 
     margin-top: -5rem;
+  }
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+
+  1% {
+    display: block;
+    opacity: 0;
+  }
+
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    display: block;
+    opacity: 1;
+  }
+
+  1% {
+    display: none;
+    opacity: 1;
+  }
+
+  100% {
+    display: none;
+    opacity: 0;
   }
 }

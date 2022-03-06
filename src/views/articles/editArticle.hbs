@@ -1,4 +1,5 @@
-<article>
+<article class="backend">
+  <section>
   <form data-articleId="{{post._id}}">
     <div class="moveToFloatingMenu">
       <input type="checkbox" name="published" {{#if post.published}} checked {{/if}} id="published">
@@ -83,6 +84,7 @@
     {{# if post.updatedAt}}<p>Poslednje izmene: <b>{{formatDate post.updatedAt}}</b></p>{{/if}}
     {{# if post.author}}<p>Autor teksta: <b>{{post.author}}.</b></p>{{/if}}
   </div>
+  </section>
 </article>
 
 {{>articles/floatingMenu}}

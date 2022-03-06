@@ -1,0 +1,124 @@
+<article class="backend">
+  <section>
+    <h1>Novi pojam</h1>
+      <form      method=      "POST"
+                 action=      "/dict/addPost"
+                 enctype=     "multipart/form-data">
+        {{!-- <fieldset>
+          <legend>Osnovni sadržaj</legend> --}}
+        <div     class=       "adminInput">
+          <label for=         "topic"> Pojam <span class="required"><sup>*</sup></span></label>
+          <input type=        "text" 
+                 class=       "admin" 
+                 name=        "topic" 
+                 id=          "topic" 
+                 placeholder= "Naziv teme"
+                 required>
+        </div>
+        
+        <div     class=       "adminInput">
+          <label for=         "definition">Definicija <span class="required"><sup>*</sup></span></label><br>
+          <textarea name=     "definition" 
+                 id=          "definition" 
+                 style=       "width:100%;"
+                 placeholder= "Unesi sadržaj bez <article> taga"
+                 required
+                 class=       "admin"></textarea>
+        </div>
+        
+        <div     class=       "adminInput">
+          <label for=         "tags">          Tagovi</label><br>
+          <input type=        "text" 
+                 id=          "tags" 
+                 class=       "admin m2r" 
+                 name=        "tags" 
+                 placeholder= "(razdvojeni zarezom)">
+        </div>
+        <div     class=       "">
+          <input type=        "checkbox" 
+                 name=        "published" 
+                 id=          "published">
+          <label for=         "published"
+                 class=       "reorderCheckbox"></label>
+        </div>
+        {{!-- </fieldset>
+
+        
+
+        <fieldset>
+          <legend>SEO optimizacija</legend>
+        <div     class=       "adminInput">
+          <label for=         "googTitle">     Naslov google pretrage</label><br>
+          <input type=        "text" 
+                 id=          "googTitle" 
+                 class=       "admin countMe m2r" 
+                 name=        "googTitle" 
+                 placeholder= "optimalno do 80 karaktera" >
+          <span  class=       "adminCounter googTitle" 
+               data-counter=  "70">70</span>
+        </div>
+        <div     class=       "adminInput">
+          <label for=         "googDesc">      Opis u google pretrazi</label><br>
+          <input type=        "text" 
+                 id=          "googDesc" 
+                 class=       "admin m2r countMe" 
+                 name=        "googDesc"
+            
+                 placeholder= "Opiši sadržaj strane, do oko 155 karaktera">
+          <span  class=       "adminCounter googDesc" 
+                 data-counter="155">155</span>
+        </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Optimizacija za društvene mreže</legend>
+        <div     class=       "adminInput">
+          <label for=         "socTitle">      Naslov posta na društvenim mrežama</label><br>
+          <input type=        "text" 
+                 id=          "socTitle" 
+                 class=       "admin countMe m2r" 
+                 name=        "socTitle" 
+                 placeholder= "(za društvene mreže)">
+          <span  class=       "adminCounter socTitle" 
+                 data-counter="88">88</span>
+        </div>
+        <div     class=       "adminInput">
+          <label for=         "socDesc">       Opis u postu na društvenim mrežama</label><br>
+          <input type=        "text" 
+                 id=          "socDesc" 
+                 class=       "admin m2r countMe" 
+                 name=        "socDesc"
+            
+                 placeholder= "Opis za društvene mreže, do 200 karaktera">
+          <span  class=       "adminCounter socDesc" 
+                 data-counter="200">200</span>
+        </div>
+        <div     class=       "adminInput">
+          <label for=         "socImage"
+                 class="uploadOG">
+                  Slika za društvene mreže 1200x630px sa banerom</label>
+          <input type=        "file" 
+                 class=       "admin" 
+                 id=          "socImage" 
+                 name=        "socImage">
+        </div>
+        </fieldset>
+      <input     type=        "submit"
+                 id=          "dugme"
+                 value=       "Sačuvaj"
+                 class=       "admin-wideBtn admin-saveButton"
+                 style=       "display: none">
+    
+    <div         class=       "adminInput"
+                 style=       "visibility: hidden;">
+          <label for=         "order">     order</label><br>
+          <input type=        "number" 
+                 id=          "order" 
+                 class=       "admin m2r" 
+                 name=        "order" >
+        </div>
+    </div> --}}
+
+    </form>
+  </section>
+</article>

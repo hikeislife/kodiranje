@@ -1,62 +1,55 @@
+@use "../../base" as *;
+
 header { 
   // needs to fit only tiny undisruptive progress bar on mobile
-  height: .2rem;
-  top: 0;
-  z-index: 1;
+  height: $short-header;
+  // top: -70px;
+  z-index: 2;
   grid-column: 1/3;
+  position: sticky;
 }
 
 .topNavWrapper {
   display: none;
 }
 
-.fixed-top { // via js will fix the top nav to the top of the screen
-  position: fixed !important;
-  top: 0;
-}
-
-@media only screen and (min-width: 48rem) { 
-  // > 768px where side nav appears
+@include media-768 {
   header {
-    height: unset;
-//   position: relative; // for themeToggle
+    height: calc(#{$top-nav-height} + #{$logo-height});
+    top: calc(-#{$logo-height});
   }
 
   .topNavWrapper {
     @include spread;
-    height: $topNavHeight;
+    @include dark-gradient;
+    @include center;
+    @include top-shadow;
+    height: $top-nav-height;
     width: 100vw;
     display: flex;
-    justify-content: space-between; // affects only home button
-    align-items: center; // vert
-    background: linear-gradient(to bottom, $topNavDarkGreen 50%, $topNavLightGreen 100%);
-    padding-left: 3rem; // bumped away from the cog
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-//   z-index: 3; // #TODO: check if this is needed
+    // bumped away from the cog
+    padding-left: $topnav-padding;
     text-transform: uppercase;
-    margin-bottom: 1rem;
-  }
-
-  .menu-sm {
-    display: none;
   }
 
   .topNav {
     @include spread;
     white-space: nowrap;
-    // gap: 1rem;
     text-shadow: .03rem .03rem .03rem darkslategray;
 
     & .active {
       font-weight: bolder;
-      background: $topNavDarkGreen;
+      background: $main-900;
     }
   }
 
   .menuitems {
-    padding-inline: 1rem;
-    position: relative; // for ::before
-    @include center; // makes anim go from center out
+    padding-inline: $long-margin;
+     // for ::before
+    position: relative;
+     // makes anim go from center out
+    @include center;
+    display: flex;
     width: fit-content;
     border-right: 1px solid;
         
@@ -69,7 +62,7 @@ header {
       content: '';
       width: 0%;
       height: .3rem;
-      background: $darkYellow;
+      background: $dark-yellow;
       position: absolute;
       top: 0;
       transition: width .5s ease-in;

@@ -1,6 +1,8 @@
+@use "../../base" as *;
+
 .donate {
   @include border;
-  margin: $topNavHeight $margin;
+  margin: $top-nav-height $margin;
   background-color: $quiz;
   text-align: justify;
 
@@ -21,9 +23,9 @@
   text-align: center;
 
   button {
-    @include boxShadow;
+    @include box-shadow;
     @include border;
-    background: $darkYellow;
+    background: $dark-yellow;
     font-size: 1.2rem;
     font-weight: bold;
 

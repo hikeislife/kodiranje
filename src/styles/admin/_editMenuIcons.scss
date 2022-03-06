@@ -1,43 +1,70 @@
+@use "../base" as *;
+
 span.editMenuItem {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 2em;
   height: 2em;
-  font-family: Kodiranje;
+  font-family: $kodiranje;
   font-weight: bold;
 }
 
 .showMeCode:before {
-  font-family: Kodiranje;
-  content: '\F2D8';
+  font-family: $kodiranje;
+  content: '\02b0';
   font-weight: bold;
 }
 
 .showMeGui:before {
-  font-family: Kodiranje;
-  content: '\F2D9';
+  font-family: $kodiranje;
+  content: '\02b1';
   font-weight: bold;
 }
 
 .headings:before {
-  content: '\F2E0';
+  content: '\02b2';
 }
 
-.grayHighlight {
-  color: $bcgColor;
-    
-  &:before {
-    content: '\F2E8'
-  }
-}
 
-.greenHighlight {
-  color: $topNavLightGreen;
 
+.sb {
   &::before {
-    content: '\F2E4';
+    content: '\02b3';
   }
+}
+
+.sb-tip {
+  color: $main-900;
+}
+
+.sb-warning {
+  color: $trl-red;
+}
+
+.sb-quiz {
+  color: $dark-yellow;
+}
+
+.sb-why, .sb-bug {
+  color: $dark-yellow;
+}
+
+.sb-ex {
+  color: wheat;
+}
+
+.terminal::before {
+  content: '\02b4';
+}
+
+.cons::before {
+  content: '\02b5';
+}
+
+.ard::before {
+  content: '\F3EC';
+  color: $side-800;
 }
 
 .quotation::before {
@@ -46,7 +73,7 @@ span.editMenuItem {
 
 .tooltip::before {
   content: '\F2E9';
-  color: $darkYellow;
+  color: $dark-yellow;
 }
 
 .insertImg:before {
@@ -68,47 +95,6 @@ span.editMenuItem {
 .ref::before {
   content: '\F2EC';
 }
-
-.sb {
-  &::before {
-    content: '\F2DE';
-  }
-}
-
-.sb-tip {
-  color: $topNavDarkGreen;
-}
-
-.sb-warning {
-  color: $trlRed;
-}
-
-.sb-quiz {
-  color: $darkYellow;
-}
-
-.sb-why, .sb-bug {
-  color: $darkYellow;
-}
-
-.sb-ex {
-  color: wheat;
-}
-
-.terminal::before {
-  content: '\F3D7';
-}
-
-.cons::before {
-  content: '\F2EE';
-}
-
-.ard::before {
-  content: '\F3EC';
-  color: $ardLight;
-}
-
-
 
 .insCode::before {
   content: '\F2DA';
@@ -133,4 +119,20 @@ span.editMenuItem {
 .spell::before {
   content: '\f2f0';
   color: red;
+}
+
+.grayHighlight {
+  color: $main-400;
+    
+  &:before {
+    content: '\F2E8'
+  }
+}
+
+.greenHighlight {
+  color: $main-800;
+
+  &::before {
+    content: '\F2E4';
+  }
 }

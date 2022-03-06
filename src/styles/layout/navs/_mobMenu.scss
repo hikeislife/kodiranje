@@ -1,61 +1,67 @@
-.bottomNav {
-  // width: 100%;
+@use "../../base" as *;
+
+.bottom-nav {
+  //width: 100%; // for mobile chrome
   position: fixed;
-  // bottom: 0;
+  bottom: 0; // for mobile chrome
   z-index: 2;
   inset: auto 0 0 0;
+  height: $mobMenuHeight;
+  padding-left: .5rem;
+  margin-inline: -.5rem;
 }
 
-.mobileNav {
-  background: linear-gradient(to bottom, $topNavDarkGreen 50%, $topNavLightGreen 100%);
+.mobile-nav {
+  @include dark-gradient;
   padding-top: .5rem;
   box-shadow: 0 -1px 2px 0 rgba(0,0,0,.3),0 1px 2px 0 rgba(0,0,0,.3);
 }
 
-.mobNavItems {
+.mob-nav-items { // ul
   list-style: none;
   padding: 0;
-  height: 3.6rem;
   display: flex;
   align-items: center; // vert
   justify-content: space-evenly; // horiz
 
+
   li {
     display: grid;
     grid-template-rows: 1fr auto;
-    align-content: space-between;
-    height: 100%;
+    align-content: space-around;
+    // height: 100%;
     position: relative;
     width: 3rem;
+    margin-block: unset;
 
-    .eol {
-      @include center;
-      opacity: 0;
-      position: absolute;
-      right: -2.5rem;
-      top: -3.2rem;
-      height: 2.3rem;
-      width: 8rem;
-      background: $fontColor;
-      border-radius: $borderRadius;
-      padding-inline: .3rem;
-      transition: opacity 0.2s ease-in;
+    // .eol {
+    //   @include center;
+    //   opacity: 0;
+    //   position: absolute;
+    //   right: -2.5rem;
+    //   top: -3.2rem;
+    //   height: 2.3rem;
+    //   width: 8rem;
+    //   background: $side-900;
+    //   border-radius: $borderRadius;
+    //   padding-inline: .3rem;
+    //   transition: opacity 0.2s ease-in;
 
-      p {
-        font-size: .8rem;
-        margin: 0;
-        color: aliceblue;
-        font-weight: 900;
+    //   p {
+    //     font-size: .8rem;
+    //     margin: 0;
+    //     color: aliceblue;
+    //     font-weight: 900;
 
-        .em {
-          font-size: .8rem;
-        }
-      }
-    }
+    //     .em {
+    //       font-size: .8rem;
+    //     }
+    //   }
+    // }
   }
 
   li div {
-    overflow: hidden;
+    overflow: clip;
     font-size: .8rem;
     @include center;
     padding-bottom: .2rem;
@@ -91,7 +97,7 @@
   top: 11px;
 }
 
-@media only screen and (min-width: 48rem) { //> 768px where side nav appears
+@include media-768 {
   .bottomNav {
     display: none;
   }
@@ -99,31 +105,40 @@
 
 .obscHome, .obscToggle {
   display: inline-grid;
-  width: 50vw;
+  width: 100%;
   height: 100%;
   justify-content: center;
   align-items: center;
 
-  a {
-    text-decoration: none;
+  a, a * {
+    text-decoration: none !important;
     @include spread;
-    align-items: center;
-    justify-content: center;
+    @include center;
+    width: inherit;
   }
 }
 
 .obscToggle {
-  border-left: $px solid $fontColor;
+  border-left: $px solid $side-900;
 }
 
-.twoButtons {
+.additionalButtons {
   display: none; //grid;
   grid-column: 1/3;
-  background: $refBcg;
-  grid-template-columns: 1fr 1fr;
+  background: $side-200;
+  grid-template-columns: 1fr 1fr .6rem;
   justify-content: space-evenly;
   align-items: center;
-  height: 4rem;
+  height: $mobMenuHeight;
   position: fixed;
-  bottom: 4.1rem;
+  bottom: $mobMenuHeight;
+  @include box-shadow;
+  z-index: 2;
+  width: 100%;
+}
+
+@include media-768 {
+  .bottom-nav {
+    display: none;
+  }
 }

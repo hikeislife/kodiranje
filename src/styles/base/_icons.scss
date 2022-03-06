@@ -1,7 +1,11 @@
+@use "../fonts/fonts.scss" as f;
+@use "colors" as c;
+
+
 .icon {
-  font-family: $kodiranje;
+  font-family: f.$kodiranje !important;
   font-size: 26px;
-  font-display: swap;
+  // font-display: swap;
 }
 
 // mobile nav
@@ -14,50 +18,61 @@
   content: '\003e';
 }
 
+.rona::before {
+  content: '\0146';
+}
+
 // superboxes
 
 summary::before {
-  font-family: $kodiranje;
+  font-family: f.$kodiranje;
   content: '\25b9';
 }
 
-// details[open] summary::before {
-//     content: '\F39B';
-// }
+// langs icons
 
+.arduinoIcon::before {
+  content: '\0061';
+}
 
-// Nav icons
-
-.htmlIcon::before {
-  content: '\0068';
+.bitCoinIcon::before {
+  content: '\0062';
 }
 
 .cssIcon::before {
   content: '\0063';
 }
 
+.sharpIcon::before {
+  content: '\0064';
+}
+
 .gitIcon::before {
   content: '\0067';
 }
 
-.cmdIcon::before {
-  content: '\0074';
+.htmlIcon::before {
+  content: '\0068';
 }
 
 .jsIcon::before {
   content: '\006a';
 }
 
-.nodeIcon::before {
-  content: '\F3D3';
+.javaIcon::before {
+  content: '\006b';
 }
 
-.arduinoIcon::before {
-  content: '\0061';
+.nodeIcon::before {
+  content: '\006e';
 }
 
 .pyIcon::before {
   content: '\0070';
+}
+
+.cmdIcon::before {
+  content: '\0074';
 }
 
 .backHome::before {
@@ -65,25 +80,37 @@ summary::before {
   padding-right: 1.5rem;
 }
 
+.topNavPadding::before {
+  padding-right: 1.5rem;
+}
+
 // Tools used:
 
-.firefoxIcon::before {
-  content: '\0046';
+.braveIcon::before {
+  content: '\0042';
 }
 
 .chromeIcon::before {
   content: '\0043';
 }
 
-.braveIcon::before {
-  content: '\f27a';
+.firefoxIcon::before,
+.ffIcon::before {
+  content: '\0046';
 }
 
 .vsCodeIcon::before {
   content: '\0056';
 }
 
+.src::before {
+  content: '\00a9';
+  top: 3px;
+  position: relative;
+}
+
 // media controls
+
 .playIcon::before {
   content: '\25b6';
 }
@@ -96,38 +123,79 @@ summary::before {
   content: '\1f504';
 }
 
+// smilies https://unicode.org/emoji/charts/full-emoji-list.html 🙃
+
+.em {
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 2px gray;
+}
+
+.cookie::before {
+  content: '\1f36a';
+}
+
+.up::before {
+  content: '\1f446';
+}
+
+.lol::before {
+  content: '\1f602';
+}
+
+.wink::before {
+  content: '\1f609';
+}
+
+.unamused::before {
+  content: '\1f612'
+}
+
+.confused::before {
+  content: '\1f615';
+}
+
+.duh::before {
+  content: '\1f616';
+}
+
+.plaz::before {
+  content: '\1f61c';
+}
+
+.sad::before {
+  content: '\1f61e';
+}
+
+.smiley::before {
+  content: '\1f642';
+}
+
+.facePalm::before {
+  content: '\1F926\200D\2642'; // 🤦‍♂️
+}
+
+.cray::before,
+.crey::before {
+  content: '\1f92a';
+}
+
+.shrug::before {
+  content: '\1f937\200D\2642'; // 🤷‍♂
+}
+
 // .sublimeIcon::before {
-//   content: '\F298';
+//   content: '\004c';
 // }
 
 // .windows-old::before {
-//   content: '\f28f';
+//   content: '\0057';
 // }
 
 // // .windows::before {
-// //   content: '\f28f'
-// // }
-
-// // .icon-red {
-// //   color: firebrick;
-// //   padding-left: 1em;
+// //   content: '\0058';
 // // }
 
 // // nav icons
-
-
-
-
-
-
-
-
-
-
-
-// // .ffIcon::before {
-// //   content: '\F296';
-// // }
 
 // // .vscodePlugins::before {
 // //   content: '\F29C'
@@ -149,58 +217,7 @@ summary::before {
 //   content: '\F29f';
 // }
 
-// .ff::before {
-//   content: "\F29e";
-// }
 
-
-// // smilies https://unicode.org/emoji/charts/full-emoji-list.html
-
-.em {
-  font-size: 1.5rem;
-  text-shadow: 1px 1px 2px gray;
-}
-
-.unamused::before {
-  content: '\1F612'
-}
-
-.smiley::before {
-  content: '\1F642';
-}
-
-.sad::before {
-  content: '\1F61E';
-}
-
-.confused::before {
-  content: '\1F615';
-}
-
-.duh::before {
-  content: '\1F616';
-}
-
-.cray::before,
-.crey::before {
-  content: '\1F92A';
-}
-
-.plaz::before {
-  content: '\1f61c';
-}
-
-.up::before {
-  content: '\1F446';
-}
-
-.wink::before {
-  content: '\1F609'
-}
-
-.cookie::before {
-  content: '\1F36A'
-}
 // // dev tools 
 
 // .inspectorIcon::before {
@@ -214,3 +231,70 @@ summary::before {
 // .coronaIcon::before {
 //   content: '\f29B';
 // }
+
+// soc media
+
+.socIcon1::before {
+  content: '\03a4';
+}
+
+.twitterIcon::before {
+  content: '\03a4';
+}
+
+
+
+.transcribe {
+  position: relative;
+}
+
+.transcribe::before {
+  content: '\00bd';
+  font-size: 2rem;
+}
+
+.transcribe::after {
+  font-family: f.$font;
+  content: 'transkripcija/transliteracija';
+  background-color: c.$side-900;
+  color: c.$main-400;
+  font-size: 0.9rem;
+  border: 3px double;
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  padding: .1rem .2rem;
+  display: none;
+  transform: translate(-50%);
+}
+
+.transcribe:hover::after {
+  display: block;
+}
+
+@media screen and (min-width: 48rem) {
+  .transcribe::after {
+    content: 'transkripcija/\Atransliteracija';
+    top: 100%;
+    transform: translate(-70%);
+    left: unset;
+  }
+}
+  
+
+
+// uncommon
+
+.mozilla::before {
+  content: '\004d';
+  position: relative;
+  bottom: -1px;
+}
+
+.netscape::before {
+  content: '\004e';
+}
+
+.ieIcon::before {
+  content: '\0049';
+}

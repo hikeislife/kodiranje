@@ -1,3 +1,4 @@
-import characterCounter from "../utils/characterCounter.js"
-import floatter         from "../utils/floatingMenuAddPage.js"
-import dragDrop         from "../utils/dragDropFiles.js"
+import characterCounter from "../backend/characterCounter.js"
+import floatter         from "../backend/floatingMenuAddPage.js"
+import dragDrop         from "../backend/dragDropFiles.js"
+// import keyBind          from '../backend/keyBindings.js'

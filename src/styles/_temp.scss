@@ -1,5 +1,5 @@
 .placeholder {
-  background-color: $articleBcg;
+  background-color: $main-300;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
   text-align: justify;
 }
@@ -17,8 +17,8 @@
 }
 
 .placeholder .ex {
-  background: whitesmoke;
-  color: $fontColor;
+  background: $side-100;
+  color: $side-900;
   margin-bottom: 0;
   white-space: normal; /* to offset one from the ex */
 }

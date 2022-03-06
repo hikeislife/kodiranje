@@ -1,8 +1,8 @@
 
 // import showHideMenu     from "../utils/editMenu.js"
-import fixSelected      from "../utils/fixSelected.js"
+import fixSelected      from "../backend/fixSelected.js"
 import doTheFetch       from "./editArticle.js"
-import characterCounter from "../utils/characterCounter.js"
-import sanitizeInput    from "../utils/makePageNavUneditable.js"
-import fixEnter         from "../utils/fixEnterOnEdit.js"
-import dragDrop         from "../utils/dragDropFiles.js"
+import characterCounter from "../backend/characterCounter.js"
+import sanitizeInput    from "../backend/makePageNavUneditable.js"
+import fixEnter         from "../backend/fixEnterOnEdit.js"
+import dragDrop         from "../backend/dragDropFiles.js"

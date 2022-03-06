@@ -1,11 +1,9 @@
+@use "../base" as *;
+
 details {
   cursor: auto;
   margin: 2em 0;
-
-  // p {
-  //   // resets behavior that makes sense for article, but not so much here
-  //   margin-block: 2rem;
-  // }
+  margin-trim: in-flow;
 
   div:last-of-type {
     margin-bottom: 0;
@@ -14,33 +12,36 @@ details {
   & summary {
     cursor: pointer;
     position: relative;
+    text-indent: 1rem;
 
     p:first-child {
       // so that marker is in the same line as the text
       display: inline;
       margin-bottom: 2rem;
-
-      &::first-line {
-        text-indent: 2rem;
-      }
-
     }
     
-    p:last-child {
+    & *:last-child {
       margin-bottom: 0;
+
+      figcaption {
+        bottom: 2.5rem
+      }
     }
 
     &::before {
       position: absolute;
       left: 0rem;
+      top: 0.4rem;
       transform: rotate(0);
       transition: .75s transform cubic-bezier(.6,-0.28,.74,.05);
+      text-indent: 0;
     }
   }
 
   // this would also affect list bullets if it were outside of the details selector
   ::marker  {
-    color: transparent; // display none doesn't do anyting
+    // display none doesn't do anyting
+    color: transparent;
   }
 }
 
@@ -49,11 +50,12 @@ details {
 details:not([class]) {
   @include border;
   border: none;
-  @include boxShadow;
-  border-left: $accentBorder solid $topNavLightGreen;
+  @include box-shadow;
+  border-left: $accentBorder solid $main-800;
+  background-color: $main-300;
 
   &:hover {
-    border-left: $accentBorder solid $darkYellow;
+    border-left: $accentBorder solid $dark-yellow;
   }
 
   &[open] {
@@ -61,7 +63,7 @@ details:not([class]) {
   }
 }
 
-details .superbox::before {
+details.superbox::before {
   display: none;
 }
 
@@ -83,8 +85,8 @@ details[open] summary ~ * {
 
 // details.listAllArticles {
 //   @include border;
-//   @include boxShadow;
-//   border-left: $accentBorder solid $topNavLightGreen;
+//   @include box-shadow;
+//   border-left: $accentBorder solid $main-800;
 //   padding: 0;
 
 //   summary {
@@ -99,10 +101,10 @@ details[open] summary ~ * {
 
 //   p {
 //     padding: 0 1rem;
-//     // border: $borderWidth solid $fontColor;
+//     // border: $borderWidth solid $side-900;
 //     margin: .5rem 0;
 //     text-align: left;
-//     background: $bcgColor;
+//     background: $main-400;
 
 //     // a {
 //     //   text-decoration: underline;
@@ -119,21 +121,23 @@ details[open] summary ~ * {
 
 
 
-// // .sectionTitle {
-// //   h1 {
-// //     padding: 0 2em;
-// //     text-align: center;
-// //   }
+.sectionTitle {
+  @include box-shadow;
+  padding: 2rem 1rem;
 
-// //   & summary {
+  h1 {
+    margin-top: 0;
+  }
+
+  & summary {
 // //     display: inline;
 
-// //     &::before {
-// //       position: absolute;
-// //       z-index: 1;
-// //     }
-// //   }
-// // }
+    &::before {
+      left: 1rem;
+      top: 2rem;
+    }
+  }
+}
 
 // // @media only screen and (max-width: 39.9375em) {
 // //   .sectionTitle h1 {
@@ -207,7 +211,7 @@ details[open] summary ~ * {
 
 
 
-// //     text-shadow: 1px 1px 2px #9af629, -1px -1px 2px #9af629, -1px 1px 2px #9af629, 1px -1px 2px #9af629; // don't remove shadow, the background goes outside
+// //     text-shadow: 1px 1px 2px $main-800, -1px -1px 2px $main-800, -1px 1px 2px $main-800, 1px -1px 2px $main-800; // don't remove shadow, the background goes outside
 
 
 

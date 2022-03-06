@@ -1,3 +1,5 @@
+@use "../../base/colors" as c;
+
 .listless {
   list-style-type: none;
   padding-left: 0;
@@ -8,7 +10,7 @@ li {
   margin-block: 1rem;
 
   ::marker {
-    color: $fontColor;
+    color: c.$side-900;
   }
 }
 

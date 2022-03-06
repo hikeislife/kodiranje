@@ -1,3 +1,5 @@
+@use "../../base/colors" as c;
+
 progress {
   width: 100vw;
   border: none;
@@ -5,6 +7,7 @@ progress {
   background: transparent;
   height: .2rem;
   position: fixed;
+  top:0;
 }
 
 progress::-webkit-progress-bar {
@@ -13,15 +16,15 @@ progress::-webkit-progress-bar {
 
 progress::-moz-progress-bar,
 progress::-webkit-progress-value {
-  background: $borderColor;
+  background: c.$borderColor;
 }
 
 @media only screen and (min-width: 48rem) { 
   // > 768px where side nav appears
   progress {
-    display: none;
+    // display: none;
     height: 6px;
-    position: fixed;
-    top: 58px;
+    // position: sticky;
+    top: 54px;
   }
 }

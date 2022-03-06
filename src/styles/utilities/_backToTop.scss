@@ -1,23 +1,25 @@
+@use "../base" as *;
+
 .backToTop {
   position: fixed;
   bottom: $BTT_position;
   right: $BTT_position;
   width: $BTT_position;
   height: $BTT_position;
-  background: $bcgColor;
-  color: $fontColor;
-  border-bottom: $BTT_borderBottom solid $topNavLightGreen;
-  // display: none;
+  background: $main-400;
+  color: $side-900;
+  border-bottom: $BTT_borderBottom solid $main-800;
   justify-content: center;
   align-items: center;
   border-radius: 5px 5px 0 0;
   box-shadow: $BTT_shadow;
   text-shadow: $BTT_shadow;
   display: flex;
+  z-index: 1; // otherwise footer goes over it
 
   &:hover {
-    border-bottom: $BTT_borderBottom solid $darkYellow;
-    box-shadow: 1px 1px 5px $darkYellow;
+    border-bottom: $BTT_borderBottom solid $dark-yellow;
+    box-shadow: 1px 1px 5px $dark-yellow;
   }
 }
 

@@ -1,3 +1,5 @@
+@use "../base" as *;
+
 .cmdborder {
   border: $px solid $borderColor; 
   border-radius: $borderRadius;
@@ -6,12 +8,12 @@
 
 .cmd {
   border-radius: 4px;
-  border: $cmdBorderWidth solid $cmdBorderColor;
-  @include boxShadow;
+  border: $cmdBorderWidth solid $side-300;
+  @include box-shadow;
 }
 
 .cmdtitlebar {
-  background-color: $cmdBorderColor;
+  background-color: $side-300;
   font-size: 1rem;
   padding-left: .2rem;
   margin-top: -6px;
@@ -25,13 +27,19 @@
 
   p,
   p * {
-    font-family: "Lucida Console", Monaco, monospace;
-    color: $cmdFont;
+    font-family: $code-font;
+    color: $side-400;
     margin-block: 1rem;
 
     &::selection {
       background: white;
       color: black;
+    }
+
+    em {
+      background: $side-400;
+      color: $side-900;
+      border: double 3px;
     }
   }
 }
@@ -49,5 +57,5 @@
 // // }
 
 // .gitwhite {
-//   color: $cmdFont;
+//   color: $side-400;
 // }

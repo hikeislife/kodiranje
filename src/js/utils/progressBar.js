@@ -4,6 +4,7 @@ const indicateScrollPosition = e => {
   const currentPos = document.documentElement.scrollTop
   const percentige = currentPos * 100 / totalPageHeight
   indicator.attributes[0].value = `${percentige}`
+  indicator.style.display = 'block'
   // if (percentige < 10) {
   //   indicator.style.top = '-7px'
   // }

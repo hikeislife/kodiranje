@@ -1,16 +1,37 @@
-blockquote {
+@use "../base" as *;
+
+blockquote { 
   position: relative;
   // @include border;
   border-radius: 2rem;
   padding: 2rem;
-  background-color: $bcgColor;
+  background-color: $main-400;
   padding-bottom: 7rem;
   color: cornsilk;
   background: cornflowerblue;
   margin-block: 2rem;
+  width: 100%;
+  
 
   * {
     color: cornsilk;
+  }
+
+  &::before {
+    font-family: $kodiranje;
+    content: '\201c';
+    font-size: $iconSize;
+    position: absolute;
+    top: 2rem;
+  }
+
+  &::after {
+    font-family: $kodiranje;
+    content: '\201d';
+    font-size: $iconSize;
+    position: absolute;
+    bottom: 5rem;
+    right: 2rem;
   }
 
   cite {
@@ -25,33 +46,28 @@ blockquote {
     a{
       text-decoration: none;
     }
+
+    &::before {
+      font-family: $kodiranje;
+      content: '\0185'; 
+      font-size: $iconSize;
+      position: absolute;
+      left: -2.5rem;
+    }
+
+    & * {
+      color: inherit !important;
+    }
   }
-}
 
-// icons
+  & p {
+    text-indent: 3rem;
+  }
 
-blockquote::before {
-  font-family: "Kodiranje";
-  content: '\201c';
-  font-size: $iconSize;
-  position: absolute;
-  top: 2rem;
-}
-
-blockquote::after {
-  font-family: "Kodiranje";
-  content: '\201d';
-  font-size: $iconSize;
-  position: absolute;
-  bottom: 5rem;
-  right: 2rem;
-}
-
-cite::before {
-  font-family: "Kodiranje";
-  content: '\F34C'; 
-  font-size: $iconSize;
-  position: absolute;
-  // top: .5rem;
-  left: -2.5rem;
+  figure {
+    position: static;
+    text-align: unset;
+    padding-left: 2rem;
+    float: right;
+  }
 }

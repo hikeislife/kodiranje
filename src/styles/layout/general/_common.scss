@@ -1,7 +1,9 @@
+@use "../../base" as *;
+
 em {
   border: $px solid $borderColor;
   border-radius: $borderRadius;
-  background-color: $emGray;
+  background-color: $side-200-alpha;
   font-style: normal;
   padding: 0 .3rem;
 }
@@ -9,7 +11,7 @@ em {
 .artMeta {
   @include border;
   text-align: right;
-  background: $bcgColor;
+  background: $main-400;
   margin: 6rem 0;
 
   p {
@@ -19,12 +21,16 @@ em {
   }
 }
 
-abbr {
-  font-size: inherit;
+// abbr {
+//   font-size: inherit;
+// }
+
+.refBrackets {
+  font-size: .8rem;
 }
 
 .unbreak {
-  white-space: break-spaces;
+  white-space: nowrap;
 }
 
 //////////////////////////////// colors
@@ -35,7 +41,7 @@ abbr {
 
 .deeppink,
 .pink {
-  color: #C0C;
+  color: $codePink;
 }
 
 .darkviolet,
@@ -48,10 +54,10 @@ abbr {
   color: $codeGreen;
 }
 
-// .dimgray,
-// .dim {
-//   color: dimgray;
-// }
+.dimgray,
+.dim {
+  color: #8e8c8c;;
+}
 
 
 .royal,
@@ -67,28 +73,37 @@ abbr {
   user-select: all;
 }
 
-// .math {
-//   font-family: 'Cambria Math Regular';
-//   font-size: 1.3rem;
-//   font-weight: 400;
-//   letter-spacing: normal;
-//   line-height: 1.6;
-//   font-style: italic;
-// }
+.bumpTop {
+  margin-top: 2rem !important;
+}
 
-// #TODO: add grid notebook paper as bcg for math
 
 // dfn {
 //   font-style: normal;
 // }
 
-.sicemboy {
+a.sicemboy {
   font-style: italic;
-  font-size: .8rem;
+  font-size: .7rem;
+  vertical-align: super;
+  letter-spacing: -.5px;
   text-decoration: none;
+
+  &::after {
+    content: '[sic]';
+    color: darkmagenta;
+  }
 }
 
-
+// copy this inside of svg style element, just below svg tag, and before g tag
+// since it's inside of object tag, implying a foreign object, prevention of xss
+// also prevents styling the contents of object tag from outside
+.svgText {
+  font-family: $font;
+  font-size: 16px;
+  line-height: 1.25;
+  text-align: center;
+}
 
 
 .highlight {
@@ -96,89 +111,55 @@ abbr {
   border-color: $highPink;
 }
 
-.highGreen {
+.highGreen, .highgreen {
   background-color: $highGreen;
   @include highlight;
 }
 
-.highYellow {
+.highYellow, .highyellow {
   background-color: $highYellow;
   @include highlight;
 }
 
-.highPink {
+.highPink, .highpink {
   background-color: $highPink;
+  color: black;
   @include highlight;
 }
 
-.highGreen::before,
-.highGreen::after,
-.highYellow::before,
-.highYellow::after,
-.highPink::before,
-.highPink::after {
+// #NOTE: doesn't work, style needs to be applied through js instead
+// .dragged {
+//   background-color: darkviolet;
+//   opacity: 1;
+// }
+
+.video {
+  width: 100%;
+  overflow: clip;
+  position: relative;
+  padding-bottom: 56.25%; // 16:9
+  padding-top: 30px; 
+  height: 0;
+  margin-block: 2rem;
   background: aliceblue;
-}
+  @include box-shadow;
 
-.tip {
-  .highGreen::before,
-  .highGreen::after,
-  .highYellow::before,
-  .highYellow::after,
-  .highPink::before,
-  .highPink::after {
-    background-color: $trlGreen;
+  & iframe, 
+  & object, 
+  & embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 1rem);
+    height: calc(100% - 1rem);
+    margin: .5rem;
+    border-radius: .3rem;
+    background: $side-200;
   }
 }
 
-.warning {
-  .highGreen::before,
-  .highGreen::after,
-  .highYellow::before,
-  .highYellow::after,
-  .highPink::before,
-  .highPink::after {
-    background-color: $trlRed;
-  }
-}
-
-.why {
-  .highGreen::before,
-  .highGreen::after,
-  .highYellow::before,
-  .highYellow::after,
-  .highPink::before,
-  .highPink::after {
-    background-color: $darkYellow;
-  }
-}
-
-.quiz {
-  .highGreen::before,
-  .highGreen::after,
-  .highYellow::before,
-  .highYellow::after,
-  .highPink::before,
-  .highPink::after {
-    background-color: $quiz;
-  }
-}
-
-.quiz .highlight:before,
-.quiz .highlight:after,
-.quiz .highlight,
-.tip .highlight:before,
-.tip .highlight:after,
-.tip .highlight {
-  background-color: $lowYellow;
-  border: $lowPink solid;
-}
-
-.warning .highlight:before,
-.warning .highlight:after,
-.warning .highlight {
-  background-color: $lowYellow;
-  border: $lowPink solid;
+.ytp-pause-overlay{
+  display:none;
 }
 
 // // // .quiz .highlight:before,
@@ -199,10 +180,6 @@ abbr {
 // // //   text-align: center;
 // // // }
 
-// // // .ind {
-// // //   padding-left: 20px;
-// // // }
-
 
 
 
@@ -211,12 +188,16 @@ abbr {
   .breakall {
     overflow-wrap: break-word;
     word-wrap: break-word;
-    word-break: break-all;
+    word-break: break-all !important;
     -ms-hyphens: auto;
     -moz-hyphens: auto;
     -webkit-hyphens: auto;
     hyphens: auto;
   }
+
+.strike {
+  text-decoration: line-through;
+}
 // // // }
 
 // // // @media only screen and (max-width: 22.5em) {
@@ -230,14 +211,25 @@ abbr {
 
 
 
-// .colorSwatch {
-//   display: inline-block; 
-//   width: 1em; 
-//   height: 1em; 
-//   border: 2px solid whitesmoke; 
-//   position: relative; 
-//   top: 4px;
-// }
+.colorSwatch {
+  content: ' ';
+  display: inline-block; 
+  width: 1.3rem; 
+  height: 1.3rem; 
+  border: 3px double #f5f5f5; 
+  position: relative; 
+  top: 4px;
+  margin-right: .1rem;
+}
+
+.ex.cssCode,
+.ex.htmlCode,
+.ex.jsCode {
+  border-left: none !important;
+  padding-inline: .5rem;
+  padding-bottom: .1rem;
+  margin-top: 0.1rem;
+}
 
 // // // .squigly {
 // // //   text-decoration-line: underline;
@@ -245,9 +237,11 @@ abbr {
 // // //   text-decoration-color: red;
 // // // }
 
-.center {
+.center, .video {
   @include center;
 }
+
+
 
 // // // [data-ind] {
 // // //   display: inline-block;
@@ -255,20 +249,19 @@ abbr {
 
 //////////////////////////////////////////// temp
 
-*[lang] {
-//   color: #f06; /*#f06292;*/
-  font-size: inherit;
-  font-family: inherit;
+
+
+
+
+// repeat cause other margin was set only to article p elements in main.scss
+.backend p {
+  margin: 2rem 0;
 }
 
-h1 [lang] {
-  color: burlywood;
-}
-
-.lazy {
+// .lazy {
   // content-visibility: auto;
   // contain-intrinsic-size: 1px 400px;
-}
+// }
 
 figure {
   margin-block: 2rem;
@@ -278,8 +271,13 @@ figure {
   background: #f06;
   color: #fff;
 }
-.plop {
+.plip, .plop {
   font-size: inherit;
   font-family: inherit;
   color: burlywood;
 }
+
+.plip {
+  text-transform: initial;
+}
+

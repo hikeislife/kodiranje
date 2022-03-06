@@ -1,9 +1,11 @@
+@use "../base" as *;
+
 #ra-player {
   width: calc(100% - 2 * var(--artPadding)) !important;
   border-radius: $borderRadius !important;
   padding: .5rem !important;
-  box-shadow: $px $px $diffusedShadow $shadow !important;
-  background: linear-gradient(to bottom, #9af62975 50%, #7cc91c75 100%) !important;
+  @include box-shadow;
+  @include transparentGradient;
   position: fixed;
   z-index: 1;
   max-width: unset !important;
@@ -27,7 +29,7 @@
   .ra-seek-knob, .ra-rate-knob, .ra-volume-knob {
     width: .5rem !important;
     height: .5rem !important;
-    background: $darkYellow !important;
+    background: $dark-yellow !important;
     margin: initial !important;
   }
 
@@ -35,10 +37,6 @@
     max-height: 1rem !important;
   }
 }
-
-
-/*(ra-btn ra-btn-rewind) 
-(ra-btn ra-btn-play)*/
 
 .ra-button {
   display: grid;
@@ -49,7 +47,6 @@
   position: relative;
   inset: 0;
   width: 100%;
-  // grid-template-columns: 3rem auto;
 
   .ra-label {
     max-height: 1rem;
@@ -59,10 +56,7 @@
 
 .ra-button img {
   height: 1rem;
-  // margin: .5rem 1rem;
   width: 1.2rem;
-    // padding-left: 1rem;
-
 }
 
 @media screen and (min-width: 48rem) {

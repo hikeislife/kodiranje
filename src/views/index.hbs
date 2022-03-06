@@ -2,13 +2,14 @@
 {{>basics/head/head}}
 
 <body>
-  {{>basics/cookie}}
+  <div id="topside"></div>
+  {{!-- {{>basics/cookie}} --}}
   {{>basics/header/header}}
   {{>basics/sideNav}}
   <main>
-    <div class="placeholder">
+    {{!-- <div class="placeholder"> --}}
       {{{body}}}
-    </div>
+    {{!-- </div> --}}
   </main>
   {{>basics/footer/footer}}
   {{>basics/backToTop}}
@@ -18,7 +19,6 @@
   maybe make it enableble?!
   <script src="https://code.responsivevoice.org/responsivevoice.js?key=3QtmQ5K2"></script>
   --}}
-
 </body>
 
 </html>

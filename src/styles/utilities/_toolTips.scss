@@ -1,3 +1,11 @@
+@use "../base" as *;
+
+// #TODO: this is so that old code can be easily noticed and replaced with new code.
+// once all pages are fixed, this can be removed. remove when possible.
+.tt { 
+  border: 5px solid red;
+}
+
 .ttip {
   display: inline;
 
@@ -5,51 +13,43 @@
     content: ' ('attr(data-tooltip)')';
     // font-size: .8rem;
     display: inline;
+    text-align: justify;
     color: $opeka;
-    white-space: break-spaces;
   }
+}
 
-  // & em {
-  //   border-bottom: 2px solid $darkYellow;
-  // }
+
+// special cases
+.why .ttip,
+.quiz .ttip {
+  box-shadow: inset 0 -.7rem 0 $main-900, inset 0 .8rem $main-800;
+}
+
+figure > .ttip {
+  background: none;
+  font-weight: normal;
+  box-shadow: none;
+  padding-inline: 0;
+  display: inline;
 }
 
 figure {
-  .ttip {
-    background: none;
-    font-weight: normal;
-    box-shadow: none;
-    padding-inline: 0;
-  }
-
   .ttip::after {
     display: none;
   }
 }
 
-@media only screen and (min-width: 48em) { // > 768px sidenav visible
+@media only screen and (min-width: 48rem) { // > 768px sidenav visible
   .ttip {
     @include tipBasic;
-    // don't make tipbox wider than double margin, so even if it materializes at the end of the text, it doesn't go off the page
-    // --tipWidth: calc(2 * var(--artPadding));
-    // display: inline-block;
     font-weight: bolder;
-    box-shadow: inset 0 -.7rem 0 #ffb600,inset 0 .8rem #ffee61;
+    box-shadow: inset 0 -.5rem 0 #ffb600,inset 0 .8rem #ffee61;
     padding-inline: .33rem;
-  
-    &:hover::before,
-    &:hover::after {
-      @include tipHoverBeforeAfter;
-    }
-
-    &::before,
-    &::after {
-      @include tipBeforeAfter;
-    }
 
     &::after {
-      @include tipAfter;
-      color: $fontColor;
+      color: $side-900;
+      text-align: center;
+      text-transform: capitalize;
     }
 
     &::before {
@@ -58,18 +58,17 @@ figure {
   }
 
   figure {
-  .ttip::after {
-    display: inline-block;
+    .ttip::after {
+      display: inline-block;
+    }
   }
 }
-}
 
-.why .ttip {
-  box-shadow: inset 0 -.7rem 0 $topNavDarkGreen,inset 0 .8rem $topNavLightGreen;
-}
-
-// this is so that old code can be easily noticed and replaced with new code.
-// once all pages are fixed, this can be removed
-.tt { 
-  border: 5px solid red;
+@media only screen and (min-width: 100rem) { // this where --artPadding goes to 0
+  .ttip::after,
+  figure .ttip::after {
+    max-width: calc(100vw - 1050px);
+    min-width: fit-content;
+    white-space: nowrap;
+  }
 }

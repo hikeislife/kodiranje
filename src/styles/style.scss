@@ -1,68 +1,54 @@
-@import "fonts/fonts"; // synced
+/*# sourceMappingURL=https://kodiranje.in.rs/styles/style.css.map */
 
-@import "base/colors";
-@import "base/variables";
-@import "base/mixins";
-@import "base/animations";
-@import "base/icons";
-@import "base/urls";
+// @use "layout/main";
 
-@import "layout/main";
+@use "layout/general/imgs"; // synced undone
+// @use "layout/general/links";
+// @use "layout/general/lists";
+// @use "layout/general/table";
+// @use "layout/general/common";
 
-@import "layout/general/imgs"; // synced undone
-@import "layout/general/links";
-@import "layout/general/lists";
-// @import "layout/general/table";
-@import "layout/general/common";
-// @import "base/atf";
+@use "layout/header/progress"; // synced
 
-@import "layout/header/topNav"; // synced
-@import "layout/header/logo"; // synced
-@import "layout/header/progress"; // synced
+// @use "layout/navs/listOfReferals"; // synced
 
-@import "layout/navs/mobMenu"; // synced
-@import "layout/navs/listOfReferals"; // synced
+// @use "layout/footer/footer";
+// @use "layout/footer/donate";
+// @use "layout/footer/cog";
+
+// @use "modules/details";
+// @use "modules/superboxes";
+// @use "modules/blockquotes"; // done
+// @use "modules/console";
+// @use "modules/cmd";
+// @use "modules/math";
+
+// @use "utilities/backToTop"; // done
+// @use "utilities/toolTips"; // done
+// @use "utilities/scroll"; // done
+// @use "utilities/reader";  // synced
+
+// @use "codeExamples/htmlCourse";
+// @use "layout/general/uncommon";
+// @use "utilities/recognition";
+
+/////////////// break here
 
 
-@import "layout/mainPage/grid"; // synced
-@import "layout/mainPage/zigZagColors"; // synced
-@import "layout/mainPage/cards"; // synced
+// @use "atf";
 
-@import "layout/footer/footer";
-@import "layout/footer/donate";
-@import "layout/footer/cog";
-// @import "layout/footer/icons";
+// @use "layout/footer/icons";
 
+// @use "boxes/arduino";
+// @use "boxes/jupyter";
+// @use "boxes/devTools";
 
+// @use "utilities/themeToggle";
+// @use "utilities/cookies";
 
-@import "modules/details";
-@import "modules/superboxes";
-@import "modules/blockquotes"; // done
-// @import "modules/cmd";
-// @import "boxes/arduino";
-// @import "boxes/jupyter";
-// @import "boxes/console";
-// @import "boxes/devTools";
-
-@import "utilities/backToTop"; // done
-@import "utilities/toolTips"; // done
-// @import "utilities/themeToggle";
-// @import "utilities/cookies";
-@import "utilities/reader";  // synced
-
-@import "admin/editMenu";
-@import "admin/editMenuIcons.scss";
-// @import "admin/editMenuHelpers";
-@import "admin/floatingMenu";
-@import "admin/adminButtons";
-// @import "admin/admin";
-@import "admin/forms";
-
-// @import "sideWaysNav";
-// @import "a2a";
-// @import "pieChart";
-// @import "toolbox";
-// @import "temp";
-// @import "usedOnce";
-
-@import "codeExamples/htmlCourse";
+// @use "sideWaysNav";
+// @use "a2a";
+// @use "pieChart";
+// @use "toolbox";
+// @use "temp";
+// @use "usedOnce";

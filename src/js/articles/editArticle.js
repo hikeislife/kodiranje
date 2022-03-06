@@ -1,4 +1,5 @@
-import displayOGFileName from '../utils/displayOGFileName.js'
+// import handleFetch       from './../backend/handleSaveFetch.js'
+import displayOGFileName from './../backend/displayOGFileName.js'
 
 const file = {
   dom: document.querySelector('#socImage'),
@@ -64,8 +65,24 @@ const handleFetch = e => {
     method: 'PATCH',
     cache: 'no-cache',
     body: formData
-  }).then(() => window.location.href = `/admin/svi-artikli`)
+  }).then(() => window.location.href = `/admin/svi-kursevi`)
 }
+
+(function keyBinder () {
+  let isCtrl = false;
+  document.onkeyup=function(e){
+    if(e.keyCode == 17) isCtrl=false;
+  }
+
+  document.onkeydown=function(e){
+    if(e.keyCode == 17) isCtrl=true;
+    if(e.keyCode == 83 && isCtrl == true) {
+      handleFetch(e)
+        //run code for CTRL+S -- ie, save!
+      return false;
+    }
+  }
+})()
 
 export default (function doTheFetch() {
   const saveButton = document.querySelector('#dugme'),

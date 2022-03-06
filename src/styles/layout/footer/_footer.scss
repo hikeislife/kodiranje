@@ -1,25 +1,30 @@
+@use "../../base/colors" as c;
+
 footer {
-  background: linear-gradient(to bottom, $bcgColor 0%, $topNavDarkGreen 30%);
+  background: linear-gradient(to bottom, #EFC5 0%, #EFC 10%, c.$main-900 30%);
   grid-column: 1 / 3;
   margin-top: 5rem;
+  z-index: 1;
+  height: 100vh;
 
   & > hr {
     width: 90%;
     margin: 0 auto;
-    border-color: $fontColor;
+    border-color: c.$side-900;
   }
 }
 
 .copydate {
   text-align: center;
   padding: 2rem;
+  padding-top: 6rem;
 }
 
 // .footerLabel {
 //   height: 2.175rem;
 //   @include border;
 //   white-space: nowrap;
-//   background: $topNavLightGreen;
+//   background: $main-800;
 //   // display: inline-block;
 //   margin: $margin;
 // //   padding: .4rem;

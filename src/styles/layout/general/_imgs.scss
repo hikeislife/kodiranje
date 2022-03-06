@@ -1,7 +1,16 @@
+@use "../../base" as *;
+
 // warn me if I forget to add alt attribute:
-img:not([alt]) {
+img[alt=""] {
   filter: grayscale(100%);
 }
+
+// figure {
+//   position: relative;
+//   width: fit-content;
+//   margin: auto;
+//   text-align: center;
+// }
 
 img {
   display: block;
@@ -11,9 +20,49 @@ img {
   border-radius: 0.25rem;
 }
 
-// .tri {
-//   max-width: 18.75rem;
-// }
+
+figure:hover figcaption {
+  opacity: 1;
+  animation: fadeIn 0.5s ease-out;
+}
+
+figure:not(:where(.superbox > figure)) {
+  // not just for style, this prevents jumping in animation if figure is first element after the summary
+  margin-block: 2rem;
+}
+
+figcaption {
+  text-align: center;
+  width: calc(100% - 1rem);
+  // min-width prevents figcaption from loading tall and narrow while images are lazy loaded
+  // this was fixed by both hiding the caption, and setting size of figure to 100%
+  // min-width: 300px;
+  position: absolute;
+  // z-index: 1;
+  inset: auto auto 1.5rem auto;
+  background: #0000009c;
+  padding: .5rem;
+  margin-inline: .5rem;
+  // visibility: hidden;
+  opacity: 0;
+  animation: fadeOut .5s ease-out;
+  // transition: .5s opacity 0.5s ease-in;
+  
+}
+
+
+
+figcaption, figcaption * {
+  font-size: 1rem;
+  line-height: 22px;
+  color: $main-200 !important;
+  // margin: ;
+  font-weight: 900;
+
+  .ttip, .ttip a {
+    color: black !important;
+  } 
+}
 
 .pet {
   max-width: 31.25rem;
@@ -23,20 +72,9 @@ img {
   max-width: 50rem;
 }
 
-figure {
-  text-align: center;
-
+.topFig {
+  width: calc(100vw - 250px - var(--artPadding) * 2 - 2rem);
 }
-figure:not(:where(.superbox > figure)) {
-  // not just for style, this prevents jumping in animation if figure is first element after the summary
-  margin-block: 2rem;
-}
-
-figcaption {
-  font-size: .9rem;
-  margin: -1.5rem 0 1rem;
-}
-
 
 
 // // @media only screen and (max-width: 40em) {
@@ -97,10 +135,10 @@ figcaption {
 // // }
 
 .responsive {
-  @include boxShadow;
+  @include box-shadow;
   width: 100%;
   padding: .5rem;
-  margin: 2rem 0;
+  margin: 2rem auto; // auto was changed to 0, why? it has to be auto for the likes of steve
   background: aliceblue;
   display: block;
 }

@@ -4,29 +4,14 @@ require('../db/mongoose')
 const Article = require('../db/models/article')
 const Course = require('../db/models/course')
 const auth = require('../middleware/auth')
-const fs = require('fs')
+const updateEach = require('../middleware/batchUpdate')
+const generateSiteMap = require('../middleware/generateSiteMap')
 
 const articleRouter = new express.Router()
 
-articleRouter.get('/admin/svi-artikli', auth, async (req, res) => {
-  const admin = req.data.user
-  const articleList = await Article.find().select('-articleContent -__v -socImage -_id -tags -googDesc -socDesc -socTitle -googTitle -created -edited -author').sort({ courseName: -1, order: 1 })
-  const publishedArticles = [], notPublished = []
-  articleList.forEach(x => {
-    if (x.published) publishedArticles.push(x)
-    else notPublished.push(x)
-  })
-  const courses = await Course.find()
-  res.render('articles/listAllArticles', {
-    googTitle: "Lista lekcija",
-    courses,
-    robots: true,
-    publishedArticles,
-    notPublished,
-    admin
-  })
-})
 
+
+// #ADDNEW:#GET:
 articleRouter.get('/admin/dodaj-lekciju', auth, async (req, res) => {
   const courseList = await Course.find({ active: true }).select('-order -__v -_id -active').sort({ order: 1 })
   const admin = req.data.user
@@ -38,11 +23,12 @@ articleRouter.get('/admin/dodaj-lekciju', auth, async (req, res) => {
     admin
   })
 })
-
+// #ADDNEW:#POST:
 articleRouter.post('/admin/addPost', auth, async (req, res, body) => {
   let errorMessage = ''
-  const order = await Article.findOne({}).select('order -_id').sort({ order: -1 }) || { order: 0 }
+  // const order = await Article.findOne({}).select('order -_id').sort({ order: -1 }) || { order: 0 }
   await uploadOG(req, res, er => {
+  console.log(req.body.order)
     try {
       if (req.file)
         req.body.socImage = req.file.buffer
@@ -50,8 +36,8 @@ articleRouter.post('/admin/addPost', auth, async (req, res, body) => {
       if (req.body.published) {
         req.body.published = true;
       }
-
-      req.body.order = order.order + 1
+console.log(req.body.order)
+      // req.body.order = order.order
 
       if (req.data.user) req.body.author = req.data.user
       if (req.body.selectedURL) req.body.selectedURL = req.body.selectedURL.toLowerCase()
@@ -65,7 +51,7 @@ articleRouter.post('/admin/addPost', auth, async (req, res, body) => {
       const article = new Article(req.body)
       article.save()
       generateSiteMap()
-      res.redirect(302, '/admin/svi-artikli')
+      res.redirect(302, '/admin/svi-kursevi')
     }
     catch (e) {
       console.log(e)
@@ -74,6 +60,7 @@ articleRouter.post('/admin/addPost', auth, async (req, res, body) => {
   })
 })
 
+// #EDIT:#GET:
 articleRouter.get('/admin/:kurs/:lekcija', auth, async (req, res) => {
   const courseList = await Course.find({ active: true }).select('-order -__v -_id -active').sort({ order: 1 })
   const admin = req.data.user
@@ -83,7 +70,6 @@ articleRouter.get('/admin/:kurs/:lekcija', auth, async (req, res) => {
       const buff = Buffer.from(post.socImage)
       post.displayImage = buff.toString('base64')
     }
-    //console.log(buff.toString('base64'))
     courseList.selected = req.params.kurs//post.courseName
     res.render('articles/editArticle', {
       post,
@@ -94,13 +80,13 @@ articleRouter.get('/admin/:kurs/:lekcija', auth, async (req, res) => {
     })
   })
 })
-
+// #EDIT:#POST:
 articleRouter.patch('/admin/edit-article/:id', auth, async (req, res) => {
   const _id = req.params.id
 
   await uploadOG(req, res, er => {
     try {
-      if (req.file)
+      if (req.file && req.body.socImage)
         req.body.socImage = req.file.buffer
       else
         delete req.body.socImage
@@ -125,7 +111,18 @@ articleRouter.patch('/admin/edit-article/:id', auth, async (req, res) => {
     }
   })
 })
+// #EDIT:#POST: THISIS:#BATCH:
+articleRouter.patch('/admin/batchEditLessons', auth, async (req, res) => {
+  const course = req.body
+  course.forEach(lesson => {
+    updateEach(lesson, Article)
+  })
+  res.method = "GET"
+  // #NOTE: it's actually redirected from the front
+  res.redirect(303, 'admin/svi-kursevi/')
+})
 
+//#HELPER:
 const uploadOG = multer({
   limits: {
     fileSize: 2000000,
@@ -139,58 +136,39 @@ const uploadOG = multer({
   }
 }).single('socImage')
 
-findOrder = async (course) => {
-  const order = await Article.findOne({ courseName: course }).select('order -_id').sort({ order: -1 })
-  if (!order) return 0
-  return order.order + 1
-}
+articleRouter.get('/findorder/:course/', async (req, res) => {
+  let order
+  const query = await Article.findOne({ courseName: req.params.course }).select('order -_id').sort({ order: -1 })
+  if (!query) {
+    order = 0
+  }else {
+    order = query.order + 1
+  }
+  res.send({order: order})
 
-generateSiteMap = async () => {
-  const header = `<?xml version="1.0" encoding="UTF-8"?>
-  <urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\n\r`
-  let pages = `
-  <url>
-    <loc>https://www.kodiranje.in.rs/</loc>
-    <lastmod>${(new Date()).toISOString().split('.')[0]}+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>1.0</priority>
-  </url>\r\n`
-  const close = `\n\r</urlset>`
-  const data = await Article.find({ published: true }).select(`-articleContent 
-    -__v 
-    -socImage 
-    -_id 
-    -tags 
-    -googDesc 
-    -socDesc 
-    -socTitle 
-    -googTitle 
-    -created 
-    -edited 
-    -order
-    -createdAt
-    -navName
-    -published
-    -author`)
-  //let otherPages = ``
-  data.forEach(article => {
-    pages += `
-  <url>
-    <loc>https://www.kodiranje.in.rs/${article.courseName}/${article.selectedURL}/</loc>
-    <lastmod>${(new Date(article.updatedAt)).toISOString().split('.')[0]}+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>1.0</priority>
-  </url>\r\n`
-  })
-  const sitemap = header + pages + close
-  fs.writeFile('src/sitemap.xml', sitemap, (er) => {
-    if (er) console.log(er)
-  })
-  console.log()
-}
+  // if (!order) return 0
+  // return order.order + 1
+})
 
 module.exports = {
   articleRouter
 }
+
+// articleRouter.get('/admin/svi-artikli', auth, async (req, res) => {
+//   const admin = req.data.user
+//   const articleList = await Article.find().select('-articleContent -__v -socImage -_id -tags -googDesc -socDesc -socTitle -googTitle -created -edited -author').sort({ courseName: -1, order: 1 })
+//   const publishedArticles = [], notPublished = []
+//   articleList.forEach(x => {
+//     if (x.published) publishedArticles.push(x)
+//     else notPublished.push(x)
+//   })
+//   const courses = await Course.find()
+//   res.render('articles/listAllArticles', {
+//     googTitle: "Lista lekcija",
+//     courses,
+//     robots: true,
+//     publishedArticles,
+//     notPublished,
+//     admin
+//   })
+// })

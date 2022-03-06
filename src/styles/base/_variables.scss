@@ -1,16 +1,28 @@
-$fontSize: 16px;
+@use "colors" as c;
+
+// globals
+$font-size: 20px;
+$short-margin: .5rem;
+$long-margin: 1rem;
+$heading-size: 2rem;
 
 // top nav
-$logoHeight: 4rem; // height of checkered field
-$kodiranjeLength: 16.2rem;
+$short-header: .2rem;
+$logo-height: 3.5rem; // height of checkered field
+$logo-font-size: 2.3rem;
+$kodiranje-length: 21ch;
 // $toggleHeight: 1.2rem;
-$topNavHeight: 4rem;
+$top-nav-height: 3rem;
+$topnav-padding: 2.5rem;
+
+
+$side-nav-width: 12.5rem;
 
 // animations
 $typeWriter: typeWriter 1s steps(9) 2s forwards;
 
 
-$borderWidth: .125rem;
+$borderWidth: .125rem; // 2px
 $px: .0625rem;
 $borderRadius: .3rem;
 // $sideNavWidth: 15.6rem;
@@ -23,13 +35,13 @@ $margin: 1rem;
 $iconSize: 2rem;
 
 // cmd:
-$cmdPadding: .3125rem;
+$cmdPadding: .5rem;
 $cmdBorderWidth: 7px;
 
 // Back to top:
 $BTT_position: 3.125rem;
 $BTT_borderBottom: .44rem;
-$BTT_shadow: $px $px $diffusedShadow $silver;
+$BTT_shadow: $px $px $diffusedShadow c.$side-400;
 
 ////////////////////////////////////////////
 
@@ -41,7 +53,6 @@ $BTT_shadow: $px $px $diffusedShadow $silver;
 // $lightF: #535353;
 
 // // Resistor colors */
-// $silver: #b0b0b8;
 // $base: #d8b87f;
 // $rRed: #ca0125;
 // $rBlack: #212121;
@@ -68,5 +79,6 @@ $BTT_shadow: $px $px $diffusedShadow $silver;
 
 // // admin 
 
-// $buttonBackground: honeydew;
 // $inputBorderRadius: .3em;
+
+$mobMenuHeight: 4rem;

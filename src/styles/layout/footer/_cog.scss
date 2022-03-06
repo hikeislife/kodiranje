@@ -1,10 +1,12 @@
+@use "../../base" as *;
+
 .bigcogWrap {
   --cogWidth: 12rem;
 }
 
 .cogitself {
   position: relative; // for word Kodiranje_
-  overflow: hidden;
+  overflow: clip;
   width: var(--cogWidth);
 
   & img {
@@ -19,7 +21,7 @@
   font-weight: bold;
   border: .3rem solid #2d2926;
   border-radius: $borderRadius;
-  background: $darkYellow;
+  background: $dark-yellow;
   position: absolute;
   width: var(--cogWidth);
   height: 2.5rem;

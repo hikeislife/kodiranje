@@ -1,16 +1,23 @@
-.superbox {
-  @include border;
-    border: none;
+@use "../base" as *;
 
-  @include boxShadow;
+
+.superbox {
+  @include box-shadow;
   margin-block: 2em;
   position: relative;
+  padding: 1rem;
+  margin-trim: in-flow;
+  background: aliceblue;
 
-  p:last-of-type {
-    margin-bottom: 0;
-  }
+  // p:last-of-type {
+  //   margin-bottom: 0;
+  // }
 
-  figure:last-child {
+  // figure:last-child {
+  //   margin-bottom: 0;
+  // }
+
+  & *:last-child {
     margin-bottom: 0;
   }
 }
@@ -23,7 +30,7 @@
 
 .warning::before {
   content: '\0021';
-  color: tomato;
+  color: $tomato;
 }
 
 .tip::before {
@@ -41,17 +48,17 @@
 }
 
 .warning {
-  background-color: $trlRed;
+  background-color: $trl-red;
 }
 
 .tip {
-  background-color: $trlGreen;
+  background-color: $trl-green;
   /* this offsets white-space from .ex when it's embeded there */
   white-space: normal; 
 
   // not sure why this was added, but it really messed everything up in html-css/struktura details>tip 
   // & a {
-  //   background-color: $darkYellow;
+  //   background-color: $dark-yellow;
   // }
 }
 
@@ -59,39 +66,40 @@
 .ex {
   background-image: url($solBcg);
   border-left: $accentBorder solid $solBoxGreen !important;
-  background-color: $solBcgColor;
-  font-family: $codeFont;
+  background-color: $main-300;
+  font-family: $code-font;
   
   &:before {
     counter-reset: solCode;
   }
 
   * {
-    font-family: $codeFont;
+    font-family: $code-font;
   }
 
   & code {
     counter-increment: solCode;
     display: block;
-    border-left: $borderWidth solid $fontColor;
+    border-left: $borderWidth solid $side-900;
     padding-left: $diffusedShadow;
-    background: $lightCodeBcg;
-    white-space: pre-wrap;
+    background: $main-200;
+    // white-space: pre-wrap;
     margin: 0 0 0 1rem;
+    text-align: initial;
 
 
     &::before {
-      font-family: 'lucida console';
+      font-family: $code-font;
       content: counter(solCode) " ";
       margin-left: -2rem;
-      margin-right: 1rem;
+      margin-right: .3rem;
     }
   }
 }
 
-.sol {
-  background: aliceblue;
-}
+// .sol {
+  
+// }
 
 .ex .sol {
   margin-bottom: 0;
@@ -106,8 +114,8 @@
 
 // for deprecated code
 .depr {
-  border-color: $darkTrlRed;
-  border-left: $darkTrlRed solid $accentBorder !important;
+  border-color: $tomato;
+  border-left: $tomato solid $accentBorder !important;
   position: relative;
   margin-bottom: 3rem;
 
@@ -125,18 +133,18 @@
     @include tipBasic;
     
 
-    &:hover::before,
-    &:hover::after {
-      @include tipHoverBeforeAfter;
-    }
+    // &:hover::before,
+    // &:hover::after {
+    //   @include tipHoverBeforeAfter;
+    // }
 
-    &::before,
-    &::after {
-      @include tipBeforeAfter;
-    }
+    // &::before,
+    // &::after {
+    //   @include tipBeforeAfter;
+    // }
 
     &::after {
-      @include tipAfter;
+      // @include tipAfter;
       font-family: $font;
       background: $tomato;
       content: "Ovakav kôd je zastareo!";
@@ -151,20 +159,12 @@
 }
 
 .why {
-  background-color: $darkYellow;
+  background-color: $dark-yellow;
 
   p:first-child {
     font-weight: 900;
   }
 }
-
-
-
-
-
-
-
-
 
 .quiz {
   background-color: $quiz;
@@ -175,20 +175,7 @@
 
 //   &::before {
 //     content: '\F357';
-//     font-family: "Kodiranje";
+//     font-family: $kodiranje;
 //     padding-right: 15px;
 //   }
-// }
-
-
-
-
-
-
-
-
-
-
-// details.warning:before {
-//   content: '';
 // }

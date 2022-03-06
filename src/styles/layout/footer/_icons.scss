@@ -25,7 +25,7 @@
     font-size: 1.2rem !important;
 
     &::before {
-      font-family: Kodiranje;  
+      font-family: $kodiranje;  
     }
   }
 
@@ -36,8 +36,8 @@
   }
 
   .iconItem:hover span:before {
-    color: $darkYellow;
-    text-shadow: $px $px $borderWidth $shadow;
+    color: $dark-yellow;
+    text-shadow: $px $px $borderWidth $side-400;
   }
 }
 
@@ -91,7 +91,7 @@
 }
 
 .solIcon {
-  background: $solBcgColor;
+  background: $main-300;
     background-image: url($solBcg);
 }
 
@@ -120,7 +120,7 @@
 }
 
 .errorIcon {
-  background-color: $darkYellow;
+  background-color: $dark-yellow;
 
   &:before {
     content: '\F357';

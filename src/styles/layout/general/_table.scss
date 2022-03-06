@@ -1,62 +1,63 @@
+@use "../../base" as *;
+
 table {
-  border: $borderWidth solid $fontColor;
+  // border: $borderWidth solid $side-900;
   border-radius: $borderRadius;
   font-size: 0.8em;
   width: 100%;
+  @include box-shadow;
   // border-spacing: 0;
-  // margin: 1em 1em 0 2em;
-
-//   & thead tr {
+  margin-block: 2rem;
 
     & th {
-      background: $topNavLightGreen;
-//       border: $borderWidth solid blanchedalmond;
-//       padding: .1em 1em;
-//       text-transform: uppercase;
+      background: $main-800;
+      padding: .1em 1em;
+      text-transform: uppercase;
     }
-  // }
 
   & tbody {
     counter-reset: table;
    
     tr {
-      background: $bcgColor;
+      background: $main-400;
 
       &:nth-child(odd) {
-        background: $refBcg;
+        background: $side-200;
       }
 
-//       & td {
-//         word-break: break-word; 
-//         padding: .2em .8em;
-//         border: 1px solid blanchedalmond;
-        
-//       }
+      & td {
+        word-break: break-word; 
+        padding: .2em .8em;
+      }
     }
   }
 }
 
-@media only screen and (min-width: 48em) {
-//   table {
-//     width: 100%;
-//     margin: 1em 0;
-//     font-size: 1rem;
+tfoot tr td {
+  padding-inline: 1rem;
+}
+
+@media only screen and (min-width: 48rem) {
+// //   table {
+// //     width: 100%;
+// //     margin: 1em 0;
+// //     font-size: 1rem;
+// //   }
+// }
+// .counter {
+// //   background: $mainG;
+
+//   &:before {
+//     counter-increment: table;
+//     content: counter(table) " ";
+// //     display: flex;
+// //     justify-content: center;
 //   }
-}
-.counter {
-//   background: $mainG;
+// }
 
-  &:before {
-    counter-increment: table;
-    content: counter(table) " ";
-//     display: flex;
+// .centeredTable {
+//   td {
 //     justify-content: center;
-  }
-}
-
-.centeredTable {
-  td {
-    justify-content: center;
-    text-align: center;
-  }
+//     text-align: center;
+//   }
 }

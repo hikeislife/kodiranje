@@ -1,5 +1,5 @@
 {{>articles/floatingMenu}}
-<article>
+<article class="backend">
   <section>
     <h1>Novi članak</h1>
     {{#if errorMessage}}<p class="adminError">{{errorMessage}}</p>{{/if}}
@@ -73,6 +73,8 @@
         </div>
         </fieldset>
 
+        
+
         <fieldset>
           <legend>SEO optimizacija</legend>
         <div     class=       "adminInput">
@@ -136,9 +138,39 @@
                  value=       "Sačuvaj"
                  class=       "admin-wideBtn admin-saveButton"
                  style=       "display: none">
+    
+    <div         class=       "adminInput"
+                 style=       "visibility: hidden;">
+          <label for=         "order">     order</label><br>
+          <input type=        "number" 
+                 id=          "order" 
+                 class=       "admin m2r" 
+                 name=        "order" >
+        </div>
     </div>
+
     </form>
   </section>
 </article>
 
+<script>
+  const findChoice = async () => {
+    const courseName = document.querySelector('#courseName').value
+
+    await fetch(`/findorder/${courseName}/`, {
+      method: 'GET'
+    }).then(response => {
+      return response.json()
+    }).then(data => {
+      return data.order
+    }).then(order => {
+      document.querySelector('#order').value = order
+    })
+  }
+  const getCourse = (async () => {
+    await findChoice()
+    const courseName = document.querySelector('#courseName')
+    courseName.addEventListener('change', findChoice)
+  })()
+</script>
 <script type="module" src="../../js/articles/addNewArticle.js"></script>

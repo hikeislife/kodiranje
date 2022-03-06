@@ -20,7 +20,7 @@ const soft = async (req, res, next) => {
     if (!admin) {
       throw new Error()
     }
-    res.redirect('/admin/svi-artikli')
+    res.redirect('/admin/svi-kursevi')
   } catch (er) {
     // console.log(`iz signedin ${er}`)
     next()
