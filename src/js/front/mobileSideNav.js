@@ -64,4 +64,4 @@ export default (() => {
 
     window.onresize = handler
   })()
-})();
+})()

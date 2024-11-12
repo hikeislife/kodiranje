@@ -159,6 +159,7 @@ app.set('view engine', 'hbs')
 app.set('views', views)
 app.set('view options', { layout: 'index' })
 hbs.registerPartials(views)
+
 hbs.registerHelper('formatDate', (datetime) => {
   const options = { year: 'numeric', month: 'numeric', day: 'numeric' }
   date = datetime.toLocaleDateString('sr', options).split('/')
