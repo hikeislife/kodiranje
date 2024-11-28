@@ -1,0 +1,283 @@
+@use "../../base" as *;
+
+em {
+  border: $px solid $borderColor;
+  border-radius: $borderRadius;
+  background-color: $side-200-alpha;
+  font-style: normal;
+  padding: 0 .3rem;
+}
+
+.artMeta {
+  @include border;
+  text-align: right;
+  background: $main-400;
+  margin: 6rem 0;
+
+  p {
+    margin: 0;
+    padding: 0;
+    font-size: .8rem;
+  }
+}
+
+// abbr {
+//   font-size: inherit;
+// }
+
+.refBrackets {
+  font-size: .8rem;
+}
+
+.unbreak {
+  white-space: nowrap;
+}
+
+//////////////////////////////// colors
+.firebrick,
+.opeka {
+  color: $opeka;
+}
+
+.deeppink,
+.pink {
+  color: $codePink;
+}
+
+.darkviolet,
+.violet {
+  color: darkviolet;
+}
+
+
+.green {
+  color: $codeGreen;
+}
+
+.dimgray,
+.dim {
+  color: #8e8c8c;;
+}
+
+
+.royal,
+.royalblue {
+  color: royalblue;
+}
+
+// a[name] {
+//   text-decoration: none !important;
+// }
+
+.one-click-select {
+  user-select: all;
+}
+
+.bumpTop {
+  margin-top: 2rem !important;
+}
+
+
+// dfn {
+//   font-style: normal;
+// }
+
+a.sicemboy {
+  font-style: italic;
+  font-size: .7rem;
+  vertical-align: super;
+  letter-spacing: -.5px;
+  text-decoration: none;
+
+  &::after {
+    content: '[sic]';
+    color: darkmagenta;
+  }
+}
+
+// copy this inside of svg style element, just below svg tag, and before g tag
+// since it's inside of object tag, implying a foreign object, prevention of xss
+// also prevents styling the contents of object tag from outside
+.svgText {
+  font-family: $font;
+  font-size: 16px;
+  line-height: 1.25;
+  text-align: center;
+}
+
+
+.highlight {
+  background-color: $highYellow;
+  border-color: $highPink;
+}
+
+.highGreen, .highgreen {
+  background-color: $highGreen;
+  @include highlight;
+}
+
+.highYellow, .highyellow {
+  background-color: $highYellow;
+  @include highlight;
+}
+
+.highPink, .highpink {
+  background-color: $highPink;
+  color: black;
+  @include highlight;
+}
+
+// #NOTE: doesn't work, style needs to be applied through js instead
+// .dragged {
+//   background-color: darkviolet;
+//   opacity: 1;
+// }
+
+.video {
+  width: 100%;
+  overflow: clip;
+  position: relative;
+  padding-bottom: 56.25%; // 16:9
+  padding-top: 30px; 
+  height: 0;
+  margin-block: 2rem;
+  background: aliceblue;
+  @include box-shadow;
+
+  & iframe, 
+  & object, 
+  & embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 1rem);
+    height: calc(100% - 1rem);
+    margin: .5rem;
+    border-radius: .3rem;
+    background: $side-200;
+  }
+}
+
+.ytp-pause-overlay{
+  display:none;
+}
+
+// // // .quiz .highlight:before,
+// // // .quiz .highlight:after {
+// // //   background: $qy;
+// // // }
+
+// // // .why .highlight:before,
+// // // .why .highlight:after {
+// // //   background: $dy;
+// // // }
+
+// // // .inl {
+// // //   display: inline;
+// // // }
+
+// // // h2.inl {
+// // //   text-align: center;
+// // // }
+
+
+
+
+
+// // // @media only screen and (max-width: 30em) {
+  .breakall {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all !important;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+
+.strike {
+  text-decoration: line-through;
+}
+// // // }
+
+// // // @media only screen and (max-width: 22.5em) {
+// // //   .ellipses {
+// // //     overflow: hidden;
+// // //     // white-space: nowrap; // won't break anything, w/o it it will break where it can and insert ... where it can't 
+// // //     text-overflow: ellipsis;
+// // //     width: 300px !important; // doesn't quite work with 100% width
+// // //   }
+// // // }
+
+
+
+.colorSwatch {
+  content: ' ';
+  display: inline-block; 
+  width: 1.3rem; 
+  height: 1.3rem; 
+  border: 3px double #f5f5f5; 
+  position: relative; 
+  top: 4px;
+  margin-right: .1rem;
+}
+
+.ex.cssCode,
+.ex.htmlCode,
+.ex.jsCode {
+  border-left: none !important;
+  padding-inline: .5rem;
+  padding-bottom: .1rem;
+  margin-top: 0.1rem;
+}
+
+// // // .squigly {
+// // //   text-decoration-line: underline;
+// // //   text-decoration-style: wavy;
+// // //   text-decoration-color: red;
+// // // }
+
+.center, .video {
+  @include center;
+}
+
+
+
+// // // [data-ind] {
+// // //   display: inline-block;
+// // // }
+
+//////////////////////////////////////////// temp
+
+
+
+
+
+// repeat cause other margin was set only to article p elements in main.scss
+.backend p {
+  margin: 2rem 0;
+}
+
+// .lazy {
+  // content-visibility: auto;
+  // contain-intrinsic-size: 1px 400px;
+// }
+
+figure {
+  margin-block: 2rem;
+}
+
+::selection {
+  background: #f06;
+  color: #fff;
+}
+.plip, .plop {
+  font-size: inherit;
+  font-family: inherit;
+  color: burlywood;
+}
+
+.plip {
+  text-transform: initial;
+}
+

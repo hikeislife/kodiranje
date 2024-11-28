@@ -1,8 +1,22 @@
+@use "../../base/colors" as c;
+
 .listless {
   list-style-type: none;
   padding-left: 0;
 }
 
+li {
+  list-style: circle inside;
+  margin-block: 1rem;
+
+  ::marker {
+    color: c.$side-900;
+  }
+}
+
+ul{
+  padding-left: 0;
+}
 // // dt {
 // //   font-size: 1.2em;
 // //   font-weight: bold;

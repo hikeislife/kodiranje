@@ -1,0 +1,10 @@
+<link rel="canonical" href="https://www.kodiranje.in.rs/{{#if post.courseName}}{{post.courseName}}/{{/if}}{{#if post.selectedURL}}{{post.selectedURL}}/{{/if}}">
+<link rel="manifest preconnect" href="../../manifest.json">
+{{>basics/head/embededCss}}
+
+<link rel="preload" href="/styles/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/styles/style.css" media="screen" defer async></noscript>
+{{#if admin}}<link rel="stylesheet" href="/styles/admin.css">{{/if}}
+
+<link rel="stylesheet" href="/styles/print.css" media="print" defer async>
+<link rel="icon preconnect" href="/imgs/cog192.webp" sizes="192x192">

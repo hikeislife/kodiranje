@@ -1,0 +1,30 @@
+{{!-- <article class="backend">
+  <h1>Kursevi</h1>
+  <table class="centeredTable">
+    <tbody>
+      {{#each kursevi}}
+      <tr>
+        <td>{{increment order}}</td>
+        <td class="{{#if active}}aktvanKurs{{else}}neaktivanKurs{{/if}}">{{name}}</td>
+
+        <td><a href="/admin/detalji-kursa/{{_id}}" class="nocolor"><button
+              class="admin-btn admin-detailsBtn"></button></a></td>
+
+        <td><a href="/admin/izmeni-kurs/{{_id}}" class="nocolor"><button
+              class="admin-btn admin-editBtn"></button></a></td>
+
+        <td>{{#if active}}{{else}}
+          <a href="/admin/ukloni-kurs/{{_id}}" class="nocolor"><button
+              class="admin-btn admin-warningBtn"></button></a>
+          {{/if}}
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+ 
+  <a href="/admin/reorganizuj-kurseve/" class="nocolor"><button
+      class="admin-wideBtn admin-btn admin-reorderButton">Reorganizuj
+      kurseve</button></a>
+
+</article> --}}

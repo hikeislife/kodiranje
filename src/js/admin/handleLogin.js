@@ -1,5 +1,5 @@
 const handleRedirect = () => {
-  window.location = `../admin/svi-artikli/`
+  window.location = `../admin/svi-kursevi/`
 }
 
 

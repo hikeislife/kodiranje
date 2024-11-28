@@ -1,18 +1,24 @@
 export default function bindMenu() {
-  const topMenu = document.querySelector(".headerBottom"),
-    home = document.querySelector(".backHome"),
-    indicator = document.querySelector('.indicator')
+  const topMenu = document.querySelector(".topNavWrapper")
+  const home = document.querySelector(".backHome")
+  const progress = document.querySelector('progress')
 
-  if (document.body.scrollTop >= 70 || document.documentElement.scrollTop >= 70) {
+  const topBump = 64 
+  const magicWidth = 768
+  const currentWidth = topMenu.parentElement.scrollWidth
+  const progressBump = `66px` //66px
+
+
+  if ((document.body.scrollTop >= topBump || document.documentElement.scrollTop >= topBump) && currentWidth >= magicWidth) {
     topMenu.classList.add("fixed-top")
     home.style.visibility = "visible"
-    indicator.style.position = "fixed"
-    indicator.style.top = '58px'
+    progress.style.display = "block"
+    progress.style.position = "fixed"
+    progress.style.top = progressBump
   }
   else {
     topMenu.classList.remove("fixed-top")
     home.style.visibility = "hidden"
-    indicator.style.position = "relative"
-    indicator.style.top = '-5px'
+    progress.style.top = '0px'
   }
 }

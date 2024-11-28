@@ -1,133 +1,74 @@
-.ttip {
-  border-bottom: $borderWidth solid $darkYellow;
-  display: inline;
+@use "../base" as *;
 
-  &::after {
-    content: ' ('attr(data-tooltip)')';
-  }
-
-//   & em {
-// //     border-bottom: 2px solid $darkYellow;
-//   }
-}
-
-@media only screen and (min-width: 48em) { /* > 640px */
-  .ttip {
-    position: relative;
-  
-    &:hover::before,
-    &:hover::after {
-      --scale: 1;
-    }
-
-    &::before,
-    &::after {
-      --scale: 0;
-      position: absolute;
-      top: -.25rem;
-      left: 50%;
-      transform: translateX(-50%) translateY(-100%) scale(var(--scale));
-      transition: 200ms transform;
-    }
-
-    &::before {
-      @include border;
-      content: attr(data-tooltip);
-      background: $darkYellow;
-      width: max-content;
-      max-width: 25rem;
-      transform-origin: bottom center;
-      text-align: center;
-    }
-
-    &::after {
-      content: '';
-      border: .33em solid transparent;
-      border-top: .33em solid $fontColor;
-      top: .33em;
-      transform-origin: top center;
-    }
-  }
-}
-
-// this is so that old code can be easily noticed and replaced with new code.
-// once all pages are fixed, this can be removed
+// #TODO: this is so that old code can be easily noticed and replaced with new code.
+// once all pages are fixed, this can be removed. remove when possible.
 .tt { 
   border: 5px solid red;
 }
 
-// // .ttt:before {
-// //   content: ' (';
-// // }
+.ttip {
+  display: inline;
 
-// // .ttt:after {
-// //   content: ')';
-// // }
+  &::after {
+    content: ' ('attr(data-tooltip)')';
+    // font-size: .8rem;
+    display: inline;
+    text-align: justify;
+    color: $opeka;
+  }
+}
 
-// // .warning .ttt, 
-// // .warning .tt {
-// //   color: #222;
-// // }
 
-// // @media only screen and (min-width: 40em) {
-// //   .tt {
-// //     position: relative;
-// //     border-bottom: 2px solid $dy;
-// //     cursor: help;
-// //     color: black;
-// //     display: inline-block;
+// special cases
+.why .ttip,
+.quiz .ttip {
+  box-shadow: inset 0 -.7rem 0 $main-900, inset 0 .8rem $main-800;
+}
 
-// //     & .ttt {
-// //       visibility: hidden;
-// //       position: absolute;
-// //       text-align: center;
-// //       z-index: 1;
-// //       background-color: $dy;
-// //       border: 2px solid $mainFont;
-// //       border-radius: 4px;
-// //       padding: 4px;
-// //       width: 40vw;
-// //       margin-left: -20vw;
-// //       bottom: 100%;
-// //       left: 50%;
-// //       margin-bottom: 5px;
-// //       opacity: 0;
-// //       transition: opacity 1s;
-// //       display: inline-block;
+figure > .ttip {
+  background: none;
+  font-weight: normal;
+  box-shadow: none;
+  padding-inline: 0;
+  display: inline;
+}
 
-// //       &::after {
-// //         content: " ";
-// //         position: absolute;
-// //         top: 100%;
-// //         left: 50%;
-// //         margin-left: -7px;
-// //         border-style: solid;
-// //         border-width: 7px;
-// //         border-color: black transparent transparent transparent;
-// //       }
+figure {
+  .ttip::after {
+    display: none;
+  }
+}
 
-// //       &::before {
-// //         content: " ";
-// //       }
-// //     }
+@media only screen and (min-width: 48rem) { // > 768px sidenav visible
+  .ttip {
+    @include tipBasic;
+    font-weight: bolder;
+    box-shadow: inset 0 -.5rem 0 #ffb600,inset 0 .8rem #ffee61;
+    padding-inline: .33rem;
 
-// //     &:hover .ttt {
-// //       visibility: visible;
-// //       opacity: 1;
-// //     }
-// //   }
+    &::after {
+      color: $side-900;
+      text-align: center;
+      text-transform: capitalize;
+    }
 
-// //   .error span.tt, 
-// //   .why span.tt {
-// //     border-bottom: 2px solid $mainFont;
-// //   }
+    &::before {
+      @include tipBefore;
+    }
+  }
 
-// //   .error .tt .ttt, 
-// //   .why .tt .ttt {
-// //     background-color: $mainG;
-// //   }
+  figure {
+    .ttip::after {
+      display: inline-block;
+    }
+  }
+}
 
-// //   // .warning .ttt {
-// //   //   color: $mainFont;
-// //   // }
-// // }
+@media only screen and (min-width: 100rem) { // this where --artPadding goes to 0
+  .ttip::after,
+  figure .ttip::after {
+    max-width: calc(100vw - 1050px);
+    min-width: fit-content;
+    white-space: nowrap;
+  }
+}

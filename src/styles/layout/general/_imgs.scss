@@ -1,15 +1,67 @@
+@use "../../base" as *;
+
 // warn me if I forget to add alt attribute:
-img:not([alt]) {
+img[alt=""] {
   filter: grayscale(100%);
 }
 
-.tt img,
-.ttip img {
+// figure {
+//   position: relative;
+//   width: fit-content;
+//   margin: auto;
+//   text-align: center;
+// }
+
+img {
+  display: block;
   width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 0.25rem;
 }
 
-.tri {
-  max-width: 18.75rem;
+
+figure:hover figcaption {
+  opacity: 1;
+  animation: fadeIn 0.5s ease-out;
+}
+
+figure:not(:where(.superbox > figure)) {
+  // not just for style, this prevents jumping in animation if figure is first element after the summary
+  margin-block: 2rem;
+}
+
+figcaption {
+  text-align: center;
+  width: calc(100% - 1rem);
+  // min-width prevents figcaption from loading tall and narrow while images are lazy loaded
+  // this was fixed by both hiding the caption, and setting size of figure to 100%
+  // min-width: 300px;
+  position: absolute;
+  // z-index: 1;
+  inset: auto auto 1.5rem auto;
+  background: #0000009c;
+  padding: .5rem;
+  margin-inline: .5rem;
+  // visibility: hidden;
+  opacity: 0;
+  animation: fadeOut .5s ease-out;
+  // transition: .5s opacity 0.5s ease-in;
+  
+}
+
+
+
+figcaption, figcaption * {
+  font-size: 1rem;
+  line-height: 22px;
+  color: $main-200 !important;
+  // margin: ;
+  font-weight: 900;
+
+  .ttip, .ttip a {
+    color: black !important;
+  } 
 }
 
 .pet {
@@ -20,23 +72,10 @@ img:not([alt]) {
   max-width: 50rem;
 }
 
-figure {
-  text-align: center;
-  margin-top: 2rem; // remaining gap is margin on article
+.topFig {
+  width: calc(100vw - 250px - var(--artPadding) * 2 - 2rem);
 }
 
-figcaption {
-  font-size: .9rem;
-  line-height: 1rem;
-  margin: .1em 1em 2.6em;
-}
-
-.responsive {
-  // width: 80%;
-//   height: auto;
-  // text-align: center;
-//   margin: 1em .5em 0 1.4em;
-}
 
 // // @media only screen and (max-width: 40em) {
 // //   figure {
@@ -66,10 +105,10 @@ figcaption {
 // //   }
 // // }
 
-// // .cent {
-// //   text-align: center;
-// //   border: 0;
-// // }
+// .cent {
+//   text-align: center;
+// // //   border: 0;
+// }
 
 
 
@@ -94,3 +133,21 @@ figcaption {
 // //     display: inline-block;
 // //   }
 // // }
+
+.responsive {
+  @include box-shadow;
+  width: 100%;
+  padding: .5rem;
+  margin: 2rem auto; // auto was changed to 0, why? it has to be auto for the likes of steve
+  background: aliceblue;
+  display: block;
+}
+
+.superbox figure:first-child,
+.superbox img:first-child  {
+  margin-top: 0;
+}
+
+// .responsive:not(:where(.superbox *)) {
+//   margin-block: 0;
+// }

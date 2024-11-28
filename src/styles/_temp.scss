@@ -1,30 +1,39 @@
+.placeholder {
+  background-color: $main-300;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  text-align: justify;
+}
+
+@media only screen and (min-width: 30rem) { 
+  .placeholder {
+    width: calc(100vw - 1rem);
+  }
+}
+
+@media only screen and (min-width: 48rem) {
+  .placeholder {
+    font-size: 1.2rem;
+  }
+}
+
+.placeholder .ex {
+  background: $side-100;
+  color: $side-900;
+  margin-bottom: 0;
+  white-space: normal; /* to offset one from the ex */
+}
 
 
-// .operatori td {
-//   padding: 5px 10px;
-//   font-weight: bold;
-//   font-size: 16px;
-// }
+// #placeholder #emUnitDemo,
+// #placeholder #emUnitDemo p {
+//   font-size: unset;
+//   font-size: 1.5em;
 
+//   & div {
+//     font-size: 1.5em;
 
-// .cmd table {
-//  border-collapse: collapse;
-//  width: 100;
-// }
-// .cmd table th {
-//  background-color: rgb(176, 209, 243);
-//  font-size: 3vw;
-// }
-// .cmd table td {
-//  color: white;
-//  background-color: black;
-//  padding: 5px;
-//  border: thin solid white;
-//  font-family: "Lucida Console", Monaco, monospace;
-//  font-size: 16px;
-//  text-align: left;
-//  font-weight: bold;
-// }
-// .cmd table td p {
-//   color: #aaa;
+//     & div {
+//       font-size: 1.5em;
+//     }
+//   }
 // }

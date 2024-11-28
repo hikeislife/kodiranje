@@ -1,11 +1,24 @@
 // Side nav handler for mobile
+// will disable page scrolling when side nav is open
 export default (() => {
   const nav = document.querySelector('.sideNav')
-  const cog = document.querySelector('.logo-cog')
+
+  const cog = document.querySelector('.mobMenuButton')
+
+  const additionalButtons = document.querySelector('.additionalButtons')
+
+  const mobileNav = document.querySelector('.bottom-nav')
+
+  const doc = document.documentElement
   let handler
+  const magicWidth = 864
+
+  
 
   const closeMenu = () => {
     nav.style.display = 'none'
+    additionalButtons.style.display = 'none'
+    doc.style.overflow = 'auto'
     window.removeEventListener('click', closeMenu)
   }
 
@@ -13,52 +26,42 @@ export default (() => {
     const displayState = nav.style.display
     if (displayState == 'none') {
       nav.style.display = 'block'
+      additionalButtons.style.display = 'grid'
+      doc.style.overflow = 'hidden'
+      if(mobileNav.style.paddingRight == 0) {
+        mobileNav.style.paddingRight = '1.3rem'
+        
+      }
       setTimeout(() => {
         window.addEventListener('click', closeMenu)
       }, 1000);
 
     } else {
       nav.style.display = 'none'
+      additionalButtons.style.display = 'none'
+      doc.style.overflow = 'auto'
+      mobileNav.style.paddingRight = '0'
     }
   }
 
+  // fix nv when screen is resized
+
   (handler = function () {
     const width = window.innerWidth
-
-    if (width < 768) {
+    
+    // mobile
+    if (width <= magicWidth) {
       nav.style.display = 'none'
+      additionalButtons.style.display = 'none'
       cog.addEventListener('click', mobMenuHandler)
-    }
-    else if (width => 768) {
+    } // desktop
+    else if (width > magicWidth) {
       nav.style.display = 'block'
+      // nav.style.width = '250px'
       window.removeEventListener('click', closeMenu)
       cog.removeEventListener('click', mobMenuHandler)
     }
 
     window.onresize = handler
   })()
-
-
-
-
-
-})();
-
-
-// // hides menu on outside click:
-//   window.onmouseup = () => document.querySelector(".sideNav").style.display = "none";
-
-//   // adding mobile menu to the cog click
-//   document.querySelector("#mobile-cog").addEventListener("click", loadMenu);
-
-//   // toggles mobile menu on cog click
-//   function loadMenu() {
-//     let menuStatus = document.querySelector(".sideNav");
-
-//     if (menuStatus.style.display.match("block")) {
-//       menuStatus.style.display = "none";
-//     }
-//     else {
-//       menuStatus.style.display = "block";
-//     }
-//   }
+})()

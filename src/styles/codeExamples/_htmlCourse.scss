@@ -1,0 +1,245 @@
+@use "../base" as *;
+
+.sol {
+  // 02-first-website
+  h1 {
+    font-size: 2em;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+  }
+}
+
+// border tut
+.demoExBorder {
+  border: 2px solid $side-900;
+}
+
+.demoExGlupBorder {
+  border: 3px dotted red;
+}
+
+#demoSelectBorder1Side {
+  width: 200px;
+}
+
+#demoBorder1Apply {
+  border-top: 4px dotted $opeka;
+}
+
+.demoBorderTriangleWrapper {
+  height: 170px;
+  display: flex;
+  justify-content: center;
+}
+
+.demoBorderTriangle {
+  width: 0;
+  height: 0;
+  border: 6rem solid transparent;
+  border-bottom: 6rem solid $opeka;
+  position: relative;
+  bottom: 78px;
+}
+
+.quizGreenTriangle {
+  display:inline-block;
+  width: 0;
+  height: 0;
+  border: .5rem solid transparent;
+  border-left: .5rem solid green;
+  border-bottom: .5rem solid green;
+}
+
+.demoBorderThicknessApply {
+  border: thin solid $opeka;
+}
+
+.demoBorderWidhth2Values {
+  border-style: solid;
+  border-color: $opeka;
+  border-width: thick thin;
+}
+
+.demoBorderWidth3Values {
+  border: medium solid;
+  border-top: thick solid;
+  border-bottom: thin solid;
+  border-color: $opeka;
+}
+
+.demoBorderWidth4Values {
+  border-style: solid;
+  border-width: 20px 10px 5px 0;
+  color: $opeka;
+}
+
+.demoBorderColor4Values {
+  border: 2px solid; 
+  border-color: red green blue yellow;
+}
+
+#demoBorderStyleApply {
+  border: 20px none $opeka;
+}
+
+//////////// #TODO:  border radii
+.demoBorderRadius {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1rem;
+}
+
+.demoBorderRadius1,
+.demoBorderRadius2,
+.demoBorderRadius3,
+.demoBorderRadius4 {
+  height: 250px;
+  position: relative;
+
+  input[type="range"].demoBorderRadiusRangeRight,
+  input[type="range"].demoBorderRadiusRangeInline {
+    transform: rotate(90deg);
+    width: 250px;
+    top: 125px;
+    right: -124px;
+  }
+
+  input[type="range"].demoBorderRadiusRangeLeft {
+    transform: rotate(270deg);
+    width: 250px;
+    top: 125px;
+    left: -124px;
+  }
+
+  input[type="range"].demoBorderRadiusRangeBottom {
+    transform: rotate(180deg);
+    bottom: 0;
+  }
+
+  input[type=range] {
+    height: 0;
+    -webkit-appearance: none;
+    margin: 0;
+    width: 100%;
+    position: absolute;
+  }
+
+  input[type=range]:focus {
+    outline: none;
+  }
+
+  input[type=range]::-ms-track,
+  input[type=range]::-webkit-slider-runnable-track, 
+  input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 0;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: none;
+    background: transparent;
+    border-radius: 0px;
+    border: none;
+  }
+
+  input[type=range]::-ms-thumb {
+    box-shadow: 0px 0px 1px #000000;
+    border: none;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background: $main-800;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -7px;
+  }
+
+  input[type=range]::-webkit-slider-thumb,
+  input[type=range]::-moz-range-thumb {
+    box-shadow: 0px 0px 1px #000000;
+    border: none;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background: $main-800;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -7px;
+  }
+
+  input[type=range]::-ms-fill-lower,
+  input[type=range]::-ms-fill-upper {
+    background: transparent;
+    border: none;
+    border-radius: 0px;
+    box-shadow: none;
+  }
+
+  input[type=range]:focus::-webkit-slider-runnable-track,
+  input[type=range]:focus::-ms-fill-lower,
+  input[type=range]:focus::-ms-fill-upper {
+    background: transparent;
+  }
+}
+
+.applyBorderRadius {
+  background: $dark-yellow;
+  border: 2px solid $tomato;
+  height: 100%;
+}
+
+
+// #DELETE:
+// 4 values
+// .demoBorderRadius4Values {
+//   border: 2px solid;
+//   position: relative;
+//   // height: 450px;
+
+//   #topRange, #rightRange, #bottomRange, #leftRange {
+//     position: absolute;
+//     // width: 100%;
+//   }
+
+//   #rightRange {
+//     // @include rightRange;
+//   }
+
+//   #leftRange {
+//     transform:rotate(-90deg);
+//     width: 265px;
+//     bottom: 123px;
+//     left: -134px;
+//   }
+
+//   // #bottomRange {
+//   //   @include bottomRange;
+//   // }
+
+//   // #topRange {
+//   //   @include topRange;
+//   // }
+// }
+
+
+
+// .demoBorderRadius3Values {
+//   border: 2px solid;
+//   position: relative;
+
+//   #range3top, #range3inline, #range3bottom {
+//     position: absolute;
+//   }
+
+//   // #range3inline {
+//   //   @include rightRange;
+//   // }
+
+//   // #range3bottom {
+//   //   @include bottomRange;
+//   // }
+
+//   // #range3top {
+//   //   @include topRange;
+//   // }
+// }

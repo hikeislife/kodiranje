@@ -1,17 +1,24 @@
 <!DOCTYPE html>
-{{>basics/head}}
+{{>basics/head/head}}
 
 <body>
-  <div class="overlay"></div>
-  {{>basics/header}}
+  <div id="topside"></div>
+  {{!-- {{>basics/cookie}} --}}
+  {{>basics/header/header}}
   {{>basics/sideNav}}
   <main>
-    <div class="placeholder">
+    {{!-- <div class="placeholder"> --}}
       {{{body}}}
-    </div>
+    {{!-- </div> --}}
   </main>
   {{>basics/footer/footer}}
   {{>basics/backToTop}}
+  {{>mobNav/nav}}
+
+  {{!-- this is a tts that speaks on mouse over, quite obnoxious, but can read serbian
+  maybe make it enableble?!
+  <script src="https://code.responsivevoice.org/responsivevoice.js?key=3QtmQ5K2"></script>
+  --}}
 </body>
 
 </html>

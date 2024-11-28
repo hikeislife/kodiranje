@@ -1,23 +1,98 @@
-<article>
+<article class="backend">
   <h1>Dodaj novi kurs</h1>
   {{#if errorMessage}}<p class="adminError">{{errorMessage}}</p>{{/if}}
   <form action="/admin/addNewCourse" method="post">
-    <div class=       "adminInput">
-      <label for="name">Ime novog kursa</label>
-      <input type="text" name="name" id="name" class="admin">
+    
+    <div     class="adminInput">
+      <label for=  "name">Ime novog kursa</label>
+      <input type= "text" 
+             name= "name" 
+             id=   "name" 
+             class="admin">
     </div>
-    <div class="adminInput">
-      <input type="checkbox" name="active" id="active">
-      <label for="active" class="reorderCheckbox nudge">Objavi?</label>
+
+    <div     class=       "adminInput">
+      <label for=         "setId">URL</label>
+      <input type=        "text" 
+             name=        "setId" 
+             id=          "setId" 
+             class=       "admin">
     </div>
-    <div class="adminInput">
-      <input type="number" style="visibility: hidden;" name="order" id="order" value="{{increment order.order}}">
+
+    <fieldset>
+      <legend>Main page card contents</legend>
+
+      <div     class=       "adminInput">
+        <label for=         "cardTitle">Card title</label>
+        <input type=        "text" 
+               name=        "cardTitle" 
+               id=          "cardTitle" 
+               class=       "admin">
+      </div>
+
+      <div     class=       "adminInput">course desc to be figured out here. it's displayed as a list, so how do I add that, in a way that isn't pasting the html</div>
+
+      <div     class=       "adminInput">
+      <label   for=         "courseSvg">Svg {{!-- <span 
+             class=       "required"><sup>*</sup></span>--}}</label><br> 
+      <textarea 
+               name=        "courseSvg" 
+               id=          "courseSvg" 
+               style=       "width:100%;"
+               placeholder= "Paste entre SVG code here"
+               class=       "admin"></textarea>
     </div>
-    <div class=       "adminInput">
-      <button id="dugme" class="admin-saveButton wideAdminButton">Sačuvaj</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>Top nav visibility *(if course is not published, it won't be in top nav either way)</legend>
+      <div     class=       "adminInput">
+        <p>This should contain info whether top nav should display this course, and if yes, under which order</p>
+        <p>oh yea, since only published courses will be displayed, giving these plain old order should be fine, all can have order, even the unpublished ones, no biggie</p>
+        <p>Except for <em>mp</em></p>
+      </div>
+    </fieldset>
+
+    
+
+    <div     class="adminInput">
+      <input type= "checkbox" 
+             name= "active" 
+             id=   "active">
+      <label for=  "active" 
+             class="reorderCheckbox nudge">Objavi?</label>
+    </div>
+
+    <div     class="adminInput">
+      <input type= "number" 
+             style="visibility: hidden;" 
+             name= "order" 
+             id=   "order" 
+             value="{{increment order.order}}">
+    </div>
+
+    <div      class="adminInput">
+      <button id=   "dugme" 
+              class="admin-saveButton admin-wideBtn">Sačuvaj</button>
     </div>
   </form>
-  <a href="/admin/svi-kursevi/" class="nocolor"><button class="wideAdminButton admin-allButton">Svi kursevi</button></a>
+
+  <p>Dodati:</p>
+  <ul>
+    <li><strike>svg</strike></li>
+    <li>background</li>
+    <li>težina</li>
+    <li>matematika</li>
+    <li><strike>naslov-kartice</strike></li>
+    <li>tekst-kartice</li>
+    <li><stike>redosled - this one affects which course  is first in drop down menu</stike></li>
+    <li>topNav redosled</li>
+    <li><strike>url (front page je naziv kursa, ali je url mp)</strike></li>
+  </ul>
+
+  <a          href= "/admin/svi-kursevi/"
+              class="nocolor">
+    <button   class="admin-wideBtn admin-allButton">Svi kursevi</button></a>
 </article>
 
 {{!-- <script type="module" src="../../js/front/addingCourses.js"></script> --}}

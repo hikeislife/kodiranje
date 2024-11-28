@@ -1,0 +1,161 @@
+@use "../base" as *;
+
+@media only screen and (min-width: 100rem) { // > 1600px
+  .backend section {
+    min-width: 50rem !important;
+  }
+}
+
+.added-items { // ul
+  position: relative;
+  padding: 1rem;
+  @include box-shadow;
+  height: auto;
+  background: $main-400;
+}
+
+.added-items li {
+  position: absolute;
+  // border: $borderWidth solid $side-900;
+  width: calc(100% - 2rem);
+  cursor: move;
+  @include box-shadow;
+  height: 5rem;
+  display: grid;
+  grid-template-columns: 30% 1fr 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  background: $trl-green;
+  border-radius: $borderRadius;
+  background: linear-gradient(to bottom, #d3f4a8 50%, #efc 100%);
+  
+  &.inactive-item {
+    background: lightgray;
+  }
+
+  p {
+    margin: 0 1rem;
+  }
+}
+
+.backendListItem {
+  @include spread;
+  // padding-left: 0;
+  overflow: clip;
+  text-overflow: ellipsis;
+  text-align: left;
+  max-width: 80%;
+
+  a {
+    @include spread;
+    @include center;
+    justify-content: start;
+  }
+}
+
+
+
+// .column {
+//   display: grid;
+//   grid-template-columns: 1fr 1fr;
+//   grid-gap: 1rem;
+//   gap: 1rem;
+
+//   * {
+//     font-size: 1rem;
+//   }
+
+//   h2 {
+//     margin: 0;
+//     font-size: 1.5rem;
+//     text-align: center;
+//   }
+// }
+
+// .editContent:focus,
+// .editContent:active { // content editable div
+//   outline: $px dotted $side-400; // important for chrome where outline is as thick and as dark as borders on this page
+//   outline-offset: $margin;
+// }
+
+// .adminInput {
+//   position: relative; // For counter
+//   margin: 2em 0;
+  // top: 5px;
+  // left: 57px;
+// }
+
+// span[data-counter] {
+//   font-size: .8rem;
+//   position: absolute;
+//   top: 3.2rem;
+//   right: .5rem;
+//   z-index: 1;
+//   color: $side-400;
+// }
+
+// label {
+//   display: flex;
+//   align-items: center;
+//   // margin-bottom: 2em;
+// }
+// label[for]:after {
+//   font-size: 40px;
+//   font-weight: bold;
+// }
+
+// .m2r {
+//   padding-right: 2.5em;
+// }
+
+// /* js added class */
+// .redColor {
+//   color: firebrick !important;
+// }
+
+
+
+
+
+// .adminButton {
+//   width: 100px;
+// }
+
+// .dragged {
+//   background-color:$mainG !important;
+//   color: white;
+//   border: white !important;
+// }
+
+// .editContent {
+//   position: relative;
+// }
+
+// .showMeGUI, .showMeCode {
+//   cursor: pointer;
+// }
+
+// label[for=dugme] {
+//   border: 1px solid $mainFont;
+//   text-align: center;
+//   height: 2em;
+//   border-radius: $inputBorderRadius;
+//   background: $buttonBackground;
+//   box-shadow: 1px 1px 2px gray;
+//   display: inline-flex;
+//   align-items: center;
+//   justify-content: center;
+  
+//   &:hover {
+//     cursor: pointer;
+//     background: $dy;
+//   }
+
+//   &:active {
+//     box-shadow: -1px -1px 2px gray;
+//   }
+// }
+
+// #dugme {
+//   display: none;
+// }

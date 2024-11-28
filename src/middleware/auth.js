@@ -12,7 +12,6 @@ const auth = async (req, res, next) => {
         token = x.split('=')[1]
       }
     })
-    // console.log(`iz auth ${token}`)
     const decoded = jwt.verify(token, process.env.JWT_P_KEY)
 
     const admin = await Admin.findOne({
@@ -27,7 +26,7 @@ const auth = async (req, res, next) => {
     next()
   } catch (er) {
 
-    // console.log('there be an error matey: ' + er)
+    // console.error('there be an error matey: ' + er)
     res.status(403).redirect('/admin')
   }
 }

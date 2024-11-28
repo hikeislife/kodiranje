@@ -1,0 +1,68 @@
+@use "../base" as *;
+
+#ra-player {
+  // width: calc(100% - 2 * var(--artPadding)) !important;
+  border-radius: $borderRadius !important;
+  padding: .5rem !important;
+  @include box-shadow;
+  @include transparentGradient;
+  // position: static;
+  // z-index: 1;
+  // max-width: unset !important;
+  display: none;
+  grid-template-columns: 2rem 1fr;
+  cursor: pointer;
+  
+  p {
+    margin: 0;
+    font-weight: 900;
+    font-size: .8rem;
+  }
+  
+  
+  .ra-status-bg, .ra-rate-bg, .ra-volume-bg {
+    height: .5rem !important;
+    background-image: linear-gradient(#888, #959595, #a7a7a7, #b4b4b4); // default
+    
+  }
+
+  .ra-seek-knob, .ra-rate-knob, .ra-volume-knob {
+    width: .5rem !important;
+    height: .5rem !important;
+    background: $dark-yellow !important;
+    margin: initial !important;
+  }
+
+  .ra-btn {
+    max-height: 1rem !important;
+  }
+}
+
+.ra-button {
+  display: grid;
+  font-weight: 900;
+  align-items: center;
+  cursor: pointer;
+  max-height: 1.5rem;
+  position: relative;
+  inset: 0;
+  width: 100%;
+
+  .ra-label {
+    max-height: 1rem;
+    margin-top: 0;
+  }
+}
+
+.ra-button img {
+  height: 1rem;
+  width: 1.2rem;
+}
+
+@media screen and (min-width: 48rem) {
+  #ra-player {
+    // width: calc(100% - 250px - 2 * var(--artPadding) - 1rem) !important;
+    margin-top: -3.5rem;
+    display: grid;
+  }
+}

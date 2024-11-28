@@ -1,4 +1,4 @@
-@import "../base/mixins";
+@use "../base" as *;
 
 .editMenu {
   @include adminmenues;
@@ -18,7 +18,7 @@
 
   li {
     padding: .16rem 1rem;
-    border-bottom: $px solid $topNavDarkGreen;
+    border-bottom: $px solid $main-900;
     text-shadow: 1px 1px 15px rgb(154, 246, 41);
     box-shadow: 1px 1px 5px rgb(154, 246, 41);
     display: grid;
@@ -33,7 +33,7 @@
 
 span.editMenuItem:hover {
   cursor: pointer;
-  background: $bcgColor;
+  background: $main-400;
   color: $font;
 }
 
@@ -43,7 +43,8 @@ span.editMenuItem:hover {
   grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-items: center;
-  grid-gap: 1em;
+  grid-gap: 1rem;
+  gap: 1rem;
   font-size: 2em;
 
   span {
@@ -52,8 +53,8 @@ span.editMenuItem:hover {
 
     &:hover {
       cursor: pointer;
-      background: $bcgColor;
-      color: $fontColor;
+      background: $main-400;
+      color: $side-900;
     }
   }
 }

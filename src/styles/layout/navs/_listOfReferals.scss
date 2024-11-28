@@ -1,0 +1,173 @@
+@use "../../base" as *;
+
+// // nav elements:
+.referalList {
+  margin-top: 0.313rem; // 5px
+  
+  .listless {
+    list-style-type: none;
+    padding-left: 0;
+    margin-block: 0;
+    overflow-y: auto;
+    height: calc(100% - .3rem);
+    padding-right: 4px;
+    margin-right: -4px;
+  }
+}
+
+.references {
+  ul li {
+    display: grid;
+    grid-template-columns: 3rem auto;
+    list-style-type: none;
+  }
+
+  .squeezeReferences {
+    @include center;
+    @include spread;
+    min-height: 100%;
+    align-self: center;
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+
+    & a {
+      padding-left: 0;
+      overflow: clip;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2; // show two lines, then ellipsis
+      -webkit-box-orient: vertical;
+      font-size: .8rem;
+      -webkit-box-pack: center;
+    }
+  }
+}
+
+@media only screen and (min-width: 863px) {
+  .sideNav {
+    width: 250px;
+    display: block;
+    position: sticky;
+    border: none;
+    margin-top: -.8rem;
+    z-index: 2;
+    top: 62px;
+    height: calc(100vh - 62px);
+    
+    ul {
+      li {
+        border: none;
+        @include navs;
+        // @include box-shadow;
+      }
+    }
+  }
+}
+
+.insertRef {
+  // #NOTE: since it's inline element, this is not visible on the page, but
+  // it serves a purpose that when arrow link in list of references is clicked
+  // it will position the [] square below the topnav instead of behind it
+  padding-top: 10rem;
+
+  sup a {
+    font-size: .6rem;
+    text-decoration: none;
+  }
+}
+
+
+@media only screen and (max-width: 47.9rem) { // where sidenav disapears
+  .sideNav {
+    display: block;
+  }
+}
+
+.referalTitle { // titles such as "Reference" & "Sadržaj strane
+  @include box-shadow;
+  border-top: $px solid $borderColor;
+  background: linear-gradient(0deg, rgba(229,229,229,1), rgba(238,255,204,1) 55%); 
+  padding: .5rem 1rem .5rem;
+  margin-block: 0;
+}
+
+// li elements
+.referalItem { 
+  @include navs;
+  @include box-shadow;
+  @include spread;
+  height: fit-content !important;
+  // min-height: 2.5rem;
+  margin-block: .3rem;
+  list-style-type: none;
+  
+  // the > makes this rule not apply to reference list, because if it does, flex makes the line break after up arrow
+  & > a { // pageNav and sideNav
+    @include spread;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    max-height: fit-content;
+    // padding-block: .5rem;
+  }
+
+  & a {
+    // min-height: 2.5rem;
+    padding: .5rem 1rem;
+    text-decoration: none;
+  }
+
+  &:hover {
+    background: $side-400;
+
+    a {
+      color: $main-400;
+    }
+  }
+}
+
+
+
+@media only screen and (max-width: 48rem) { // where sidenav disapears 
+  .sideNav {
+    position: fixed;
+    // width: 100vw;
+    // border: 1rem solid $side-200;
+    z-index: 2;
+    height: 100%;
+    background: $side-200;
+
+    ul {
+      max-height: calc(100% - 8rem);
+      height: fit-content;
+      overflow-y: auto;
+
+      li {
+        list-style-type: none;
+        box-shadow: none;
+//         border-bottom: 1px solid;
+      }
+
+      li:last-child {
+//         border-bottom: none;
+      }
+    }
+  }
+}
+
+.sideNav {
+  margin: 0;
+
+  .sideMenu li.active {
+    font-weight: 900;
+    background: $side-700;
+    
+    & * {
+      color: $side-200;
+    }
+  }
+
+  .sideMenu li.active:hover {
+    background: $side-400;
+  }
+}

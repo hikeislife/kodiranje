@@ -1,0 +1,99 @@
+// // @use "../../base/colors" with (
+//   $side-900: #daf7cc !important;
+//   $main-400: #002b00; //112011
+//   $side-100: #031c00;
+//   $main-800: #579905;
+//   $main-900: #253c08;
+//   $main-300: #000f01;
+//   $lightInputBcg: #f7ffe8;
+//   $side-200: #0b1302;
+//   $main-300: #0b2200;
+// // );
+
+// @import "../../style.scss";
+
+// // Import basic theme:
+// // @import "_main_page.scss";
+
+
+// .referalTitle { // titles such as "Reference" & "Sadržaj strane
+//   background: linear-gradient(0deg, $side-200, $main-400 55%); 
+// }
+
+// // #logoBcg {
+// //   background-color: $darkLogoBcg;
+// // }
+
+
+
+
+// // .svgCursorBlinker {
+// //   fill: $darkFont !important;
+// // }
+
+// // a, a:visited {
+// //   background-color: $lightTopNavTopGreen;
+// //   // color: $darkFont;
+// // }
+
+// // footer {
+//   // background: linear-gradient(to bottom, $darkBcg 0%, $darkTopNavBottomGreen 30%);
+// // }
+
+// // #side-nav {
+// //   & li {
+// //     background-color: $darkSideNavBcg;
+// //     box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.3), 0 0px 2px 0 rgba(255, 255, 255, 0.3);
+
+// //     &.active {}
+
+// //     &:hover {
+// //       background: $side-400;
+// //       color: $lightTopNavTopGreen;
+// //     }
+
+// //   }
+// // }
+
+// // .backToTop {
+//   // background: $darkBcg;
+//   // color: $darkFont;
+// // }
+
+// // h1 {
+// //   background: $darkBcg;
+// // }
+
+// // article h1 {
+// //   background: $darkBcg;
+// // }
+
+// // .ex {
+// //   background: $darkSolBoxBcg;
+
+// //   code {
+// //     background: $darkCodeBcg;
+// //   }
+// // }
+
+// // .referalItem { 
+// //   @include darkGrayNavs;
+// // }
+
+// // .referalTitle { // titles such as "Reference" & "Sadržaj strane
+// //   border-top: $px solid $borderColor;
+// //   background: linear-gradient(0deg, $darkBcg, $darkSideNavBcg 55%); 
+// // }
+
+// // .warning {
+// //   background: $darkWarning;
+// // }
+
+// // .tip {
+// //   background: $darkTip;
+// // }
+
+// // a, a:visited {
+// //   // color: $linkColor;
+// //   background: $darkBcg;
+// // }

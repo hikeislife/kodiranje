@@ -1,0 +1,78 @@
+@use "layout/main";
+@use "layout/mainAtf";
+
+@use "layout/general/imgs"; // synced undone
+@use "layout/general/imgsAtf"; // synced undone
+@use "layout/general/links";
+@use "layout/general/lists";
+@use "layout/general/table";
+@use "layout/general/common";
+
+@use "layout/header/topNav"; // synced
+@use "layout/header/logo"; // synced
+@use "layout/header/progress"; // synced
+
+@use "layout/navs/mobMenu"; // synced
+@use "layout/navs/listOfReferals"; // synced
+
+@use "layout/footer/footer";
+@use "layout/footer/donate";
+@use "layout/footer/cog";
+
+@use "modules/details";
+@use "modules/superboxes";
+@use "modules/blockquotes"; // done
+@use "modules/cmd";
+@use "modules/console";
+@use "modules/math";
+
+// @use "utilities/backToTop"; // done
+@use "utilities/scroll"; // done
+@use "utilities/toolTips"; // done
+// @use "utilities/reader";  // synced
+
+// @use "codeExamples/htmlCourse";
+// @use "layout/general/uncommon";
+// @use "utilities/recognition";
+
+/////////////////////// up to here
+
+// @use "base/atf";
+
+// @use "utilities/themeToggle";
+// @use "utilities/cookies";
+
+// @use "boxes/arduino";
+// @use "boxes/jupyter";
+// @use "boxes/devTools";
+
+// @use "layout/footer/icons";
+
+// @use "fonts/fonts"; // synced
+
+// @use "base/colors";
+// @use "base/variables";
+// @use "base/mixins";
+// @use "base/animations";
+// @use "base/icons";
+// @use "base/urls";
+
+// @use "admin/editMenu";
+// @use "admin/editMenuIcons.scss";
+// @use "admin/editMenuHelpers";
+// @use "admin/floatingMenu";
+// @use "admin/adminButtons";
+// @use "admin/admin";
+// @use "admin/forms";
+
+// @use "layout/mainPage/grid"; // synced
+// @use "layout/mainPage/zigZagColors"; // synced
+// @use "layout/mainPage/cards"; // synced
+
+
+// @use "sideWaysNav";
+// @use "a2a";
+// @use "pieChart";
+// @use "toolbox";
+// @use "temp";
+// @use "usedOnce";

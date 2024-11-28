@@ -10,6 +10,7 @@
     margin: $margin;
     justify-content: start;
     grid-gap: 1rem;
+    gap: 1rem;
   }
 
   .legend {
@@ -24,7 +25,7 @@
     font-size: 1.2rem !important;
 
     &::before {
-      font-family: Kodiranje;  
+      font-family: $kodiranje;  
     }
   }
 
@@ -35,8 +36,8 @@
   }
 
   .iconItem:hover span:before {
-    color: $darkYellow;
-    text-shadow: $px $px $borderWidth $shadow;
+    color: $dark-yellow;
+    text-shadow: $px $px $borderWidth $side-400;
   }
 }
 
@@ -50,10 +51,12 @@
     grid-column: 2 / 3;
     grid-row: 2 / 3;
     grid-gap: 5rem;
+    gap: 5rem;
   }
 
   .iconLinks {
     grid-gap: 2rem;
+    gap: 2rem;
   }
 
   .doubleFooterLinks {
@@ -88,7 +91,7 @@
 }
 
 .solIcon {
-  background: $solBcgColor;
+  background: $main-300;
     background-image: url($solBcg);
 }
 
@@ -108,7 +111,7 @@
   }
 }
 
-.kvizIcon {
+.quizIcon {
   background-color: $quizYellow;
 
   &:before {
@@ -117,7 +120,7 @@
 }
 
 .errorIcon {
-  background-color: $darkYellow;
+  background-color: $dark-yellow;
 
   &:before {
     content: '\F357';

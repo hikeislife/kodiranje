@@ -1,69 +1,61 @@
-details.superbox::before {
-  display: none; // the warning icon shows at the bottom of details cause it can't show at expected place due to arrow
-}
+@use "../base" as *;
 
 details {
-  cursor: pointer;
-  margin: 1em 0;
   cursor: auto;
+  margin: 2em 0;
+  margin-trim: in-flow;
+
+  div:last-of-type {
+    margin-bottom: 0;
+  }
 
   & summary {
-    position: relative;
     cursor: pointer;
-    // display: inline-block;
-//     outline: none;
+    position: relative;
+    text-indent: 1rem;
 
-    &:first-child p {
-      display: inline !important;
+    p:first-child {
+      // so that marker is in the same line as the text
+      display: inline;
+      margin-bottom: 2rem;
+    }
+    
+    & *:last-child {
+      margin-bottom: 0;
+
+      figcaption {
+        bottom: 2.5rem
+      }
     }
 
     &::before {
-      font-family: Kodiranje;
-      content: '\F397';
-      padding-right: 1rem;
       position: absolute;
-      left: -.3rem;
-//       background: transparent;
-//       background: $lightPageBcg;
-    }  
+      left: 0rem;
+      top: 0.4rem;
+      transform: rotate(0);
+      transition: .75s transform cubic-bezier(.6,-0.28,.74,.05);
+      text-indent: 0;
+    }
   }
 
-  &[open] summary::before {
-    content: '\F39B';
+  // this would also affect list bullets if it were outside of the details selector
+  ::marker  {
+    // display none doesn't do anyting
+    color: transparent;
   }
 }
 
-details.listAllArticles {
+
+// Most common details, unlike h1 details
+details:not([class]) {
   @include border;
-  @include boxShadow;
-  border-left: $accentBorder solid $topNavLightGreen;
-  padding: 0;
-
-  summary {
-    @include spread;
-    padding: 1rem;
-    padding-left: 2rem;
-
-    &::before {
-      margin-left: 1rem;
-    }
-  }
-
-  p {
-    padding: 0 1rem;
-    // border: $borderWidth solid $fontColor;
-    margin: .5rem 0;
-    text-align: left;
-    background: $bcgColor;
-
-    // a {
-    //   text-decoration: underline;
-    //   line-height: 1rem;
-    // }
-  }
+  border: none;
+  @include box-shadow;
+  border-left: $accentBorder solid $main-800;
+  background-color: $main-300;
 
   &:hover {
-    border-left: $accentBorder solid $darkYellow;
+    border-left: $accentBorder solid $dark-yellow;
   }
 
   &[open] {
@@ -71,170 +63,169 @@ details.listAllArticles {
   }
 }
 
-// //   p {
-// //     padding: 0;
-// //   }
+details.superbox::before {
+  display: none;
+}
 
-// //   table {
-// //     margin: 2.5em 0 1em;
-// //   }
+details[open] summary:before {
+  transform: rotate(90deg);
+}
 
-// //   .superbox, p, ul {
-// //     margin: 1em 0 0;
-// //   }
+details#closeDetails summary ~ * {
+  animation: closeDetails 1s cubic-bezier(.6,-0.28,.74,.05); //ease-in-out;
+}
 
-// //   li {
-// //     padding: 1em 0;
-// //   }
+details[open] summary ~ * {
+  animation: transDetails 1s cubic-bezier(.55,.09,.68,.53), dropDetails 1s cubic-bezier(.6,-0.28,.74,.05);
+}
 
-// //   &[open] {
-// //     cursor: inherit;
 
-// //     summary {
-// //       &::before {
-// //         font-family: Kodiranje;
-// //         content: '\F39B';
-// //         padding-right: 15px;
-// //       }
-// //     }
+
+
+
+// details.listAllArticles {
+//   @include border;
+//   @include box-shadow;
+//   border-left: $accentBorder solid $main-800;
+//   padding: 0;
+
+//   summary {
+//     @include spread;
+//     padding: 1rem;
+//     padding-left: 2rem;
+
+//     &::before {
+//       margin-left: 1rem;
+//     }
 //   }
+
+//   p {
+//     padding: 0 1rem;
+//     // border: $borderWidth solid $side-900;
+//     margin: .5rem 0;
+//     text-align: left;
+//     background: $main-400;
+
+//     // a {
+//     //   text-decoration: underline;
+//     //   line-height: 1rem;
+//     // }
+//   }
+
+//   
 // }
 
-// Most common details, unlike h1 details
-details:not([class]) {
-  @include border;
-  @include boxShadow;
-  border-left: $accentBorder solid $topNavLightGreen;
-  // cursor: auto;
 
 
 
-  // details:after {
-  //   display: block;
-  // }
 
-//   summary::before {
-//     padding-right: 0;
-//   }
 
-  &:hover {
-    border-left-color: $darkYellow;
+
+.sectionTitle {
+  @include box-shadow;
+  padding: 2rem 1rem;
+
+  h1 {
+    margin-top: 0;
+  }
+
+  & summary {
+// //     display: inline;
+
+    &::before {
+      left: 1rem;
+      top: 2rem;
+    }
   }
 }
 
-::marker {
-  color: transparent;
-}
+// // @media only screen and (max-width: 39.9375em) {
+// //   .sectionTitle h1 {
+// //     margin: 2em -.75em 0 -1.35em;
+// //   }
 
-details[open]:not([class]) {
-  border-left-color: tomato;
-}
+// //   .sectionTitle summary::before {
+// //     top: 1.4em;
+// //     //left: 1em;
+// //   }
+// // }
 
-// .sectionTitle {
-//   h1 {
-//     padding: 0 2em;
-//     text-align: center;
-//   }
+// // @media only screen and (min-width: 40em) { // 640
+// //   details {
+// //     margin: 1em 0;
+// //   }
 
-//   & summary {
-//     display: inline;
+// //   .sectionTitle {
+// //     summary::before {
+// //       top: 1.25em;
+// //       left: 1em;
+// //     }
 
-//     &::before {
-//       position: absolute;
-//       z-index: 1;
-//     }
-//   }
+// //     h1 {
+// //       margin: 0;
+// //     }
+// //   }
+// // }
+
+// // @media only screen and (min-width: 40em) {
+// //   details {
+// //     & summary {
+// //       &::before {
+// //         font-size: 1.5em;
+// //       }
+// //     }
+// //   }
+
+// //   details:not([class]) {
+// //     summary {
+// //       &::before {
+// //         top: .1em;
+// //         padding-right: 1em;
+// //       }
+// //     }
+// //   }
+
+// //   .none {
+// //     & summary {
+// //       &::before {
+// //         top: 4.5em;
+// //         left: 0;
+// //       }
+// //     }
+// //   }
+// // }
+
+
+
+// // @media only screen and (min-width: 50em) {
+//   // .sectionTitle {
+//   //   li, .superbox {
+//   //     margin-right: -1em;
+//   //   }
+//   // }
+// // }
+
+// // // /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+// //     text-shadow: 1px 1px 2px $main-800, -1px -1px 2px $main-800, -1px 1px 2px $main-800, 1px -1px 2px $main-800; // don't remove shadow, the background goes outside
+
+
+
+// // .warning details {
+// //   color: blanchedalmond;
+// // }
+
+// // This seems to work only on mobile. 
+// // On desktop, marker is actually hidden by summary child being set to inline and covering it
+// // details > summary::-webkit-details-marker {
+// //   display: none !important;
+// // }
+
+// details.superbox::before {
+//   display: none; // the warning icon shows at the bottom of details cause it can't show at expected place due to arrow
 // }
 
-// @media only screen and (max-width: 39.9375em) {
-//   .sectionTitle h1 {
-//     margin: 2em -.75em 0 -1.35em;
-//   }
-
-//   .sectionTitle summary::before {
-//     top: 1.4em;
-//     //left: 1em;
-//   }
-// }
-
-// @media only screen and (min-width: 40em) { // 640
-//   details {
-//     margin: 1em 0;
-//   }
-
-//   .sectionTitle {
-//     summary::before {
-//       top: 1.25em;
-//       left: 1em;
-//     }
-
-//     h1 {
-//       margin: 0;
-//     }
-//   }
-// }
-
-// @media only screen and (min-width: 40em) {
-//   details {
-//     & summary {
-//       &::before {
-//         font-size: 1.5em;
-//       }
-//     }
-//   }
-
-//   details:not([class]) {
-//     summary {
-//       &::before {
-//         top: .1em;
-//         padding-right: 1em;
-//       }
-//     }
-//   }
-
-//   .none {
-//     & summary {
-//       &::before {
-//         top: 4.5em;
-//         left: 0;
-//       }
-//     }
-//   }
-// }
-
-
-
-// @media only screen and (min-width: 50em) {
-  // .sectionTitle {
-  //   li, .superbox {
-  //     margin-right: -1em;
-  //   }
-  // }
-// }
-
-// // /////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-// details {
-
-
-//   &[open] {
-//     animation-name: fadeInDown;
-//     animation-duration: 0.5s;
-
-// }
-
-//     text-shadow: 1px 1px 2px #9af629, -1px -1px 2px #9af629, -1px 1px 2px #9af629, 1px -1px 2px #9af629; // don't remove shadow, the background goes outside
-
-
-
-// .warning details {
-//   color: blanchedalmond;
-// }
-
-// This seems to work only on mobile. 
-// On desktop, marker is actually hidden by summary child being set to inline and covering it
-// details > summary::-webkit-details-marker {
-//   display: none !important;
-// }

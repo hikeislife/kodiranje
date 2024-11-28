@@ -1,0 +1,60 @@
+<nav class="topNavWrapper lazy" data-current="{{post.courseName}}">
+  <div class="topNav">
+
+    <span id="html-i-css" class="menuitems">
+      <a href="/html-i-css/uvod-u-html-i-css" class="nocolor" rel="chapter"
+        aria-label="html css tut">
+        <span class="menu-lg">HTML &amp; CSS</span>
+      </a>
+    </span>
+    <span id="git-i-cmd" class="menuitems"><a href="/git-i-cmd/uvod-u-terminal"
+        class="nocolor" rel="chapter" aria-label="git tutorijal"><span class="menu-lg">cmd
+          &amp; git</span></a></span>
+    <span id="javascript"
+      class="menuitems">
+      <a href="/javascript/uvod-u-javascript" class="nocolor" rel="chapter"
+        aria-label="javascript tutorijal">
+        <span class="menu-lg">JavaScript</span>
+      </a>
+    </span>
+    <span id="arduino" class="menuitems">
+      <a href="/arduino/uvod" class="nocolor" rel="chapter"
+        aria-label="arduino tutorijal">
+        <span class="menu-lg">Arduino</span>
+      </a>
+    </span>
+    <span id="python" class="menuitems">
+      <a href="/python/podesavanje-radne-sredine" class="nocolor" rel="chapter"
+        aria-label="python tutorijal">
+        <span class="menu-lg">Python</span>
+      </a>
+    </span>
+  </div>
+
+  <span id="backhome">
+    <a href="/" class="nocolor" rel="start chapter" aria-label="pocetna">
+      <span class="icon backHome topNavPadding"></span>
+    </a>
+  </span>
+  {{!-- // TODO: translate transliterate button --}}
+  {{!-- <span class="icon transcribe topNavPadding" onclick="switchTransliteration()"></span> --}}
+  {{#if admin}}<p><a href="/admin">{{admin}}</a></p>{{/if}}
+  {{# if userId}}
+  <span id="ar" class="top-nav">
+    <a href="/admin/novi-post" class="nocolor" rel="chapter"
+      aria-label="arduino tutorijal">
+      <span class="menu-lg">Admin</span></a></span>
+  {{/if}}
+
+</nav>
+
+<script>
+  (setActive = () => {
+    const current = document.querySelector('.topNavWrapper').dataset.current
+    if (current) {
+      if(current == 'mp') return
+      const select = document.querySelector(`#${current}`)
+      select.classList.add('active')
+    }
+  })()
+</script>

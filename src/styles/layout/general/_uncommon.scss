@@ -1,0 +1,11 @@
+@use "../../base/colors" as c;
+
+.cmdwindow .line-mode,
+.cmdwindow .line-mode * {
+  color: c.$lineMode;
+  word-break: normal;
+}
+
+.blink {
+  animation: blink .7s steps(5, start) infinite;
+}

@@ -1,169 +1,181 @@
+@use "../base" as *;
 
 
 .superbox {
-  @include border;
-  @include boxShadow;
-  margin: 1em 0;
+  @include box-shadow;
+  margin-block: 2em;
+  position: relative;
+  padding: 1rem;
+  margin-trim: in-flow;
+  background: aliceblue;
 
-  p:first-child {
-    display: inline;
+  // p:last-of-type {
+  //   margin-bottom: 0;
+  // }
+
+  // figure:last-child {
+  //   margin-bottom: 0;
+  // }
+
+  & *:last-child {
+    margin-bottom: 0;
   }
 }
 
-.sol {
+.superbox::before {
+  font-family: $kodiranje;
+  position: absolute;
+  left: -1.5rem;
+}
+
+.warning::before {
+  content: '\0021';
+  color: $tomato;
+}
+
+.tip::before {
+  content: '\2606';
+}
+
+.quiz::before {
+  content: '\003f';
+}
+
+:not(details).superbox {
+  p:first-of-type {
+    margin-top: 0;
+  }
+}
+
+.warning {
+  background-color: $trl-red;
+}
+
+.tip {
+  background-color: $trl-green;
+  /* this offsets white-space from .ex when it's embeded there */
+  white-space: normal; 
+
+  // not sure why this was added, but it really messed everything up in html-css/struktura details>tip 
+  // & a {
+  //   background-color: $dark-yellow;
+  // }
+}
+
+// for code examples
+.ex {
   background-image: url($solBcg);
   border-left: $accentBorder solid $solBoxGreen !important;
-  background-color: $solBcgColor;
-  // line-height: 0px;
-
+  background-color: $main-300;
+  font-family: $code-font;
+  
   &:before {
     counter-reset: solCode;
+  }
+
+  * {
+    font-family: $code-font;
   }
 
   & code {
     counter-increment: solCode;
     display: block;
-    border-left: 2px solid $fontColor;
-    padding-left: 5px;
-    background: $lightCodeBcg;
-    white-space: pre-wrap;
-    font-weight: bold;
-    margin: 0 0 0 2rem;
-    text-align: left; // this is important for front page only
-    line-height: 1.6rem;
+    border-left: $borderWidth solid $side-900;
+    padding-left: $diffusedShadow;
+    background: $main-200;
+    // white-space: pre-wrap;
+    margin: 0 0 0 1rem;
+    text-align: initial;
 
-    * {
-      font-family: $codeFont !important;
+
+    &::before {
+      font-family: $code-font;
+      content: counter(solCode) " ";
+      margin-left: -2rem;
+      margin-right: .3rem;
+    }
+  }
+}
+
+// .sol {
+  
+// }
+
+.ex .sol {
+  margin-bottom: 0;
+}
+
+.sol * {
+  all: revert;
+  line-height: initial;
+  font-family: initial;
+  // all: unset;
+}
+
+// for deprecated code
+.depr {
+  border-color: $tomato;
+  border-left: $tomato solid $accentBorder !important;
+  position: relative;
+  margin-bottom: 3rem;
+
+  &::after {
+    content: "Ovakav kôd je zastareo!";
+    position: absolute;
+    bottom: -2rem;
+    font-weight: normal;
+    font-size: .8rem;
+  }
+}
+
+@media screen and (min-width: 48rem) { // 768
+  .depr {
+    @include tipBasic;
+    
+
+    // &:hover::before,
+    // &:hover::after {
+    //   @include tipHoverBeforeAfter;
+    // }
+
+    // &::before,
+    // &::after {
+    //   @include tipBeforeAfter;
+    // }
+
+    &::after {
+      // @include tipAfter;
+      font-family: $font;
+      background: $tomato;
+      content: "Ovakav kôd je zastareo!";
+      bottom: unset;
+      font-size: unset;
     }
 
     &::before {
-      font-family: 'lucida console';
-      content: counter(solCode) " ";
-      margin-left: -2rem;
-      margin-right: 1rem;
+      @include tipBefore;
     }
   }
 }
 
-.warning {
-  background-color: $warning;
+.why {
+  background-color: $dark-yellow;
 
-  &::before {
-    font-family: "Kodiranje";
-    content: '\F350';
-    padding-right: 1rem;
+  p:first-child {
+    font-weight: 900;
   }
 }
 
-.tip {
-  background-color: $tip;
-// //   font-weight: bold;
-// //   white-space: normal; /* this offsets white-space from sol when it's embeded there */
-
-  &::before {
-    font-family: "Kodiranje";
-    content: '\F358';
-    padding-right: 1rem;
-  }
-
-// //   & a {
-// //     background-color: $dy;
-// //   }
+.quiz {
+  background-color: $quiz;
 }
 
-.placeholder .ex {
-  background: whitesmoke;
-  color: $fontColor;
-  margin-bottom: 0;
-  // margin-top: 1em !important;
-  white-space: normal; /* to offset one from the sol */
-
-  // & p:first-of-type {
-  //   display: block;
-  // }
-}
-
-.kviz {
-  background-color: $quizYellow;
-
-  &::before {
-    font-family: 'Kodiranje';
-    content: '\F353';
-    padding-right: 15px;
-  }
-}
-
-// // .error {
-// //   background-color: $dy!important;
-
-// //   &::before {
-// //     content: '\F357';
-// //     font-family: "Kodiranje";
-// //     padding-right: 15px;
-// //   }
-// // }
-
-
-
-// .why {
-//   background-color: $darkYellow;
+// .error {
+//   background-color: $dy!important;
 
 //   &::before {
-//     content: 'Zašto ovo radimo? ';
-//     font-weight: bolder;
+//     content: '\F357';
+//     font-family: $kodiranje;
+//     padding-right: 15px;
 //   }
 // }
-
-// // .placeholder .superbox {
-// //   & p:first-of-type {
-// //     display: inline;
-// //   }
-
-// //   & p:last-of-type {
-// //     margin-bottom: 0!important;
-// //   }
-// // }
-
-
-// // .depr {
-// //    border-color: $wr;
-// // }
-
-// // .placeholder .superbox .superbox {
-// //   margin: 0;
-// // }
-
-// // details.warning:before {
-// //   content: '';
-// // }
-
-
-.deeppink,
-.pink {
-  color: #C0C;
-}
-
-.seagreen,
-.green {
-  color: #066;
-}
-
-.dimgray,
-.dim {
-  color: dimgray;
-}
-
-.darkviolet,
-.violet {
-  color: darkviolet;
-}
-
-.royal,
-.royalblue {
-  color: royalblue;
-}
-
-.firebrick,
-.opeka {
-  color: firebrick;
-}

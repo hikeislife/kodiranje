@@ -99,7 +99,7 @@ function cacheFirstFetch(event) {
               return;
             }
 
-            //console.log("Network request failed and no cache." + error);
+            //console.info("Network request failed and no cache." + error);
             // Use the precached offline page as fallback
             return caches.open(CACHE).then(function (cache) {
               cache.match(offlineFallbackPage);
@@ -119,7 +119,7 @@ function networkFirstFetch(event) {
         return response;
       })
       .catch(function (error) {
-        console.log("Network request Failed. Serving content from cache: " + error);
+        console.info("Network request Failed. Serving content from cache: " + error);
         return fromCache(event.request);
       })
   );

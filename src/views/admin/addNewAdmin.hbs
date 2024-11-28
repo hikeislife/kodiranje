@@ -1,4 +1,4 @@
-<article>
+<article class="backend">
   <h1>Dodaj novog admina</h1>
   {{#if errorMessage}}<p class="adminError">{{errorMessage}}</p>{{/if}}
   <div>
@@ -34,9 +34,9 @@
       </div>
       <div     class=       "adminInput">
         <button id=         "dugme" 
-               class=       "admin-saveButton wideAdminButton">Sačuvaj</button>
+               class=       "admin-saveButton admin-wideBtn">Sačuvaj</button>
       </div>
     </form>
   </div>
-  <a href="/admin/svi-admini" class="nocolor"><button class="wideAdminButton admin-allButton">Lista svih admina</button></a>
+  <a href="/admin/svi-admini" class="nocolor"><button class="admin-wideBtn admin-allButton">Lista svih admina</button></a>
 </article>

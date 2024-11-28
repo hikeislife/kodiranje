@@ -1,37 +1,184 @@
+@use "../fonts/fonts" as f;
+@use "colors" as c;
+@use "variables" as v;
+// @use "./" as *;
+
 @mixin adminmenues {
-  border: .7rem double $fontColor;
-  border-radius: $borderRadius;
+  border: .7rem double c.$side-900;
+  border-radius: v.$borderRadius;
   background: #565656E6;
   background-clip: padding-box;
-//   color: #efefef;
-  box-shadow: 1px 1px 10px gray;
-//   z-index: 5;
+  box-shadow: v.$borderWidth v.$borderWidth 10px c.$side-400;
 }
 
 @mixin navs {
-  background-color: $refBcg;
-  // box-shadow: 0 1px 0px 0 rgba(0, 0, 0, 0.3), 0 0px 2px 0 rgba(0, 0, 0, 0.3);
+  background-color: c.$side-200;
   line-height: 1.5rem;
 }
 
-@mixin boxShadow {
-  box-shadow: $px $px $diffusedShadow $shadow;
+@mixin box-shadow {
+  box-shadow: v.$px v.$px v.$diffusedShadow c.$side-400;
 }
 
+@mixin top-shadow {
+  box-shadow: 0 v.$px v.$borderWidth 0 rgba(0, 0, 0, 0.3), 0 v.$px v.$borderWidth 0 rgba(0, 0, 0, 0.3);
+}
+  
+
 @mixin spread {
-  display: inline-block;
+  display: flex;
   width: 100%;
   height: 100%;
 }
 
 @mixin center {
-  display: flex;
+  display: grid; // article
   justify-content: center;
   align-items: center;
 }
 
 @mixin border {
-  border: $borderWidth solid $fontColor; 
-  border-radius: $borderRadius;
-  padding: $margin;
+  border: v.$borderWidth solid c.$borderColor;
+  border-radius: v.$borderRadius;
+  padding: v.$margin;
 }
+
+// tooltips
+@mixin tipBasic {
+  position: relative;
+  --tipWidth: calc(2 * var(--artPadding) - 10px);
+
+  &:hover::before,
+  &:hover::after {
+    --scale: 1;
+  }
+
+  &::before,
+  &::after {
+    --scale: 0;
+    position: absolute;
+    top: -.25rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100%) scale(var(--scale));
+    transition: 200ms transform;
+  }
+
+  &::after {
+    @include border;
+    content: attr(data-tooltip);
+    background: c.$dark-yellow;
+    transform-origin: bottom center;
+    text-align: center;
+    // don't make tipbox wider than double margin, so even if it materializes at the end of the text, it doesn't go off the page
+    width: var(--tipWidth);
+    min-width: fit-content;
+  }
+}
+
+
+@mixin tipBefore {
+  content: '';
+  border: .33rem solid transparent;
+  border-top: .33rem solid c.$side-900;
+  top: .33rem;
+  transform-origin: top center;
+}
+
+@mixin highlight {
+  margin-right: -.5rem;
+  display: inline-block;
+  padding-inline: .5rem;
+  transform: skewX(-33deg);
+
+  span {
+    display: inline-block;
+    transform: skewX(33deg);
+  }
+}
+
+@mixin blankAdminButton {
+  background: transparent;
+  @include spread;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+  align-items: center;
+
+  &:before {
+    font-family: f.$kodiranje;
+    // content: '\00c5';
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+}
+
+@mixin transparentGradient {
+  background: linear-gradient(to bottom, c.$main-800-alpha 50%, c.$main-900-alpha 100%) !important;
+}
+
+@mixin dark-gradient {
+  background: linear-gradient(to bottom, c.$main-900 50%, c.$main-800 100%);
+}
+
+@mixin media-480 {
+  @media screen and (min-width: 30rem) {
+    @content;
+  }
+}
+
+@mixin media-576 {
+  @media screen and (min-width: 36rem) {
+    @content;
+  }
+}
+
+@mixin media-768 {
+  @media screen and (min-width: 48rem) {
+    @content;
+  }
+}
+
+@mixin media-992 {
+  @media screen and (min-width: 62rem) {
+    @content;
+  }
+}
+
+@mixin media-1200 {
+  @media screen and (min-width: 78rem) {
+    @content;
+  }
+}
+
+@mixin media-1400 {
+  @media screen and (min-width: 87.5rem) {
+    @content;
+  }
+}
+
+@mixin media-1600 {
+  @media screen and (min-width: 100rem) {
+    @content;
+  }
+}
+
+// #TODO: remove if done with border-radius demo
+// @mixin topRange {
+//   top: -v.$borderWidth;
+//   left: -10px;
+//   width: calc(100% + 20px);
+// }
+
+// @mixin rightRange {
+//   transform:rotate(90deg);
+//   width: 264px;
+//   top: 124px;
+//   right: -134px;
+// }
+
+// @mixin bottomRange {
+//   transform: rotate(180deg);
+//   bottom: -1px;
+//   right: -10px;
+//   width: calc(100% + 20px);
+// }

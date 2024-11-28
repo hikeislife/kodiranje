@@ -1,33 +1,73 @@
-// blockquote {
-//   position: relative;
-//   border: 2px solid $mainBorder;
-//   border-radius: $borderRadius;
-//   padding: 2rem;
-//   background-color: $lightBcg;
-//   padding-bottom: 4rem;
+@use "../base" as *;
 
-//   &::before { 
-//     font-family: "Kodiranje";
-//     content: '\F34A';
-//     font-size: 2rem;
-//   }
+blockquote { 
+  position: relative;
+  // @include border;
+  border-radius: 2rem;
+  padding: 2rem;
+  background-color: $main-400;
+  padding-bottom: 7rem;
+  color: cornsilk;
+  background: cornflowerblue;
+  margin-block: 2rem;
+  width: 100%;
+  
 
-//   &::after {
-//     font-family: "Kodiranje";
-//     content: '\F34B'; 
-//     font-size: 2rem;
-//   }
+  * {
+    color: cornsilk;
+  }
 
-//   cite {
-//     display: block;
-//     right: 30px;
-//     position: absolute;
-//     bottom: 10px;
+  &::before {
+    font-family: $kodiranje;
+    content: '\201c';
+    font-size: $iconSize;
+    position: absolute;
+    top: 2rem;
+  }
 
-//     &::before {
-//       font-family: "Kodiranje";
-//       content: '\F34C'; 
-//       font-size: $clipSize;
-//     }
-//   }
-// }
+  &::after {
+    font-family: $kodiranje;
+    content: '\201d';
+    font-size: $iconSize;
+    position: absolute;
+    bottom: 5rem;
+    right: 2rem;
+  }
+
+  cite {
+    display: block;
+    right: 2rem;
+    position: absolute;
+    bottom: .625rem;
+    color: cornsilk;
+    bottom: $iconSize;
+    left: 4rem;
+
+    a{
+      text-decoration: none;
+    }
+
+    &::before {
+      font-family: $kodiranje;
+      content: '\0185'; 
+      font-size: $iconSize;
+      position: absolute;
+      left: -2.5rem;
+    }
+
+    & * {
+      color: inherit !important;
+    }
+  }
+
+  & p {
+    text-indent: 3rem;
+  }
+
+  figure {
+    position: static;
+    text-align: unset;
+    padding-left: 2rem;
+    float: right;
+  }
+}

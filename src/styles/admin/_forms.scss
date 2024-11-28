@@ -1,3 +1,5 @@
+@use "../base" as *;
+
 fieldset {
   background-image: url($solBcg);
   border-radius: $borderRadius;
@@ -14,7 +16,7 @@ fieldset {
     font-size: 1.2rem;
     padding: .2em .4em;
     border-radius: $borderRadius;
-    background: $bcgColor;
+    background: $main-400;
     outline: none;
 
     &:focus {
@@ -29,12 +31,18 @@ fieldset {
   }
 
   textarea {
-    background: $bcgColor;
+    background: $main-400;
     resize: vertical;
+    width: 100%;	
+  }
+  
+  textarea.contentTextArea {
+    width: 100%;
   }
 
   textarea#articleContent {
     height: 20rem;
+    width: 100%;
     padding: 1rem;
     outline: none;
     border-radius: $borderRadius;
@@ -47,7 +55,7 @@ fieldset {
 
   select {
     font-size: 1.2rem;
-    background: $bcgColor;
+    background: $main-400;
     border-radius: $borderRadius;
   }
 
@@ -56,6 +64,7 @@ fieldset {
     display: inline-block;
     max-width: min-content;
     right: .5rem;
+    top: 3rem;
     text-align: right;
     font-size: .8rem;
   }
@@ -68,17 +77,19 @@ fieldset {
     @include border;
     display: flex;
     flex-direction: column;
-    background: $bcgColor;
+    background: $side-200;
     border: dashed;
-    padding: 2rem;
-    margin: 2rem 0;
+    padding: 3rem;
+    margin: 2rem 0 1rem;
     text-align: center;
     cursor: pointer;
+    padding-bottom: 5rem;
 
     &::before {
-      font-family: Kodiranje;
-      content: '\F2CA';
+      font-family: $kodiranje;
+      content: '\00c0';
       font-size: 3rem;
+      margin-block: 3rem 4rem;
     }
   }
 }
@@ -96,6 +107,10 @@ fieldset {
   #published {
     display: none;
   }
+
+  .reorderCheckbox {
+    left: 1rem;
+  }
 }
 
 
@@ -104,9 +119,11 @@ fieldset {
   position: absolute;
   width: calc(2rem - 4px);
   height: calc(2rem - 4px);
-  border: 4px solid $fontColor;
+  border: 4px solid $side-900;
   border-radius: 50%;
-  background: $bcgColor;
+  background: $side-100;
+  line-height: initial;
+  transform: translate(-50%);
 
   &:after {
     content: '';
@@ -115,15 +132,23 @@ fieldset {
     align-content: center;
     font-size: 1.7rem;
     position: absolute;
-    top: -6px;
+    top: -5px;
     left: -4px;
   }
 }
 
 input[type="checkbox"]:checked ~ label[for="active"]:after,
 input[type="checkbox"]:checked ~ label[for]:after {
-  font-family: Kodiranje;
-  content: "\F2C2";
+  font-family: $kodiranje;
+  content: "\2705";
+}
+
+.adminInputCheckbox {
+  height: calc(2rem - 4px);
+}
+
+.adminInputCheckbox input[type="checkbox"] {
+  display: none;
 }
 
 // @media only screen and (min-width: 48rem) {

@@ -1,9 +1,17 @@
-<article>
-  {{{post.articleContent}}}
+<article data-lesson={{post.id}}>
+  {{>basics/reader}}
+  <div class="pageNav" contenteditable="false"></div>
+  
+  <div class="sitespeaker-read-aloud lazy">{{{post.articleContent}}}</div>
 
-  <div class="artMeta">
-    {{# if post.createdAt}}<p>Članak prvi put objavljen: <b>{{formatDate post.createdAt}}</b></p>{{/if}}
-    {{# if post.updatedAt}}<p>Poslednje izmene: <b>{{formatDate post.updatedAt}}</b></p>{{/if}}
+  <div class="artMeta lazy" aria-disabled="true">
+  
+    {{# if post.createdAt}}<p>Članak prvi put objavljen: <b>{{formatDate
+        post.createdAt}}</b></p>{{/if}}
+    {{# if post.updatedAt}}<p>Poslednje izmene: <b>{{formatDate post.updatedAt}}</b></p>
+    {{/if}}
     {{# if post.author}}<p>Autor: <b>{{post.author}}</b>.</p>{{/if}}
   </div>
+
+  {{!-- {{>helper/disqus}} --}}
 </article>

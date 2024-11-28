@@ -7,13 +7,10 @@ export default function insertSnippet (e, details = {}) {
 
   // target element:
   const element = selected.getRangeAt(0).commonAncestorContainer//.parentElement
-  console.log(element)
   // text node cursor is placed at: 
   const textContent = element.parentElement.innerHTML
-  console.log(textContent)
   //selected.getRangeAt(0).commonAncestorContainer.innerHTML
   const cursorStart = selected.anchorOffset
-  console.log(selected)
   const cursorEnd = selected.focusOffset
 
   // string parts being edited
@@ -26,7 +23,6 @@ export default function insertSnippet (e, details = {}) {
 
   switch (snippet) {
     case "titleH1":
-      console.log(details.prvi)
       let topNav = ''
       if (details.prvi) {
         details.bookmark = ''
@@ -148,8 +144,8 @@ export default function insertSnippet (e, details = {}) {
     case "bug":
       insert = `${stringBefore}<div class="superbox bug"><p>${preserveMe}</p></div> ${stringAfter}`
       break
-    case "sol":
-      insert = `${stringBefore}<div class="superbox sol"><code>${preserveMe}</code></div>${stringAfter}`
+    case "ex":
+      insert = `${stringBefore}<div class="superbox ex"><code>${preserveMe}</code></div>${stringAfter}`
       break
     case "terminal":
       insert = `${stringBefore}${preserveMe}${stringAfter}`
@@ -199,7 +195,6 @@ export default function insertSnippet (e, details = {}) {
     default:
       insert = ``
   }
-  //console.log(insert)
   element.parentElement.innerHTML = insert
 }
 

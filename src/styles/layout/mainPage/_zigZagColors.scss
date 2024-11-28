@@ -1,26 +1,38 @@
-// // zigzag background 
-// .main-page-course:nth-child(even) {
-//   background: $lightSideNavBcg;
-// }
+.courseCard:nth-child(even) {
+  background: #c7c7c7;
+}
 
-// @media only screen and (min-width: 36rem) {
-//   .main-page-course:nth-child(even) {
-//     background: unset;
-//   }
+@media only screen and (min-width: 30rem) {
+  .courseCard:nth-child(even) {
+    background: aliceblue;
+  }
 
-//   .main-page-course:nth-child(4n+2),
-//   .main-page-course:nth-child(4n+3) {
-//     background: $lightSideNavBcg;
-//   }
-// }
+  .courseCard:nth-child(4n+2),
+  .courseCard:nth-child(4n+3) {
+    background: #c7c7c7;
+  }
+}
 
-// @media only screen and (min-width: 62rem) {
-//   .main-page-course:nth-child(4n+2),
-//   .main-page-course:nth-child(4n+3) {
-//     background: unset;
-//   }
+@media only screen and (min-width: 75rem) { // > 1200px
+  .courseCard:nth-child(4n+2),
+  .courseCard:nth-child(4n+3) {
+    background: aliceblue;
+  }
 
-//   .main-page-course:nth-child(even) {
-//     background: $lightSideNavBcg;
-//   }
-// }
+  .courseCard:nth-child(even) {
+    background: #c7c7c7;
+  }
+}
+
+@media only screen and (min-width: 100rem) { // > 1600px
+  .courseCard:nth-child(even) {
+    background: aliceblue;
+  }
+
+  .courseCard:nth-child(8n+2),
+  .courseCard:nth-child(8n+4),
+  .courseCard:nth-child(8n+5),
+  .courseCard:nth-child(8n+7) {
+    background: #c7c7c7;
+  }
+}

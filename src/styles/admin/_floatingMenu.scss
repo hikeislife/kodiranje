@@ -1,4 +1,4 @@
-@import "../base/mixins";
+@use "../base" as *;
 
 .floatingMenu {
   @include adminmenues;
@@ -20,19 +20,19 @@
   }
 
   .floatingGreen {
-    color: $topNavLightGreen;
-    text-shadow: 1px 1px 15px $topNavLightGreen;
+    color: $main-800;
+    text-shadow: 1px 1px 15px $main-800;
   }
 
   .floatingYellow {
-    color: $darkYellow;
-    text-shadow: 1px 1px 15px $darkYellow;
+    color: $dark-yellow;
+    text-shadow: 1px 1px 15px $dark-yellow;
     margin-bottom: 1rem;
   }
 
   .floatingWarning {
-    color: $warning;
-    text-shadow: 1px 1px 15px $warning;
+    color: $tomato;
+    text-shadow: 1px 1px 15px $tomato;
   }
 
   .nocolor {
@@ -44,13 +44,13 @@
 // Icons
 
 .saveButton:before {
-  content: '\F2B8';
+  content: '\00c1';
 }
 
 .allButton:before {
-  content: '\F2C7';
+  content: '\00c2';
 }
 
 .trashButton:before {
-  content: '\F2BD';
+  content: '\00c3';
 }

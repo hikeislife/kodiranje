@@ -1,58 +1,54 @@
-@import "base/variables";
-@import "base/mixins";
-@import "base/icons";
-@import "base/urls";
-@import "base/colors";
-@import "base/common";
+/*# sourceMappingURL=https://kodiranje.in.rs/styles/style.css.map */
 
-@import "layout/header/topNav";
-@import "layout/header/logo";
-@import "layout/header/cog";
+// @use "layout/main";
 
-@import "layout/main";
-@import "layout/sideNav.scss";
-@import "layout/pageNav";
+@use "layout/general/imgs"; // synced undone
+// @use "layout/general/links";
+// @use "layout/general/lists";
+// @use "layout/general/table";
+// @use "layout/general/common";
 
-@import "layout/mainPage/mainPage";
-@import "layout/mainPage/grid";
-@import "layout/mainPage/zigZagColors";
+@use "layout/header/progress"; // synced
+
+// @use "layout/navs/listOfReferals"; // synced
+
+@use "layout/footer/footer";
+// @use "layout/footer/donate";
+// @use "layout/footer/cog";
+
+// @use "modules/details";
+// @use "modules/superboxes";
+// @use "modules/blockquotes"; // done
+// @use "modules/console";
+// @use "modules/cmd";
+// @use "modules/math";
+
+@use "utilities/backToTop"; // done
+// @use "utilities/toolTips"; // done
+// @use "utilities/scroll"; // done
+@use "utilities/reader";  // synced
+
+// @use "codeExamples/htmlCourse";
+// @use "layout/general/uncommon";
+// @use "utilities/recognition";
+
+/////////////// break here
 
 
-@import "layout/footer/footer";
-@import "layout/footer/donate";
-@import "layout/footer/cog";
-@import "layout/footer/icons";
+// @use "atf";
 
-@import "layout/general/imgs";
-@import "layout/general/links";
-@import "layout/general/lists";
-@import "layout/general/listOfReferals";
-@import "layout/general/table";
+// @use "layout/footer/icons";
 
-@import "modules/details";
-@import "modules/superboxes";
-@import "modules/blockquotes";
-@import "modules/cmd";
-@import "boxes/arduino";
-@import "boxes/jupyter";
-@import "boxes/console";
-@import "boxes/devTools";
+// @use "boxes/arduino";
+// @use "boxes/jupyter";
+// @use "boxes/devTools";
 
-@import "utilities/backToTop";
-@import "utilities/toolTips";
-@import "utilities/themeToggle";
+// @use "utilities/themeToggle";
+// @use "utilities/cookies";
 
-@import "admin/editMenu";
-@import "admin/editMenuIcons.scss";
-@import "admin/editMenuHelpers";
-@import "admin/floatingMenu";
-@import "admin/adminButtons";
-@import "admin/admin";
-@import "admin/forms";
-
-@import "sideWaysNav";
-@import "a2a";
-@import "pieChart";
-@import "toolbox";
-@import "temp";
-@import "usedOnce";
+// @use "sideWaysNav";
+// @use "a2a";
+// @use "pieChart";
+// @use "toolbox";
+// @use "temp";
+// @use "usedOnce";

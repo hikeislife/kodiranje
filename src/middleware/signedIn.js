@@ -4,7 +4,6 @@ const Admin = require('../db/models/admin')
 const signedIn = async (req, res, next) => {
   try {
     const cookie = await req.header('Cookie')
-    // console.log(cookie)
     const cookies = cookie.split(';')
 
     let token = ''
@@ -18,13 +17,13 @@ const signedIn = async (req, res, next) => {
       _id: decoded._id,
       'tokens.token': token
     })
-    //console.log(`from signedIn.js ${admin}`)
+    //console.info(`from signedIn.js ${admin}`)
     if (!admin) {
       throw new Error()
     }
-    res.redirect('/admin/svi-artikli')
+    res.redirect('/admin/svi-kursevi')
   } catch (er) {
-    // console.log(`iz signedin ${er}`)
+    // console.info(`iz signedin ${er}`)
     next()
   }
 }

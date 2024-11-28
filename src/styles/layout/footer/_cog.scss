@@ -1,10 +1,13 @@
-.bigcog {
-  text-align: center;
+@use "../../base" as *;
+
+.bigcogWrap {
+  --cogWidth: 12rem;
 }
 
 .cogitself {
-  position: relative;
-  overflow: hidden;
+  position: relative; // for word Kodiranje_
+  overflow: clip;
+  width: var(--cogWidth);
 
   & img {
     animation: spin 60s linear infinite;
@@ -18,19 +21,26 @@
   font-weight: bold;
   border: .3rem solid #2d2926;
   border-radius: $borderRadius;
-  background: $darkYellow;
+  background: $dark-yellow;
   position: absolute;
-  width: 12rem;
+  width: var(--cogWidth);
   height: 2.5rem;
   left: calc(100% / 2 - 6rem);
   top: 5rem;
 }
 
-@media only screen and (min-width: 48rem) { // 768px
-  .bigcogWrap {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-    height: max-content;
-    margin-top: 5rem;
-  }
+.bigcog,
+.bigcogWrap {
+  text-align: center;
+  width: calc(var(--cogWidth) + 1.5rem);
+  margin-inline: auto;
 }
+
+// @media only screen and (min-width: 48rem) { // 768px
+//   .bigcogWrap {
+//     grid-column: 1 / 2;
+//     grid-row: 1 / 2;
+//     height: max-content;
+//     margin-top: 5rem;
+//   }
+// }

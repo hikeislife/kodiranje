@@ -1,0 +1,30 @@
+@use "../../base/colors" as c;
+
+progress {
+  width: 100vw;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  height: .2rem;
+  position: fixed;
+  top:0;
+}
+
+progress::-webkit-progress-bar {
+  background: transparent;
+}
+
+progress::-moz-progress-bar,
+progress::-webkit-progress-value {
+  background: c.$borderColor;
+}
+
+@media only screen and (min-width: 48rem) { 
+  // > 768px where side nav appears
+  progress {
+    // display: none;
+    height: 6px;
+    // position: sticky;
+    top: 54px;
+  }
+}

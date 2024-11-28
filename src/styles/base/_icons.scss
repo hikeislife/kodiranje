@@ -1,109 +1,201 @@
-@font-face {
-  font-family: "Kodiranje";
-  font-style: normal;
-  font-weight: normal;
-  font-display: auto;
-  //src: url("kodiranje.eot");
-  //src: url("kodiranje.eot?#iefix") format("embedded-opentype"),
-  src: url("kodiranje.woff2") format("woff2"),
-       url("kodiranje.woff") format("woff"),
-       url("kodiranje.ttc") format("truetype"),
-       url("kodiranje.svg") format("svg")
-}
+@use "../fonts/fonts.scss" as f;
+@use "colors" as c;
+
 
 .icon {
-  font-family: 'Kodiranje';
+  font-family: f.$kodiranje !important;
   font-size: 26px;
+  // font-display: swap;
 }
 
-// Nav icons
+// mobile nav
 
-.htmlIcon:before {
-  content: '\F3CD';
+.prevIcon::before {
+  content: '\003c';
 }
 
-.cssIcon:before {
-  content: '\F3CE';
+.nextIcon::before {
+  content: '\003e';
 }
 
-.gitIcon:before {
-  content: '\F3D8';
+.rona::before {
+  content: '\0146';
 }
 
-.cmdIcon:before {
-  content: '\F3D7';
+// superboxes
+
+summary::before {
+  font-family: f.$kodiranje;
+  content: '\25b9';
 }
 
-.jsIcon:before {
-  content: '\F3D2';
-}
-
-.nodeIcon:before {
-  content: '\F3D3';
-}
+// langs icons
 
 .arduinoIcon::before {
-  content: '\F3EC';
+  content: '\0061';
+}
+
+.bitCoinIcon::before {
+  content: '\0062';
+}
+
+.cssIcon::before {
+  content: '\0063';
+}
+
+.sharpIcon::before {
+  content: '\0064';
+}
+
+.gitIcon::before {
+  content: '\0067';
+}
+
+.htmlIcon::before {
+  content: '\0068';
+}
+
+.jsIcon::before {
+  content: '\006a';
+}
+
+.javaIcon::before {
+  content: '\006b';
+}
+
+.nodeIcon::before {
+  content: '\006e';
 }
 
 .pyIcon::before {
-  content: '\f3dc';
+  content: '\0070';
 }
 
-.backHome:before {
-  content: '\F295';
+.cmdIcon::before {
+  content: '\0074';
+}
+
+.backHome::before {
+  content: '\002f';
+  padding-right: 1.5rem;
+}
+
+.topNavPadding::before {
+  padding-right: 1.5rem;
 }
 
 // Tools used:
 
-.firefoxIcon:before {
-  content: '\f296';
+.braveIcon::before {
+  content: '\0042';
 }
 
-.chromeIcon:before {
-  content: '\f297';
+.chromeIcon::before {
+  content: '\0043';
 }
 
-.braveIcon:before {
-  content: '\f27a';
+.firefoxIcon::before,
+.ffIcon::before {
+  content: '\0046';
 }
 
 .vsCodeIcon::before {
-  content: '\F299';
+  content: '\0056';
+}
+
+.src::before {
+  content: '\00a9';
+  top: 3px;
+  position: relative;
+}
+
+// media controls
+
+.playIcon::before {
+  content: '\25b6';
+}
+
+.pauseIcon::before {
+  content: '\23b8';
+}
+
+.replayIcon::before {
+  content: '\1f504';
+}
+
+// smilies https://unicode.org/emoji/charts/full-emoji-list.html 🙃
+
+.em {
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 2px gray;
+}
+
+.cookie::before {
+  content: '\1f36a';
+}
+
+.up::before {
+  content: '\1f446';
+}
+
+.lol::before {
+  content: '\1f602';
+}
+
+.wink::before {
+  content: '\1f609';
+}
+
+.unamused::before {
+  content: '\1f612'
+}
+
+.confused::before {
+  content: '\1f615';
+}
+
+.duh::before {
+  content: '\1f616';
+}
+
+.plaz::before {
+  content: '\1f61c';
+}
+
+.sad::before {
+  content: '\1f61e';
+}
+
+.smiley::before {
+  content: '\1f642';
+}
+
+.facePalm::before {
+  content: '\1F926\200D\2642'; // 🤦‍♂️
+}
+
+.cray::before,
+.crey::before {
+  content: '\1f92a';
+}
+
+.shrug::before {
+  content: '\1f937\200D\2642'; // 🤷‍♂
 }
 
 // .sublimeIcon::before {
-//   content: '\F298';
+//   content: '\004c';
 // }
 
 // .windows-old::before {
-//   content: '\f28f';
+//   content: '\0057';
 // }
 
-// // .windows:before {
-// //   content: '\f28f'
-// // }
-
-// // .icon-red {
-// //   color: firebrick;
-// //   padding-left: 1em;
+// // .windows::before {
+// //   content: '\0058';
 // // }
 
 // // nav icons
-
-
-
-
-
-
-
-
-
-
-
-// // .ffIcon::before {
-// //   content: '\F296';
-// // }
 
 // // .vscodePlugins::before {
 // //   content: '\F29C'
@@ -121,61 +213,14 @@
 
 // // For jupyter
 
-// .reload:before {
+// .reload::before {
 //   content: '\F29f';
 // }
 
-// .ff:before {
-//   content: "\F29e";
-// }
-
-
-// // smilies https://unicode.org/emoji/charts/full-emoji-list.html
-
-.em {
-  font-size: 1.5rem;
-  text-shadow: 1px 1px 2px gray;
-}
-
-.unamused:before {
-  content: '\1F612'
-}
-
-.smiley:before {
-  content: '\1F642';
-}
-
-.sad:before {
-  content: '\1F61E';
-}
-
-.confused:before {
-  content: '\1F615';
-}
-
-.duh:before {
-  content: '\1F616';
-}
-
-.cray:before {
-  content: '\1F92A';
-}
-
-.plaz::before {
-  content: '\1f61c';
-}
-
-.up::before {
-  content: '\1F446';
-}
-
-.wink::before {
-  content: '\1F609'
-}
 
 // // dev tools 
 
-// .inspectorIcon:before {
+// .inspectorIcon::before {
 //   content: '\F2F1';
 // }
 
@@ -183,6 +228,73 @@
 //   content: '\F2EE';
 // }
 
-// .coronaIcon:before {
+// .coronaIcon::before {
 //   content: '\f29B';
 // }
+
+// soc media
+
+.socIcon1::before {
+  content: '\03a4';
+}
+
+.twitterIcon::before {
+  content: '\03a4';
+}
+
+
+
+.transcribe {
+  position: relative;
+}
+
+.transcribe::before {
+  content: '\00bd';
+  font-size: 2rem;
+}
+
+.transcribe::after {
+  font-family: f.$font;
+  content: 'transkripcija/transliteracija';
+  background-color: c.$side-900;
+  color: c.$main-400;
+  font-size: 0.9rem;
+  border: 3px double;
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  padding: .1rem .2rem;
+  display: none;
+  transform: translate(-50%);
+}
+
+.transcribe:hover::after {
+  display: block;
+}
+
+@media screen and (min-width: 48rem) {
+  .transcribe::after {
+    content: 'transkripcija/\Atransliteracija';
+    top: 100%;
+    transform: translate(-70%);
+    left: unset;
+  }
+}
+  
+
+
+// uncommon
+
+.mozilla::before {
+  content: '\004d';
+  position: relative;
+  bottom: -1px;
+}
+
+.netscape::before {
+  content: '\004e';
+}
+
+.ieIcon::before {
+  content: '\0049';
+}

@@ -1,14 +1,14 @@
-<footer>
+<footer class="lazy">
   {{>basics/footer/copyDate}}
   <hr>
-  <div class="footer">
+  {{!-- <div class="footer lazy">
     {{>basics/footer/donate}}
     {{>basics/footer/bigCog}}
     <div class="f48">
-      {{>basics/footer/contact}}
-      {{>basics/footer/miniNav}}
-    </div>
-    {{>basics/footer/legend}}
-  </div>
+      {{!-- {{>basics/footer/contact}} --}}
+      {{!-- {{>basics/footer/miniNav}} --}}
+    {{!-- </div> --}}
+    {{!-- {{>basics/footer/legend}} --}}
+  {{!-- </div> --}}
 </footer>
-<script type="module" src="../../main.js"></script>
+<script type="module" src="../../main.js" defer async></script>

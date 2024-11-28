@@ -1,38 +1,49 @@
-a, a:visited {
-  text-decoration: none;
-  color: $fontColor;
-  background: $linkColor;
+@use "../../base" as *;
+
+a:not(.nocolor), a:not(.halfAndHalf) {
+  text-decoration: underline;
 }
 
-// // a.tt:hover,
-// a:not([class]):hover
-// {
-//   background: $linkHoverBcg;
-// }
+a.halfAndHalf:not(span::before) {
+  text-decoration: underline;
+  
+  // & span::before {
+  //   text-decoration: none;
+  // }
+}
+
+a[name] {
+  font-style: normal;
+}
+
+a[rel="help"] {
+  text-decoration: none;
+}
 
 a.nocolor {
-  background-color: transparent;
+  text-decoration: none;
+  // font-style: ;
+}
+
+main a[href^="http"]::before,
+main a[href^="https"]::before {
+  // will prevent before from staying in previos row, when link is in the following row entirely 
+  // should not prevent long stretches of links from breaking
+  // it's so weird if this works, pay attetnion
+  white-space: nowrap;
 }
 
 main a[href^="http"]::before, 
 main a[href^="https"]::before {
   content: "" url($outsideLink);
+  padding-right: .2rem;
 }
 
 
 
 a[name] {
-//   text-decoration: none;
+  text-decoration: none;
   padding-top: 7rem;
+  // font-style: normal;
   // background: transparent;
 }
-
-// a.referenceLink {
-//   // background: transparent;
-//   // text-decoration: underline;
-
-//   // &[href^="http"]:before,
-//   // &[href^="https"]:before {
-//   //   margin-right: $borderWidth;
-//   // }
-// }

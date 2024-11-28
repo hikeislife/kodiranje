@@ -1,0 +1,16 @@
+{{!-- twitter card --}}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@kodiranje">
+  <meta name="twitter:creator" content="@kodiranje">
+  <meta name="twitter:title"
+    content="{{#if post.socTitle}}{{post.socTitle}}{{else}}Nauči da praviš web sajtove{{/if}}">
+  <meta name="twitter:description"
+    content="{{#if post.socDesc}}{{post.socDesc}}{{else}}Detaljan opis, narodskim jezikom, kako se prave sajtovi. Bez prodaje magle i mućenja vode{{/if}}">
+  {{#if (gt post.socImage.buffer.byteLength 0)}}
+  <meta name="twitter:image"
+    content="https://www.kodiranje.in.rs/og-{{post.courseName}}-{{post.selectedURL}}.webp">
+  {{else}}
+  <meta name="twitter:image"
+    content="https://www.kodiranje.in.rs/imgs/og/og-default.webp">
+  {{/if}}
+  <meta name="twitter:url" content="https://kodiranje.in.rs/">

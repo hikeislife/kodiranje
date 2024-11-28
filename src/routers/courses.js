@@ -4,6 +4,8 @@ const Course = require('../db/models/course')
 const Article = require('../db/models/article')
 const hbs = require('hbs')
 const auth = require('../middleware/auth')
+const updateEach = require('../middleware/batchUpdate')
+
 
 hbs.registerHelper("increment", function (value, options) {
   return parseInt(value) + 1;
@@ -23,11 +25,11 @@ courseRouter.get('/admin/detalji-kursa/:id', auth, async (req, res) => {
   const admin = req.data.user
   const course = await Course.findById(_id)
   const inactive = await Article.find({ courseName: course.setId, published: false }).select('navName selectedURL courseName')
-  const active = await Article.find({ courseName: course.setId, published: true }).select('navName selectedURL courseName')
-  const activeCourses = active.length
+  const allLessons = await Article.find({ courseName: course.setId/*, published: true */}).select('navName selectedURL courseName _id order published')
   const inactiveCourses = inactive.length
-  const total = activeCourses + inactiveCourses
-  res.render('courses/courseDetails', { googTitle: "Detalji kursa", robots: true, course, total, active, activeCourses, inactive, inactiveCourses, admin })
+  const activeCourses = allLessons.length - inactiveCourses
+  const total = allLessons.length
+  res.render('courses/courseDetails', { googTitle: "Detalji kursa", robots: true, course, total, allLessons, activeCourses, inactive, inactiveCourses, admin })
 })
 
 courseRouter.get('/admin/dodaj-kurs', auth, async (req, res) => {
@@ -40,8 +42,6 @@ courseRouter.post('/admin/addNewCourse', auth, async (req, res) => {
   if (req.body.active) {
     req.body.active = true;
   }
-  console.log(req.body)
-  console.log('\x1b[4m\x1b[35mFINDING ORDER IN CHAOS')
   req.body.setId = req.body.name.toLowerCase().replace(/ /gi, '-')
   const courseName = new Course(req.body)
   try {
@@ -50,7 +50,7 @@ courseRouter.post('/admin/addNewCourse', auth, async (req, res) => {
     })
   } catch (er) {
     const order = await findOrder()
-    console.log(er)
+    console.error(er)
     let errorMessage = er.errmsg ||
       er.errors.name.message ||
       er.errors.active.message ||
@@ -69,8 +69,8 @@ courseRouter.get('/admin/izmeni-kurs/:id', auth, async (req, res) => {
     if (!course) return res.status(404).send()
 
     res.render('courses/editCourse', { course, robots: true, googTitle: "Izmeni kurs", admin })
-  } catch (e) {
-    console.log(e)
+  } catch (er) {
+    console.error(er)
     res.status(500).send()
   }
 })
@@ -87,8 +87,8 @@ courseRouter.patch('/admin/edit-course/:id', auth, async (req, res) => {
 
     course = await Course.findById(_id)
     res.render('courses/editCourse', { course })
-  } catch (e) {
-    console.log(e)
+  } catch (er) {
+    console.error(er)
     res.status(500).send()
   }
 })
@@ -103,10 +103,11 @@ courseRouter.get('/admin/reorganizuj-kurseve', auth, async (req, res) => {
 courseRouter.patch('/admin/batchEditCourses', auth, async (req, res) => {
   const courses = req.body
   courses.forEach(course => {
-    updateEach(course)
+    updateEach(course, Course)
   })
   res.method = "GET"
-  res.redirect(303, '/admin/dodaj-lekciju')
+  // #NOTE: it's actually redirected from the front
+  res.redirect(303, 'admin/svi-kursevi/')
 })
 
 // Delete
@@ -132,21 +133,9 @@ courseRouter.delete('/admin/delete-course/:id', auth, async (req, res) => {
 
 const findOrder = async () => {
   let order = await Course.findOne().select('order -_id').sort({ order: -1 })
-  console.log(`${order}`)
   if (!order) order = 0
 
   return order
-}
-
-updateEach = async (course) => {
-  try {
-    let kurs = await Course.findByIdAndUpdate(course._id, course, {
-      new: true,
-      runValidators: true
-    })
-  } catch (e) {
-    console.log(e)
-  }
 }
 
 module.exports = {

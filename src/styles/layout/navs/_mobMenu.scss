@@ -1,0 +1,144 @@
+@use "../../base" as *;
+
+.bottom-nav {
+  //width: 100%; // for mobile chrome
+  position: fixed;
+  bottom: 0; // for mobile chrome
+  z-index: 2;
+  inset: auto 0 0 0;
+  height: $mobMenuHeight;
+  padding-left: .5rem;
+  margin-inline: -.5rem;
+}
+
+.mobile-nav {
+  @include dark-gradient;
+  padding-top: .5rem;
+  box-shadow: 0 -1px 2px 0 rgba(0,0,0,.3),0 1px 2px 0 rgba(0,0,0,.3);
+}
+
+.mob-nav-items { // ul
+  list-style: none;
+  padding: 0;
+  display: flex;
+  align-items: center; // vert
+  justify-content: space-evenly; // horiz
+
+
+  li {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    align-content: space-around;
+    // height: 100%;
+    position: relative;
+    width: 3rem;
+    margin-block: unset;
+
+    // .eol {
+    //   @include center;
+    //   opacity: 0;
+    //   position: absolute;
+    //   right: -2.5rem;
+    //   top: -3.2rem;
+    //   height: 2.3rem;
+    //   width: 8rem;
+    //   background: $side-900;
+    //   border-radius: $borderRadius;
+    //   padding-inline: .3rem;
+    //   transition: opacity 0.2s ease-in;
+
+    //   p {
+    //     font-size: .8rem;
+    //     margin: 0;
+    //     color: aliceblue;
+    //     font-weight: 900;
+
+    //     .em {
+    //       font-size: .8rem;
+    //     }
+    //   }
+    // }
+  }
+
+  li div {
+    overflow: clip;
+    font-size: .8rem;
+    @include center;
+    padding-bottom: .2rem;
+    cursor: pointer;
+  }
+
+  li .logoCog{
+    display: inline-flex;
+    height: 2.32rem;
+    width: 2.32rem;
+    position: relative;
+    top: 0.2rem;
+  }
+  
+  .burger {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 5rem;
+    top: 6px;
+  }
+}
+
+.bTop, .bMiddle {
+  background: #45473e;
+  height: 18%;
+  width: 100%;
+  border-radius: 33%;
+}
+
+.bMiddle {
+  position: relative;
+  top: 11px;
+}
+
+@include media-768 {
+  .bottomNav {
+    display: none;
+  }
+}
+
+.obscHome, .obscToggle {
+  display: inline-grid;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+
+  a, a * {
+    text-decoration: none !important;
+    @include spread;
+    @include center;
+    width: inherit;
+  }
+}
+
+.obscToggle {
+  border-left: $px solid $side-900;
+}
+
+.additionalButtons {
+  display: none; //grid;
+  grid-column: 1/3;
+  background: $side-200;
+  grid-template-columns: 1fr 1fr .6rem;
+  justify-content: space-evenly;
+  align-items: center;
+  height: $mobMenuHeight;
+  position: fixed;
+  bottom: $mobMenuHeight;
+  @include box-shadow;
+  z-index: 2;
+  width: 100%;
+}
+
+@include media-768 {
+  .bottom-nav {
+    display: none;
+  }
+}
