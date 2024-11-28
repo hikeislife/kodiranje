@@ -50,7 +50,7 @@ courseRouter.post('/admin/addNewCourse', auth, async (req, res) => {
     })
   } catch (er) {
     const order = await findOrder()
-    console.log(er)
+    console.error(er)
     let errorMessage = er.errmsg ||
       er.errors.name.message ||
       er.errors.active.message ||
@@ -69,8 +69,8 @@ courseRouter.get('/admin/izmeni-kurs/:id', auth, async (req, res) => {
     if (!course) return res.status(404).send()
 
     res.render('courses/editCourse', { course, robots: true, googTitle: "Izmeni kurs", admin })
-  } catch (e) {
-    console.log(e)
+  } catch (er) {
+    console.error(er)
     res.status(500).send()
   }
 })
@@ -87,8 +87,8 @@ courseRouter.patch('/admin/edit-course/:id', auth, async (req, res) => {
 
     course = await Course.findById(_id)
     res.render('courses/editCourse', { course })
-  } catch (e) {
-    console.log(e)
+  } catch (er) {
+    console.error(er)
     res.status(500).send()
   }
 })
@@ -133,7 +133,6 @@ courseRouter.delete('/admin/delete-course/:id', auth, async (req, res) => {
 
 const findOrder = async () => {
   let order = await Course.findOne().select('order -_id').sort({ order: -1 })
-  console.log(`${order}`)
   if (!order) order = 0
 
   return order

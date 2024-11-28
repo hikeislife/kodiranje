@@ -12,7 +12,6 @@ export default function homePageBoxLeveling() {
       allBoxes.push(box.clientHeight)
     })
 
-    // console.log(allBoxes)
     const max = Math.max(...allBoxes)
 
     boxes.forEach(box => {

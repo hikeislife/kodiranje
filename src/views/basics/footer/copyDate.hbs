@@ -1,1 +1,11 @@
-<div class="copydate">&copy; ČĎŠ 2021</div>
+<div class="copydate">&copy; ČĎŠ <span class="currentYear"></span></div>
+
+
+<script>
+  const setYear = (() => {
+    const date = new Date()
+    const currentYear = date.getFullYear()
+    const yearElement = document.querySelector('.currentYear')
+    yearElement.innerHTML = currentYear
+  })()
+</script>

@@ -12,7 +12,7 @@
 
 // @use "layout/navs/listOfReferals"; // synced
 
-// @use "layout/footer/footer";
+@use "layout/footer/footer";
 // @use "layout/footer/donate";
 // @use "layout/footer/cog";
 
@@ -23,10 +23,10 @@
 // @use "modules/cmd";
 // @use "modules/math";
 
-// @use "utilities/backToTop"; // done
+@use "utilities/backToTop"; // done
 // @use "utilities/toolTips"; // done
 // @use "utilities/scroll"; // done
-// @use "utilities/reader";  // synced
+@use "utilities/reader";  // synced
 
 // @use "codeExamples/htmlCourse";
 // @use "layout/general/uncommon";

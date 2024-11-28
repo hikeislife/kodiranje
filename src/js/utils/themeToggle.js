@@ -1,7 +1,6 @@
 export default (function themeToggle() {
   const toggle = document.querySelector('.themeToggle')
-  // const domain = `; domain=${window.location.hostname};`
-  // console.log(domain)
+
   toggle.addEventListener('click', () => {
     if (toggle.parentElement.className === 'moon') {
       toggle.parentElement.classList.replace('moon', 'sun')

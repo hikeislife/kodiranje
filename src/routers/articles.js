@@ -28,7 +28,6 @@ articleRouter.post('/admin/addPost', auth, async (req, res, body) => {
   let errorMessage = ''
   // const order = await Article.findOne({}).select('order -_id').sort({ order: -1 }) || { order: 0 }
   await uploadOG(req, res, er => {
-  console.log(req.body.order)
     try {
       if (req.file)
         req.body.socImage = req.file.buffer
@@ -36,7 +35,6 @@ articleRouter.post('/admin/addPost', auth, async (req, res, body) => {
       if (req.body.published) {
         req.body.published = true;
       }
-console.log(req.body.order)
       // req.body.order = order.order
 
       if (req.data.user) req.body.author = req.data.user
@@ -53,8 +51,8 @@ console.log(req.body.order)
       generateSiteMap()
       res.redirect(302, '/admin/svi-kursevi')
     }
-    catch (e) {
-      console.log(e)
+    catch (er) {
+      console.error(er)
       res.status(418).redirect('/admin/dodaj-lekciju')
     }
   })
@@ -99,14 +97,14 @@ articleRouter.patch('/admin/edit-article/:id', auth, async (req, res) => {
         new: true,
         runValidators: true
       }, function (err, doc) {
-        if (err) console.log(err)
+        if (err) console.error(err)
       })
       if (!article) return res.status(404).send()
       generateSiteMap()
       res.status(302).send()
     }
-    catch (e) {
-      console.log(e)
+    catch (er) {
+      console.error(er)
       res.status(500).redirect(`/admin/${req.courseName}/${req.navName}`)
     }
   })

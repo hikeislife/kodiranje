@@ -43,8 +43,6 @@ function reorderItems(index) {
     const newPos = document.querySelector(`[data-order="${newIndex}"`).style.top
     
     getList().forEach(li => {
-      console.log(`%c new order: ${li.dataset.order} ${li.childNodes[1].innerHTML}`, 'color: #7cc91c')
-      
       // #NOTE: Element which is being dragged
       if (li.dataset.order == index) {
         li.style.top = newPos
@@ -61,7 +59,7 @@ function reorderItems(index) {
 
         // #NOTE: new order is old order + 1 cause you can only drag one element at the time
         li.setAttribute('data-order', `${Number(li.dataset.order) + 1}`)
-        // console.log(`%c else if after: ${li.dataset.order} ${li.childNodes[1].innerHTML}`, 'color: #0cf')
+
       }
     })
   }

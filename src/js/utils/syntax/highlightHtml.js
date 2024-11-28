@@ -41,7 +41,6 @@ export default function highHTML (tag) {
   else if(tag === "html&gt;") tag = `<span class="violet">html</span>&gt;`
   // unmatched
   else {
-    // console.log('%c ' + tag, ' color: #ff0000;')
   }
   return tag
 }

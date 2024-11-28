@@ -16,28 +16,10 @@ export default (function swipe () {
   screen.addEventListener('touchend', (e) => {
 
     if(startX + 100 < deltaX) {
-      // window.location.href = 
       go('left')
     }
     else if(startX - 100 > deltaX) {
-      // window.location.href = 
       go('right')
     }
   })
-
-  // screen.addEventListener('touchcancel', (e) => {
-  //   console.log('touchcancel')
-  // })
-
-  // screen.addEventListener('touchleave', (e) => {
-  //   console.log('touchleave')
-  // })
-
-  // screen.addEventListener('touchforcechange', (e) => {
-  //   console.log('touchforcechange')
-  // })
-
-
-
-
 })()

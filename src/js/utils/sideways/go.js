@@ -24,7 +24,7 @@ export default function go (direction) {
       goRight(uris, current, total)
     } 
     else {
-      console.log('error ', direction)
+      console.error('error ', direction)
     }
   }
 }

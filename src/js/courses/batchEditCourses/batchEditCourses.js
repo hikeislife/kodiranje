@@ -3,7 +3,6 @@
 // save button add click event
 document.querySelector('#gumb').addEventListener('click', e => {
   e.preventDefault()
-  console.log(window.location.pathname)
   
   // items that can be re-arranged 
   const list = [...document.querySelector('.added-items').children]
@@ -27,8 +26,6 @@ document.querySelector('#gumb').addEventListener('click', e => {
 
   if (window.location.pathname.startsWith(`/admin/detalji-kursa/`)) {
     fetchUrl = `/admin/batchEditLessons/`
-    console.log(fetchUrl)
-
   } else if (window.location.pathname.startsWith(`/admin/svi-kursevi/`)) {
     fetchUrl = `/admin/batchEditCourses/`
   }

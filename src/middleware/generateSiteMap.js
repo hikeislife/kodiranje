@@ -42,8 +42,8 @@ const generateSiteMap = async () => {
   </url>\r\n`
   })
   const sitemap = header + pages + close
-  fs.writeFile('src/sitemap.xml', sitemap, (er) => {
-    if (er) console.log(er)
+  fs.writeFile('src/sitemap.xml', sitemap, (err) => {
+    if (err) console.error(err)
   })
 }
 

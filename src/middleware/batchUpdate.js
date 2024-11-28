@@ -8,8 +8,8 @@ const updateEach = async (item, collection) => {
       new: true,
       runValidators: true
     })
-  } catch (e) {
-    console.log(e)
+  } catch (err) {
+    console.error(err)
   }
 }
 

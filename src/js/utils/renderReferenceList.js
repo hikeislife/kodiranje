@@ -34,7 +34,6 @@ export default function renderReferenceList() {
   
   // check for repeated references
   refList.forEach(ref => {
-    //console.log(ref.dataset.ref)
     if (duplicates.includes(ref.dataset.ref)) {
       repeatRef(ref, duplicates.indexOf(ref.dataset.ref) + 1)
     } else {
@@ -43,17 +42,6 @@ export default function renderReferenceList() {
     }
   })
 
-  // for (let i = 0; i < refList.length; i++) {
-    // refList[i].innerHTML = `<sup><a href="#reference${i+1}"><span class="refBrackets">[${i+1}]</span></a></sup>`
-    // refList[i].id = `goTo${i+1}`
-    // listToAdd += `
-    // <li id="reference${i+1}" class="referalItem">
-    //   <a href=#goTo${i+1}>[&#8593;]</a> 
-    //   <span class="squeezeReferences">[${i + 1}]
-    //     <a href="${refList[i].dataset.ref}" class="referenceLink nocolor" target="_blank" rel="noopener nofollow noreferrer" hreflang="en" aria-label="referenca ${refList[i].dataset.refDesc}">${refList[i].dataset.refDesc}</a>
-    //   </span>
-    // </li>\n`
-  // }
 
   if (refList.length) {
     // create sectin of references

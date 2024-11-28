@@ -13,7 +13,4 @@ export default (function highlight () {
   let greens = document.querySelectorAll('.highGreen')
   let pinks = document.querySelectorAll('.highPink')
   let yellows = document.querySelectorAll('.highYellow')
-  if(greens.length) console.log(greens)
-  if(pinks.length) console.log(pinks)
-  if(yellows.length) console.log(yellows)
 })()

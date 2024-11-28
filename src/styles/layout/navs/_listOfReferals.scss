@@ -43,14 +43,14 @@
   }
 }
 
-@include media-768 {
+@media only screen and (min-width: 863px) {
   .sideNav {
     width: 250px;
     display: block;
     position: sticky;
     border: none;
     margin-top: -.8rem;
-    z-index: 0;
+    z-index: 2;
     top: 62px;
     height: calc(100vh - 62px);
     
@@ -76,9 +76,10 @@
   }
 }
 
-@media only screen and (max-width: 48rem) { // where sidenav disapears
+
+@media only screen and (max-width: 47.9rem) { // where sidenav disapears
   .sideNav {
-    display: none;
+    display: block;
   }
 }
 
@@ -125,10 +126,12 @@
   }
 }
 
+
+
 @media only screen and (max-width: 48rem) { // where sidenav disapears 
   .sideNav {
     position: fixed;
-    width: 100vw;
+    // width: 100vw;
     // border: 1rem solid $side-200;
     z-index: 2;
     height: 100%;
@@ -155,7 +158,7 @@
 .sideNav {
   margin: 0;
 
-  .sideMenu li.active  {
+  .sideMenu li.active {
     font-weight: 900;
     background: $side-700;
     

@@ -31,6 +31,10 @@ main {
   main {
     grid-column: 2 / 3;
   }
+
+  .sideNav {
+    display: block;
+  }
 }
 
 article {
@@ -96,6 +100,10 @@ section {
     background: $main-300;
     margin: $short-margin;
     width: min(calc(100% - $long-margin));
+  }
+
+  .sideNav {
+    display: block;
   }
 }
 

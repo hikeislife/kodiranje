@@ -11,7 +11,7 @@ export default (() => {
 
   const doc = document.documentElement
   let handler
-  const magicWidth = 768
+  const magicWidth = 864
 
   
 
@@ -24,7 +24,6 @@ export default (() => {
 
   const mobMenuHandler = () => {
     const displayState = nav.style.display
-    console.log(displayState)
     if (displayState == 'none') {
       nav.style.display = 'block'
       additionalButtons.style.display = 'grid'
@@ -51,13 +50,14 @@ export default (() => {
     const width = window.innerWidth
     
     // mobile
-    if (width < magicWidth) {
+    if (width <= magicWidth) {
       nav.style.display = 'none'
       additionalButtons.style.display = 'none'
       cog.addEventListener('click', mobMenuHandler)
     } // desktop
-    else if (width => magicWidth) {
+    else if (width > magicWidth) {
       nav.style.display = 'block'
+      // nav.style.width = '250px'
       window.removeEventListener('click', closeMenu)
       cog.removeEventListener('click', mobMenuHandler)
     }

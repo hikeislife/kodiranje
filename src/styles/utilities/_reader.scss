@@ -1,14 +1,14 @@
 @use "../base" as *;
 
 #ra-player {
-  width: calc(100% - 2 * var(--artPadding)) !important;
+  // width: calc(100% - 2 * var(--artPadding)) !important;
   border-radius: $borderRadius !important;
   padding: .5rem !important;
   @include box-shadow;
   @include transparentGradient;
-  position: fixed;
-  z-index: 1;
-  max-width: unset !important;
+  // position: static;
+  // z-index: 1;
+  // max-width: unset !important;
   display: none;
   grid-template-columns: 2rem 1fr;
   cursor: pointer;
@@ -61,7 +61,7 @@
 
 @media screen and (min-width: 48rem) {
   #ra-player {
-    width: calc(100% - 250px - 2 * var(--artPadding) - 1rem) !important;
+    // width: calc(100% - 250px - 2 * var(--artPadding) - 1rem) !important;
     margin-top: -3.5rem;
     display: grid;
   }

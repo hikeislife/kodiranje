@@ -7,28 +7,28 @@ export default function createPageNav() {
   let container
 
 
-  /* This will replace obsolete classes instead of me, 
-  ** at some point in time I should be able to remove this if block, 
+  /* This will replace obsolete classes instead of me,
+  ** at some point in time I should be able to remove this if block,
   ** as when ever I edit the page through backend, 
   ** the old tag will permanently be replaced with the new one */
-  if (document.querySelector('.page-contents')) { // old
-    container = document.querySelector('.page-contents')
-    container.className = 'pageNav'
-    container.innerHTML = ''
-  } else if (document.querySelector('.pageNav')) {
-    container = document.querySelector('.pageNav') // new
-  } else if (document.querySelector('.page-nav')) {
-    const deleteNav = document.querySelector('.page-nav')
-    deleteNav.remove()
-    container = document.querySelector('.referalTitle')
-    container.innerHTML = ''
-    container.className = 'pageNav'
-    // document.querySelector('.pageContents').append(container)
-  }
-  else {
+  // if (document.querySelector('.page-contents')) { // old
+  //   container = document.querySelector('.page-contents')
+  //   container.className = 'pageNav'
+  //   container.innerHTML = ''
+  // } else if (document.querySelector('.pageNav')) {
+  //   container = document.querySelector('.pageNav') // new
+  // } else if (document.querySelector('.page-nav')) {
+  //   const deleteNav = document.querySelector('.page-nav')
+  //   deleteNav.remove()
+  //   container = document.querySelector('.referalTitle')
+  //   container.innerHTML = ''
+  //   container.className = 'pageNav'
+  //   // document.querySelector('.pageContents').append(container)
+  // }
+  // else {
     container = document.createElement('div')
     container.className = 'pageNav'
-  }
+  // }
 
   if (pos) // for pages like donation, where there's no h1
   pos.parentNode.insertBefore(container, pos.nextSibling)
@@ -73,10 +73,4 @@ export default function createPageNav() {
     navContent += `</ul>\n`
     referalList.innerHTML = navContent
   }
-
-
-
-
-
-
 }

@@ -24,15 +24,14 @@ adminRouter.post('/admin/login', async (req, res) => {
     else {
       try {
         token = await admin.generateAuthToken()
-        // console.log(token)
       }
-      catch (e) {
-        console.log(e)
+      catch (err) {
+        console.error(err)
       }
       res.status(200).json({ token, robots: true, googTitle: "" })
     }
-  } catch (er) {
-    console.log(er)
+  } catch (err) {
+    console.error(err)
     res.setHeader('Content-Type', 'application/json')
     res.status(403).json({
       errorMessage: "log-in podaci nisu ispravni",
@@ -66,7 +65,6 @@ adminRouter.get('/admin/dodaj-admina', auth, (req, res) => {
 // POST/addNewAdmin  ~  register
 adminRouter.post('/admin/addNewAdmin/', auth, async (req, res, body) => {
   const newAdmin = new Admin(req.body)
-  // console.log(req)
   try {
     await newAdmin.save()
     const admin = await Admin.findById(newAdmin._id).select('-password -__v -tokens')
@@ -108,8 +106,8 @@ adminRouter.patch('/admin/edit-admin/:id', auth, async (req, res) => {
       })
       if (!user) return res.status(404).send()
       res.redirect(`/admin/detalji/${_id}`)
-    } catch (e) {
-      console.log(e)
+    } catch (er) {
+      console.error(er)
       res.status(500).send()
     }
   }

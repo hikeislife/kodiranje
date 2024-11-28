@@ -22,7 +22,6 @@ const soft = async (req, res, next) => {
     }
     res.redirect('/admin/svi-kursevi')
   } catch (er) {
-    // console.log(`iz signedin ${er}`)
     next()
   }
 }

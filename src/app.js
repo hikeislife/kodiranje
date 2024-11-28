@@ -28,7 +28,6 @@ const { courseRouter } = require('./routers/courses.js')
 const { articleRouter } = require('./routers/articles.js')
 const { dictRouter } = require('./routers/dictionaries.js')
 // // if (!process.env.JWT_P_KEY) { // Breaks app down if no jwt secret is provided 
-// //   console.log('FATAL ERROR JWT_P_KEY not defined')
 // //   process.exit(1)
 // // } 
 const app = new express()
@@ -217,7 +216,6 @@ app.use(express.static(path.join(__dirname, 'js')))
 app.get('/', /*soft,*/ async (req, res) => {
   try {
     if (req.header('Cookie')) {
-      // console.log(req.header('Cookie'))
       const cookies = req.header('Cookie').split(';')
       let token
       cookies.forEach(x => {
@@ -225,15 +223,13 @@ app.get('/', /*soft,*/ async (req, res) => {
         if (halves[0].trim() === 'token')
           token = halves[1]
       })
-      // console.log('TOKEN:' + token)
       // try {
       // userId = await jwt.verify(token, process.env.JWT_P_KEY)._id
       // } catch (error) {
-      // console.log('token expired')
       // }
     }
   } catch (er) {
-    console.log(er)
+    console.error(er)
   }
 
 
@@ -242,7 +238,6 @@ app.get('/', /*soft,*/ async (req, res) => {
       if (!menu) {
         return res.status(404).send()
       } else {
-        //console.log(menu) 
       }
 
       res.render('home/home', {
@@ -251,7 +246,7 @@ app.get('/', /*soft,*/ async (req, res) => {
       })
     })
   } catch (er) {
-    console.log(er)
+    console.error(er)
   }
 })
 
@@ -291,10 +286,7 @@ app.get('/donirajte', (req, res) => {
 //   }
 //   transporter.sendMail(mailOptions, (er, info) => {
 //     if (er) {
-//       return console.log(er)
 //     }
-//     // console.log('message sent: %s', info.messageId)
-//     // console.log('preview: %s', nm.getTestMessageUrl(info))
 
 //     res.render('contact', { msg: 'Poruka poslata' })
 //   })
@@ -312,7 +304,6 @@ app.get('/donirajte', (req, res) => {
 //     else
 //     {
 //       const data = Article.find({ courseName: courseName, published: true }).sort({ order: 1 })//.select('_id navName selectedURL ')
-//     console.log(data.courseName)
 //       //  res.statusCode = 404;
 //       //  res.write('404 sorry not found');
 //       //  res.end();
@@ -337,7 +328,7 @@ app.get('/:kurs/:lekcija', (req, res) => {
         //         // Saves ogImage from db localy so that url can be provided 
         //         const fileName = `src/imgs/og/og-${req.params.kurs}-${req.params.lekcija}.webp`
         //         fs.writeFile(fileName, buffer, (er) => {
-        //           if (er) console.log(er)
+        //           if (er) console.error(er)
         //         })
       }
       //})
@@ -373,7 +364,7 @@ app.get('/:kurs/:lekcija', (req, res) => {
 // })
 
 // app.listen(port, () => {
-//   console.log(`Server podignut na portu http://localhost:${port}`)
+//   console.info(`Server podignut na portu http://localhost:${port}`)
 // })
 
 
@@ -381,7 +372,7 @@ https.createServer({
     key: privateKey,
     cert: certificate
 }, app).listen(port, () => {
-  console.log(`Server podignut na portu https://kodiranje.in.rs`)
+  console.info(`Server podignut na portu https://kodiranje.in.rs`)
 });
 
 // http://localhost:${port}
