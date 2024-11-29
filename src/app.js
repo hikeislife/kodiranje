@@ -164,8 +164,9 @@ if (process.env.NODE_ENV === 'production') {
   // views = path.join(__dirname, 'views')
   dir = path.join(__dirname)
 }
+console.log(dir)
 const views = path.join(dir, 'views')
-
+console.log(views)
 const styles = path.join(dir, 'styles')
 
 app.set('view engine', 'hbs')
