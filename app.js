@@ -242,6 +242,8 @@ try {
 /* PATHS */
 /* front page */
 app.get('/', /*soft,*/ async (req, res) => {
+  const arts = await Article.find()
+  console.log(arts)
   try {
     if (req.header('Cookie')) {
       const cookies = req.header('Cookie').split(';')
@@ -344,6 +346,8 @@ app.get('/donirajte', (req, res) => {
 // })
 
 app.get('/:kurs/:lekcija', (req, res) => {
+  console.log(req.params.kurs)
+  console.log(req.params.lekcija)
   Article
     .findOne({
       courseName: req.params.kurs,
