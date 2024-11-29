@@ -8,7 +8,7 @@ const bodyParser = require('body-parser')
 // const nm = require('nodemailer')
 // const jwt = require('jsonwebtoken')
 const soft = require('./middleware/soft')
-// const fs = require('fs')
+const fs = require('fs')
 const https = require('https')
 
 // will automatically resize all of your pics, definitely not to be used like this
@@ -212,6 +212,12 @@ app.use(express.static(imgs))
 // app.use(express.static(og))
 // app.use(express.static(highlighter))
 app.use(express.static(path.join(__dirname, 'js')))
+
+console.log("Contents of views folder:", fs.readdirSync(viewsPath))
+
+// If you want to check other folders, you can use similar code for 'src' or any other directory
+const srcPath = path.join(__dirname, 'src')
+console.log("Contents of src folder:", fs.readdirSync(srcPath))
 
 // app.use((er, req, res, text) => {
 //   console.error(er.stack)
