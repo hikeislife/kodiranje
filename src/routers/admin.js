@@ -8,7 +8,7 @@ const signedIn = require('../middleware/signedIn')
 const adminRouter = new express.Router()
 
 // GET/login
-adminRouter.get('/admin', /*signedIn,*/ (req, res) => {
+adminRouter.get('/admin', signedIn, (req, res) => {
   res.render('admin/login', { googTitle: "Log in", robots: true, admin: true })
 })
 
@@ -39,14 +39,14 @@ adminRouter.post('/admin/login', async (req, res) => {
   }
 })
 
-adminRouter.get('/admin/svi-admini', /*auth,*/ async (req, res) => {
+adminRouter.get('/admin/svi-admini', auth, async (req, res) => {
   const admin = req.data.user
   const admins = await Admin.find().select('-password -__v -tokens')
   res.status(200)
   res.render('admin/showAll', { admins, googTitle: "Svi admini", robots: true, admin })
 })
 
-adminRouter.get('/admin/detalji/:id', /*auth,*/ async (req, res) => {
+adminRouter.get('/admin/detalji/:id', auth, async (req, res) => {
   const _id = req.params.id
   const admin = req.data.user
   const user = await Admin.findById(_id).select('-password -__v -tokens')
@@ -57,13 +57,13 @@ adminRouter.get('/admin/detalji/:id', /*auth,*/ async (req, res) => {
 
 // REGISTRACIJA
 // GET/dodaj-admina  ~  register
-adminRouter.get('/admin/dodaj-admina', /*auth,*/ (req, res) => {
+adminRouter.get('/admin/dodaj-admina', auth, (req, res) => {
   //const admin = req.data.user
   res.render('admin/addNewAdmin', { googTitle: "Dodaj admina", robots: true/*, admin*/ })
 })
 
 // POST/addNewAdmin  ~  register
-adminRouter.post('/admin/addNewAdmin/', /*auth,*/ async (req, res, body) => {
+adminRouter.post('/admin/addNewAdmin/', auth, async (req, res, body) => {
   const newAdmin = new Admin(req.body)
   try {
     await newAdmin.save()
@@ -76,7 +76,7 @@ adminRouter.post('/admin/addNewAdmin/', /*auth,*/ async (req, res, body) => {
 
 
 // EDIT
-adminRouter.get('/admin/izmeni-admina/:id', /*auth,*/ async (req, res) => {
+adminRouter.get('/admin/izmeni-admina/:id', auth, async (req, res) => {
   const admin = req.data.user
   const _id = req.params.id
   try {
@@ -90,7 +90,7 @@ adminRouter.get('/admin/izmeni-admina/:id', /*auth,*/ async (req, res) => {
   }
 })
 
-adminRouter.patch('/admin/edit-admin/:id', /*auth,*/ async (req, res) => {
+adminRouter.patch('/admin/edit-admin/:id', auth, async (req, res) => {
   const _id = req.params.id
   if (req.body.newPassword === req.body.password) {
     const admin = {
