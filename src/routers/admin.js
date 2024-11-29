@@ -8,7 +8,7 @@ const signedIn = require('../middleware/signedIn')
 const adminRouter = new express.Router()
 
 // GET/login
-adminRouter.get('/admin', signedIn, (req, res) => {
+adminRouter.get('/admin', /*signedIn,*/ (req, res) => {
   res.render('admin/login', { googTitle: "Log in", robots: true, admin: true })
 })
 
@@ -39,14 +39,14 @@ adminRouter.post('/admin/login', async (req, res) => {
   }
 })
 
-adminRouter.get('/admin/svi-admini', auth, async (req, res) => {
+adminRouter.get('/admin/svi-admini', /*auth,*/ async (req, res) => {
   const admin = req.data.user
   const admins = await Admin.find().select('-password -__v -tokens')
   res.status(200)
   res.render('admin/showAll', { admins, googTitle: "Svi admini", robots: true, admin })
 })
 
-adminRouter.get('/admin/detalji/:id', auth, async (req, res) => {
+adminRouter.get('/admin/detalji/:id', /*auth,*/ async (req, res) => {
   const _id = req.params.id
   const admin = req.data.user
   const user = await Admin.findById(_id).select('-password -__v -tokens')
