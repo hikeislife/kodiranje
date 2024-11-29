@@ -7,7 +7,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "env-cmd nodemon --trace-warnings src/app.js -e js,hbs,scss,css",
+    "start": "node src/app.js",
+    "dev": "env-cmd nodemon --trace-warnings src/app.js -e js,hbs,scss,css",
     "sass": "sass --watch src/styles/style.scss:src/styles/style.css src/styles/_themes/_dark_theme/dark.scss:src/styles/dark.css src/styles/_themes/print/print.scss:src/styles/print.css --style compressed",
     "mongo": "md mongo-db & \"C:/Program Files/MongoDB/Server/4.4/bin/mongod.exe\" --dbpath=c:/Projects/MongoDB-data"
   },
