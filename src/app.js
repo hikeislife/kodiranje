@@ -198,6 +198,7 @@ hbs.registerHelper({
 });
 
 app.use(express.static(dir))
+app.use(express.static(path.join(__dirname, 'public')))
 // app.use(express.static(og))
 // app.use(express.static(highlighter))
 app.use(express.static(path.join(__dirname, 'js')))
