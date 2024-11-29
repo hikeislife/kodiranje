@@ -157,13 +157,13 @@ iRtN4+eDDKEu50/W4sTbSwRRX4AkED68A1l/+P1JzNtM4ceSo8Y=
 let dir
 // const og = path.join(__dirname, 'imgs/og')
 // let views
-// if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
   // views = path.join(__dirname, '..', 'views')
-  // dir = path.join(__dirname, '..')
-// } else {
+  dir = path.join(__dirname, '..')
+} else {
   // views = path.join(__dirname, 'views')
   dir = path.join(__dirname, 'src')
-// }
+}
 console.log(dir)
 const views = path.join(dir, 'views')
 const styles = path.join(dir, 'styles')
