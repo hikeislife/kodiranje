@@ -373,11 +373,26 @@ app.get('/:kurs/:lekcija', (req, res) => {
 // })
 
 
-https.createServer({
+// https.createServer({
+//     key: privateKey,
+//     cert: certificate
+// }, app).listen(port, () => {
+//   console.info(`Server podignut na portu https://kodiranje.in.rs`)
+// })
+
+
+if (process.env.NODE_ENV === 'production') {
+  app.listen(port, () => {
+    console.log(`Server running on port ${port}`)
+  })
+} else {
+  https.createServer({
     key: privateKey,
     cert: certificate
-}, app).listen(port, () => {
-  console.info(`Server podignut na portu https://kodiranje.in.rs`)
-});
+  }, app).listen(port, '0.0.0.0', () => {
+    console.log(`Server running on port ${port}`)
+  })
+}
+
 
 // http://localhost:${port}
