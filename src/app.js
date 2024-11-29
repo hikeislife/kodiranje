@@ -156,7 +156,12 @@ iRtN4+eDDKEu50/W4sTbSwRRX4AkED68A1l/+P1JzNtM4ceSo8Y=
 
 const dir = path.join(__dirname)
 // const og = path.join(__dirname, 'imgs/og')
-const views = path.join(__dirname, 'views')
+let views
+if (process.env.NODE_ENV === 'production') {
+  views = path.join(__dirname, '..', 'views')
+} else {
+  views = path.join(__dirname, 'views')
+}
 
 
 const styles = path.join(__dirname, 'styles')
