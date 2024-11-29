@@ -270,6 +270,8 @@ app.get('/', /*soft,*/ async (req, res) => {
       } else {
       }
 
+      console.log(menu)
+
       res.render('home/home', {
         mainMenu: menu,
         title: "Kodiranje",
