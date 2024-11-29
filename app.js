@@ -7,7 +7,7 @@ const bodyParser = require('body-parser')
 // const session = require('express-session');
 // const nm = require('nodemailer')
 // const jwt = require('jsonwebtoken')
-const soft = require('./middleware/soft')
+const soft = require('./src/middleware/soft.js')
 const fs = require('fs')
 const https = require('https')
 
@@ -22,11 +22,11 @@ const https = require('https')
 
 // const MongoStore = require('connect-mongo')(session)
 // const mongoose = require('mongoose')
-const Article = require('./db/models/article')
-const { adminRouter } = require('./routers/admin.js')
-const { courseRouter } = require('./routers/courses.js')
-const { articleRouter } = require('./routers/articles.js')
-const { dictRouter } = require('./routers/dictionaries.js')
+const Article = require('./src/db/models/article.js')
+const { adminRouter } = require('./src/routers/admin.js')
+const { courseRouter } = require('./src/routers/courses.js')
+const { articleRouter } = require('./src/routers/articles.js')
+const { dictRouter } = require('./src/routers/dictionaries.js')
 // // if (!process.env.JWT_P_KEY) { // Breaks app down if no jwt secret is provided 
 // //   process.exit(1)
 // // } 
@@ -162,11 +162,10 @@ if (process.env.NODE_ENV === 'production') {
   dir = path.join(__dirname, '..')
 } else {
   // views = path.join(__dirname, 'views')
-  dir = path.join(__dirname)
+  dir = path.join(__dirname, 'src')
 }
 console.log(dir)
 const views = path.join(dir, 'views')
-console.log(views)
 const styles = path.join(dir, 'styles')
 
 app.set('view engine', 'hbs')
@@ -210,19 +209,11 @@ hbs.registerHelper({
 });
 
 app.use(express.static(dir))
-const imgs = path.join(dir, 'imgs'); // Static files in 'public' folder
+const imgs = path.join(dir, 'imgs')
 app.use(express.static(imgs))
-// app.use(express.static(og))
-// app.use(express.static(highlighter))
 app.use(express.static(path.join(dir, 'js')))
 
-// console.log("Contents of views folder:", fs.readdirSync(views))
 
-// If you want to check other folders, you can use similar code for 'src' or any other directory
-const srcPath = path.join(__dirname)
-const v = path.join(srcPath, 'views')
-console.log("Contents of src folder:", fs.readdirSync(srcPath))
-console.log("Contents of v folder:", fs.readdirSync(v))
 
 // DELETE:
 if (fs.existsSync(views)) {
