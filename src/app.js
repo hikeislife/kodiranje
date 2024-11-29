@@ -154,17 +154,19 @@ iRtN4+eDDKEu50/W4sTbSwRRX4AkED68A1l/+P1JzNtM4ceSo8Y=
 `
 
 
-const dir = path.join(__dirname)
+let dir
 // const og = path.join(__dirname, 'imgs/og')
-let views
+// let views
 if (process.env.NODE_ENV === 'production') {
-  views = path.join(__dirname, '..', 'views')
+  // views = path.join(__dirname, '..', 'views')
+  dir = path.join(__dirname, '..')
 } else {
-  views = path.join(__dirname, 'views')
+  // views = path.join(__dirname, 'views')
+  dir = path.join(__dirname)
 }
+const views = path.join(dir, 'views')
 
-
-const styles = path.join(__dirname, 'styles')
+const styles = path.join(dir, 'styles')
 
 app.set('view engine', 'hbs')
 app.set('views', views)
@@ -207,11 +209,11 @@ hbs.registerHelper({
 });
 
 app.use(express.static(dir))
-const imgs = path.join(__dirname, 'imgs'); // Static files in 'public' folder
+const imgs = path.join(dir, 'imgs'); // Static files in 'public' folder
 app.use(express.static(imgs))
 // app.use(express.static(og))
 // app.use(express.static(highlighter))
-app.use(express.static(path.join(__dirname, 'js')))
+app.use(express.static(path.join(dir, 'js')))
 
 // console.log("Contents of views folder:", fs.readdirSync(views))
 
