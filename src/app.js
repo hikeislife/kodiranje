@@ -213,10 +213,10 @@ app.use(express.static(imgs))
 // app.use(express.static(highlighter))
 app.use(express.static(path.join(__dirname, 'js')))
 
-console.log("Contents of views folder:", fs.readdirSync(viewsPath))
+console.log("Contents of views folder:", fs.readdirSync(views))
 
 // If you want to check other folders, you can use similar code for 'src' or any other directory
-const srcPath = path.join(__dirname, 'src')
+const srcPath = path.join(__dirname)
 console.log("Contents of src folder:", fs.readdirSync(srcPath))
 
 // app.use((er, req, res, text) => {
