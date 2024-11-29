@@ -157,11 +157,15 @@ iRtN4+eDDKEu50/W4sTbSwRRX4AkED68A1l/+P1JzNtM4ceSo8Y=
 const dir = path.join(__dirname)
 // const og = path.join(__dirname, 'imgs/og')
 const views = path.join(__dirname, 'views')
+
+
 const styles = path.join(__dirname, 'styles')
 
 app.set('view engine', 'hbs')
 app.set('views', views)
 app.set('view options', { layout: 'index' })
+
+
 hbs.registerPartials(views)
 
 hbs.registerHelper('formatDate', (datetime) => {
@@ -198,7 +202,8 @@ hbs.registerHelper({
 });
 
 app.use(express.static(dir))
-app.use(express.static(path.join(__dirname, 'public')))
+const imgs = path.join(__dirname, 'imgs'); // Static files in 'public' folder
+app.use(express.static(imgs))
 // app.use(express.static(og))
 // app.use(express.static(highlighter))
 app.use(express.static(path.join(__dirname, 'js')))
