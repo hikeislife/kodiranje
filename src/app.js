@@ -217,7 +217,28 @@ app.use(express.static(path.join(__dirname, 'js')))
 
 // If you want to check other folders, you can use similar code for 'src' or any other directory
 const srcPath = path.join(__dirname)
+const v = path.join(srcPath, 'views')
 console.log("Contents of src folder:", fs.readdirSync(srcPath))
+console.log("Contents of v folder:", fs.readdirSync(v))
+
+// DELETE:
+if (fs.existsSync(views)) {
+  console.log("Views folder exists!");
+  console.log("Contents of views folder:", fs.readdirSync(views));
+} else {
+  console.log("Views folder does not exist at this path:", views);
+}
+console.log("Current __dirname:", __dirname)
+
+
+try {
+    const stats = fs.statSync(views);
+    console.log("Views folder stats:", stats);
+    console.log("Permissions (mode):", stats.mode.toString(8)); // Convert mode to octal to check permissions
+} catch (err) {
+    console.log("Error accessing views folder:", err.message);
+}
+// ABOVE:
 
 // app.use((er, req, res, text) => {
 //   console.error(er.stack)
